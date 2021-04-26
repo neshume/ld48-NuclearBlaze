@@ -32,13 +32,13 @@ class App extends dn.Process {
 		new dn.heaps.GameFocusHelper(scene, Assets.fontMedium);
 		#end
 
-		startGame();
+		new ModeSelect();
 	}
 
 
 
 	/** Start game process **/
-	public function startGame() {
+	public function startGame(kidMode:Bool) {
 		if( Console.ME.stats!=null )
 			Console.ME.stats.removeAllComponents();
 
@@ -46,20 +46,20 @@ class App extends dn.Process {
 			// Kill previous game instance first
 			Game.ME.destroy();
 			dn.Process.updateAll(1); // ensure all garbage collection is done
-			_createGameInstance();
+			_createGameInstance(kidMode);
 			hxd.Timer.skip();
 		}
 		else {
 			// Fresh start
 			delayer.addF( ()->{
-				_createGameInstance();
+				_createGameInstance(kidMode);
 				hxd.Timer.skip();
 			}, 1 );
 		}
 	}
 
-	final function _createGameInstance() {
-		new Game();
+	final function _createGameInstance(kidMode) {
+		new Game(kidMode);
 	}
 
 

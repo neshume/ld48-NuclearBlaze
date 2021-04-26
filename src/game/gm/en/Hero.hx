@@ -163,7 +163,7 @@ class Hero extends gm.Entity {
 		if( cd.has("cineFalling") )  {
 			cd.unset("cineFalling");
 			spr.anim.play(anims.cineFallLand);
-			cd.setS("lockControls", 1);
+			cd.setS("lockControls", 2);
 			camera.shakeS(2,0.4);
 			cd.unset("recentMove");
 		}

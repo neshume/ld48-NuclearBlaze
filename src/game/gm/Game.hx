@@ -31,15 +31,14 @@ class Game extends Process {
 
 
 	public var hero : Hero;
-	// public var masks : Array<HSprite> = [];
-
 	public var curLevelIdx = 0;
+	public var kidMode : Bool;
 
-
-	public function new() {
+	public function new(kidMode) {
 		super(App.ME);
 
 		ME = this;
+		this.kidMode = kidMode;
 		ca = App.ME.controller.createAccess("game");
 		ca.setLeftDeadZone(0.2);
 		ca.setRightDeadZone(0.2);
@@ -362,8 +361,10 @@ class Game extends Process {
 			#end
 
 			// Restart
-			if( ca.isKeyboardPressed(K.R) && ca.isKeyboardDown(K.SHIFT) )
-				App.ME.startGame();
+			if( ca.isKeyboardPressed(K.R) && ca.isKeyboardDown(K.SHIFT) ) {
+				new ModeSelect();
+				destroy();
+			}
 			else if( ca.selectPressed() )
 				startCurrentLevel();
 
