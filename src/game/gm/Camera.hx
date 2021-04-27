@@ -299,8 +299,8 @@ class Camera extends dn.Process {
 				ox+=e.data.f_offsetX;
 				oy+=e.data.f_offsetY;
 			}
-		extraOffX += ( ox-extraOffX ) * M.fmin(1, 0.04*tmod);
-		extraOffY += ( oy-extraOffY ) * M.fmin(1, 0.04*tmod);
+		extraOffX += ( ox-extraOffX ) * M.fmin(1, 0.03*tmod);
+		extraOffY += ( oy-extraOffY ) * M.fmin(1, 0.03*tmod);
 
 		var rawOffsetedX = rawFocus.levelX + extraOffX;
 		var rawOffsetedY = rawFocus.levelY + extraOffY;
