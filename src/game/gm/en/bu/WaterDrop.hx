@@ -48,7 +48,7 @@ class WaterDrop extends Bullet {
 	}
 
 	inline function tailFxTo(x:Float,y:Float) {
-		fx.waterTail(lastTailX, lastTailY, x,y, getElapsedFactor(), cd.has("touchedFire") ? 0x796495 : Const.WATER_COLOR);
+		fx.waterTail(lastTailX, lastTailY, x,y, getElapsedFactor(), cd.has("touchedFire") ? Const.WATER_COLOR_OFF : Const.WATER_COLOR);
 		lastTailX = x;
 		lastTailY = y;
 	}
@@ -92,7 +92,7 @@ class WaterDrop extends Bullet {
 					if( fs.level>=1 ) {
 						fx.fireSplash( (x+rnd(0.2,0.8))*Const.GRID, (y+rnd(0.2,0.8))*Const.GRID);
 						cd.setS("lock", Const.INFINITE);
-						cd.setS("touchedFire", 0.5);
+						cd.setS("touchedFire", Const.INFINITE);
 					}
 				}
 				fs.underControlS = Const.db.ControlDuration_1;

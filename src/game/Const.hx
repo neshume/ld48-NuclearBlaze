@@ -69,7 +69,8 @@ class Const {
 	public static var DP_UI = _inc++;
 
 
-	public static final WATER_COLOR = 0x1aabe7;
+	public static var WATER_COLOR = C.hexToInt("#1aabe7");
+	public static var WATER_COLOR_OFF = C.hexToInt("#7d4473");
 
 #end
 }

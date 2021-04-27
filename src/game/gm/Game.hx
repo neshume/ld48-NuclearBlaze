@@ -81,13 +81,14 @@ class Game extends Process {
 	}
 
 	public function nextLevel() {
-		if( curLevelIdx < Assets.worldData.levels.length-1 ) {
-			level.destroy();
-			curLevelIdx++;
-			startCurrentLevel();
+		if( curLevelIdx >= Assets.worldData.levels.length-1 ) {
+			hud.notify(L.t._("Looped back at the beginning"));
+			curLevelIdx = 0;
 		}
 		else
-			hud.notify(L.t._("No next level!"));
+			curLevelIdx++;
+		level.destroy();
+		startCurrentLevel();
 	}
 
 
