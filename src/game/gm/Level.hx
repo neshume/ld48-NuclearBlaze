@@ -353,6 +353,8 @@ class Level extends dn.Process {
 				// Small floating pieces
 				if( !isFogRevealed(x,y) && isFogRevealed(x-1,y) && isFogRevealed(x+1,y) )
 					revealFog(x,y);
+				if( !isFogRevealed(x,y) && isFogRevealed(x,y-1) && isFogRevealed(x,y+1) )
+					revealFog(x,y);
 			});
 		}
 
