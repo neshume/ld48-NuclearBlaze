@@ -64,7 +64,7 @@ class Hero extends gm.Entity {
 		spr.anim.registerStateAnim(anims.idleCrouch, 1, ()->!cd.has("recentMove"));
 		spr.anim.registerStateAnim(anims.idle, 0);
 
-		if( level.data.f_cinematicFall )
+		if( level.data.f_bigFallIntro )
 			cd.setS("cineFalling",Const.INFINITE);
 
 		clearInventory();
@@ -179,7 +179,7 @@ class Hero extends gm.Entity {
 		if( cd.has("cineFalling") )  {
 			cd.unset("cineFalling");
 			spr.anim.play(anims.cineFallLand);
-			lockControlsS(2);
+			lockControlsS(1.6);
 			camera.shakeS(2,0.4);
 			cd.unset("recentMove");
 		}
