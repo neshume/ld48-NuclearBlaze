@@ -1,6 +1,7 @@
 class ModeSelect extends dn.Process {
 	var ca : ControllerAccess;
 	var f : h2d.Flow;
+
 	public function new() {
 		super(App.ME);
 		ca = App.ME.controller.createAccess("mode", true);
@@ -14,6 +15,8 @@ class ModeSelect extends dn.Process {
 		f.addSpacing(4);
 		text("1 - Normal", "#ffffff");
 		text("2 - Kid friendly", "#ffffff");
+
+		dn.Process.resizeAll();
 	}
 
 	function text(str:String, col:String) {
