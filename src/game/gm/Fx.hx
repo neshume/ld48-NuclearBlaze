@@ -252,7 +252,7 @@ class Fx extends dn.Process {
 	}
 
 	public inline function levelExtinguishedSmoke(x:Float,y:Float, fs:FireState) {
-		var p = allocTopNormal( getTile(dict.fxSmoke), x+rnd(0,8,true), y-rnd(0,10) );
+		var p = allocBgNormal( getTile(dict.fxSmoke), x+rnd(0,8,true), y-rnd(0,10) );
 		p.setFadeS(rnd(0.4, 0.6), rnd(0.4,0.6), rnd(0.8,1));
 		p.colorAnimS(0x4d4959, 0x0, rnd(0.8, 1.2));
 		p.setScale(rnd(1,2,true));
@@ -389,7 +389,7 @@ class Fx extends dn.Process {
 	}
 
 	public function waterTail(lastX:Float, lastY:Float, curX:Float, curY:Float, elapsed:Float, col:UInt) {
-		var alpha = compressUp( 1 - elapsed, 0.4 );
+		var alpha = compressUp( 1 - elapsed, 0.8 );
 		var d = M.dist(curX, curY, lastX, lastY);
 		var a = Math.atan2(curY-lastY, curX-lastX);
 
