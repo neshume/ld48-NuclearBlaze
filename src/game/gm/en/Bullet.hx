@@ -10,6 +10,12 @@ class Bullet extends Entity {
 		collides = false;
 	}
 
+	public function delayS(t:Float) {
+		cd.setS("delayed",t);
+	}
+
+	public inline function isDelayed() return cd.has("delayed");
+
 	function onHitCollision() {}
 
 
@@ -20,6 +26,11 @@ class Bullet extends Entity {
 		}
 	}
 
+	override function postUpdate() {
+		entityVisible = !isDelayed();
+		super.postUpdate();
+	}
+
 	override function onPreStepX() {
 		super.onPreStepX();
 		checkCollision();
@@ -28,5 +39,10 @@ class Bullet extends Entity {
 	override function onPreStepY() {
 		super.onPreStepY();
 		checkCollision();
+	}
+
+	override function fixedUpdate() {
+		if( !isDelayed() )
+			super.fixedUpdate();
 	}
 }

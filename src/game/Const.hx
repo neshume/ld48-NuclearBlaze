@@ -69,5 +69,7 @@ class Const {
 	public static var DP_UI = _inc++;
 
 
+	public static final WATER_COLOR = 0x1aabe7;
+
 #end
 }

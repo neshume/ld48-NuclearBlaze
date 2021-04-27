@@ -2,7 +2,7 @@ package gm.en;
 
 enum CtrlCommand {
 	Jump;
-	Use;
+	Water;
 }
 
 class Hero extends gm.Entity {
@@ -13,11 +13,11 @@ class Hero extends gm.Entity {
 	var walkSpeed = 0.;
 	var climbSpeed = 0.;
 	var cmdQueue : Map<CtrlCommand,Float> = new Map();
-	var waterAng = 0.;
 	var verticalAiming = 0;
 	var inventory : Array<Enum_Items> = [];
 	var bubble : Null<h2d.Bitmap>;
 	var saying : Null<h2d.Flow>;
+	var waterAng = 0.;
 
 	public function new() {
 		data = level.data.l_Entities.all_Hero[0];
@@ -27,6 +27,7 @@ class Hero extends gm.Entity {
 		ca = App.ME.controller.createAccess("hero");
 		ca.setLeftDeadZone(0.3);
 		dir = data.f_lookRight ? 1 : -1;
+		hei = 12;
 
 		initLife( Std.int(Const.db.HeroHP_1) );
 		if( Console.ME.hasFlag("god") )
@@ -40,14 +41,25 @@ class Hero extends gm.Entity {
 		spr.anim.registerStateAnim(anims.deathJump, 99, ()->life<=0 && !onGround );
 		spr.anim.registerStateAnim(anims.deathLand, 99, ()->life<=0 && onGround);
 		spr.anim.registerStateAnim(anims.kickCharge, 8, ()->isChargingAction("kickDoor") );
+
 		spr.anim.registerStateAnim(anims.climbMove, 8, ()->climbing && climbSpeed!=0 );
 		spr.anim.registerStateAnim(anims.climbIdle, 8, ()->climbing && climbSpeed==0 );
+
 		spr.anim.registerStateAnim(anims.jumpUp, 7, ()->!onGround && dy<0.1 );
 		spr.anim.registerStateAnim(anims.jumpDown, 6, ()->!onGround );
 		spr.anim.registerStateAnim(anims.run, 5, 1.3, ()->onGround && M.fabs(dxTotal)>0.05 );
-		spr.anim.registerStateAnim(anims.shootUp, 3, ()->isWatering() && verticalAiming<0 );
-		spr.anim.registerStateAnim(anims.shootDown, 3, ()->isWatering() && verticalAiming>0 );
-		spr.anim.registerStateAnim(anims.shoot, 3, ()->isWatering() && verticalAiming==0 );
+
+		if( game.kidMode ) {
+			spr.anim.registerStateAnim(anims.shootVertical, 5, ()->isWatering() && M.radCloseTo(waterAng,-M.PIHALF, M.PIHALF*0.33) );
+			spr.anim.registerStateAnim(anims.shootUp, 4, ()->isWatering() && M.radCloseTo(waterAng,-M.PIHALF, M.PIHALF*0.75) );
+			spr.anim.registerStateAnim(anims.shoot, 3, ()->isWatering() );
+		}
+		else {
+			spr.anim.registerStateAnim(anims.shootUp, 3, ()->isWatering() && verticalAiming<0 );
+			spr.anim.registerStateAnim(anims.shootDown, 3, ()->isWatering() && verticalAiming>0 );
+			spr.anim.registerStateAnim(anims.shoot, 3, ()->isWatering() && verticalAiming==0 );
+		}
+
 		spr.anim.registerStateAnim(anims.shootCharge, 2, ()->isChargingAction("water") );
 		spr.anim.registerStateAnim(anims.idleCrouch, 1, ()->!cd.has("recentMove"));
 		spr.anim.registerStateAnim(anims.idle, 0);
@@ -149,6 +161,10 @@ class Hero extends gm.Entity {
 		return life<=0 || ca.locked() || Console.ME.isActive() || isChargingAction() || cd.has("cineFalling") || cd.has("lockControls");
 	}
 
+	public function lockControlsS(t) {
+		cd.setS("lockControls",t,false);
+	}
+
 
 	override function onLand(cHei:Float) {
 		super.onLand(cHei);
@@ -163,7 +179,7 @@ class Hero extends gm.Entity {
 		if( cd.has("cineFalling") )  {
 			cd.unset("cineFalling");
 			spr.anim.play(anims.cineFallLand);
-			cd.setS("lockControls", 2);
+			lockControlsS(2);
 			camera.shakeS(2,0.4);
 			cd.unset("recentMove");
 		}
@@ -367,9 +383,9 @@ class Hero extends gm.Entity {
 			cancelAction("kickDoor");
 			cancelAction("openDoor");
 			stopClimbing();
-			queueCommand(Use);
+			queueCommand(Water);
 		}
-		if( ca.aPressed() ) {
+		if( ca.aPressed() && !game.kidMode ) {
 			queueCommand(Jump);
 			if( climbing && ( ca.isKeyboardDown(K.UP) || ca.isKeyboardDown(K.Z) || ca.isKeyboardDown(K.W) ) )
 				clearCommandQueue(Jump);
@@ -377,8 +393,10 @@ class Hero extends gm.Entity {
 
 
 		// Dir control
-		if( isAlive() && ca.leftDist()>0 && !isChargingDirLockAction())
-			dir = M.radDistance(0,ca.leftAngle()) <= M.PIHALF ? 1 : -1;
+		if( isAlive() && ca.leftDist()>0 && !isChargingDirLockAction() ) {
+			if( !game.kidMode || !isWatering() )
+				dir = M.radDistance(0,ca.leftAngle()) <= M.PIHALF ? 1 : -1;
+		}
 
 
 		// Vertical aiming control
@@ -466,15 +484,13 @@ class Hero extends gm.Entity {
 					climbSpeed = 1;
 			}
 
-			// Activate interactive
-			if( onGround && ifQueuedRemove(Use) ) {
+			// Watering
+			if( onGround && ifQueuedRemove(Water) ) {
 				dx = 0;
 				chargeAction("water", 0.1, ()->{
-					cd.setS("watering",0.2);
-					if( ca.leftDist()>0 )
-						waterAng = ca.leftAngle();
-					else
+					if( !isWatering() )
 						waterAng = dirToAng();
+					cd.setS("watering",0.2);
 				});
 			}
 		}
@@ -538,7 +554,16 @@ class Hero extends gm.Entity {
 				if( level.getFireLevel(x,y)>=1 ) {
 					cd.setS("burning",2);
 					if( level.getFireLevel(x,y)>=2 && !cd.has("shield") )
-						hit(1);
+						if( game.kidMode && !cd.has("fireBumpLimit") ) {
+							var d = xr<0.5 ? -1 : 1;
+							bump(d*0.2, -0.2);
+							lockControlsS(0.66);
+							cd.setS("fireBumpLimit",1);
+							blink(0xffcc00);
+
+						}
+						if( !game.kidMode )
+							hit(1);
 				}
 			});
 
@@ -551,16 +576,53 @@ class Hero extends gm.Entity {
 				cd.setS("watering",0.2);
 			camera.shakeS(0.1, 0.1);
 
-			// if( ca.leftDist()>0 )
-				// waterAng += M.sign(M.radSubstract(ca.leftAngle(), waterAng)) * 0.1;
+			if( game.kidMode ) {
 
-			// waterAng += M.radSubstract(dirToAng(), waterAng) * 0.2;
-			waterAng = dirToAng();
+				// Kid mode: assisted watering
+				var dh = new dn.DecisionHelper( dn.Bresenham.getDisc(cx,cy,8) );
+				dh.keepOnly( pt->level.isBurning(pt.x,pt.y) );
+				dh.keepOnly( pt->sightCheck(pt.x,pt.y) );
+				dh.score( pt->-M.radDistance(waterAng, Math.atan2(pt.y-cy,pt.x-cx))*10 );
+				dh.score( pt->-distCase(pt.x,pt.y)*0.2 );
+				dh.score( pt->dir==M.sign(pt.x-cx) ? 3 : 0 );
+				dh.useBest( pt->{
+					var ang = Math.atan2(pt.y-cy, pt.x-cx);
+					waterAng += M.radSubstract(ang,waterAng) * 0.4;
 
-			if( !cd.has("bullet") ) {
-				var ang = dirToAng();
+					// Change hero dir
+					if( ( pt.x!=cx || xr!=0.5 ) && M.sign( (pt.x+0.5)-(cx+xr) ) != dir ) {
+						waterAng = -M.PIHALF - M.radSubstract( -M.PIHALF, waterAng );
+						dir*=-1;
+					}
+				});
+
+				var shootX = centerX + Math.cos(waterAng)*7;
+				var shootY = centerY + Math.sin(waterAng)*5+1;
+				if( !cd.hasSetS("bullet",0.06) ) {
+					var n = 3;
+					var spread = 0.19;
+					for(i in 0...n) {
+						var ang = waterAng  -  spread*0.5 + (i+1)/n*spread  +  rnd(0, 0.05, true);
+						if( !M.radCloseTo(waterAng, -M.PIHALF, 0.2) )
+							ang-=dir*0.25;
+						var b = new gm.en.bu.WaterDrop(shootX, shootY, ang);
+						b.dx*=0.9;
+						b.dy*=0.9;
+						b.gravityMul*=0.3;
+						b.delayS(rnd(0,0.1));
+					}
+				}
+
+				fx.waterShoot(shootX, shootY, waterAng);
+
+			}
+			else if( !cd.has("bullet") ) {
+
 				var shootX = centerX+dir*5;
 				var shootY = centerY+3;
+
+				// Normal game mode: full control on water
+				var ang = dirToAng();
 				if( verticalAiming==0 ) {
 					// Horizontal
 					var b = new gm.en.bu.WaterDrop(shootX, shootY, ang-dir*0.2 + rnd(0, 0.05, true));
@@ -591,6 +653,7 @@ class Hero extends gm.Entity {
 					}
 					cd.setS("bullet",0.16);
 				}
+
 			}
 
 		}

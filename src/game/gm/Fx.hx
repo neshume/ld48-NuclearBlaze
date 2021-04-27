@@ -364,21 +364,45 @@ class Fx extends dn.Process {
 	}
 
 
+	public function waterShoot(x:Float, y:Float, ang:Float) {
+		for(i in 0...3) {
+			var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,2,true), y+rnd(0,2,true));
+			p.setFadeS(rnd(0.6,0.9), 0.03, around(0.1));
+			p.moveAng( ang + rnd(0.2, 1.3, true), around(0.4));
+			p.frict = aroundBelowOne(0.8);
+			p.colorize(Const.WATER_COLOR);
+			p.lifeS = around(0.07);
+		}
+
+		for(i in 0...3) {
+			var p = allocTopAdd( getTile(dict.fxLineDir), x, y);
+			p.setFadeS(aroundBelowOne(0.7), 0.03, around(0.1));
+			p.scaleX = around(0.25);
+			p.scaleY = rnd(1,2);
+			p.moveAng( ang + rnd(0.2, 1.3, true), around(2));
+			p.scaleXMul = aroundBelowOne(0.97);
+			p.autoRotateSpeed = 1;
+			p.frict = aroundBelowOne(0.8);
+			p.colorize(Const.WATER_COLOR);
+			p.lifeS = around(0.07);
+		}
+	}
+
 	public function waterTail(lastX:Float, lastY:Float, curX:Float, curY:Float, elapsed:Float, col:UInt) {
-		var alpha = compressUp( 1 - elapsed, 0.8 );
+		var alpha = compressUp( 1 - elapsed, 0.4 );
 		var d = M.dist(curX, curY, lastX, lastY);
 		var a = Math.atan2(curY-lastY, curX-lastX);
 
 		// Tail core
 		var p = allocTopAdd( getTile(dict.fxTail), lastX, lastY);
-		p.setFadeS(vary(0.3)*alpha, 0, 0.1);
+		p.setFadeS(vary(0.4)*alpha, 0, 0.1);
 		p.colorize(col);
 		p.setCenterRatio(0.2,0.5);
 		p.rotation = a;
 		p.scaleX = (d+17)/p.t.width;
 		p.scaleY = vary(0.7);
 		p.scaleYMul = vary(0.96);
-		p.lifeS = rnd(0.2, 0.3);
+		p.lifeS = around(0.2);
 
 		// Dots
 		var off = rnd(0.5,2,true);
@@ -399,10 +423,11 @@ class Fx extends dn.Process {
 			(lastX+curX)*0.5 + Math.cos(a+M.PIHALF)*offY + Math.cos(a)*offX,
 			(lastY+curY)*0.5+Math.sin(a+M.PIHALF)*offY + Math.sin(a)*offX
 		);
-		p.setFadeS( vary(0.7)*alpha, 0, 0.1);
+		p.setFadeS( vary(0.4)*alpha, 0, 0.1);
 		p.colorize(col);
 		p.rotation = a;
-		p.scaleX = vary(0.2);
+		p.scaleX = d / p.t.width;
+		// p.scaleX = vary(0.2);
 		p.scaleMul = rnd(1.02,1.03);
 		p.frict = vary(0.8);
 		p.lifeS = rnd(0.06,0.10);
@@ -422,13 +447,13 @@ class Fx extends dn.Process {
 	}
 
 	public function wallSplash(x:Float, y:Float) {
-		for(i in 0...irnd(8,10)) {
+		for(i in 0...irnd(5,8)) {
 			var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,3,true), y+rnd(0,3,true) );
 			p.setFadeS(rnd(0.3,0.4), 0, 0.1);
 			p.moveAwayFrom(x,y, rnd(1,2));
 			p.gy = rnd(0.04,0.10);
 			p.frict = vary(0.9);
-			p.colorize(0x1aabe7);
+			p.colorize(Const.WATER_COLOR);
 			p.onUpdate = _waterPhysics;
 			p.lifeS = rnd(0.1,0.3);
 		}
@@ -438,7 +463,7 @@ class Fx extends dn.Process {
 		for(i in 0...2) {
 			var p = allocTopAdd( getTile(dict.fxSmoke), x+rnd(0,3,true), y+rnd(0,3,true));
 			p.setFadeS( vary(0.1), 0.1, 0.2);
-			p.colorize(0x1aabe7);
+			p.colorize(Const.WATER_COLOR);
 			p.rotation = rnd(0,M.PI2);
 			p.setScale(vary(0.6));
 			p.dr = rnd(0.01,0.02,true);
@@ -449,11 +474,11 @@ class Fx extends dn.Process {
 
 	public function fireSplash(x:Float, y:Float) {
 		var p = allocTopAdd( getTile(dict.fxSmoke), x,y);
-		p.colorize(0x1aabe7);
+		p.setFadeS( vary(0.1), 0, 0.1);
+		p.colorize(Const.WATER_COLOR);
 		p.rotation = rnd(0,M.PI2);
 		p.setScale(vary(0.8));
-		p.setFadeS( vary(0.1), 0, 0.1);
-		p.lifeS = 0.2;
+		p.lifeS = 0.1;
 
 		for(i in 0...irnd(8,10)) {
 			var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,3,true), y+rnd(0,3,true) );
@@ -461,7 +486,7 @@ class Fx extends dn.Process {
 			p.moveAwayFrom(x,y, rnd(1,2));
 			p.gy = rnd(0.04,0.10);
 			p.frict = vary(0.9);
-			p.colorize(0x1aabe7);
+			p.colorize(Const.WATER_COLOR);
 			p.onUpdate = _waterPhysics;
 			p.lifeS = rnd(0.1,0.3);
 		}

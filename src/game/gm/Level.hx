@@ -402,13 +402,14 @@ class Level extends dn.Process {
 					fs.underControlS -= Const.db.FireTick_1;
 
 				// Try to propagate
-				if( !fs.isUnderControl() && fs.isMaxed() && fs.propgationCdS<=0 && Std.random(100) < Const.db.FirePropagationChance_1*100 ) {
-					fs.propgationCdS = game.camera.isOnScreenCase(cx,cy) ? Const.db.FirePropagationCd_1 : Const.db.FirePropagationCd_2;
-					for(y in cy-rangeY...cy+rangeY+1)
-					for(x in cx-rangeX...cx+rangeX+1)
-						if( sighCheck(cx,cy, x,y) )
-							ignite(x,y);
-				}
+				if( !game.kidMode && !fs.isUnderControl() && fs.isMaxed() && fs.propgationCdS<=0 )
+					if( Std.random(100) < Const.db.FirePropagationChance_1*100 ) {
+						fs.propgationCdS = game.camera.isOnScreenCase(cx,cy) ? Const.db.FirePropagationCd_1 : Const.db.FirePropagationCd_2;
+						for(y in cy-rangeY...cy+rangeY+1)
+						for(x in cx-rangeX...cx+rangeX+1)
+							if( sighCheck(cx,cy, x,y) )
+								ignite(x,y);
+					}
 			}
 		}
 	}
