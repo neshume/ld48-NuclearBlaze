@@ -1,7 +1,7 @@
 package gm;
 
 class FireState {
-	static final MAX = 2;
+	public static final MAX = 2;
 
 	public var level = 0;
 	public var lr = 0.; // level ratio
@@ -9,12 +9,17 @@ class FireState {
 	public var propgationCdS = 0.;
 	public var underControlS = 0.;
 	public var superS = 0.;
+	public var resistance(default,set) = 0.;
+	public var strongFx = false;
 
 	public var extinguished = false;
-
 	public var quickFire = false;
 
 	public inline function new() {}
+
+	inline function set_resistance(v) {
+		return resistance = M.fclamp(v,0,1);
+	}
 
 	@:keep
 	public function toString() {
@@ -70,7 +75,7 @@ class FireState {
 	}
 
 	public inline function decrease(ratio:Float) {
-		lr-=ratio;
+		lr -= (1-resistance) * ratio;
 		while( lr<0 )
 			if( level<=0 ) {
 				lr = 0;

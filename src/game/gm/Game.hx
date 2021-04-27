@@ -60,7 +60,7 @@ class Game extends Process {
 		// }
 
 		#if debug
-		// curLevelIdx = Assets.worldData.all_levels.Lab.arrayIndex;
+		curLevelIdx = Assets.worldData.all_levels.Lab.arrayIndex;
 		#end
 		startCurrentLevel();
 
@@ -81,9 +81,13 @@ class Game extends Process {
 	}
 
 	public function nextLevel() {
-		level.destroy();
-		curLevelIdx++;
-		startCurrentLevel();
+		if( curLevelIdx < Assets.worldData.levels.length-1 ) {
+			level.destroy();
+			curLevelIdx++;
+			startCurrentLevel();
+		}
+		else
+			hud.notify(L.t._("No next level!"));
 	}
 
 
@@ -130,6 +134,13 @@ class Game extends Process {
 				if( level.hasFireState(x,y) )
 					level.getFireState(x,y).extinguished = true;
 			});
+
+		for(d in level.data.l_Entities.all_FixedFire) {
+			var fs = level.getFireState(d.cx, d.cy, true);
+			fs.ignite(FireState.MAX, 1);
+			fs.resistance = d.f_resistance;
+			fs.strongFx = true;
+		}
 
 
 		for(e in level.data.l_Entities.all_FireStarter)

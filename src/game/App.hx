@@ -32,7 +32,11 @@ class App extends dn.Process {
 		new dn.heaps.GameFocusHelper(scene, Assets.fontMedium);
 		#end
 
+		#if debug
+		startGame(true);
+		#else
 		new ModeSelect();
+		#end
 	}
 
 

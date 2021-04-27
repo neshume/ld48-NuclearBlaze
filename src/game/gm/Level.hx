@@ -225,8 +225,16 @@ class Level extends dn.Process {
 		return isValid(cx,cy) && fireStates.exists( coordId(cx,cy) );
 	}
 
-	public inline function getFireState(cx,cy) : Null<FireState> {
-		return hasFireState(cx,cy) ? fireStates.get( coordId(cx,cy) ) : null;
+	public inline function getFireState(cx,cy, createIfMissing=false) : Null<FireState> {
+		return hasFireState(cx,cy)
+			? fireStates.get( coordId(cx,cy) )
+			: createIfMissing
+				? {
+					var fs = new FireState();
+					fireStates.set( coordId(cx,cy), fs );
+					fs;
+				}
+				: null;
 	}
 
 	public inline function isBurning(cx,cy) {
@@ -271,7 +279,7 @@ class Level extends dn.Process {
 				if( Game.ME.camera.isOnScreenCase(cx,cy,64) && hasFireState(cx,cy) ) {
 					fs = getFireState(cx,cy);
 					if( fs.isBurning() ) {
-						fx.levelFlames(cx, cy, fs);
+						fx.levelFlames(cx, cy, fs, fs.strongFx);
 						if( isFogRevealed(cx,cy) && !hasAnyCollision(cx,cy-1) )
 							fx.levelFireSparks(cx, cy, fs);
 
