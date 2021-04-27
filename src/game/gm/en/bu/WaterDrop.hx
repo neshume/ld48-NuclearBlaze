@@ -77,7 +77,7 @@ class WaterDrop extends Bullet {
 						fs.clear();
 						fs.extinguished = true;
 						if( before>0 )
-							fx.fireVanish(x,y);
+							fx.fireVanish(x,y, fs.strongFx);
 					}
 
 					if( fs.level>=1 ) {

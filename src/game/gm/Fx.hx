@@ -186,23 +186,62 @@ class Fx extends dn.Process {
 
 	inline function compressUp(ratio:Float, range:Float) return (1-range) + range*ratio;
 
-	public inline function fireVanish(cx:Int, cy:Int) {
-		var p = allocTopNormal( getTile(dict.fxSmoke), getFlameX(cx,cy), getFlameY(cx,cy) );
-		p.setFadeS(rnd(0.2, 0.3), 0.03, rnd(0.5,1));
-		p.colorize(0xc3b9a0);
-		p.setScale(rnd(0.7,0.8));
-		p.ds = 0.1;
-		p.dsFrict = 0.9;
-		p.scaleMul = rnd(0.97,0.99);
-		p.rotation = rnd(0,M.PI2);
-		p.dr = rnd(0,0.03,true);
-		p.lifeS = 0.2;
+	public inline function fireVanish(cx:Int, cy:Int, strong=false) {
+		// Halo
+		for(i in 0...3) {
+			var p = allocTopAdd( getTile(dict.fxSmokeHalo), (cx+0.5)*Const.GRID+rnd(0,1,true), (cy+0.2)*Const.GRID+rnd(0,1,true) );
+			p.setFadeS(vary(0.1), 0.03, rnd(0.5,1));
+			p.colorize(0xc3b9a0);
+			p.setScale(around(0.4));
+			p.ds = around(0.14, 5);
+			p.dsFrict = rnd(0.90, 0.92);
+			p.rotation = rnd(0,M.PI2);
+			p.dr = rnd(0.02,0.03,true);
+			p.lifeS = vary(0.1);
+		}
 
-		for(i in 0...4) {
+		// Lines
+		final n = 9;
+		for(i in 0...n) {
+			var p = allocTopAdd( getTile(dict.fxLineDir), (cx+0.5)*Const.GRID+rnd(0,1,true), (cy+0.2)*Const.GRID+rnd(0,1,true));
+			p.colorize( randColor(0xff0000,0xffcc00) );
+			p.setFadeS( around(0.7), 0.1, around(0.7));
+			p.moveAng( 0.3 - i/(n-1)*(M.PI+0.6) + zeroTo(0.1,true), around(1.6) );
+			p.scaleX = around(0.2);
+			p.gx = rnd(0.01, 0.06,true);
+			p.gy = rnd(0.01, 0.06,true);
+			p.autoRotateSpeed = 0.7;
+			p.scaleXMul = aroundBelowOne(0.98);
+			p.frict = aroundBelowOne(0.93);
+			p.lifeS = around(0.1);
+			// p.onUpdate = _waterPhysics;
+
+		}
+
+		// Quick rising smoke
+		// for(i in 0...15) {
+		// 	var p = allocTopNormal( getTile(dict.fxSmoke), (cx+0.5)*Const.GRID+rnd(0,1,true), (cy+0.5)*Const.GRID+rnd(0,4,true) );
+		// 	p.setFadeS(vary(0.3), 0, vary(0.8));
+		// 	p.colorize(0xc3b9a0);
+		// 	p.setScale(around(0.5));
+		// 	p.scaleMul = aroundBelowOne(0.98);
+
+		// 	p.dy = -around(0.3);
+		// 	p.gy = -around(0.02);
+		// 	p.frict = rnd(0.92,0.93);
+
+		// 	p.rotation = rnd(0,M.PI2);
+		// 	p.dr = rnd(0.02,0.03,true);
+		// 	p.lifeS = around(0.5);
+		// 	p.delayS = i*0.05 + zeroTo(0.1,true);
+		// }
+
+		// Long smoke
+		for(i in 0...8) {
 			var p = allocTopNormal( getTile(dict.fxSmoke), getFlameX(cx,cy), getFlameY(cx,cy) );
-			p.setFadeS(rnd(0.1, 0.2), rnd(0.1,0.2), rnd(2,3));
+			p.setFadeS(around(0.25), around(0.04), rnd(2,3));
 			p.colorAnimS(0xc34029, 0xc3b9a0, rnd(0.1,0.5));
-			p.setScale(rnd(0.6,0.8,true));
+			p.setScale( around(0.75) );
 			p.rotation = rnd(0,M.PI2);
 			p.dr = rnd(0,0.03,true);
 			p.ds = rnd(0.002, 0.004);
@@ -286,7 +325,7 @@ class Fx extends dn.Process {
 		);
 	}
 
-	public inline function levelFlames(cx:Int,cy:Int, fs:FireState) {
+	public inline function levelFlames(cx:Int,cy:Int, fs:FireState, strong=false) {
 		final maxed = fs.level>=2;
 		var pow = fs.getPowerRatio(true);
 		var baseCol = !maxed ? 0xff0000 : C.interpolateInt(0xff6200,0xffcc33,rnd(0,1));
@@ -296,6 +335,9 @@ class Fx extends dn.Process {
 		var n = Std.int(1+pow*3);
 		if( !level.hasAnyCollision(cx,cy+1) )
 			n+=2;
+
+		if( strong )
+			n = 10;
 
 		for( i in 0...n ) {
 			var p = allocTopAdd( getTile(dict.fxFlame), getFlameX(cx,cy), getFlameY(cx,cy) );
@@ -320,6 +362,27 @@ class Fx extends dn.Process {
 	inline function vary(maxValue:Float, pct=0.1) {
 		return maxValue * rnd(1-pct, 1);
 	}
+
+	inline function fullCircle() return rnd(0,M.PI2);
+	inline function halfCircle() return rnd(0,M.PI);
+	inline function quarterCircle() return rnd(0,M.PIHALF);
+
+	inline function around(v:Float, pct=10) {
+		return v * ( 1 + rnd(0,pct/100,true) );
+	}
+
+	inline function aroundBelowOne(v:Float, pct=10) {
+		return M.fmin( 1, v * ( 1 + rnd(0,pct/100,true) ) );
+	}
+
+	inline function zeroTo(v:Float, sign=false) {
+		return rnd(0,v,sign);
+	}
+
+	inline function randColor(minColor:UInt, maxColor:UInt) : UInt {
+		return C.interpolateInt( minColor, maxColor, rnd(0,1) );
+	}
+
 
 	public function waterTail(lastX:Float, lastY:Float, curX:Float, curY:Float, elapsed:Float) {
 		var alpha = compressUp( 1 - elapsed, 0.8 );
@@ -370,6 +433,7 @@ class Fx extends dn.Process {
 			p.data0 = 1;
 			p.dx = p.dy = 0;
 			p.gy = 0;
+			p.autoRotateSpeed = 0;
 			p.setScale( rnd(2,3) );
 			p.scaleMul = vary(0.96, 0.05);
 			p.rotation = rnd(0,M.PI);
