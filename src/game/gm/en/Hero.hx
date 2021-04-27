@@ -487,6 +487,10 @@ class Hero extends gm.Entity {
 			// Watering
 			if( onGround && ifQueuedRemove(Water) ) {
 				dx = 0;
+				var pt = pickSmartWateringTarget();
+				if( pt!=null ) {
+					dir = pt.x>cx ? 1 : pt.x<cx ? -1 : dir;
+				}
 				chargeAction("water", 0.1, ()->{
 					if( !isWatering() )
 						waterAng = dirToAng();
@@ -505,6 +509,16 @@ class Hero extends gm.Entity {
 	}
 
 
+	inline function pickSmartWateringTarget() : Null<{ x:Int, y:Int }> {
+		var dh = new dn.DecisionHelper( dn.Bresenham.getDisc(cx,cy,9) );
+		dh.keepOnly( pt->level.isBurning(pt.x,pt.y) );
+		dh.keepOnly( pt->sightCheck(pt.x,pt.y) );
+		// dh.score( pt->-M.radDistance(waterAng, Math.atan2(pt.y-cy,pt.x-cx))*0.6 );
+		dh.score( pt->-distCase(pt.x,pt.y)*0.2 );
+		dh.score( pt->dir==M.sign(pt.x-cx) ? 3 : 0 );
+		return dh.getBest();
+	}
+
 	function updateWatering() {
 		dx*=0.5;
 
@@ -515,30 +529,26 @@ class Hero extends gm.Entity {
 		if( game.kidMode ) {
 
 			// Kid mode: assisted watering
-			var dh = new dn.DecisionHelper( dn.Bresenham.getDisc(cx,cy,7) );
-			dh.keepOnly( pt->level.isBurning(pt.x,pt.y) );
-			dh.keepOnly( pt->sightCheck(pt.x,pt.y) );
-			dh.score( pt->-M.radDistance(waterAng, Math.atan2(pt.y-cy,pt.x-cx))*10 );
-			dh.score( pt->-distCase(pt.x,pt.y)*0.2 );
-			dh.score( pt->dir==M.sign(pt.x-cx) ? 3 : 0 );
-			var pt = dh.getBest();
+			var pt = pickSmartWateringTarget();
 			var targetAng = pt==null ? dirToAng() : Math.atan2(pt.y-cy, pt.x-cx);
-			waterAng += M.radSubstract(targetAng,waterAng) * 0.4;
+			waterAng += M.radSubstract(targetAng,waterAng) * 0.33;
 
 			// Change hero dir
 			if( pt!=null && ( pt.x!=cx || xr!=0.5 ) && M.sign( (pt.x+0.5)-(cx+xr) ) != dir ) {
-				waterAng = -M.PIHALF - M.radSubstract( -M.PIHALF, waterAng );
 				dir*=-1;
+				// waterAng = dirToAng();
 			}
 
 			if( !cd.hasSetS("bullet",0.06) ) {
-				var n = 3;
-				var spread = 0.19;
 				var adjustedAng = waterAng;
 				if( !M.radCloseTo(adjustedAng, -M.PIHALF, M.PIHALF*0.3) )
-					adjustedAng -= dir*0.25;
+					if( M.radCloseTo(adjustedAng, M.PIHALF, M.PIHALF*1.1))
+						adjustedAng -= dir*0.1;
+					else
+						adjustedAng -= dir*0.2;
 
-
+				var n = 3;
+				var spread = 0.19;
 				var shootX = getShootX(adjustedAng);
 				var shootY = getShootY(adjustedAng);
 				for(i in 0...n) {
@@ -592,6 +602,7 @@ class Hero extends gm.Entity {
 					b.gravityMul = 2.4;
 					b.power = 2;
 				}
+				game.cd.setS("reducingHeat", 0.2);
 				cd.setS("bullet",0.16);
 			}
 
@@ -657,13 +668,34 @@ class Hero extends gm.Entity {
 			cd.setS("burning",2);
 			if( level.getFireLevel(cx,cy)>=2 && !cd.has("shield") ) {
 				if( game.kidMode && !cd.hasSetS("fireBumpLimit", 1) ) {
+					cancelVelocities();
 					var d = xr<0.5 ? -1 : 1;
-					bump(d*0.2, -0.2);
+					bump(d*0.3, -0.2);
+					fx.flashBangS(0xffcc00, 0.1, 0.3);
 					lockControlsS(0.66);
 					blink(0xffcc00);
 				}
 				if( !game.kidMode )
 					hit(1);
+			}
+		}
+
+		// Auto jump
+		if( game.kidMode ) {
+			if( onGround && ca.leftDist()>0 ) {
+				// Jump 1
+				if( level.hasMark(AutoJump1,cx,cy) && level.hasAnyCollision(cx+dir,cy) && ( dir>0 && xr>0.35 || dir<0 && xr<0.65 ) ) {
+					bump(0.1*dir, 0);
+					dx = 0;
+					dy = -0.51;
+				}
+
+				// Jump 2
+				if( level.hasMark(AutoJump2,cx,cy) && level.hasAnyCollision(cx+dir,cy) && ( dir>0 && xr>0.35 || dir<0 && xr<0.65 ) ) {
+					bump(0.1*dir, 0);
+					dx = 0;
+					dy = -0.81;
+				}
 			}
 		}
 

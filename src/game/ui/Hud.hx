@@ -23,6 +23,7 @@ class Hud extends dn.Process {
 
 		flow = new h2d.Flow(root);
 		inventory = new h2d.Flow(flow);
+		inventory.filter = new dn.heaps.filter.PixelOutline();
 
 		debugText = new h2d.Text(Assets.fontSmall, root);
 		clearDebug();
@@ -103,6 +104,7 @@ class Hud extends dn.Process {
 
 	public function setInventory(items:Array<Enum_Items>) {
 		inventory.removeChildren();
+		cd.setS("shakeInv",1);
 		for(i in items) {
 			new h2d.Bitmap( Assets.getItem(i), inventory );
 		}
@@ -126,5 +128,9 @@ class Hud extends dn.Process {
 			invalidated = false;
 			render();
 		}
+
+		inventory.setPosition(3,3);
+		if( cd.has("shakeInv") )
+			inventory.y += Math.cos(uftime*0.4) * 3 * cd.getRatio("shakeInv");
 	}
 }

@@ -8,6 +8,7 @@ class Item extends Entity {
 
 		gravityMul = 0.6;
 		spr.set("item"+data.f_type.getName());
+		spr.filter = new dn.heaps.filter.PixelOutline(0x0);
 	}
 
 	override function fixedUpdate() {

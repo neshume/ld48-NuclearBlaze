@@ -46,15 +46,27 @@ class Level extends dn.Process {
 		tilesetSource = hxd.Res.atlas.world.toAseprite().toTile();
 
 
+		var dirs = [-1, 1];
 		for(cy in 0...data.l_Collisions.cHei)
 		for(cx in 0...data.l_Collisions.cWid) {
 			// Init marks
 			if( hc(cx,cy) ) {
 				if( !hc(cx,cy+1) || !hc(cx,cy-1) || !hc(cx-1,cy) || !hc(cx+1,cy) )
 					setMark(WallEdge, cx,cy);
+
 				if( !hc(cx+1,cy+1) || !hc(cx+1,cy-1) || !hc(cx-1,cy-1) || !hc(cx-1,cy+1) )
 					setMark(WallEdge, cx,cy);
 			}
+
+			if( !hc(cx,cy) && hc(cx,cy+1) && !hc(cx,cy-1) && !hc(cx,cy-2) )
+				for(d in dirs) {
+					if( hc(cx+d,cy) ) {
+						if( !hc(cx+d,cy-1) )
+							setMark(AutoJump1, cx,cy);
+						else if( !hc(cx+d,cy-2) )
+							setMark(AutoJump2, cx,cy);
+					}
+				}
 
 			// Init fire spots
 			if( !hasAnyCollision(cx,cy) ) {
@@ -78,6 +90,7 @@ class Level extends dn.Process {
 
 		fogRender = new h2d.SpriteBatch(Assets.tiles.tile);
 		game.scroller.add(fogRender, Const.DP_TOP);
+		fogRender.visible = !game.kidMode;
 		buildFog();
 	}
 

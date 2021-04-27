@@ -5,4 +5,6 @@ enum Affect {
 enum LevelMark {
 	WallEdge;
 	DoorZone;
+	AutoJump1;
+	AutoJump2;
 }

@@ -106,16 +106,20 @@ class Game extends Process {
 
 	/** Load a level **/
 	function startLevel(l:World.World_Level) {
+		// Cleanup
 		if( level!=null )
 			level.destroy();
 		fx.clear();
 		for(e in Entity.ALL) // <---- Replace this with more adapted entity destruction (eg. keep the player alive)
 			e.destroy();
 		garbageCollectEntities();
-		delayer.cancelById("deathMsg");
 
+		// Inits
+		heat = 0;
+		delayer.cancelById("deathMsg");
 		cd.unset("successMsg");
 
+		// Start
 		level = new Level(l);
 		hero = new gm.en.Hero();
 
@@ -151,11 +155,13 @@ class Game extends Process {
 		}
 
 
-		for(e in level.data.l_Entities.all_FireStarter)
-			dn.Bresenham.iterateDisc(
-				e.cx, e.cy, e.f_range,
-				(x,y)->level.ignite(x,y, e.f_startFireLevel)
-			);
+		for(d in level.data.l_Entities.all_FireStarter)
+			dn.Bresenham.iterateDisc( d.cx, d.cy, d.f_range, (x,y)->{
+				level.ignite(x,y, d.f_startFireLevel);
+				var fs = level.getFireState(x,y);
+				if( fs!=null )
+					fs.resistance = d.f_resistance;
+			});
 
 		camera.centerOnTarget();
 		hud.onLevelStart();
@@ -284,8 +290,11 @@ class Game extends Process {
 		garbageCollectEntities();
 
 
-		// Detect heat surrounding hero
-		if( !cd.hasSetS("heatCheck",0.1) ) {
+		// Heat management
+		// if( cd.has("reducingHeat") )
+		// 	heat *= Math.pow(0.98,tmod);
+		if( !kidMode && !cd.hasSetS("heatCheck",0.1) ) {
+			// Detect heat surrounding hero
 			var fireLevels = 0.;
 			if( hero.isAlive() ) {
 				var r = 7;
@@ -301,7 +310,7 @@ class Game extends Process {
 			if( fireLevels>0 ) {
 				var targetHeat = M.fclamp( fireLevels/6, 0, 1 );
 				if( targetHeat>heat )
-					heat += ( targetHeat-heat ) * M.fmin(1, 0.3*tmod);
+					heat += ( targetHeat-heat ) * M.fmin(1, 0.15*tmod);
 			}
 		}
 
