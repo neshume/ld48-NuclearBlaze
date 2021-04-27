@@ -281,8 +281,6 @@ class Game extends Process {
 
 
 		// Heat management
-		// if( cd.has("reducingHeat") )
-		// 	heat *= Math.pow(0.98,tmod);
 		if( !kidMode && !cd.hasSetS("heatCheck",0.1) ) {
 			// Detect heat surrounding hero
 			var fireLevels = 0.;
@@ -305,8 +303,14 @@ class Game extends Process {
 		}
 
 		// Apply heat
-		heat = M.fclamp(heat,0,1);
-		heat *= Math.pow(0.997,tmod);
+		if( level.fireCount==0 ) {
+			heat = M.fclamp(heat, 0, 1);
+			heat *= Math.pow(0.980,tmod);
+		}
+		else {
+			heat = M.fclamp(heat, 0.45, 1);
+			heat *= Math.pow(0.997,tmod);
+		}
 		heatMask.alpha = 0.5*heat;
 		coldMask.alpha = 0.5*(1-heat);
 	}
