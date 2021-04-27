@@ -7,7 +7,7 @@
 			"text": "🍊 HL",
 			"color": "orange",
 			"commandType":"exec",
-			"command": "haxe hl.hxml",
+			"command": "haxe hl.dx.hxml",
 			"alignment": "right",
 			"skipTerminateQuickPick": false,
 			"priority": -10
