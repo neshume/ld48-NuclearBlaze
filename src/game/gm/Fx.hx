@@ -201,7 +201,7 @@ class Fx extends dn.Process {
 		}
 
 		// Lines
-		final n = 9;
+		var n = Std.int( strong ? around(50) : around(7) );
 		for(i in 0...n) {
 			var p = allocTopAdd( getTile(dict.fxLineDir), (cx+0.5)*Const.GRID+rnd(0,1,true), (cy+0.2)*Const.GRID+rnd(0,1,true));
 			p.colorize( randColor(0xff0000,0xffcc00) );
@@ -214,27 +214,7 @@ class Fx extends dn.Process {
 			p.scaleXMul = aroundBelowOne(0.98);
 			p.frict = aroundBelowOne(0.93);
 			p.lifeS = around(0.1);
-			// p.onUpdate = _waterPhysics;
-
 		}
-
-		// Quick rising smoke
-		// for(i in 0...15) {
-		// 	var p = allocTopNormal( getTile(dict.fxSmoke), (cx+0.5)*Const.GRID+rnd(0,1,true), (cy+0.5)*Const.GRID+rnd(0,4,true) );
-		// 	p.setFadeS(vary(0.3), 0, vary(0.8));
-		// 	p.colorize(0xc3b9a0);
-		// 	p.setScale(around(0.5));
-		// 	p.scaleMul = aroundBelowOne(0.98);
-
-		// 	p.dy = -around(0.3);
-		// 	p.gy = -around(0.02);
-		// 	p.frict = rnd(0.92,0.93);
-
-		// 	p.rotation = rnd(0,M.PI2);
-		// 	p.dr = rnd(0.02,0.03,true);
-		// 	p.lifeS = around(0.5);
-		// 	p.delayS = i*0.05 + zeroTo(0.1,true);
-		// }
 
 		// Long smoke
 		for(i in 0...8) {
@@ -384,7 +364,7 @@ class Fx extends dn.Process {
 	}
 
 
-	public function waterTail(lastX:Float, lastY:Float, curX:Float, curY:Float, elapsed:Float) {
+	public function waterTail(lastX:Float, lastY:Float, curX:Float, curY:Float, elapsed:Float, col:UInt) {
 		var alpha = compressUp( 1 - elapsed, 0.8 );
 		var d = M.dist(curX, curY, lastX, lastY);
 		var a = Math.atan2(curY-lastY, curX-lastX);
@@ -392,7 +372,7 @@ class Fx extends dn.Process {
 		// Tail core
 		var p = allocTopAdd( getTile(dict.fxTail), lastX, lastY);
 		p.setFadeS(vary(0.3)*alpha, 0, 0.1);
-		p.colorize(0x1aabe7);
+		p.colorize(col);
 		p.setCenterRatio(0.2,0.5);
 		p.rotation = a;
 		p.scaleX = (d+17)/p.t.width;
@@ -404,7 +384,7 @@ class Fx extends dn.Process {
 		var off = rnd(0.5,2,true);
 		var p = allocTopAdd( getTile(dict.pixel), (lastX+curX)*0.5 + Math.cos(a+M.PIHALF)*off, (lastY+curY)*0.5+Math.sin(a+M.PIHALF)*off);
 		p.setFadeS( vary(0.7)*alpha, 0, 0.1);
-		p.colorize(0x1aabe7);
+		p.colorize(col);
 		p.moveAng(a, rnd(1,3));
 		p.frict = vary(0.8);
 		p.gy = rnd(0.1,0.2);
@@ -420,7 +400,7 @@ class Fx extends dn.Process {
 			(lastY+curY)*0.5+Math.sin(a+M.PIHALF)*offY + Math.sin(a)*offX
 		);
 		p.setFadeS( vary(0.7)*alpha, 0, 0.1);
-		p.colorize(0x1aabe7);
+		p.colorize(col);
 		p.rotation = a;
 		p.scaleX = vary(0.2);
 		p.scaleMul = rnd(1.02,1.03);
