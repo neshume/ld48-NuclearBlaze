@@ -34,6 +34,10 @@ class Game extends Process {
 	public var curLevelIdx = 0;
 	public var kidMode : Bool;
 
+	public var heat : Float = 0.;
+	var heatMask : h2d.Bitmap;
+	var coldMask : h2d.Bitmap;
+
 	public function new(kidMode) {
 		super(App.ME);
 
@@ -52,12 +56,15 @@ class Game extends Process {
 		hud = new ui.Hud();
 		camera = new Camera();
 
-		// for(i in 0...2) {
-		// 	var mask = Assets.tiles.h_get(Assets.tilesDict.mask,0, 0.5,0.5);
-		// 	root.add(mask, Const.DP_TOP);
-		// 	masks.push(mask);
-		// 	mask.colorize(0x0);
-		// }
+		// Heat/cold masks
+		heatMask = new h2d.Bitmap( h2d.Tile.fromColor( C.hexToInt("#ff6600") ) );
+		root.add(heatMask, Const.DP_FX_FRONT);
+		heatMask.alpha = 0;
+
+		coldMask = new h2d.Bitmap( h2d.Tile.fromColor( C.hexToInt("#1f567f") ) );
+		root.add(coldMask, Const.DP_FX_FRONT);
+		coldMask.blendMode = Add;
+		coldMask.alpha = 0;
 
 		#if debug
 		curLevelIdx = Assets.worldData.all_levels.Lab.arrayIndex;
@@ -175,6 +182,11 @@ class Game extends Process {
 	/** Window/app resize event **/
 	override function onResize() {
 		super.onResize();
+		heatMask.scaleX = w();
+		heatMask.scaleY = h();
+
+		coldMask.scaleX = w();
+		coldMask.scaleY = h();
 	}
 
 
@@ -271,23 +283,33 @@ class Game extends Process {
 		// Dispose entities marked as "destroyed"
 		garbageCollectEntities();
 
-		// Masks
-		// var i = 0;
-		// for(mask in masks) {
-		// 	mask.x = w()*0.5;
-		// 	mask.y = h()*0.5;
-		// 	mask.scaleX = w()/mask.tile.width;
-		// 	mask.scaleY = h()/mask.tile.height;
-		// 	mask.alpha = 0.8;
-		// 	switch i {
-		// 		case 0:
 
-		// 		case 1:
-		// 			mask.scaleX*=-1.1;
-		// 			mask.scaleY*=-1.1;
-		// 	}
-		// 	i++;
-		// }
+		// Detect heat surrounding hero
+		if( !cd.hasSetS("heatCheck",0.1) ) {
+			var fireLevels = 0.;
+			if( hero.isAlive() ) {
+				var r = 7;
+				dn.Bresenham.iterateDisc(hero.cx, hero.cy, r, (x,y)->{
+					if( level.isBurning(x,y) ) {
+						fireLevels += level.getFireLevel(x,y) * ( !hero.sightCheck(x,y) ? 0.6 : 1 ) * ( 0.4+0.6*( 1 - hero.distCase(x,y) / r ) );
+					}
+				});
+			}
+			else
+				fireLevels = 999;
+
+			if( fireLevels>0 ) {
+				var targetHeat = M.fclamp( fireLevels/6, 0, 1 );
+				if( targetHeat>heat )
+					heat += ( targetHeat-heat ) * M.fmin(1, 0.3*tmod);
+			}
+		}
+
+		// Apply heat
+		heat = M.fclamp(heat,0,1);
+		heat *= Math.pow(0.997,tmod);
+		heatMask.alpha = 0.5*heat;
+		coldMask.alpha = 0.5*(1-heat);
 	}
 
 

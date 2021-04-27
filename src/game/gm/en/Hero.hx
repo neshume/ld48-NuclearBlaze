@@ -501,8 +501,104 @@ class Hero extends gm.Entity {
 		return centerX + Math.cos(ang)*7;
 	}
 	inline function getShootY(ang:Float) {
-		return centerY + Math.sin(ang)*5+1;
+		return centerY + Math.sin(ang)*5 + 2;
 	}
+
+
+	function updateWatering() {
+		dx*=0.5;
+
+		if( ca.xDown() )
+			cd.setS("watering",0.2);
+		camera.shakeS(0.1, 0.1);
+
+		if( game.kidMode ) {
+
+			// Kid mode: assisted watering
+			var dh = new dn.DecisionHelper( dn.Bresenham.getDisc(cx,cy,7) );
+			dh.keepOnly( pt->level.isBurning(pt.x,pt.y) );
+			dh.keepOnly( pt->sightCheck(pt.x,pt.y) );
+			dh.score( pt->-M.radDistance(waterAng, Math.atan2(pt.y-cy,pt.x-cx))*10 );
+			dh.score( pt->-distCase(pt.x,pt.y)*0.2 );
+			dh.score( pt->dir==M.sign(pt.x-cx) ? 3 : 0 );
+			var pt = dh.getBest();
+			var targetAng = pt==null ? dirToAng() : Math.atan2(pt.y-cy, pt.x-cx);
+			waterAng += M.radSubstract(targetAng,waterAng) * 0.4;
+
+			// Change hero dir
+			if( pt!=null && ( pt.x!=cx || xr!=0.5 ) && M.sign( (pt.x+0.5)-(cx+xr) ) != dir ) {
+				waterAng = -M.PIHALF - M.radSubstract( -M.PIHALF, waterAng );
+				dir*=-1;
+			}
+
+			if( !cd.hasSetS("bullet",0.06) ) {
+				var n = 3;
+				var spread = 0.19;
+				var adjustedAng = waterAng;
+				if( !M.radCloseTo(adjustedAng, -M.PIHALF, M.PIHALF*0.3) )
+					adjustedAng -= dir*0.25;
+
+
+				var shootX = getShootX(adjustedAng);
+				var shootY = getShootY(adjustedAng);
+				for(i in 0...n) {
+					var ang = adjustedAng  -  spread*0.5+spread*(i+1)/n  +  rnd(0, 0.05, true);
+					var b = new gm.en.bu.WaterDrop(shootX, shootY, ang);
+					b.dx*=0.9;
+					b.dy*=0.9;
+					b.gravityMul*=0.1;
+					b.delayS(rnd(0,0.1));
+				}
+				fx.waterShoot(shootX, shootY, adjustedAng);
+			}
+
+		}
+		else if( !cd.has("bullet") ) {
+
+			// var shootX = centerX+dir*5;
+			// var shootY = centerY+3;
+
+			// Normal game mode: full control on water
+			if( verticalAiming==0 ) {
+				// Horizontal
+				var ang = dirToAng();
+				var shootX = getShootX(ang);
+				var shootY = getShootY(ang);
+				var b = new gm.en.bu.WaterDrop(shootX, shootY, ang-dir*0.2 + rnd(0, 0.05, true));
+				var b = new gm.en.bu.WaterDrop(shootX, shootY, ang-dir*0.1 + rnd(0, 0.05, true));
+				b.dx*=0.8;
+				b.cd.setS("lock",0.03);
+				cd.setS("bullet",0.02);
+			}
+			else if( verticalAiming<0 ) {
+				// UP
+				var ang = dirToAng() - dir*M.PIHALF*0.85;
+				var shootX = getShootX(ang);
+				var shootY = getShootY(ang);
+				var n = 5;
+				for(i in 0...n) {
+					var b = new gm.en.bu.WaterDrop(shootX, shootY, ang + i/(n-1)*dir*0.6  + rnd(0, 0.05, true));
+					b.gravityMul*=0.8;
+				}
+				cd.setS("bullet",0.10);
+			}
+			else {
+				// Self
+				var n = 6;
+				var ang = 0.25;
+				for(i in 0...n) {
+					var b = new gm.en.bu.WaterDrop(centerX, centerY, -M.PIHALF - ang + ang*2*i/(n-1) );
+					b.frictY = 0.85;
+					b.gravityMul = 2.4;
+					b.power = 2;
+				}
+				cd.setS("bullet",0.16);
+			}
+
+		}
+	}
+
+
 
 	override function fixedUpdate() {
 		super.fixedUpdate();
@@ -557,120 +653,23 @@ class Hero extends gm.Entity {
 			cd.setS("recentMove",0.6);
 
 		// Fire damage
-		if( isAlive() )
-			dn.Bresenham.iterateDisc(cx,cy,0, (x,y)->{
-				if( level.getFireLevel(x,y)>=1 ) {
-					cd.setS("burning",2);
-					if( level.getFireLevel(x,y)>=2 && !cd.has("shield") )
-						if( game.kidMode && !cd.has("fireBumpLimit") ) {
-							var d = xr<0.5 ? -1 : 1;
-							bump(d*0.2, -0.2);
-							lockControlsS(0.66);
-							cd.setS("fireBumpLimit",1);
-							blink(0xffcc00);
-
-						}
-						if( !game.kidMode )
-							hit(1);
+		if( isAlive() && level.getFireLevel(cx,cy)>=1 ) {
+			cd.setS("burning",2);
+			if( level.getFireLevel(cx,cy)>=2 && !cd.has("shield") ) {
+				if( game.kidMode && !cd.hasSetS("fireBumpLimit", 1) ) {
+					var d = xr<0.5 ? -1 : 1;
+					bump(d*0.2, -0.2);
+					lockControlsS(0.66);
+					blink(0xffcc00);
 				}
-			});
+				if( !game.kidMode )
+					hit(1);
+			}
+		}
 
 
 		// Shooting water
-		if( isWatering() ) {
-			dx*=0.5;
-
-			if( ca.xDown() )
-				cd.setS("watering",0.2);
-			camera.shakeS(0.1, 0.1);
-
-			if( game.kidMode ) {
-
-				// Kid mode: assisted watering
-				var dh = new dn.DecisionHelper( dn.Bresenham.getDisc(cx,cy,8) );
-				dh.keepOnly( pt->level.isBurning(pt.x,pt.y) );
-				dh.keepOnly( pt->sightCheck(pt.x,pt.y) );
-				dh.score( pt->-M.radDistance(waterAng, Math.atan2(pt.y-cy,pt.x-cx))*10 );
-				dh.score( pt->-distCase(pt.x,pt.y)*0.2 );
-				dh.score( pt->dir==M.sign(pt.x-cx) ? 3 : 0 );
-				dh.useBest( pt->{
-					var ang = Math.atan2(pt.y-cy, pt.x-cx);
-					waterAng += M.radSubstract(ang,waterAng) * 0.4;
-
-					// Change hero dir
-					if( ( pt.x!=cx || xr!=0.5 ) && M.sign( (pt.x+0.5)-(cx+xr) ) != dir ) {
-						waterAng = -M.PIHALF - M.radSubstract( -M.PIHALF, waterAng );
-						dir*=-1;
-					}
-				});
-
-				if( !cd.hasSetS("bullet",0.06) ) {
-					var n = 3;
-					var spread = 0.19;
-					var adjustedAng = waterAng;
-					if( !M.radCloseTo(adjustedAng, -M.PIHALF, M.PIHALF*0.3) )
-						adjustedAng -= dir*0.25;
-
-
-					var shootX = getShootX(adjustedAng);
-					var shootY = getShootY(adjustedAng);
-					for(i in 0...n) {
-						var ang = adjustedAng  -  spread*0.5+spread*(i+1)/n  +  rnd(0, 0.05, true);
-						var b = new gm.en.bu.WaterDrop(shootX, shootY, ang);
-						b.dx*=0.9;
-						b.dy*=0.9;
-						b.gravityMul*=0.3;
-						b.delayS(rnd(0,0.1));
-					}
-					fx.waterShoot(shootX, shootY, adjustedAng);
-				}
-
-			}
-			else if( !cd.has("bullet") ) {
-
-				// var shootX = centerX+dir*5;
-				// var shootY = centerY+3;
-
-				// Normal game mode: full control on water
-				if( verticalAiming==0 ) {
-					// Horizontal
-					var ang = dirToAng();
-					var shootX = getShootX(ang);
-					var shootY = getShootY(ang);
-					var b = new gm.en.bu.WaterDrop(shootX, shootY, ang-dir*0.2 + rnd(0, 0.05, true));
-					var b = new gm.en.bu.WaterDrop(shootX, shootY, ang-dir*0.1 + rnd(0, 0.05, true));
-					b.dx*=0.8;
-					b.cd.setS("lock",0.03);
-					cd.setS("bullet",0.02);
-				}
-				else if( verticalAiming<0 ) {
-					// UP
-					var ang = dirToAng() - dir*M.PIHALF*0.85;
-					var shootX = getShootX(ang);
-					var shootY = getShootY(ang);
-					var n = 5;
-					for(i in 0...n) {
-						var b = new gm.en.bu.WaterDrop(shootX, shootY, ang + i/(n-1)*dir*0.6  + rnd(0, 0.05, true));
-						b.gravityMul*=0.8;
-					}
-					cd.setS("bullet",0.10);
-				}
-				else {
-					// Self
-					var n = 6;
-					var ang = 0.25;
-					for(i in 0...n) {
-						var b = new gm.en.bu.WaterDrop(centerX, centerY, -M.PIHALF - ang + ang*2*i/(n-1) );
-						b.frictY = 0.85;
-						b.gravityMul = 2.4;
-						b.power = 2;
-					}
-					cd.setS("bullet",0.16);
-				}
-
-			}
-
-		}
-
+		if( isWatering() )
+			updateWatering();
 	}
 }

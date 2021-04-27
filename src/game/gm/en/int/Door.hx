@@ -80,8 +80,14 @@ class Door extends Interactive {
 		if( bigFires>=2 ) {
 			game.addSlowMo("doorExplosion", 1, 0.2);
 			game.stopFrame();
+
+			game.heat = 1;
+			fx.flashBangS(0xff8800, 0.6, 0.3);
 			fx.doorExplosion(centerX, centerY, -openDir);
+
 			hero.bump(dirTo(hero)*0.2, -0.1);
+			hero.cd.setS("shield",0.5);
+
 			dn.Bresenham.iterateDisc(cx,cy,6, (x,y)->{
 				if( level.hasFireState(x,y) && !level.isBurning(x,y) && sightCheck(x,y) ) {
 					var fs = level.getFireState(x,y);
