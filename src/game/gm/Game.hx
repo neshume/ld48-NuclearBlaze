@@ -123,23 +123,13 @@ class Game extends Process {
 		level = new Level(l);
 		hero = new gm.en.Hero();
 
-		for(d in level.data.l_Entities.all_Door)
-			new gm.en.int.Door(d);
-
-		for(d in level.data.l_Entities.all_Item)
-			new gm.en.Item(d);
-
-		for(d in level.data.l_Entities.all_Say)
-			new gm.en.Say(d);
-
-		for(d in level.data.l_Entities.all_Tutorial)
-			new gm.en.Tutorial(d);
-
-		for(d in level.data.l_Entities.all_Exit)
-			new gm.en.Exit(d);
-
-		for(d in level.data.l_Entities.all_Title)
-			new gm.en.Title(d);
+		for(d in level.data.l_Entities.all_Door) new gm.en.int.Door(d);
+		for(d in level.data.l_Entities.all_Item) new gm.en.Item(d);
+		for(d in level.data.l_Entities.all_Say) new gm.en.Say(d);
+		for(d in level.data.l_Entities.all_Tutorial) new gm.en.Tutorial(d);
+		for(d in level.data.l_Entities.all_Exit) new gm.en.Exit(d);
+		for(d in level.data.l_Entities.all_Title) new gm.en.Title(d);
+		for(d in level.data.l_Entities.all_CameraOffset) new gm.en.CameraOffset(d);
 
 		for(d in level.data.l_Entities.all_Smoker)
 			dn.Bresenham.iterateDisc(d.cx, d.cy, d.f_radius, (x,y)->{

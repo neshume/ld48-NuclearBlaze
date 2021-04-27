@@ -10,6 +10,8 @@ class Camera extends dn.Process {
 	var target : Null<Entity>;
 	public var targetOffX = 0.;
 	public var targetOffY = -20.;
+	var extraOffX = 0.;
+	var extraOffY = 0.;
 
 	/** Width of viewport in level pixels **/
 	public var pxWid(get,never) : Int;
@@ -289,24 +291,39 @@ class Camera extends dn.Process {
 		rawFocus.levelY += dy*tmod;
 		dy *= Math.pow(frictY,tmod);
 
+		// LDtk camera offsets
+		var ox = 0.;
+		var oy = 0.;
+		for(e in gm.en.CameraOffset.ALL)
+			if( e.isActive() ) {
+				ox+=e.data.f_offsetX;
+				oy+=e.data.f_offsetY;
+			}
+		extraOffX += ( ox-extraOffX ) * M.fmin(1, 0.04*tmod);
+		extraOffY += ( oy-extraOffY ) * M.fmin(1, 0.04*tmod);
+
+		var rawOffsetedX = rawFocus.levelX + extraOffX;
+		var rawOffsetedY = rawFocus.levelY + extraOffY;
+
+
 		// Bounds clamping
 		if( clampToLevelBounds ) {
 			// X
 			if( level.pxWid < pxWid)
 				clampedFocus.levelX = level.pxWid*0.5; // centered small level
 			else
-				clampedFocus.levelX = M.fclamp( rawFocus.levelX, pxWid*0.5, level.pxWid-pxWid*0.5 );
+				clampedFocus.levelX = M.fclamp( rawOffsetedX, pxWid*0.5, level.pxWid-pxWid*0.5 );
 
 			// Y
 			if( level.pxHei < pxHei)
 				clampedFocus.levelY = level.pxHei*0.5; // centered small level
 			else
-				clampedFocus.levelY = M.fclamp( rawFocus.levelY, pxHei*0.5, level.pxHei-pxHei*0.5 );
+				clampedFocus.levelY = M.fclamp( rawOffsetedY, pxHei*0.5, level.pxHei-pxHei*0.5 );
 		}
 		else {
 			// No clamping
-			clampedFocus.levelX = rawFocus.levelX;
-			clampedFocus.levelY = rawFocus.levelY;
+			clampedFocus.levelX = rawOffsetedX;
+			clampedFocus.levelY = rawOffsetedY;
 		}
 
 
