@@ -31,6 +31,10 @@ class FireState {
 		return underControlS>0;
 	}
 
+	public inline function control() {
+		underControlS = Const.db.ControlDuration_1 * ( 1 - resistance );
+	}
+
 	public inline function getPowerRatio(step=false) {
 		return step
 			? level/MAX

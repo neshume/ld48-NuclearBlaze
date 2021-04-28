@@ -101,7 +101,7 @@ class WaterDrop extends Bullet {
 						cd.setS("touchedFire", Const.INFINITE);
 					}
 				}
-				fs.underControlS = Const.db.ControlDuration_1 * ( 1 - fs.resistance );
+				fs.control();
 				if( fs.oil )
 					fs.underControlS*=0.25;
 			}

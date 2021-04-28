@@ -401,7 +401,7 @@ class Hero extends gm.Entity {
 			stopClimbing();
 			queueCommand(UseWater);
 		}
-		if( ca.yDown() ) {
+		if( ca.yPressed() ) {
 			cancelAction();
 			queueCommand(UseTool);
 		}
@@ -672,18 +672,22 @@ class Hero extends gm.Entity {
 			dx*=0.6;
 
 
-		if( ifQueuedRemove(UseTool) && hasItem(WaterSpray) ) {
-			removeItem(WaterSpray);
-			var dh = new dn.DecisionHelper( dn.Bresenham.getDisc(cx,cy,3) );
-			dh.keepOnly( pt->!level.hasAnyCollision(pt.x,pt.y) && sightCheck(pt.x,pt.y) );
-			dh.remove( pt->pt.x==cx && pt.y==cy );
-			dh.score( pt->dir==M.sign(pt.x-cx) ? M.iabs(cx-pt.x)==1 ? 5 : 3 : 0 );
-			dh.score( pt->pt.y==cy-1 ? 2 : 0 );
-			dh.score( pt->-distCase(pt.x,pt.y) );
-			dh.useBest( pt->{
-				new gm.en.WaterSpray(pt.x,pt.y);
-				fx.dotsExplosion( (pt.x+0.5)*Const.GRID, (pt.y+0.5)*Const.GRID, 0x0088ff);
-			});
+		if( ifQueuedRemove(UseTool) ) {
+			if( hasItem(WaterSpray) ) {
+				removeItem(WaterSpray);
+				var e = new gm.en.WaterSpray(cx,cy);
+				e.setPosPixel(centerX, centerY);
+				if( verticalAiming==-1 ) {
+					e.dx = dir*0.1;
+					e.dy = -0.6;
+				}
+				else {
+					e.dx = dir*0.4;
+					e.dy = -0.1;
+				}
+			}
+			else if( gm.en.WaterSpray.ALL.length>0 )
+				gm.en.WaterSpray.ALL[0].recall();
 		}
 
 		// Climb movement
