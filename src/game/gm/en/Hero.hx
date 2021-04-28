@@ -1,8 +1,9 @@
 package gm.en;
 
 enum CtrlCommand {
-	Jump;
-	Water;
+	StartJump;
+	UseWater;
+	UseTool;
 }
 
 class Hero extends gm.Entity {
@@ -395,16 +396,15 @@ class Hero extends gm.Entity {
 
 		// Control queueing
 		if( ca.xDown() && !isWatering() ) {
-			cancelAction("jump");
-			cancelAction("kickDoor");
-			cancelAction("openDoor");
+			cancelAction();
 			stopClimbing();
-			queueCommand(Water);
+			queueCommand(UseWater);
 		}
 		if( ca.aPressed() && !game.kidMode ) {
-			queueCommand(Jump);
+			queueCommand(StartJump);
+			// On keyboards, "jump" key is the same as "going up"
 			if( climbing && ( ca.isKeyboardDown(K.UP) || ca.isKeyboardDown(K.Z) || ca.isKeyboardDown(K.W) ) )
-				clearCommandQueue(Jump);
+				clearCommandQueue(StartJump);
 		}
 
 
@@ -442,7 +442,7 @@ class Hero extends gm.Entity {
 					tryToClimbDown = true;
 		}
 		if( tryToClimbUp || tryToClimbDown )
-			clearCommandQueue(Jump);
+			clearCommandQueue(StartJump);
 		else
 			climbInsistS = 0;
 
@@ -475,7 +475,7 @@ class Hero extends gm.Entity {
 			}
 
 			// Jump
-			if( ( climbing || recentlyOnGround ) && ifQueuedRemove(Jump) ) {
+			if( ( climbing || recentlyOnGround ) && ifQueuedRemove(StartJump) ) {
 				chargeAction("jump", 0.08, ()->{
 					if( climbing && verticalAiming==1 ) {
 						dy = 0.4;
@@ -501,7 +501,7 @@ class Hero extends gm.Entity {
 			}
 
 			// Watering
-			if( onGround && ifQueuedRemove(Water) ) {
+			if( onGround && ifQueuedRemove(UseWater) ) {
 				dx = 0;
 				var pt = pickSmartWateringTarget();
 				if( pt!=null ) {
