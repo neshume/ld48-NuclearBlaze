@@ -77,6 +77,7 @@ class Hero extends gm.Entity {
 			cd.setS("cineFalling",Const.INFINITE);
 
 		clearInventory();
+		addItem(WaterSpray);
 	}
 
 	override function getGravity():Float {
@@ -116,7 +117,7 @@ class Hero extends gm.Entity {
 		hud.setInventory(inventory);
 	}
 
-	public function useItem(k:Enum_Items) {
+	public function removeItem(k:Enum_Items) {
 		if( inventory.remove(k) ) {
 			hud.setInventory(inventory);
 			return true;
@@ -400,6 +401,10 @@ class Hero extends gm.Entity {
 			stopClimbing();
 			queueCommand(UseWater);
 		}
+		if( ca.yDown() ) {
+			cancelAction();
+			queueCommand(UseTool);
+		}
 		if( ca.aPressed() && !game.kidMode ) {
 			queueCommand(StartJump);
 			// On keyboards, "jump" key is the same as "going up"
@@ -667,6 +672,20 @@ class Hero extends gm.Entity {
 		else if( !isChargingAction("jump") )
 			dx*=0.6;
 
+
+		if( ifQueuedRemove(UseTool) && hasItem(WaterSpray) ) {
+			removeItem(WaterSpray);
+			var dh = new dn.DecisionHelper( dn.Bresenham.getDisc(cx,cy,3) );
+			dh.keepOnly( pt->!level.hasAnyCollision(pt.x,pt.y) && sightCheck(pt.x,pt.y) );
+			dh.remove( pt->pt.x==cx && pt.y==cy );
+			dh.score( pt->dir==M.sign(pt.x-cx) ? M.iabs(cx-pt.x)==1 ? 5 : 3 : 0 );
+			dh.score( pt->pt.y==cy-1 ? 2 : 0 );
+			dh.score( pt->-distCase(pt.x,pt.y) );
+			dh.useBest( pt->{
+				new gm.en.WaterSpray(pt.x,pt.y);
+				fx.dotsExplosion( (pt.x+0.5)*Const.GRID, (pt.y+0.5)*Const.GRID, 0x0088ff);
+			});
+		}
 
 		// Climb movement
 		if( climbing )

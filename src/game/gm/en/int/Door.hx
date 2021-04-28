@@ -63,7 +63,7 @@ class Door extends Entity {
 
 		if( requiredItem!=null ) {
 			hero.sayBubble( new h2d.Bitmap(Assets.getItem(requiredItem)), Assets.tilesDict.emoteOk);
-			hero.useItem(requiredItem);
+			hero.removeItem(requiredItem);
 		}
 
 
