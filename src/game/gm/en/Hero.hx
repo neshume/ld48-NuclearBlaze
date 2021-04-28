@@ -616,6 +616,7 @@ class Hero extends gm.Entity {
 					var b = new gm.en.bu.WaterDrop(centerX, centerY, -M.PIHALF - ang + ang*2*i/(n-1) );
 					b.frictY = 0.85;
 					b.gravityMul = 2.4;
+					b.ignoreCollisionsUntilY = b.attachY+1;
 					b.power = 2;
 				}
 				game.cd.setS("reducingHeat", 0.2);

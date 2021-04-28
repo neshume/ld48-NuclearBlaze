@@ -5,6 +5,7 @@ class WaterDrop extends Bullet {
 	var lastTailY = 0.;
 	var elapsedDist = 0.;
 	public var power = 1.0;
+	public var ignoreCollisionsUntilY : Float = -Const.INFINITE;
 
 	public function new(xx:Float, yy:Float, ang:Float) {
 		super(xx,yy);
@@ -51,6 +52,11 @@ class WaterDrop extends Bullet {
 		fx.waterTail(lastTailX, lastTailY, x,y, getElapsedFactor(), cd.has("touchedFire") ? Const.WATER_COLOR_OFF : Const.WATER_COLOR);
 		lastTailX = x;
 		lastTailY = y;
+	}
+
+	override function checkCollision() {
+		if( attachY >= ignoreCollisionsUntilY )
+			super.checkCollision();
 	}
 
 	override function fixedUpdate() {
