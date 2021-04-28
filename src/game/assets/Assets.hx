@@ -32,10 +32,10 @@ class Assets {
 
 		// Fonts
 		fontPixel = hxd.Res.fonts.minecraftiaOutline.toFont();
-		fontTiny = hxd.Res.fonts.barlow_condensed_medium_regular_9.toFont();
-		fontSmall = hxd.Res.fonts.barlow_condensed_medium_regular_11.toFont();
-		fontMedium = hxd.Res.fonts.barlow_condensed_medium_regular_17.toFont();
-		fontLarge = hxd.Res.fonts.barlow_condensed_medium_regular_32.toFont();
+		fontTiny = new hxd.res.BitmapFont( hxd.Res.fonts.saira_extracondensed_thin_10_xml.entry ).toFont();
+		fontSmall = new hxd.res.BitmapFont( hxd.Res.fonts.saira_extracondensed_light_14_xml.entry ).toFont();
+		fontMedium = new hxd.res.BitmapFont( hxd.Res.fonts.saira_extracondensed_extralight_24_xml.entry ).toFont();
+		fontLarge = new hxd.res.BitmapFont( hxd.Res.fonts.saira_extracondensed_extralight_48_xml.entry ).toFont();
 
 		// build sprite atlas directly from Aseprite file
 		tiles = dn.heaps.assets.Aseprite.convertToSLib(Const.FPS, hxd.Res.atlas.tiles.toAseprite());
