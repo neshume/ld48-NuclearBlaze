@@ -136,6 +136,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_WallText) new gm.en.WallText(d);
 		for(d in level.data.l_Entities.all_CameraOffset) new gm.en.CameraOffset(d);
 		for(d in level.data.l_Entities.all_FireSpray) new gm.en.FireSpray(d);
+		for(d in level.data.l_Entities.all_Trigger) new gm.en.Trigger(d);
 
 		for(d in level.data.l_Entities.all_Smoker)
 			dn.Bresenham.iterateDisc(d.cx, d.cy, d.f_radius, (x,y)->{
@@ -370,8 +371,6 @@ class Game extends Process {
 			successTimerS+=1/Const.FPS * tmod;
 			if( successTimerS>=0.3 && !cd.hasSetS("successMsg",Const.INFINITE) && !level.data.f_disableCompleteAnnounce )
 				hero.say(L.t._("Clear! Proceeding deeper..."), 0xccff00);
-			// if( successTimerS>=3 )
-			// 	nextLevel();
 		}
 		else
 			successTimerS = 0;

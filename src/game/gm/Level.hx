@@ -387,6 +387,10 @@ class Level extends dn.Process {
 	function updateFire() {
 		fireCount = 0;
 
+		for(e in gm.en.FireSpray.ALL)
+			if( e.isActive() )
+				fireCount++;
+
 		var fs : FireState = null;
 		var rangeX = Std.int(Const.db.FirePropagationRange_1);
 		var rangeY = Std.int(Const.db.FirePropagationRange_2);

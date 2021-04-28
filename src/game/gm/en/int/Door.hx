@@ -1,6 +1,6 @@
 package gm.en.int;
 
-class Door extends Interactive {
+class Door extends Entity {
 	public static var ALL : Array<Door> = [];
 	public var closed(default,null) = true;
 	var cHei = 0;
@@ -121,13 +121,5 @@ class Door extends Interactive {
 				e.onPosManuallyChanged();
 			}
 		}
-	}
-
-	override function onTrigger() {
-		super.onTrigger();
-		if( closed )
-			open();
-		else
-			close();
 	}
 }
