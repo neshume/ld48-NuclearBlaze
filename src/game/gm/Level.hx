@@ -221,7 +221,7 @@ class Level extends dn.Process {
 		var tg = new h2d.TileGroup(tilesetSource, root);
 		data.l_Collisions.render(tg);
 		data.l_Props_tiles.render(tg);
-		data.l_Tiles.render(tg);
+		data.l_BgTiles.render(tg);
 		data.l_Pipes.render(tg);
 		data.l_FrontTiles.render(tg);
 	}

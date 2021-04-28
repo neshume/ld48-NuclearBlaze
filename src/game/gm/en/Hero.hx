@@ -213,7 +213,7 @@ class Hero extends gm.Entity {
 		saying.verticalSpacing = 3;
 
 		var tf = new h2d.Text(Assets.fontPixel, saying);
-		tf.maxWidth = 120;
+		tf.maxWidth = 160;
 		tf.text = str;
 		tf.textColor = c;
 
@@ -316,6 +316,7 @@ class Hero extends gm.Entity {
 						if( --d.kicks<=0 ) {
 							camera.bump(wallDir, 10);
 							camera.shakeS(1, 0.3);
+							lockControlsS(0.5);
 							if( !d.open(wallDir) )
 								bump(wallDir*0.3, -0.1);
 							d.setSquashX(0.8);
