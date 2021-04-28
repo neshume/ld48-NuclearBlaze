@@ -23,6 +23,7 @@ class Tutorial extends Entity {
 		tf.text = data.f_text;
 		tf.textColor = data.f_color_int;
 		tf.maxWidth = data.width - data.f_padding*2;
+		tf.colorAdd = blinkColor;
 
 		bg = new h2d.ScaleGrid( Assets.tiles.getTile(dict.tutorial),4,4, tf);
 		bg.color.setColor( C.addAlphaF(data.f_color_int) );
@@ -42,11 +43,11 @@ class Tutorial extends Entity {
 		tf.y = Std.int( sprY*Const.SCALE + game.scroller.y + p*Const.SCALE );
 		tf.maxWidth = ( data.width - data.f_padding*2 ) * Const.SCALE / tf.scaleX;
 
-		p*=0.5;
+		// p*=0.75;
 		bg.x = Std.int( -p );
-		bg.y = Std.int( -p );
+		bg.y = Std.int( -p*0.5 );
 		bg.width = Std.int( tf.textWidth + p*2 );
-		bg.height = Std.int( tf.textHeight + p*2 );
+		bg.height = Std.int( tf.textHeight + p*1 );
 	}
 
 	override function dispose() {
@@ -60,6 +61,8 @@ class Tutorial extends Entity {
 
 	override function postUpdate() {
 		super.postUpdate();
-		entityVisible = level.isFogRevealed( Std.int(centerX/Const.GRID), Std.int(centerY/Const.GRID) );
+		entityVisible = level.isFogRevealed( data.f_attach.cx, data.f_attach.cy );
+		if( !cd.hasSetS("blink",1) )
+			blink(0xffcc00);
 	}
 }
