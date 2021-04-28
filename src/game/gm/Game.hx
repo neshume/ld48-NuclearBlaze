@@ -73,7 +73,7 @@ class Game extends Process {
 				break;
 			}
 		#end
-		startCurrentLevel();
+		restartCurrentLevel();
 
 
 		#if debug
@@ -87,7 +87,7 @@ class Game extends Process {
 		#end
 	}
 
-	public function startCurrentLevel() {
+	public function restartCurrentLevel() {
 		startLevel(Assets.worldData.levels[curLevelIdx]);
 	}
 
@@ -99,7 +99,7 @@ class Game extends Process {
 		else
 			curLevelIdx++;
 		level.destroy();
-		startCurrentLevel();
+		restartCurrentLevel();
 	}
 
 
@@ -135,6 +135,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_Title) new gm.en.Title(d);
 		for(d in level.data.l_Entities.all_WallText) new gm.en.WallText(d);
 		for(d in level.data.l_Entities.all_CameraOffset) new gm.en.CameraOffset(d);
+		for(d in level.data.l_Entities.all_FireSpray) new gm.en.FireSpray(d);
 
 		for(d in level.data.l_Entities.all_Smoker)
 			dn.Bresenham.iterateDisc(d.cx, d.cy, d.f_radius, (x,y)->{
@@ -408,7 +409,7 @@ class Game extends Process {
 				destroy();
 			}
 			else if( ca.selectPressed() )
-				startCurrentLevel();
+				restartCurrentLevel();
 
 		}
 	}
