@@ -129,11 +129,18 @@ class Hero extends gm.Entity {
 		hud.setInventory(inventory);
 	}
 
+	override function hit(dmg:Int, ?from:Entity) {
+		if( !hasShield() )
+			super.hit(dmg, from);
+	}
+
 	override function onDamage(dmg:Int, from:Entity) {
 		super.onDamage(dmg, from);
 		fx.flashBangS(0xff0000, 0.3, 1);
 		cd.setS("shield",Const.db.HeroHitShield_1);
 	}
+
+	public inline function hasShield() return isAlive() && cd.has("shield");
 
 	inline function queueCommand(c:CtrlCommand, durationS=0.15) {
 		if( isAlive() )
@@ -332,7 +339,7 @@ class Hero extends gm.Entity {
 		if( cd.has("burning") && !cd.hasSetS("flame",0.2) )
 			fx.flame(centerX, centerY);
 
-		if( isAlive() && cd.has("shield") && !cd.hasSetS("shieldBlink",0.2) )
+		if( isAlive() && hasShield() && !cd.hasSetS("shieldBlink",0.2) )
 			blink(0xffffff);
 
 		if( !isAlive() && !onGround && !cd.hasSetS("deathBlink",0.15) )
@@ -674,7 +681,7 @@ class Hero extends gm.Entity {
 		// Fire damage
 		if( isAlive() && level.getFireLevel(cx,cy)>=1 ) {
 			cd.setS("burning",2);
-			if( level.getFireLevel(cx,cy)>=2 && !cd.has("shield") ) {
+			if( level.getFireLevel(cx,cy)>=2 && !hasShield() ) {
 				if( game.kidMode && !cd.hasSetS("fireBumpLimit", 1) ) {
 					cancelVelocities();
 					var d = xr<0.5 ? -1 : 1;

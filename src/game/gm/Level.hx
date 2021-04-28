@@ -218,16 +218,6 @@ class Level extends dn.Process {
 	function render() {
 		root.removeChildren();
 
-
-		// var g = new h2d.Graphics(root);
-		// for(cy in 0...layer.cHei)
-		// for(cx in 0...layer.cWid) {
-		// 	if( !layer.hasValue(cx,cy) )
-		// 		continue;
-		// 	g.beginFill(0xffffff);
-		// 	g.drawRect( layer.gridSize*cx, layer.gridSize*cy, layer.gridSize, layer.gridSize);
-		// }
-
 		var tg = new h2d.TileGroup(tilesetSource, root);
 		data.l_Collisions.render(tg);
 		data.l_Tiles.render(tg);
@@ -258,10 +248,14 @@ class Level extends dn.Process {
 		return isBurning(cx,cy) ? getFireState(cx,cy).level : 0;
 	}
 
-	public inline function ignite(cx,cy, startLevel=0, startProgress=0.) {
-		if( hasFireState(cx,cy) && !hasAnyCollision(cx,cy) && !getFireState(cx,cy).isUnderControl() ) {
+	public inline function ignite(cx,cy, startLevel=0, startProgress=0.) : Bool {
+		if( !hasFireState(cx,cy) )
+			return false;
+		else if( !hasAnyCollision(cx,cy) && !getFireState(cx,cy).isUnderControl() ) {
 			var fs = getFireState(cx,cy);
-			if( !fs.isBurning() ) {
+			if( fs.isBurning() )
+				return true;
+			else {
 				fs.ignite(startLevel, startProgress);
 				if( fs.quickFire ) {
 					fs.level = 1;
@@ -270,8 +264,12 @@ class Level extends dn.Process {
 					ignite(cx+1,cy);
 					fx.oilIgnite(cx,cy);
 				}
+				return true;
 			}
 		}
+		else
+			return false;
+
 	}
 
 	override function postUpdate() {
@@ -417,7 +415,7 @@ class Level extends dn.Process {
 					fs.underControlS -= Const.db.FireTick_1;
 
 				// Try to propagate
-				if( !game.kidMode && !fs.isUnderControl() && fs.isMaxed() && fs.propgationCdS<=0 )
+				if( !game.kidMode && !fs.isUnderControl() && fs.isMaxed() && fs.propgationCdS<=0 && fs.propagates )
 					if( Std.random(100) < Const.db.FirePropagationChance_1*100 ) {
 						fs.propgationCdS = game.camera.isOnScreenCase(cx,cy) ? Const.db.FirePropagationCd_1 : Const.db.FirePropagationCd_2;
 						for(y in cy-rangeY...cy+rangeY+1)

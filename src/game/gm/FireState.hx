@@ -11,6 +11,7 @@ class FireState {
 	public var superS = 0.;
 	public var resistance(default,set) = 0.;
 	public var strongFx = false;
+	public var propagates = true;
 
 	public var extinguished = false;
 	public var quickFire = false;

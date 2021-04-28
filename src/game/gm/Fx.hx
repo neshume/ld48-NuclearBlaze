@@ -620,6 +620,61 @@ class Fx extends dn.Process {
 	}
 
 
+	public function fireSpray(x:Float,y:Float, ang:Float, dist:Float) {
+		// Core dots
+		for(i in 0...2) {
+			var p = allocTopAdd( getTile(dict.fxLine), x,y);
+			p.colorAnimS( 0xffcc00, 0x9e62f1, around(0.3) );
+			p.scaleX = around(0.1);
+			p.setFadeS(around(0.9), 0.03, around(0.1));
+			p.frict = aroundBelowOne(0.9);
+			p.moveAng(ang, around(2));
+			p.rotation = p.getMoveAng();
+			p.lifeS = around(0.1);
+			p.delayS = around(0.1);
+		}
+
+		// Sparks
+		for(i in 0...3) {
+			var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,1,true), y+rnd(0,1,true) );
+			p.colorAnimS( 0xffcc00, 0xff0000, around(0.3) );
+			p.setFadeS(around(0.9), 0.03, around(0.1));
+			p.alphaFlicker = 0.6;
+			p.scaleX = 2;
+
+			p.frict = aroundBelowOne(0.9);
+			p.moveAng(ang+rnd(0,1,true), rnd(0.5,2));
+			p.gy = around(0.03);
+			p.autoRotateSpeed = 1;
+
+			p.lifeS = around(0.6);
+			p.delayS = around(0.1);
+		}
+
+		// Flames
+		var n = dist<=Const.GRID*1.5 ? 2 : 3;
+		for(i in 0...n) {
+			var p = allocTopAdd( getTile(dict.fxFlame), x+rnd(0,2,true), y+rnd(0,2,true) );
+			p.setFadeS(around(0.8), around(0.03), around(0.2));
+			p.colorAnimS( C.interpolateInt(0xffdd88, 0xff4400, rnd(0,1)), 0x9e62f1, around(0.3) );
+			p.rotation = -rnd(0.1,0.2);
+
+			p.scaleX = around(0.3) * rndSign();
+			p.scaleY = around(1);
+			p.scaleYMul = rnd(0.96,0.98);
+			// p.scaleYMul = rnd(1,1.03);
+
+			p.moveAng(ang+zeroTo(0.05,true), 2.3*(dist/Const.GRID)+rnd(0,0.2,true));
+			p.rotation = ang + M.PIHALF;
+			p.frict = 0.85 + rnd(0,0.02);
+
+			p.lifeS = around(0.2);
+			p.delayS = i==0 ? 0 : around(0.06);
+		}
+
+	}
+
+
 	override function update() {
 		super.update();
 
