@@ -67,7 +67,6 @@ class Game extends Process {
 		coldMask.alpha = 0;
 
 		#if debug
-		// curLevelIdx = Assets.worldData.all_levels.Lab.arrayIndex;
 		for(l in Assets.worldData.levels)
 			if( l.l_Entities.all_DebugStartPoint.length>0 ) {
 				curLevelIdx = l.arrayIndex;

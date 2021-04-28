@@ -24,11 +24,13 @@ class Hero extends gm.Entity {
 
 		super(data.cx, data.cy);
 
+		#if debug
 		if( level.data.l_Entities.all_DebugStartPoint.length>0 ) {
 			var pt = level.data.l_Entities.all_DebugStartPoint[0];
 			setPosCase(pt.cx, pt.cy);
 			yr = 0;
 		}
+		#end
 
 		ca = App.ME.controller.createAccess("hero");
 		ca.setLeftDeadZone(0.3);
