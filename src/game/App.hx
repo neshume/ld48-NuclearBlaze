@@ -33,7 +33,7 @@ class App extends dn.Process {
 		#end
 
 		#if debug
-		startGame(true);
+		startGame(false);
 		#else
 		new ModeSelect();
 		#end
