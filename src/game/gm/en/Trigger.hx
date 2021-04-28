@@ -8,6 +8,7 @@ class Trigger extends Entity {
 	var data : Entity_Trigger;
 	var holdS = 0.;
 	public var holdTargetS = 2.;
+	public var done = false;
 
 	public function new(d:Entity_Trigger) {
 		data = d;
@@ -22,6 +23,12 @@ class Trigger extends Entity {
 		gravityMul = 0;
 		collides = false;
 
+		game.scroller.add(spr, Const.DP_BG);
+		spr.set( switch data.f_type {
+			case null: dict.empty;
+			case Gate: dict.pipeGate;
+		});
+
 		g = new h2d.Graphics(spr);
 	}
 
@@ -31,7 +38,7 @@ class Trigger extends Entity {
 	}
 
 	public function canBeTriggered(by:Entity) {
-		return isAlive() && by!=null && by.isAlive() && by.distCase(this)<=interactDist && sightCheck(by);
+		return isAlive() && !done && by!=null && by.isAlive() && by.distCase(this)<=interactDist && sightCheck(by);
 	}
 
 	public static function anyAvailable(by:Entity) : Bool {
@@ -40,6 +47,7 @@ class Trigger extends Entity {
 				return true;
 		return false;
 	}
+
 	public static function getCurrent(by:Entity) : Null<Trigger> {
 		if( !anyAvailable(by) )
 			return null;
@@ -57,7 +65,8 @@ class Trigger extends Entity {
 		if( holdS>=holdTargetS ) {
 			holdS = holdTargetS;
 			onTrigger();
-			destroy();
+			done = true;
+			g.visible = false;
 		}
 		updateProgress();
 	}
@@ -76,14 +85,22 @@ class Trigger extends Entity {
 		g.drawPieInner(0,0, 8,6, -M.PIHALF, M.PI2 * M.fclamp(holdS/holdTargetS, 0, 1));
 	}
 
+
+	override function postUpdate() {
+		super.postUpdate();
+		if( !done && !cd.hasSetS("blink",0.5) )
+			blink(0xffcc00);
+	}
+
 	override function fixedUpdate() {
 		super.fixedUpdate();
 
 		if( !cd.has("maintain") ) {
-			holdS *= 0.9;
+			holdS *= 0.8;
 			if( holdS<=0.1 )
 				holdS = 0;
 			updateProgress();
 		}
+
 	}
 }

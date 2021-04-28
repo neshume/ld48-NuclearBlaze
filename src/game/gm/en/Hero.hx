@@ -680,7 +680,7 @@ class Hero extends gm.Entity {
 			cd.setS("recentMove",0.6);
 
 		// Hold triggers
-		if( isAlive() && verticalAiming==1 && !isWatering() ) {
+		if( isAlive() && onGround && verticalAiming==1 && !isWatering() ) {
 			var e = gm.en.Trigger.getCurrent(this);
 			if( e!=null )
 				e.hold();

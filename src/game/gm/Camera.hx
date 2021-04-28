@@ -9,7 +9,7 @@ class Camera extends dn.Process {
 
 	var target : Null<Entity>;
 	public var targetOffX = 0.;
-	public var targetOffY = -20.;
+	public var targetOffY = 0.;
 	var extraOffX = 0.;
 	var extraOffY = 0.;
 
