@@ -14,7 +14,7 @@ class FireState {
 	public var propagates = true;
 
 	public var extinguished = false;
-	public var quickFire = false;
+	public var oil = false;
 
 	public inline function new() {}
 

@@ -96,7 +96,7 @@ class WaterDrop extends Bullet {
 					}
 				}
 				fs.underControlS = Const.db.ControlDuration_1 * ( 1 - fs.resistance );
-				if( fs.quickFire )
+				if( fs.oil )
 					fs.underControlS*=0.25;
 			}
 		}

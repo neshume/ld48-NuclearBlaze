@@ -83,7 +83,7 @@ class Level extends dn.Process {
 				// Properties
 				if( hasFireState(cx,cy) ) {
 					if( hasProperty(cx, cy+1, Oil) )
-						getFireState(cx,cy).quickFire = true;
+						getFireState(cx,cy).oil = true;
 				}
 			}
 		}
@@ -100,7 +100,7 @@ class Level extends dn.Process {
 	}
 
 	public function hasProperty(cx:Int, cy:Int, prop:Prop) {
-		return isValid(cx,cy) ? data.l_Properties.hasValue(cx,cy, cast prop) : false;
+		return isValid(cx,cy) ? data.l_Props.hasValue(cx,cy, cast prop) : false;
 	}
 
 	override function onDispose() {
@@ -220,8 +220,10 @@ class Level extends dn.Process {
 
 		var tg = new h2d.TileGroup(tilesetSource, root);
 		data.l_Collisions.render(tg);
+		data.l_Props_tiles.render(tg);
 		data.l_Tiles.render(tg);
 		data.l_Pipes.render(tg);
+		data.l_FrontTiles.render(tg);
 	}
 
 	public inline function hasFireState(cx,cy) {
@@ -257,7 +259,7 @@ class Level extends dn.Process {
 				return true;
 			else {
 				fs.ignite(startLevel, startProgress);
-				if( fs.quickFire ) {
+				if( fs.oil ) {
 					fs.level = 1;
 					fs.lr = 0.5;
 					ignite(cx-1,cy);
@@ -400,7 +402,7 @@ class Level extends dn.Process {
 				// Increase
 				if( fs.isBurning() && !fs.isUnderControl() ) {
 					fs.increase( Const.db.FireIncPerTick_1);
-					if( fs.quickFire ) {
+					if( fs.oil ) {
 						ignite(cx-1,cy, 1);
 						ignite(cx+1,cy, 1);
 					}

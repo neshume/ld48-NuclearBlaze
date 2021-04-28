@@ -309,8 +309,11 @@ class Fx extends dn.Process {
 		final maxed = fs.level>=2;
 		var pow = fs.getPowerRatio(true);
 		var baseCol = !maxed ? 0xff0000 : C.interpolateInt(0xff6200,0xffcc33,rnd(0,1));
-		if( fs.quickFire )
-			baseCol = 0x7860e7;
+		var finalCol = 0xb71919;
+		if( fs.oil ) {
+			baseCol = 0x6922ff;
+			finalCol = 0x4a6eb5;
+		}
 
 		var n = Std.int(1+pow*3);
 		if( !level.hasAnyCollision(cx,cy+1) )
@@ -322,7 +325,7 @@ class Fx extends dn.Process {
 		for( i in 0...n ) {
 			var p = allocTopAdd( getTile(dict.fxFlame), getFlameX(cx,cy), getFlameY(cx,cy) );
 			p.setFadeS(maxed ? rnd(0.9,1) : rnd(0.7,0.8), rnd(0.2,0.4), 0.3);
-			p.colorAnimS( baseCol, 0xb71919, rnd(0.3,0.6) );
+			p.colorAnimS( baseCol, finalCol, rnd(0.3,0.6) );
 			p.setScale(rnd(0.9,2) * compressUp(pow,0.7));
 			p.scaleX *= rnd(0.7,1.4,true);
 			p.rotation = -rnd(0.1,0.2);
@@ -493,30 +496,30 @@ class Fx extends dn.Process {
 	}
 
 	public function oilIgnite(cx,cy) {
-		// Dots
-		// for(i in 0...10) {
-		// 	var p = allocTopAdd(getTile(dict.pixel), getFlameX(cx,cy)+rnd(0,8,true), getFlameY(cx,cy)+rnd(0,4,true));
-		// 	p.colorize(0x7860e7);
-		// 	p.alphaFlicker = 0.5;
-		// 	p.dy = -rnd(2,4);
-		// 	p.dx = rnd(0,2,true);
-		// 	p.gy = vary(0.04);
-		// 	p.frict = vary(0.8);
-		// 	p.delayS = i * rnd(0.1,0.2);
-		// 	p.lifeS = rnd(0.2,0.3);
-		// }
 		// Stars
-		for(i in 0...12) {
-			var p = allocTopAdd(getTile(dict.fxStar), getFlameX(cx,cy)+rnd(0,4,true), getFlameY(cx,cy)+rnd(0,4,true)-8);
-			p.colorize(0x7860e7);
-			p.setScale(rnd(0.5,1));
-			p.dr = rnd(0.2,0.3,true);
-			// p.scaleMul = rnd(0.96,0.99);
-			// p.setScale(rnd(0.4,0.6));
-			p.rotation = rnd(0, M.PI,true);
-			p.delayS = i * rnd(0,0.1);
-			p.lifeS = rnd(0.1,0.2);
+		for(i in 0...20) {
+			var p = allocTopAdd(getTile(dict.pixel), getFlameX(cx,cy)+rnd(0,2,true), getFlameY(cx,cy)+rnd(0,2,true)-3);
+			p.alphaFlicker = 0.8;
+			p.setFadeS( aroundBelowOne(0.9), 0, 0.1);
+			p.colorize(0xff0000);
+			p.dx = rnd(0,1,true);
+			p.gy = around(0.05);
+			p.dy = -around(0.5);
+			p.frict = rnd(0.85,0.95);
+			p.lifeS = around(0.3);
+			p.delayS = i*0.05 + zeroTo(0.1,true);
 		}
+		// for(i in 0...12) {
+		// 	var p = allocTopAdd(getTile(dict.fxStar), getFlameX(cx,cy)+rnd(0,4,true), getFlameY(cx,cy)+rnd(0,4,true)-8);
+		// 	p.colorize(0x7860e7);
+		// 	p.setScale(rnd(0.5,1));
+		// 	p.dr = around(0.4) * rndSign();
+		// 	p.dy = -around(2);
+		// 	p.frict = rnd(0.75,0.85);
+		// 	p.rotation = rnd(0, M.PI,true);
+		// 	p.delayS = i * rnd(0,0.1);
+		// 	p.lifeS = rnd(0.1,0.2);
+		// }
 	}
 
 
