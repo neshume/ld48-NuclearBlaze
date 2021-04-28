@@ -371,18 +371,18 @@ class Fx extends dn.Process {
 		for(i in 0...3) {
 			var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,2,true), y+rnd(0,2,true));
 			p.setFadeS(rnd(0.6,0.9), 0.03, around(0.1));
-			p.moveAng( ang + rnd(0.2, 1.3, true), around(0.4));
+			p.moveAng( ang + rnd(0.2, 1.3, true), around(0.7));
 			p.frict = aroundBelowOne(0.8);
 			p.colorize(Const.WATER_COLOR);
 			p.lifeS = around(0.07);
 		}
 
-		for(i in 0...3) {
+		for(i in 0...4) {
 			var p = allocTopAdd( getTile(dict.fxLineDir), x, y);
 			p.setFadeS(aroundBelowOne(0.7), 0.03, around(0.1));
 			p.scaleX = around(0.25);
 			p.scaleY = rnd(1,2);
-			p.moveAng( ang + rnd(0.2, 1.3, true), around(2));
+			p.moveAng( ang + rnd(0.1, 0.6, true), around(2));
 			p.scaleXMul = aroundBelowOne(0.97);
 			p.autoRotateSpeed = 1;
 			p.frict = aroundBelowOne(0.8);

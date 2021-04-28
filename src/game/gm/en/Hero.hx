@@ -396,7 +396,7 @@ class Hero extends gm.Entity {
 		}
 
 		// Control queueing
-		if( ca.xDown() && !isWatering() ) {
+		if( ca.xDown() && !isWatering() && !isChargingAction("water") ) {
 			cancelAction();
 			stopClimbing();
 			queueCommand(UseWater);
@@ -522,11 +522,11 @@ class Hero extends gm.Entity {
 	}
 
 
-	inline function getShootX(ang:Float) {
-		return centerX + Math.cos(ang)*7;
+	inline function getShootX(ang:Float, dist=1.0) {
+		return centerX + Math.cos(ang)*7*dist;
 	}
-	inline function getShootY(ang:Float) {
-		return centerY + Math.sin(ang)*5 + 2;
+	inline function getShootY(ang:Float, dist=1.0) {
+		return centerY + Math.sin(ang)*5*dist + 2;
 	}
 
 
@@ -586,9 +586,6 @@ class Hero extends gm.Entity {
 		}
 		else if( !cd.has("bullet") ) {
 
-			// var shootX = centerX+dir*5;
-			// var shootY = centerY+3;
-
 			// Normal game mode: full control on water
 			if( verticalAiming==0 ) {
 				// Horizontal
@@ -600,18 +597,20 @@ class Hero extends gm.Entity {
 				b.dx*=0.8;
 				b.cd.setS("lock",0.03);
 				cd.setS("bullet",0.02);
+				fx.waterShoot(shootX, shootY, ang);
 			}
 			else if( verticalAiming<0 ) {
 				// UP
 				var ang = dirToAng() - dir*M.PIHALF*0.85;
-				var shootX = getShootX(ang);
-				var shootY = getShootY(ang);
+				var shootX = getShootX(ang, 1.5)+dir*3;
+				var shootY = getShootY(ang, 1.5);
 				var n = 5;
 				for(i in 0...n) {
 					var b = new gm.en.bu.WaterDrop(shootX, shootY, ang + i/(n-1)*dir*0.6  + rnd(0, 0.05, true));
 					b.gravityMul*=0.8;
 				}
 				cd.setS("bullet",0.10);
+				fx.waterShoot(shootX, shootY+2, ang);
 			}
 			else {
 				// Self
@@ -625,7 +624,7 @@ class Hero extends gm.Entity {
 					b.power = 2;
 				}
 				game.cd.setS("reducingHeat", 0.2);
-				cd.setS("bullet",0.16);
+				cd.setS("bullet",0.08);
 			}
 
 		}
