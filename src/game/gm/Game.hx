@@ -67,7 +67,12 @@ class Game extends Process {
 		coldMask.alpha = 0;
 
 		#if debug
-		curLevelIdx = Assets.worldData.all_levels.Lab.arrayIndex;
+		// curLevelIdx = Assets.worldData.all_levels.Lab.arrayIndex;
+		for(l in Assets.worldData.levels)
+			if( l.l_Entities.all_DebugStartPoint.length>0 ) {
+				curLevelIdx = l.arrayIndex;
+				break;
+			}
 		#end
 		startCurrentLevel();
 
@@ -129,6 +134,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_Tutorial) new gm.en.Tutorial(d);
 		for(d in level.data.l_Entities.all_Exit) new gm.en.Exit(d);
 		for(d in level.data.l_Entities.all_Title) new gm.en.Title(d);
+		for(d in level.data.l_Entities.all_WallText) new gm.en.WallText(d);
 		for(d in level.data.l_Entities.all_CameraOffset) new gm.en.CameraOffset(d);
 
 		for(d in level.data.l_Entities.all_Smoker)
@@ -312,7 +318,7 @@ class Game extends Process {
 			heat *= Math.pow(0.997,tmod);
 		}
 		heatMask.alpha = 0.5*heat;
-		coldMask.alpha = 0.5*(1-heat);
+		coldMask.alpha = ( level.fireCount>0 ? 0.2 : 0.5 ) * (1-heat);
 	}
 
 
