@@ -186,13 +186,17 @@ class Level extends dn.Process {
 	// Alias
 	inline function hc(x,y) return hasAnyCollision(x,y);
 
+	inline function isWallCollisionValue(intGrid:Int) {
+		return intGrid==1 || intGrid==4;
+	}
+
 	/** Return TRUE if "Collisions" layer contains a collision value **/
 	public inline function hasAnyCollision(cx,cy) : Bool {
 		return !isValid(cx,cy)
 			? true
 			: collOverride.exists(coordId(cx,cy))
 				? collOverride.get(coordId(cx,cy))
-				: data.l_Collisions.getInt(cx,cy)==1 || data.l_Collisions.getInt(cx,cy)==2;
+				: isWallCollisionValue( data.l_Collisions.getInt(cx,cy) ) || data.l_Collisions.getInt(cx,cy)==2;
 	}
 
 	/** Return TRUE if "Collisions" layer contains a WALL collision value **/
@@ -201,7 +205,7 @@ class Level extends dn.Process {
 			? true
 			: collOverride.exists(coordId(cx,cy))
 				? collOverride.get(coordId(cx,cy))
-				: data.l_Collisions.getInt(cx,cy)==1;
+				: isWallCollisionValue( data.l_Collisions.getInt(cx,cy) );
 	}
 
 	/** Return TRUE if "Collisions" layer contains a ONE WAY collision value **/
