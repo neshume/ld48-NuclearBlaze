@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 281,
+	"nextUid": 282,
 	"worldLayout": "LinearHorizontal",
 	"worldGridWidth": 256,
 	"worldGridHeight": 256,
@@ -2050,7 +2050,28 @@
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0.5,
 			"pivotY": 1,
-			"fieldDefs": []
+			"fieldDefs": [
+				{
+					"identifier": "startInv",
+					"__type": "Array<LocalEnum.Items>",
+					"uid": 281,
+					"type": { "id": "F_Enum", "params": [22] },
+					"isArray": true,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": true,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				}
+			]
 		},
 		{
 			"identifier": "FireStarter",

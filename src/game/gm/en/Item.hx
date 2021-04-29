@@ -9,13 +9,7 @@ class Item extends Entity {
 		data = d;
 		super(d.cx, d.cy);
 
-		isUpgrade = switch data.f_type {
-			case Key, RedCard, BlueCard: false;
-			case WaterSpray: true;
-			case UpWaterLadder: true;
-			case UpWaterUp: true;
-			case UpShield: true;
-		}
+		isUpgrade = isUpgradeItem(data.f_type);
 		wid = hei = isUpgrade ? 11 : 13;
 		gravityMul = 0.6;
 		spr.set("item"+data.f_type.getName());
@@ -25,6 +19,16 @@ class Item extends Entity {
 			halo = Assets.tiles.h_get(dict.upHalo,0, 0.5, 0.5);
 			game.scroller.add(halo, Const.DP_FX_BG);
 			halo.setPosition(sprX,sprY);
+		}
+	}
+
+	public static function isUpgradeItem(k:Enum_Items) {
+		return switch k {
+			case Key, RedCard, BlueCard: false;
+			case WaterSpray: true;
+			case UpWaterLadder: true;
+			case UpWaterUp: true;
+			case UpShield: true;
 		}
 	}
 

@@ -79,6 +79,16 @@ class Hero extends gm.Entity {
 			cd.setS("cineFalling",Const.INFINITE);
 
 		clearInventory();
+		#if debug
+		if( level.data.l_Entities.all_DebugStartPoint.length>0 ) {
+			var d = level.data.l_Entities.all_DebugStartPoint[0];
+			for(i in d.f_startInv)
+				if( gm.en.Item.isUpgradeItem(i) )
+					game.unlockUpgrade(i);
+				else
+					addItem(i);
+		}
+		#end
 	}
 
 	override function getGravity():Float {

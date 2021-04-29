@@ -208,29 +208,29 @@
 					"fieldInstances": [
 						{
 							"__identifier": "title",
-							"__value": "RESTRICTED AREA",
+							"__value": "CORE 1",
 							"__type": "String",
 							"defUid": 140,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["RESTRICTED AREA"]
+								"params": ["CORE 1"]
 							}]
 						},
 						{
 							"__identifier": "color",
-							"__value": "#A27B05",
+							"__value": "#A24E05",
 							"__type": "Color",
 							"defUid": 141,
-							"realEditorValues": [{ "id": "V_Int", "params": [10648325] }]
+							"realEditorValues": [{ "id": "V_Int", "params": [10636805] }]
 						},
 						{
 							"__identifier": "size",
-							"__value": "Medium",
+							"__value": "Large",
 							"__type": "LocalEnum.Font",
 							"defUid": 146,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Medium"]
+								"params": ["Large"]
 							}]
 						},
 						{
@@ -238,6 +238,509 @@
 							"__value": null,
 							"__type": "LocalEnum.FontStyle",
 							"defUid": 149,
+							"realEditorValues": [null]
+						}
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [22,23],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [360,376],
+					"fieldInstances": [
+						{ "__identifier": "spotDir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 208, "realEditorValues": [] },
+						{
+							"__identifier": "color",
+							"__value": "#FF3800",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [16726016] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.66,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.66] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{
+							"__identifier": "gyro",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						}
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [25,23],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [408,376],
+					"fieldInstances": [
+						{ "__identifier": "spotDir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 208, "realEditorValues": [] },
+						{
+							"__identifier": "color",
+							"__value": "#FF3800",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [16726016] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.66,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.66] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{
+							"__identifier": "gyro",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						}
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [27,23],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [440,376],
+					"fieldInstances": [
+						{ "__identifier": "spotDir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 208, "realEditorValues": [] },
+						{
+							"__identifier": "color",
+							"__value": "#FF3800",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [16726016] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.66,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.66] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{
+							"__identifier": "gyro",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						}
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [30,23],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [488,376],
+					"fieldInstances": [
+						{ "__identifier": "spotDir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 208, "realEditorValues": [] },
+						{
+							"__identifier": "color",
+							"__value": "#FF3800",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [16726016] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.66,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.66] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{
+							"__identifier": "gyro",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						}
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [2,13],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [40,224],
+					"fieldInstances": [{
+						"__identifier": "startInv",
+						"__value": [ "UpWaterLadder", "UpWaterUp", "UpShield" ],
+						"__type": "Array<LocalEnum.Items>",
+						"defUid": 281,
+						"realEditorValues": [ {
+							"id": "V_String",
+							"params": ["UpWaterLadder"]
+						}, {
+							"id": "V_String",
+							"params": ["UpWaterUp"]
+						}, {
+							"id": "V_String",
+							"params": ["UpShield"]
+						} ]
+					}]
+				},
+				{
+					"__identifier": "FireStarter",
+					"__grid": [7,10],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [208,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 14,
+					"px": [120,168],
+					"fieldInstances": [
+						{ "__identifier": "range", "__value": 3, "__type": "Int", "defUid": 15, "realEditorValues": [] },
+						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
+						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [6,8],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [104,136],
+					"fieldInstances": [
+						{ "__identifier": "spotDir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 208, "realEditorValues": [] },
+						{
+							"__identifier": "color",
+							"__value": "#00FF5A",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [65370] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.66,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.66] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{
+							"__identifier": "gyro",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						}
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [17,8],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [280,136],
+					"fieldInstances": [
+						{ "__identifier": "spotDir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 208, "realEditorValues": [] },
+						{
+							"__identifier": "color",
+							"__value": "#00FF5A",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [65370] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.66,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.66] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{
+							"__identifier": "gyro",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						}
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [6,29],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [104,472],
+					"fieldInstances": [
+						{ "__identifier": "spotDir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 208, "realEditorValues": [] },
+						{
+							"__identifier": "color",
+							"__value": "#00FF5A",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [65370] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.66,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.66] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{
+							"__identifier": "gyro",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						}
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [17,29],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [280,472],
+					"fieldInstances": [
+						{ "__identifier": "spotDir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 208, "realEditorValues": [] },
+						{
+							"__identifier": "color",
+							"__value": "#00FF5A",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [65370] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.66,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.66] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{
+							"__identifier": "gyro",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						}
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [6,19],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [104,312],
+					"fieldInstances": [
+						{ "__identifier": "spotDir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 208, "realEditorValues": [] },
+						{
+							"__identifier": "color",
+							"__value": "#00ACFF",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [44287] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.65,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.65] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 4,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [4] }]
+						},
+						{
+							"__identifier": "flicker",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 279,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ false ]
+							}]
+						},
+						{
+							"__identifier": "gyro",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [null]
+						}
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [17,19],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [280,312],
+					"fieldInstances": [
+						{ "__identifier": "spotDir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 208, "realEditorValues": [] },
+						{
+							"__identifier": "color",
+							"__value": "#00ACFF",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [44287] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.65,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.65] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 4,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [4] }]
+						},
+						{
+							"__identifier": "flicker",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 279,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ false ]
+							}]
+						},
+						{
+							"__identifier": "gyro",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 280,
 							"realEditorValues": [null]
 						}
 					]
@@ -294,10 +797,10 @@
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,
-				0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,
-				0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,2,0,0,0,0,0,0,0,0,0,0,
@@ -308,14 +811,14 @@
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,0,0,0,0,
-				0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-				0,0,0,0,0,0,0,0,0,0,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0
 			],
 			"autoLayerTiles": [],
@@ -374,8 +877,8 @@
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-				0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,
-				1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,
+				1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,
@@ -400,7 +903,6 @@
 			],
 			"autoLayerTiles": [
 				{ "px": [112,144], "src": [16,144], "f": 0, "t": 361, "d": [160,313] },
-				{ "px": [128,144], "src": [32,144], "f": 0, "t": 362, "d": [160,314] },
 				{ "px": [112,176], "src": [32,144], "f": 0, "t": 362, "d": [160,381] },
 				{ "px": [0,192], "src": [16,144], "f": 0, "t": 361, "d": [160,408] },
 				{ "px": [16,192], "src": [16,144], "f": 0, "t": 361, "d": [160,409] },
@@ -426,7 +928,7 @@
 				{ "px": [240,464], "src": [32,144], "f": 0, "t": 362, "d": [160,1001] },
 				{ "px": [256,464], "src": [32,144], "f": 0, "t": 362, "d": [160,1002] },
 				{ "px": [272,464], "src": [32,144], "f": 0, "t": 362, "d": [160,1003] },
-				{ "px": [144,128], "src": [0,160], "f": 0, "t": 400, "d": [159,281] },
+				{ "px": [128,128], "src": [0,176], "f": 0, "t": 440, "d": [159,280] },
 				{ "px": [96,160], "src": [0,176], "f": 0, "t": 440, "d": [159,346] },
 				{ "px": [128,192], "src": [0,176], "f": 0, "t": 440, "d": [159,416] },
 				{ "px": [128,208], "src": [0,176], "f": 0, "t": 440, "d": [159,450] },
@@ -473,7 +975,7 @@
 				{ "px": [224,352], "src": [0,144], "f": 0, "t": 360, "d": [158,762] },
 				{ "px": [144,416], "src": [0,144], "f": 1, "t": 360, "d": [158,893] },
 				{ "px": [208,432], "src": [0,144], "f": 0, "t": 360, "d": [158,931] },
-				{ "px": [144,144], "src": [0,192], "f": 1, "t": 480, "d": [157,315] },
+				{ "px": [128,144], "src": [0,192], "f": 1, "t": 480, "d": [157,314] },
 				{ "px": [96,176], "src": [0,192], "f": 0, "t": 480, "d": [157,380] },
 				{ "px": [160,240], "src": [0,192], "f": 0, "t": 480, "d": [157,520] },
 				{ "px": [256,256], "src": [0,192], "f": 0, "t": 480, "d": [157,560] },
@@ -513,6 +1015,16 @@
 			"seed": 5931527,
 			"overrideTilesetUid": null,
 			"gridTiles": [
+				{ "px": [112,144], "src": [0,80], "f": 0, "t": 200, "d": [313] },
+				{ "px": [128,144], "src": [0,80], "f": 0, "t": 200, "d": [314] },
+				{ "px": [144,144], "src": [0,80], "f": 0, "t": 200, "d": [315] },
+				{ "px": [160,144], "src": [0,80], "f": 0, "t": 200, "d": [316] },
+				{ "px": [176,144], "src": [0,80], "f": 0, "t": 200, "d": [317] },
+				{ "px": [192,144], "src": [0,80], "f": 0, "t": 200, "d": [318] },
+				{ "px": [208,144], "src": [0,80], "f": 0, "t": 200, "d": [319] },
+				{ "px": [224,144], "src": [0,80], "f": 0, "t": 200, "d": [320] },
+				{ "px": [240,144], "src": [0,80], "f": 0, "t": 200, "d": [321] },
+				{ "px": [256,144], "src": [0,80], "f": 0, "t": 200, "d": [322] },
 				{ "px": [112,160], "src": [0,80], "f": 0, "t": 200, "d": [347] },
 				{ "px": [128,160], "src": [0,80], "f": 0, "t": 200, "d": [348] },
 				{ "px": [144,160], "src": [0,80], "f": 0, "t": 200, "d": [349] },
