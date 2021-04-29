@@ -495,7 +495,7 @@ class Hero extends gm.Entity {
 
 			// Jump
 			if( ( climbing || recentlyOnGround ) && ifQueuedRemove(StartJump) ) {
-				chargeAction("jump", 0.08, ()->{
+				chargeAction("jump", 0.12, ()->{
 					if( climbing && verticalAiming==1 ) {
 						dy = 0.4;
 						cd.setS("oneWayLock",0.35);
@@ -525,6 +525,7 @@ class Hero extends gm.Entity {
 
 			// Watering
 			if( ( onGround || climbing && game.hasUpgrade(UpWaterLadder) ) && ifQueuedRemove(UseWater) ) {
+				cancelAction();
 				dx = 0;
 				var pt = pickSmartWateringTarget();
 				if( pt!=null ) {
@@ -615,7 +616,11 @@ class Hero extends gm.Entity {
 					var b = new gm.en.bu.WaterDrop(shootX, shootY, ang + i/(n-1)*dir*0.6  + rnd(0, 0.05, true));
 					b.gravityMul*=0.8;
 				}
-				cd.setS("bullet",0.10);
+
+				var b = new gm.en.bu.WaterDrop(shootX, shootY, -M.PIHALF + dir*0.03 + rnd(0, 0.05, true));
+				b.gravityMul*=0.8;
+
+				cd.setS("bullet",0.15);
 				fx.waterShoot(shootX, shootY+2, ang);
 			}
 			else if( verticalAiming>0 && game.hasUpgrade(UpShield) ) {
