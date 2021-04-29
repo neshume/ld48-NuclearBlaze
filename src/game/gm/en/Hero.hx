@@ -769,8 +769,8 @@ class Hero extends gm.Entity {
 		}
 
 		// Auto jump
-		if( game.kidMode ) {
-			if( onGround && ca.leftDist()>0 ) {
+		if( onGround && ca.leftDist()>0 ) {
+			if( game.kidMode ) {
 				// Jump 1
 				if( level.hasMark(AutoJump1,cx,cy) && level.hasAnyCollision(cx+dir,cy) && ( dir>0 && xr>0.35 || dir<0 && xr<0.65 ) ) {
 					bump(0.1*dir, 0);
@@ -785,7 +785,17 @@ class Hero extends gm.Entity {
 					dy = -0.81;
 				}
 			}
+			else {
+				// Jump 1 grass
+				if( level.hasMark(AutoJump1,cx,cy) && level.hasGrass(cx+dir,cy) && ( dir>0 && xr>0.35 || dir<0 && xr<0.65 ) ) {
+					bump(0.1*dir, 0);
+					dx = 0;
+					dy = -0.51;
+				}
+			}
 		}
+
+
 
 
 		// Shooting water
