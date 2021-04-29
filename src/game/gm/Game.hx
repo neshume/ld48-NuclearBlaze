@@ -38,6 +38,8 @@ class Game extends Process {
 	var heatMask : h2d.Bitmap;
 	var coldMask : h2d.Bitmap;
 
+	var upgrades : Map<Enum_Items, Bool> = [];
+
 	public function new(kidMode) {
 		super(App.ME);
 
@@ -85,6 +87,16 @@ class Game extends Process {
 			tf.text = Std.string( @:privateAccess fx.pool.count() + " fx" );
 		});
 		#end
+	}
+
+
+	public inline function unlockUpgrade(i:Enum_Items) {
+		upgrades.set(i,true);
+		hud.setUpgrades(upgrades);
+	}
+
+	public inline function hasUpgrade(i:Enum_Items) {
+		return upgrades.exists(i);
 	}
 
 	public function restartCurrentLevel() {

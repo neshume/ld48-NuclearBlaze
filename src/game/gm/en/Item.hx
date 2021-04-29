@@ -16,7 +16,10 @@ class Item extends Entity {
 
 		if( distCase(hero)<=1 && hero.isAlive() ) {
 			fx.itemPickUp(centerX, centerY, Assets.worldData.getEnumColor(data.f_type) );
-			hero.addItem(data.f_type);
+			if( isUpgrade() )
+				game.unlockUpgrade(data.f_type);
+			else
+				hero.addItem(data.f_type);
 			destroy();
 			return;
 		}
@@ -24,6 +27,14 @@ class Item extends Entity {
 		if( onGround && !cd.hasSetS("jump",1) ) {
 			blink(0xffcc00);
 			dy = -0.3;
+		}
+	}
+
+
+	public function isUpgrade() {
+		return switch data.f_type {
+			case Key, RedCard, BlueCard: false;
+			case WaterSpray: true;
 		}
 	}
 }

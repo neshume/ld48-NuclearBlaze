@@ -10,6 +10,7 @@ class Hud extends dn.Process {
 	var notifications : Array<h2d.Flow> = [];
 	var notifTw : dn.Tweenie;
 	var inventory : h2d.Flow;
+	var upgrades: h2d.Flow;
 
 	var debugText : h2d.Text;
 
@@ -22,8 +23,18 @@ class Hud extends dn.Process {
 		notifTw = new Tweenie(Const.FPS);
 
 		flow = new h2d.Flow(root);
+
 		inventory = new h2d.Flow(flow);
 		inventory.filter = new dn.heaps.filter.PixelOutline();
+		inventory.verticalAlign = Middle;
+		inventory.minHeight = 16;
+		inventory.horizontalSpacing = 2;
+
+		upgrades = new h2d.Flow(flow);
+		upgrades.filter = new dn.heaps.filter.PixelOutline();
+		upgrades.verticalAlign = Middle;
+		upgrades.minHeight = 16;
+		upgrades.horizontalSpacing = 2;
 
 		debugText = new h2d.Text(Assets.fontSmall, root);
 		clearDebug();
@@ -105,9 +116,19 @@ class Hud extends dn.Process {
 	public function setInventory(items:Array<Enum_Items>) {
 		inventory.removeChildren();
 		cd.setS("shakeInv",1);
-		for(i in items) {
+		for(i in items)
 			new h2d.Bitmap( Assets.getItem(i), inventory );
-		}
+		flow.reflow();
+		updatePos();
+	}
+
+	public function setUpgrades(ups:Map<Enum_Items,Bool>) {
+		upgrades.removeChildren();
+		cd.setS("shakeUps",2);
+		for( i in ups.keys() )
+			new h2d.Bitmap( Assets.getItem(i), upgrades );
+		flow.reflow();
+		updatePos();
 	}
 
 	public inline function invalidate() invalidated = true;
@@ -121,6 +142,16 @@ class Hud extends dn.Process {
 		notifTw.update(tmod);
 	}
 
+	function updatePos() {
+		inventory.setPosition(3,3);
+		// if( cd.has("shakeInv") )
+		// 	inventory.y += Math.cos(uftime*0.4) * 3 * cd.getRatio("shakeInv");
+
+		upgrades.setPosition( w()/Const.UI_SCALE - upgrades.outerWidth-3, 3 );
+		// if( cd.has("shakeUps") )
+		// 	upgrades.y += Math.cos(uftime*0.4) * 3 * cd.getRatio("shakeUps");
+	}
+
 	override function postUpdate() {
 		super.postUpdate();
 
@@ -129,8 +160,6 @@ class Hud extends dn.Process {
 			render();
 		}
 
-		inventory.setPosition(3,3);
-		if( cd.has("shakeInv") )
-			inventory.y += Math.cos(uftime*0.4) * 3 * cd.getRatio("shakeInv");
+		updatePos();
 	}
 }

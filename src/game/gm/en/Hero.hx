@@ -79,7 +79,7 @@ class Hero extends gm.Entity {
 			cd.setS("cineFalling",Const.INFINITE);
 
 		clearInventory();
-		addItem(WaterSpray);
+		// addItem(WaterSpray);
 	}
 
 	override function getGravity():Float {
