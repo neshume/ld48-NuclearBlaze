@@ -385,6 +385,28 @@ class Fx extends dn.Process {
 		}
 	}
 
+	public inline function lightSmoke(x:Float,y:Float, c:UInt) {
+		var p = allocBgAdd( getTile(dict.fxSmoke), x+rnd(8,20,true), y+rnd(8,20,true) );
+		p.setFadeS(around(0.1), rnd(0.4,0.6), rnd(0.8,1));
+		p.colorize(c);
+		p.setScale(rnd(1,2,true));
+		p.rotation = rnd(0,M.PI2);
+		p.dr = rnd(0,0.02,true);
+		p.ds = rnd(0.002, 0.004);
+		p.gx = around(0.010);
+		p.gy = around(0.015);
+		p.frict = aroundBelowOne(0.94);
+		p.lifeS = rnd(0.3,0.6);
+	}
+
+	public inline function lightFlare(x:Float,y:Float, c:UInt) {
+		var p = allocBgAdd( getTile(dict.fxFlare), x+rnd(0,2,true), y );
+		p.setFadeS(around(0.1), 0.2, around(0.5));
+		p.colorize(c);
+		p.scaleX = rnd(0.3,0.7,true) * ( 0.7 + 0.3*Math.cos(ftime*0.3) );
+		p.lifeS = around(0.2);
+	}
+
 
 	public function waterShoot(x:Float, y:Float, ang:Float) {
 		for(i in 0...3) {

@@ -151,6 +151,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_CameraOffset) new gm.en.CameraOffset(d);
 		for(d in level.data.l_Entities.all_FireSpray) new gm.en.FireSpray(d);
 		for(d in level.data.l_Entities.all_Trigger) new gm.en.Trigger(d);
+		for(d in level.data.l_Entities.all_Light) new gm.en.Light(d);
 
 		for(d in level.data.l_Entities.all_Smoker)
 			dn.Bresenham.iterateDisc(d.cx, d.cy, d.f_radius, (x,y)->{
