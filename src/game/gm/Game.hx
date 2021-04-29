@@ -147,7 +147,6 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_Say) new gm.en.Say(d);
 		for(d in level.data.l_Entities.all_Tutorial) new gm.en.Tutorial(d);
 		for(d in level.data.l_Entities.all_Exit) new gm.en.Exit(d);
-		for(d in level.data.l_Entities.all_Title) new gm.en.Title(d);
 		for(d in level.data.l_Entities.all_WallText) new gm.en.WallText(d);
 		for(d in level.data.l_Entities.all_CameraOffset) new gm.en.CameraOffset(d);
 		for(d in level.data.l_Entities.all_FireSpray) new gm.en.FireSpray(d);
