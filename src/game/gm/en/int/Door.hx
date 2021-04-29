@@ -16,7 +16,7 @@ class Door extends Entity {
 		Game.ME.scroller.add(spr, Const.DP_BG);
 		requiredItem = d.f_requiredItem;
 
-		kicks = d.f_requireLevelComplete ? 0 : d.f_kicks;
+		kicks = d.f_requireLevelComplete || d.f_requiredItem!=null ? 0 : d.f_kicks;
 		cHei = M.round(d.height / Const.GRID);
 		hei = cHei*Const.GRID;
 		closed = !d.f_opened;
