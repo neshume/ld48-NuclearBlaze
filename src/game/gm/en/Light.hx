@@ -102,6 +102,9 @@ class Light extends Entity {
 				power+=rnd(0, 0.1, true);
 		}
 
+		if( data.f_gyro )
+			power = 0.6 + 0.4*Math.cos(ftime*0.2);
+
 		core.alpha = data.f_intensity * power;
 		mainHalo.alpha = data.f_intensity*0.9 * power;
 		largeHalo.alpha = data.f_intensity*0.5 * power;
