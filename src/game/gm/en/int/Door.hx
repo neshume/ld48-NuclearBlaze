@@ -62,7 +62,7 @@ class Door extends Entity {
 		updateCollisions();
 
 		if( requiredItem!=null ) {
-			hero.sayBubble( new h2d.Bitmap(Assets.getItem(requiredItem)), Assets.tilesDict.emoteOk);
+			hero.sayBubble( Assets.getItem(requiredItem), Assets.tilesDict.emoteOk, 0x83c359);
 			hero.removeItem(requiredItem);
 		}
 
@@ -87,6 +87,8 @@ class Door extends Entity {
 
 			hero.bump(dirTo(hero)*0.2, -0.1);
 			hero.cd.setS("shield",0.5);
+			if( !game.hasUpgrade(UpShield) )
+				hero.kill(this);
 
 			dn.Bresenham.iterateDisc(cx,cy,6, (x,y)->{
 				if( level.hasFireState(x,y) && !level.isBurning(x,y) && sightCheck(x,y) ) {

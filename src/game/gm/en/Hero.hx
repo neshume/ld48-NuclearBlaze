@@ -16,7 +16,7 @@ class Hero extends gm.Entity {
 	var cmdQueue : Map<CtrlCommand,Float> = new Map();
 	var verticalAiming = 0;
 	var inventory : Array<Enum_Items> = [];
-	var bubble : Null<h2d.Bitmap>;
+	var bubble : Null<HSprite>;
 	var saying : Null<h2d.Flow>;
 	var waterAng = 0.;
 
@@ -66,8 +66,8 @@ class Hero extends gm.Entity {
 			spr.anim.registerStateAnim(anims.shoot, 3, ()->isWatering() );
 		}
 		else {
-			spr.anim.registerStateAnim(anims.shootUp, 3, ()->isWatering() && verticalAiming<0 );
-			spr.anim.registerStateAnim(anims.shootDown, 3, ()->isWatering() && verticalAiming>0 );
+			spr.anim.registerStateAnim(anims.shootUp, 3, ()->isWatering() && verticalAiming<0 && game.hasUpgrade(UpWaterUp) );
+			spr.anim.registerStateAnim(anims.shootDown, 3, ()->isWatering() && verticalAiming>0 && game.hasUpgrade(UpShield) );
 			spr.anim.registerStateAnim(anims.shoot, 3, ()->isWatering() && verticalAiming==0 );
 		}
 
@@ -79,7 +79,6 @@ class Hero extends gm.Entity {
 			cd.setS("cineFalling",Const.INFINITE);
 
 		clearInventory();
-		// addItem(WaterSpray);
 	}
 
 	override function getGravity():Float {
@@ -136,6 +135,12 @@ class Hero extends gm.Entity {
 	override function hit(dmg:Int, ?from:Entity) {
 		if( !hasShield() )
 			super.hit(dmg, from);
+	}
+
+	override function kill(by:Null<Entity>) {
+		if( hasShield() )
+			cd.unset("shield");
+		super.kill(by);
 	}
 
 	override function onDamage(dmg:Int, from:Entity) {
@@ -240,33 +245,39 @@ class Hero extends gm.Entity {
 		}
 	}
 
-	public function sayBubble(e:h2d.Object, ?extraEmote:String, outlineIcon=true) {
+	public function sayBubble(t:h2d.Tile, ?extraEmote:String, outline=true, color=0xffffff) {
 		clearBubble();
 
-		bubble = Assets.tiles.getBitmap(Assets.tilesDict.bubble);
-		bubble.tile.setCenterRatio(0.5,1);
-		bubble.scaleY = 0;
-		bubble.scaleX = 1.5;
+		bubble = Assets.tiles.h_get(Assets.tilesDict.bubble,0, 0.5, 1);
+		game.scroller.add(bubble, Const.DP_UI);
+		bubble.colorize(color);
 
 		var f = new h2d.Flow(bubble);
 		f.layout = Horizontal;
-		f.minWidth = Std.int( bubble.tile.width );
 		f.verticalAlign = Middle;
 		f.horizontalAlign = Middle;
-		f.horizontalSpacing = 3;
-		f.x = -bubble.tile.width*0.5;
-		f.y = -bubble.tile.height + 7;
+		f.horizontalSpacing = 1;
+		f.minWidth = 19;
+		f.minHeight = 16;
 
-		f.addChild(e);
-		if( outlineIcon )
-			e.filter = new dn.heaps.filter.PixelOutline();
-		if( extraEmote!=null ) {
-			var icon = Assets.tiles.getBitmap(extraEmote);
+		var icon = new h2d.Bitmap(t, f);
+		icon.tile.setCenterRatio(0,0);
+		if( outline )
 			icon.filter = new dn.heaps.filter.PixelOutline();
-			f.addChild(icon);
+
+		if( extraEmote!=null ) {
+			var emote = Assets.tiles.getBitmap(extraEmote, f);
+			emote.filter = new dn.heaps.filter.PixelOutline();
 		}
-		game.scroller.add(bubble, Const.DP_UI);
+
+		f.x = Std.int( -f.outerWidth*0.5 );
+		f.y = -bubble.tile.height+4;
+
+		f.reflow(); // avoid flow bug with scaled objects
+		bubble.scaleY = 0;
+		bubble.scaleX = 1.5;
 		cd.setS("keepBubble",1.5);
+
 	}
 
 	override function onTouchWall(wallDir:Int) {
@@ -289,7 +300,7 @@ class Hero extends gm.Entity {
 						xr = dirTo(d)==1 ? 0.3 : 0.7;
 						chargeAction("openDoor", 0.3, ()->{
 							spr.anim.play(anims.useEnd);
-							sayBubble( Assets.tiles.getBitmap(dict.emoteFire), Assets.tilesDict.emoteBad, false );
+							sayBubble( Assets.tiles.getTile(dict.emoteFire), false, 0xaa0000 );
 							camera.shakeS(0.1,0.2);
 						});
 					}
@@ -300,7 +311,7 @@ class Hero extends gm.Entity {
 						xr = dirTo(d)==1 ? 0.3 : 0.7;
 						chargeAction("openDoor", 0.3, ()->{
 							spr.anim.play(anims.useEnd);
-							sayBubble( new h2d.Bitmap(Assets.getItem(d.requiredItem)), Assets.tilesDict.emoteQuestion);
+							sayBubble( Assets.getItem(d.requiredItem), Assets.tilesDict.emoteQuestion, 0xaa0000);
 							camera.shakeS(0.1,0.2);
 						});
 					}
@@ -332,7 +343,7 @@ class Hero extends gm.Entity {
 							camera.bump(wallDir, 3);
 							cd.setS("doorKickLimit",0.3);
 							d.setSquashX(0.5);
-							sayBubble( Assets.tiles.getBitmap("emoteNumber"+d.kicks), Assets.tilesDict.emoteShield);
+							sayBubble( Assets.tiles.getTile("emoteNumber"+d.kicks), Assets.tilesDict.emoteShield, 0xd3967d);
 						}
 					});
 			}
@@ -352,9 +363,11 @@ class Hero extends gm.Entity {
 
 		if( bubble!=null ) {
 			bubble.x = sprX;
-			bubble.y = top;
+			bubble.y = top-3;
 			bubble.scaleX += (1-bubble.scaleX) * M.fmin(1, 0.3*tmod);
-			bubble.scaleY += (1-bubble.scaleY) * M.fmin(1, 0.3*tmod);
+			bubble.scaleY += (1-bubble.scaleY) * M.fmin(1, 0.2*tmod);
+			if( M.fabs(bubble.scaleY-1)<=0.1 )
+				bubble.scaleY = 1;
 			if( !cd.has("keepBubble") ) {
 				bubble.alpha-=0.03*tmod;
 				if( bubble.alpha<=0 )
@@ -400,7 +413,6 @@ class Hero extends gm.Entity {
 		// Control queueing
 		if( ca.xDown() && !isWatering() && !isChargingAction("water") ) {
 			cancelAction();
-			// stopClimbing();
 			queueCommand(UseWater);
 		}
 		if( ca.yPressed() ) {
@@ -512,7 +524,7 @@ class Hero extends gm.Entity {
 			}
 
 			// Watering
-			if( ( onGround || climbing ) && ifQueuedRemove(UseWater) ) {
+			if( ( onGround || climbing && game.hasUpgrade(UpWaterLadder) ) && ifQueuedRemove(UseWater) ) {
 				dx = 0;
 				var pt = pickSmartWateringTarget();
 				if( pt!=null ) {
@@ -593,19 +605,7 @@ class Hero extends gm.Entity {
 		else if( !cd.has("bullet") ) {
 
 			// Normal game mode: full control on water
-			if( verticalAiming==0 ) {
-				// Horizontal
-				var ang = dirToAng();
-				var shootX = getShootX(ang);
-				var shootY = getShootY(ang);
-				var b = new gm.en.bu.WaterDrop(shootX, shootY, ang-dir*0.2 + rnd(0, 0.05, true));
-				var b = new gm.en.bu.WaterDrop(shootX, shootY, ang-dir*0.1 + rnd(0, 0.05, true));
-				b.dx*=0.8;
-				b.cd.setS("lock",0.03);
-				cd.setS("bullet",0.02);
-				fx.waterShoot(shootX, shootY, ang);
-			}
-			else if( verticalAiming<0 ) {
+			if( verticalAiming<0 && game.hasUpgrade(UpWaterUp) ) {
 				// UP
 				var ang = dirToAng() - dir*M.PIHALF*0.85;
 				var shootX = getShootX(ang, 1.5)+dir*3;
@@ -618,7 +618,7 @@ class Hero extends gm.Entity {
 				cd.setS("bullet",0.10);
 				fx.waterShoot(shootX, shootY+2, ang);
 			}
-			else {
+			else if( verticalAiming>0 && game.hasUpgrade(UpShield) ) {
 				// Self
 				var n = 6;
 				var ang = 0.25;
@@ -632,7 +632,18 @@ class Hero extends gm.Entity {
 				game.cd.setS("reducingHeat", 0.2);
 				cd.setS("bullet",0.08);
 			}
-
+			else {
+				// Horizontal
+				var ang = dirToAng();
+				var shootX = getShootX(ang);
+				var shootY = getShootY(ang);
+				var b = new gm.en.bu.WaterDrop(shootX, shootY, ang-dir*0.2 + rnd(0, 0.05, true));
+				var b = new gm.en.bu.WaterDrop(shootX, shootY, ang-dir*0.1 + rnd(0, 0.05, true));
+				b.dx*=0.8;
+				b.cd.setS("lock",0.03);
+				cd.setS("bullet",0.02);
+				fx.waterShoot(shootX, shootY, ang);
+			}
 		}
 	}
 
@@ -672,7 +683,7 @@ class Hero extends gm.Entity {
 		// Walk movement
 		if( walkSpeed!=0 ) {
 			if( climbing && climbSpeed==0 )
-				dx += walkSpeed*0.065;
+				dx += walkSpeed*0.048;
 			else if( !climbing )
 				dx += walkSpeed*0.03;
 			cd.setS("recentMove",0.3);

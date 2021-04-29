@@ -69,6 +69,8 @@ class Game extends Process {
 		coldMask.alpha = 0;
 
 		#if debug
+		// unlockUpgrade(UpWaterUp);
+		// unlockUpgrade(UpShield);
 		for(l in Assets.worldData.levels)
 			if( l.l_Entities.all_DebugStartPoint.length>0 ) {
 				curLevelIdx = l.arrayIndex;
@@ -129,6 +131,7 @@ class Game extends Process {
 		for(e in Entity.ALL) // <---- Replace this with more adapted entity destruction (eg. keep the player alive)
 			e.destroy();
 		garbageCollectEntities();
+		hud.clear();
 
 		// Inits
 		heat = 0;

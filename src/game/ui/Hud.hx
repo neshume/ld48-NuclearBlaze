@@ -11,6 +11,7 @@ class Hud extends dn.Process {
 	var notifTw : dn.Tweenie;
 	var inventory : h2d.Flow;
 	var upgrades: h2d.Flow;
+	var curUp: Null<h2d.Flow>;
 
 	var debugText : h2d.Text;
 
@@ -43,12 +44,79 @@ class Hud extends dn.Process {
 	override function onResize() {
 		super.onResize();
 		root.setScale(Const.UI_SCALE);
+		if( curUp!=null )
+			curUp.minWidth = Std.int( w()/Const.UI_SCALE );
+	}
+
+	public function clear() {
+		clearDebug();
+		clearNotifications();
+		clearUpgradeMessage();
+		setInventory([]);
 	}
 
 	/** Clear debug printing **/
 	public inline function clearDebug() {
 		debugText.text = "";
 		debugText.visible = false;
+	}
+
+
+	public function upgradeFound(i:Enum_Items) {
+		clearUpgradeMessage();
+		var name : Null<LocaleString> = null;
+		var desc : Null<LocaleString> = null;
+		switch i {
+			case Key, RedCard, BlueCard:
+			case WaterSpray:
+
+			case UpWaterLadder:
+				name = L.t._("LADDER GRIP!");
+				desc = L.t._("You can now use water from ladders.");
+
+			case UpWaterUp:
+				name = L.t._("SUPER FIRE HOSE!");
+				desc = L.t._("Hold [UP] while watering to aim up.");
+
+			case UpShield:
+				name = L.t._("SHOWERING!");
+				desc = L.t._("Hold [DOWN] while watering to protect yourself.");
+		}
+
+		if( name!=null ) {
+			curUp = new h2d.Flow(root);
+			curUp.layout = Horizontal;
+			curUp.horizontalAlign = Middle;
+			curUp.verticalAlign = Middle;
+			curUp.horizontalSpacing = 4;
+
+			var halo = Assets.tiles.h_get(Assets.tilesDict.upHalo, curUp);
+			halo.anim.playAndLoop(Assets.tilesDict.upHalo).setSpeed(0.3);
+			var icon = new h2d.Bitmap(Assets.getItem(i), halo);
+			icon.tile.setCenterRatio(0.5,0.5);
+			icon.setPosition( Std.int(halo.tile.width*0.5), Std.int(halo.tile.height*0.5) );
+
+			var f = new h2d.Flow(curUp);
+			f.layout = Vertical;
+
+			var tf = new h2d.Text(Assets.fontPixel, f);
+			tf.text = name;
+
+			var tf = new h2d.Text(Assets.fontPixel, f);
+			tf.textColor = 0xffcc00;
+			tf.text = desc;
+
+			curUp.y = h()/Const.UI_SCALE;
+			tw.createS(curUp.y, h()/Const.UI_SCALE - curUp.outerHeight - 3, TElasticEnd, 0.5 );
+			dn.Process.resizeAll();
+		}
+	}
+
+	public inline function clearUpgradeMessage() {
+		if( curUp!=null ) {
+			curUp.remove();
+			curUp = null;
+		}
 	}
 
 	/** Display a debug string **/
