@@ -431,22 +431,10 @@
 					"height": 12,
 					"defUid": 143,
 					"px": [40,224],
-					"fieldInstances": [{
-						"__identifier": "startInv",
-						"__value": [ "UpWaterLadder", "UpWaterUp", "UpShield" ],
-						"__type": "Array<LocalEnum.Items>",
-						"defUid": 281,
-						"realEditorValues": [ {
-							"id": "V_String",
-							"params": ["UpWaterLadder"]
-						}, {
-							"id": "V_String",
-							"params": ["UpWaterUp"]
-						}, {
-							"id": "V_String",
-							"params": ["UpShield"]
-						} ]
-					}]
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "FireStarter",

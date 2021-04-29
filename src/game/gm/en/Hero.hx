@@ -87,6 +87,13 @@ class Hero extends gm.Entity {
 					game.unlockUpgrade(i);
 				else
 					addItem(i);
+			if( d.f_unlockAllUpgrades )
+				for(k in Enum_Items.getConstructors()) {
+					var i = Enum_Items.createByName(k);
+					if( gm.en.Item.isUpgradeItem(i) )
+						game.unlockUpgrade(i);
+				}
+
 		}
 		#end
 	}
