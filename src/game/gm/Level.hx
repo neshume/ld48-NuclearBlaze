@@ -316,7 +316,7 @@ class Level extends dn.Process {
 
 	public inline function revealFog(cx,cy, allowRecursion=true) {
 		if( !isFogRevealed(cx,cy) ) {
-			fogReveals.set( coordId(cx,cy), 0 );
+			fogReveals.set( coordId(cx,cy), 0.33 );
 
 			if( allowRecursion ) {
 				// Wall edges
