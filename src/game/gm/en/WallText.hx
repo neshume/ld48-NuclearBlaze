@@ -10,6 +10,7 @@ class WallText extends Entity {
 		game.scroller.add(spr,Const.DP_BG);
 
 		var tf = new h2d.Text(switch data.f_size {
+			case Pixel: Assets.fontPixel;
 			case Tiny: Assets.fontTiny;
 			case Small: Assets.fontSmall;
 			case Medium:  Assets.fontMedium;
