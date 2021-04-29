@@ -52,7 +52,9 @@ class Hero extends gm.Entity {
 		spr.anim.registerStateAnim(anims.kickCharge, 8, ()->isChargingAction("kickDoor") );
 
 		spr.anim.registerStateAnim(anims.climbMove, 8, ()->climbing && climbSpeed!=0 );
-		spr.anim.registerStateAnim(anims.climbIdle, 8, ()->climbing && climbSpeed==0 );
+		spr.anim.registerStateAnim(anims.climbStretchFar, 8, ()->climbing && climbSpeed==0 && walkSpeed!=0 && M.fabs(xr-0.5)>0.1 );
+		spr.anim.registerStateAnim(anims.climbStretchClose, 8, ()->climbing && climbSpeed==0 && walkSpeed!=0 && M.fabs(xr-0.5)<=0.1 );
+		spr.anim.registerStateAnim(anims.climbIdle, 8, ()->climbing && climbSpeed==0 && walkSpeed==0 );
 
 		spr.anim.registerStateAnim(anims.jumpUp, 7, ()->!onGround && dy<0.1 );
 		spr.anim.registerStateAnim(anims.jumpDown, 6, ()->!onGround );
@@ -398,7 +400,7 @@ class Hero extends gm.Entity {
 		// Control queueing
 		if( ca.xDown() && !isWatering() && !isChargingAction("water") ) {
 			cancelAction();
-			stopClimbing();
+			// stopClimbing();
 			queueCommand(UseWater);
 		}
 		if( ca.yPressed() ) {
@@ -446,9 +448,7 @@ class Hero extends gm.Entity {
 				if( verticalAiming==1 )
 					tryToClimbDown = true;
 		}
-		if( tryToClimbUp || tryToClimbDown )
-			clearCommandQueue(StartJump);
-		else
+		if( !tryToClimbUp && !tryToClimbDown )
 			climbInsistS = 0;
 
 		if( climbing )
@@ -458,8 +458,8 @@ class Hero extends gm.Entity {
 		if( !controlsLocked() && !isWatering() ) {
 			// Start climbing up/down
 			if( tryToClimbUp || tryToClimbDown ) {
-				climbInsistS += 1/Const.FPS * tmod;
-				if( climbInsistS>=0.12 ) {
+				climbInsistS += ( 1/Const.FPS * tmod );
+				if( climbInsistS>=0.12 || !onGround ) {
 					startClimbing();
 					if( tryToClimbUp )
 						dy = -0.1;
@@ -474,9 +474,11 @@ class Hero extends gm.Entity {
 			}
 
 			// Walk
-			if( ca.leftDist()>0 && !climbing ) {
-				walkSpeed = Math.cos(ca.leftAngle()) * ca.leftDist();
-				dir = M.radDistance(0,ca.leftAngle()) <= M.PIHALF ? 1 : -1;
+			if( ca.leftDist()>0 ) {
+				if( !climbing || M.radCloseTo(ca.leftAngle(), 0, M.PIHALF*0.4) || M.radCloseTo(ca.leftAngle(), M.PI, M.PIHALF*0.4) ) {
+					walkSpeed = Math.cos(ca.leftAngle()) * ca.leftDist();
+					dir = M.radDistance(0,ca.leftAngle()) <= M.PIHALF ? 1 : -1;
+				}
 			}
 
 			// Jump
@@ -486,12 +488,16 @@ class Hero extends gm.Entity {
 						dy = 0.4;
 						cd.setS("oneWayLock",0.35);
 					}
-					else if( climbing && verticalAiming==0 )
-						dy = -Const.db.HeroJump_1 * 0.4;
+					else if( climbing ) {
+						if( level.hasOneWay(cx,cy-1) || level.hasOneWay(cx,cy-2) )
+							cd.setS("oneWayLock",0.25);
+						dy = -Const.db.HeroJump_1 * 0.25;
+					}
 					else
 						dy = -Const.db.HeroJump_1;
+					if( climbing )
+						cd.setS("climbLock",0.35);
 					stopClimbing();
-					cd.setS("climbLock",0.35);
 					setSquashX(0.6);
 					clearRecentlyOnGround();
 				});
@@ -506,7 +512,7 @@ class Hero extends gm.Entity {
 			}
 
 			// Watering
-			if( onGround && ifQueuedRemove(UseWater) ) {
+			if( ( onGround || climbing ) && ifQueuedRemove(UseWater) ) {
 				dx = 0;
 				var pt = pickSmartWateringTarget();
 				if( pt!=null ) {
@@ -660,12 +666,15 @@ class Hero extends gm.Entity {
 		}
 
 		// Recenter on ladder
-		if( climbing )
-			xr+= (0.5-dir*0.2 - xr)*0.5;
+		if( climbing  )
+			xr+= ( 0.5 - xr ) * 0.5;
 
 		// Walk movement
 		if( walkSpeed!=0 ) {
-			dx += walkSpeed*0.03;
+			if( climbing && climbSpeed==0 )
+				dx += walkSpeed*0.065;
+			else if( !climbing )
+				dx += walkSpeed*0.03;
 			cd.setS("recentMove",0.3);
 		}
 		else if( !isChargingAction("jump") )
