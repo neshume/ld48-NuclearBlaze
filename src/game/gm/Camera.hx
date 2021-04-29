@@ -93,13 +93,13 @@ class Camera extends dn.Process {
 		return M.ceil( Game.ME.h() / Const.SCALE / zoom );
 	}
 
-	public inline function isOnScreen(levelX:Float, levelY: Float) {
-		return levelX>=left && levelX<=right && levelY>=top && levelY<=bottom;
+	public inline function isOnScreen(levelX:Float, levelY: Float, padding=0.) {
+		return levelX>=left-padding && levelX<=right+padding && levelY>=top-padding && levelY<=bottom+padding;
 	}
 
-	public inline function isOnScreenCase(cx:Int, cy:Int, pad=32) {
-		return cx*Const.GRID>=left-pad && (cx+1)*Const.GRID<=right+pad
-			&& cy*Const.GRID>=top-pad && (cy+1)*Const.GRID<=bottom+pad;
+	public inline function isOnScreenCase(cx:Int, cy:Int, padding=32) {
+		return cx*Const.GRID>=left-padding && (cx+1)*Const.GRID<=right+padding
+			&& cy*Const.GRID>=top-padding && (cy+1)*Const.GRID<=bottom+padding;
 	}
 
 	public function trackEntity(e:Entity, immediate:Bool, speed=1.0) {

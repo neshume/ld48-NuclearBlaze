@@ -597,6 +597,11 @@ class Entity {
 	function onAffectStart(k:Affect) {}
 	function onAffectEnd(k:Affect) {}
 
+	public inline function isOnScreen(padding=32) {
+		return camera.isOnScreen(centerX, centerY, padding);
+	}
+
+
 	/** Return TRUE if the entity is active and has no status affect that prevents actions. **/
 	public function isConscious() {
 		return !hasAffect(Stun) && isAlive();
