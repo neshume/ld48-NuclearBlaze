@@ -115,6 +115,7 @@ class Hud extends dn.Process {
 	public inline function clearUpgradeMessage() {
 		if( curUp!=null ) {
 			curUp.remove();
+			tw.terminateWithoutCallbacks(curUp.y);
 			curUp = null;
 		}
 	}
