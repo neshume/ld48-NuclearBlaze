@@ -346,9 +346,9 @@ class Fx extends dn.Process {
 		return maxValue * rnd(1-pct, 1);
 	}
 
-	inline function fullCircle() return rnd(0,M.PI2);
-	inline function halfCircle() return rnd(0,M.PI);
-	inline function quarterCircle() return rnd(0,M.PIHALF);
+	inline function randCircle() return rnd(0,M.PI2);
+	inline function randHalfCircle() return rnd(0,M.PI);
+	inline function randQuarterCircle() return rnd(0,M.PIHALF);
 
 	inline function around(v:Float, pct=10) {
 		return v * ( 1 + rnd(0,pct/100,true) );
@@ -364,6 +364,25 @@ class Fx extends dn.Process {
 
 	inline function randColor(minColor:UInt, maxColor:UInt) : UInt {
 		return C.interpolateInt( minColor, maxColor, rnd(0,1) );
+	}
+
+	public function upgradeHalo(x:Float, y:Float) {
+		for(i in 0...4) {
+			var a = randCircle();
+			var p = allocTopAdd( getTile(dict.fxLineDir), x,y );
+			p.setFadeS( around(0.5), 0.3, 0.4 );
+			p.colorize(0xff8800);
+			p.setCenterRatio(1.3, 0.5);
+
+			p.rotation = a+M.PI;
+			p.scaleX = around(0.2);
+			p.dr = zeroTo(0.01,true);
+			p.dsX = around(0.1);
+			p.dsFrict = aroundBelowOne(0.76);
+			p.scaleXMul = rnd(0.985,0.999);
+			p.lifeS = around(0.4);
+
+		}
 	}
 
 

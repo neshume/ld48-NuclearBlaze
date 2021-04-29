@@ -2,39 +2,79 @@ package gm.en;
 
 class Item extends Entity {
 	public var data : Entity_Item;
+	var halo : Null<HSprite>;
+	public var isUpgrade(default,null) = false;
+
 	public function new(d:Entity_Item) {
 		data = d;
 		super(d.cx, d.cy);
 
+		isUpgrade = switch data.f_type {
+			case Key, RedCard, BlueCard: false;
+			case WaterSpray: true;
+			case UpWaterLadder: true;
+			case UpWaterUp: true;
+			case UpShield: true;
+		}
+		wid = hei = isUpgrade ? 11 : 13;
 		gravityMul = 0.6;
 		spr.set("item"+data.f_type.getName());
 		spr.filter = new dn.heaps.filter.PixelOutline(0x0);
+
+		if( isUpgrade ) {
+			halo = Assets.tiles.h_get(dict.upHalo,0, 0.5, 0.5);
+			game.scroller.add(halo, Const.DP_FX_BG);
+			halo.setPosition(sprX,sprY);
+		}
 	}
+
+	override function dispose() {
+		super.dispose();
+
+		if( halo!=null ) {
+			halo.remove();
+			halo = null;
+		}
+	}
+
+
+	override function postUpdate() {
+		super.postUpdate();
+
+		if( halo!=null ) {
+			halo.x += ( sprX - halo.x ) * 0.3;
+			halo.y += ( Std.int( sprY - spr.tile.height*0.5 ) - halo.y ) * 0.3;
+		}
+
+		if( isUpgrade && !cd.hasSetS("fx",0.03) && isOnScreen() )
+			fx.upgradeHalo(centerX, centerY);
+	}
+
 
 	override function fixedUpdate() {
 		super.fixedUpdate();
 
+		// Pick up
 		if( distCase(hero)<=1 && hero.isAlive() ) {
 			fx.itemPickUp(centerX, centerY, Assets.worldData.getEnumColor(data.f_type) );
-			if( isUpgrade() )
+			if( isUpgrade ) {
+				hud.upgradeFound(data.f_type);
 				game.unlockUpgrade(data.f_type);
+			}
 			else
 				hero.addItem(data.f_type);
 			destroy();
 			return;
 		}
 
-		if( onGround && !cd.hasSetS("jump",1) ) {
+		// Halo anim
+		if( halo!=null && !cd.hasSetS("shine",1) )
+			halo.anim.play(dict.upHalo).setSpeed(0.3);
+
+		// Jump
+		if( !isUpgrade && onGround && !cd.hasSetS("jump",1) ) {
 			blink(0xffcc00);
-			dy = -0.3;
-		}
-	}
-
-
-	public function isUpgrade() {
-		return switch data.f_type {
-			case Key, RedCard, BlueCard: false;
-			case WaterSpray: true;
+			dy = -0.22;
 		}
 	}
 }
