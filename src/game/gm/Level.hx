@@ -393,6 +393,15 @@ class Level extends dn.Process {
 		return dn.Bresenham.checkThinLine(x1,y1, x2,y2, canSeeThrough);
 	}
 
+
+	public function suspendFireForS(t:Float) {
+		cd.setS("fireSuspended", t);
+	}
+
+	public inline function fireSuspended() {
+		return !cd.has("fireSuspended");
+	}
+
 	function updateFire() {
 		fireCount = 0;
 
@@ -411,6 +420,9 @@ class Level extends dn.Process {
 
 				if( fs.isBurning() )
 					fireCount++;
+
+				if( fireSuspended() )
+					continue;
 
 				// Increase
 				if( fs.isBurning() && !fs.isUnderControl() ) {

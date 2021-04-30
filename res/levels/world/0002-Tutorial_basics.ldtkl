@@ -92,7 +92,8 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [1] }]
 						},
 						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
-						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] }
+						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{
@@ -120,7 +121,8 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
 						},
 						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
-						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] }
+						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{
@@ -228,7 +230,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{

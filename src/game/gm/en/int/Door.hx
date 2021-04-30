@@ -12,17 +12,23 @@ class Door extends Entity {
 	public function new(d:Entity_Door) {
 		super(d.cx,d.cy);
 		data = d;
+		triggerId = data.f_id;
 		ALL.push(this);
 		Game.ME.scroller.add(spr, Const.DP_BG);
 		requiredItem = d.f_requiredItem;
 
-		kicks = d.f_requireLevelComplete || d.f_requiredItem!=null ? 0 : d.f_kicks;
+		kicks = d.f_requireLevelComplete || d.f_requiredItem!=null || d.f_id>=0 ? 0 : d.f_kicks;
 		cHei = M.round(d.height / Const.GRID);
 		hei = cHei*Const.GRID;
 		closed = !d.f_opened;
 		updateCollisions();
 		for(y in cy-cHei+1...cy+1)
 			level.setMark(DoorZone, cx,y);
+	}
+
+	override function trigger() {
+		super.trigger();
+		open( -dirTo(hero) );
 	}
 
 	public static function getAt(cx,cy) {
@@ -61,6 +67,10 @@ class Door extends Entity {
 		level.clearFogUpdateDelay();
 		updateCollisions();
 
+		dn.Bresenham.iterateDisc(cx, cy-1, 2, (x,y)->{
+			level.revealFog(x,y);
+		});
+
 		if( requiredItem!=null ) {
 			hero.sayBubble( Assets.getItem(requiredItem), Assets.tilesDict.emoteOk, 0x83c359);
 			hero.removeItem(requiredItem);
@@ -86,7 +96,7 @@ class Door extends Entity {
 			fx.doorExplosion(centerX, centerY, -openDir);
 
 			hero.bump(dirTo(hero)*0.2, -0.1);
-			hero.cd.setS("shield",0.5);
+			hero.cd.setS("shield",0.75);
 			if( !game.hasUpgrade(UpShield) )
 				hero.kill(this);
 

@@ -42,6 +42,14 @@
 			],
 			"lines": [
 				{
+					"constId": "MaxCameraZoom",
+					"value1": 10
+				},
+				{
+					"constId": "FogRevealAnimSpeed",
+					"value1": 0.05
+				},
+				{
 					"desc1": "power",
 					"value1": 0.05,
 					"constId": "Gravity"
@@ -92,20 +100,27 @@
 				},
 				{
 					"constId": "ControlDuration",
-					"value1": 10
+					"value1": 10,
+					"desc1": "Fire kept under control when watering it"
 				},
 				{
 					"constId": "WaterFireDecrease",
 					"value1": 0.3,
 					"desc1": "Fire loss on watering"
-				},
-				{
-					"constId": "FogRevealAnimSpeed",
-					"value1": 0.05
 				}
 			],
-			"separators": [],
-			"props": {}
+			"props": {
+				"separatorTitles": [
+					"General",
+					"Hero",
+					"Fire"
+				]
+			},
+			"separatorIds": [
+				"MaxCameraZoom",
+				"HeroJump",
+				"FireTick"
+			]
 		}
 	],
 	"customTypes": [],

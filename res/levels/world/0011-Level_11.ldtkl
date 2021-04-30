@@ -89,7 +89,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{
@@ -255,7 +256,8 @@
 								"id": "V_Bool",
 								"params": [ false ]
 							}]
-						}
+						},
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{
@@ -292,7 +294,8 @@
 							"__type": "Bool",
 							"defUid": 88,
 							"realEditorValues": [null]
-						}
+						},
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{
@@ -329,7 +332,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{

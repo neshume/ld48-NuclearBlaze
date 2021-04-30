@@ -83,7 +83,8 @@
 							"defUid": 25,
 							"realEditorValues": [null]
 						},
-						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] }
+						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{
@@ -105,7 +106,8 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
 						},
 						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
-						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] }
+						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{
@@ -127,7 +129,8 @@
 						},
 						{ "__identifier": "kicks", "__value": 3, "__type": "Int", "defUid": 21, "realEditorValues": [] },
 						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
-						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] }
+						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{
@@ -257,7 +260,8 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
 						},
 						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
-						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] }
+						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{
@@ -285,7 +289,8 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [3] }]
 						},
 						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
-						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] }
+						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{
@@ -342,7 +347,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{
@@ -421,7 +427,7 @@
 					"__identifier": "Trigger",
 					"__grid": [28,14],
 					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [0,144,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [32,176,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 179,
@@ -530,7 +536,7 @@
 								"params": ["A"]
 							}]
 						},
-						{ "__identifier": "color", "__value": "#002859", "__type": "Color", "defUid": 141, "realEditorValues": [] },
+						{ "__identifier": "color", "__value": "#003575", "__type": "Color", "defUid": 141, "realEditorValues": [] },
 						{
 							"__identifier": "size",
 							"__value": "Small",
@@ -584,7 +590,15 @@
 				{ "px": [432,224], "src": [208,16], "f": 0, "t": 53, "d": [177,951] },
 				{ "px": [448,224], "src": [192,16], "f": 0, "t": 52, "d": [177,952] },
 				{ "px": [464,224], "src": [192,16], "f": 0, "t": 52, "d": [177,953] },
-				{ "px": [480,224], "src": [192,16], "f": 0, "t": 52, "d": [177,954] }
+				{ "px": [480,224], "src": [192,16], "f": 0, "t": 52, "d": [177,954] },
+				{ "px": [272,224], "src": [208,48], "f": 1, "t": 133, "d": [286,941] },
+				{ "px": [384,224], "src": [208,48], "f": 0, "t": 133, "d": [286,948] },
+				{ "px": [416,224], "src": [176,48], "f": 1, "t": 131, "d": [286,950] },
+				{ "px": [496,224], "src": [192,48], "f": 0, "t": 132, "d": [286,955] },
+				{ "px": [272,240], "src": [208,64], "f": 1, "t": 173, "d": [287,1007] },
+				{ "px": [384,240], "src": [176,64], "f": 0, "t": 171, "d": [287,1014] },
+				{ "px": [416,240], "src": [176,64], "f": 1, "t": 171, "d": [287,1016] },
+				{ "px": [496,240], "src": [176,64], "f": 0, "t": 171, "d": [287,1021] }
 			],
 			"seed": 5760941,
 			"overrideTilesetUid": null,

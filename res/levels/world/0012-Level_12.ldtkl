@@ -134,7 +134,7 @@
 					"__identifier": "Trigger",
 					"__grid": [9,4],
 					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [0,144,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [32,176,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 179,

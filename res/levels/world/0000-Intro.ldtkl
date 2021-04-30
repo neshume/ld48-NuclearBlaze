@@ -98,7 +98,8 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
 						},
 						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
-						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] }
+						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{
@@ -123,13 +124,13 @@
 				},
 				{
 					"__identifier": "Hero",
-					"__grid": [20,7],
+					"__grid": [15,7],
 					"__pivot": [0.5,1],
 					"__tile": { "tilesetUid": 26, "srcRect": [0,176,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 1,
-					"px": [328,128],
+					"px": [248,128],
 					"fieldInstances": [{ "__identifier": "lookRight", "__value": true, "__type": "Bool", "defUid": 28, "realEditorValues": [] }]
 				},
 				{
@@ -290,20 +291,6 @@
 							}]
 						},
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [16,20],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [264,336],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] }
 					]
 				},
 				{

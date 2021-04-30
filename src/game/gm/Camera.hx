@@ -30,9 +30,12 @@ class Camera extends dn.Process {
 	var dy : Float;
 	var bumpOffX = 0.;
 	var bumpOffY = 0.;
+	var bumpZoomFactor = 0.;
 
 	/** Zoom factor **/
-	public var zoom(default,set) = 1.0;
+	public var targetZoom(default,set) = 1.0;
+	var curZoom = 1.;
+	public var zoom(get,never) : Float;
 
 	/** Speed multiplier when camera is tracking a target **/
 	var trackingSpeed = 1.0;
@@ -81,8 +84,16 @@ class Camera extends dn.Process {
 		return 'Camera@${rawFocus.levelX},${rawFocus.levelY}';
 	}
 
-	function set_zoom(v) {
-		return zoom = M.fclamp(v,1,10);
+	inline function set_targetZoom(v) {
+		return targetZoom = M.fclamp(v, 1, Const.db.MaxCameraZoom_1);
+	}
+
+	public inline function bumpZoom(z:Float) {
+		bumpZoomFactor = M.fmax(bumpZoomFactor, z);
+	}
+
+	inline function get_zoom() {
+		return M.fclamp( curZoom + bumpZoomFactor, 1, Const.db.MaxCameraZoom_1 );
 	}
 
 	function get_pxWid() {
@@ -241,6 +252,10 @@ class Camera extends dn.Process {
 		super.update();
 
 		final level = Game.ME.level;
+
+		// Zoom interpolation
+		curZoom += ( targetZoom - curZoom ) * M.fmin(1, tmod*0.2);
+		bumpZoomFactor *= Math.pow(0.9, tmod);
 
 		// Follow target entity
 		if( target!=null ) {

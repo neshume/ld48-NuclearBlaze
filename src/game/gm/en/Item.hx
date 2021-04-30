@@ -64,9 +64,13 @@ class Item extends Entity {
 			if( isUpgrade ) {
 				hud.upgradeFound(data.f_type);
 				game.unlockUpgrade(data.f_type);
+				camera.bumpZoom(0.2);
+				fx.flashBangS(0xffcc00, 0.3, 1);
 			}
-			else
+			else {
+				fx.flashBangS(0x0088ff, 0.2, 0.4);
 				hero.addItem(data.f_type);
+			}
 			destroy();
 			return;
 		}

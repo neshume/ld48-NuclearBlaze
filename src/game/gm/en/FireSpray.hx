@@ -11,6 +11,7 @@ class FireSpray extends Entity {
 		super(0,0);
 		ALL.push(this);
 		data = d;
+		triggerId = data.f_id;
 		setPosPixel(data.pixelX, data.pixelY);
 		gravityMul = 0;
 		collides = false;
@@ -24,6 +25,11 @@ class FireSpray extends Entity {
 
 		spr.set("empty");
 		game.scroller.add(spr,Const.DP_BG);
+	}
+
+	override function trigger() {
+		super.trigger();
+		stop();
 	}
 
 	override function dispose() {

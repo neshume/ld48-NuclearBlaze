@@ -202,6 +202,8 @@ class Entity {
 	var gravityMul = 1.0;
 	var collides = true;
 	public var climbing = false;
+	public var triggerId(default,null) = -1;
+
 
     public function new(x:Int, y:Int) {
         uid = Const.makeUniqueId();
@@ -239,6 +241,9 @@ class Entity {
 			spr.setCenterRatio(pivotX, pivotY);
 		return pivotY;
 	}
+
+	/** Called by Trigger entities **/
+	public function trigger() {}
 
 	/** Initialize current and max hit points **/
 	public function initLife(v) {
