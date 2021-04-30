@@ -59,6 +59,8 @@ class DebugDrone extends Entity {
 		].join("\n");
 		help.setScale(Const.UI_SCALE);
 
+		level.fogRender.visible = false;
+
 		// <----- HERE: add your own specific inits, like setting drone gravity to zero, updating collision behaviors etc.
 	}
 
@@ -78,6 +80,7 @@ class DebugDrone extends Entity {
 		super.dispose();
 
 		// Clean up
+		level.fogRender.visible = true;
 		help.remove();
 		ca.dispose();
 		if( ME==this )
@@ -92,7 +95,7 @@ class DebugDrone extends Entity {
 		cancelVelocities();
 
 		// Movement controls
-		var spd = 0.04 * ( ca.xDown() ? 5 : 1 ); // turbo by holding pad-X
+		var spd = 0.02 * ( ca.xDown() ? 5 : 1 ); // turbo by holding pad-X
 
 		if( !App.ME.anyInputHasFocus() ) {
 			if( ca.leftDist()>0 ) {
