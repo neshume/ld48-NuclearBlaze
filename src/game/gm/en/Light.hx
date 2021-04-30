@@ -84,11 +84,13 @@ class Light extends Entity {
 		mainHalo.setPosition(attachX, attachY);
 		largeHalo.setPosition(attachX, attachY);
 
-		if( !data.f_hideSprite && isOnScreen() && !cd.hasSetS("smoke",0.1) && power>=0.5 )
-			fx.lightSmoke(centerX, centerY, data.f_color_int);
+		if( isOnScreen() ) {
+			if( !data.f_hideSprite && !cd.hasSetS("smoke",0.1) && power>=0.5 )
+				fx.lightSmoke(centerX, centerY, data.f_color_int);
 
-		if( !data.f_hideSprite && isOnScreen() && !cd.hasSetS("flare",0.1) && power>=0.66 )
-			fx.lightFlare(centerX, centerY, data.f_color_int);
+			if( !data.f_hideSprite && !cd.hasSetS("flare",0.1) && power>=0.66 )
+				fx.lightFlare(centerX, centerY, data.f_color_int);
+		}
 
 		if( data.f_flicker ) {
 			if( !cd.has("powered") && !cd.has("powerLock") ) {

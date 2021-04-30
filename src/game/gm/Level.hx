@@ -299,7 +299,7 @@ class Level extends dn.Process {
 			var fs : FireState = null;
 			for(cy in 0...data.l_Collisions.cHei)
 			for(cx in 0...data.l_Collisions.cWid)
-				if( Game.ME.camera.isOnScreenCase(cx,cy,64) && hasFireState(cx,cy) ) {
+				if( Game.ME.camera.isOnScreenCase(cx,cy,32) && hasFireState(cx,cy) ) {
 					fs = getFireState(cx,cy);
 					if( fs.isBurning() ) {
 						fx.levelFlames(cx, cy, fs, fs.strongFx);
