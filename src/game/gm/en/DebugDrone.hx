@@ -49,7 +49,7 @@ class DebugDrone extends Entity {
 		setPivots(0.5);
 		setColor(DEFAULT_COLOR);
 
-		help = new h2d.Text(Assets.fontSmall);
+		help = new h2d.Text(Assets.fontPixel);
 		game.root.add(help, Const.DP_TOP);
 		help.textColor = DEFAULT_COLOR;
 		help.text = [
@@ -73,7 +73,7 @@ class DebugDrone extends Entity {
 		else
 			camera.target = null;
 		prevCamTarget = null;
-		camera.zoom = prevCamZoom;
+		camera.targetZoom = prevCamZoom;
 
 		super.dispose();
 
@@ -115,10 +115,10 @@ class DebugDrone extends Entity {
 
 			// Zoom controls
 			if( ca.isKeyboardDown(K.PGUP) )
-				camera.zoom -= camera.zoom * 0.02*tmod;
+				camera.targetZoom -= camera.targetZoom * 0.02*tmod;
 
 			if( ca.isKeyboardDown(K.PGDOWN) )
-				camera.zoom += camera.zoom * 0.02*tmod;
+				camera.targetZoom += camera.targetZoom * 0.02*tmod;
 
 			// Destroy
 			if( ca.isKeyboardPressed(K.ESCAPE) ) {
