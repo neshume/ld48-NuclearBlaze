@@ -152,6 +152,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_FireSpray) new gm.en.FireSpray(d);
 		for(d in level.data.l_Entities.all_Trigger) new gm.en.Trigger(d);
 		for(d in level.data.l_Entities.all_Light) new gm.en.Light(d);
+		for(d in level.data.l_Entities.all_Sprinkler) new gm.en.Sprinkler(d);
 
 		for(d in level.data.l_Entities.all_FogPiercer) {
 			for( cy in d.cy...Std.int( d.cy + d.height/Const.GRID ) )
@@ -421,6 +422,17 @@ class Game extends Process {
 			// Fog
 			if( ca.isKeyboardPressed(K.F) )
 				level.fogRender.visible = !level.fogRender.visible;
+
+			// Clear all
+			if( ca.isKeyboardPressed(K.C) ) {
+				for(e in gm.en.FireSpray.ALL) e.stop();
+				for(e in gm.en.Sprinkler.ALL) e.start();
+
+				for(cy in 0...level.cHei)
+				for(cx in 0...level.cWid)
+					if( level.isBurning(cx,cy) )
+						level.getFireState(cx,cy).clear();
+			}
 			#end
 
 			// Restart

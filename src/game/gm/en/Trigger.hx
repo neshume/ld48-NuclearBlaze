@@ -129,7 +129,7 @@ class Trigger extends Entity {
 
 		switch data.f_type {
 			case Gate:
-				fx.dotsExplosion(centerX, centerY, 0xffcc00);
+				fx.dotsExplosion(centerX, centerY, data.f_fxColor_int);
 
 			case TouchPlate:
 				fx.touchPlate(centerX, bottom);
@@ -138,8 +138,8 @@ class Trigger extends Entity {
 
 	function updateProgress() {
 		g.clear();
-		g.beginFill(0xffcc00);
-		g.drawPieInner(0,0, 16,10, -M.PIHALF, M.PI2 * M.fclamp(holdS/data.f_holdTime, 0, 1));
+		g.beginFill(data.f_fxColor_int, 0.4);
+		g.drawPieInner(0,0, 20,17, -M.PIHALF, M.PI2 * M.fclamp(holdS/data.f_holdTime, 0, 1));
 	}
 
 
@@ -154,7 +154,7 @@ class Trigger extends Entity {
 		g.setPosition(attachX, attachY);
 
 		if( !done && holdS<=0  && !cd.hasSetS("blink",0.5) )
-			blink(0xffcc00);
+			blink(data.f_fxColor_int);
 
 		if( data.f_type==Gate )
 			spr.setFrame( M.round( 9*holdS/data.f_holdTime* spr.totalFrames() ) % (spr.totalFrames()) );

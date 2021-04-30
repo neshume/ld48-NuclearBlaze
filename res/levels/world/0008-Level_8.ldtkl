@@ -10,7 +10,7 @@
 	},
 	"identifier": "Level_8",
 	"uid": 89,
-	"worldX": 5776,
+	"worldX": 6256,
 	"worldY": 0,
 	"pxWid": 704,
 	"pxHei": 608,
@@ -4822,5 +4822,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 0, "dir": "e" }, { "levelUid": 118, "dir": "w" } ]
+	"__neighbours": [ { "levelUid": 118, "dir": "e" }, { "levelUid": 0, "dir": "w" } ]
 }

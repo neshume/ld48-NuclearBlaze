@@ -27,8 +27,8 @@ class Hero extends gm.Entity {
 
 		#if debug
 		if( level.data.l_Entities.all_DebugStartPoint.length>0 ) {
-			var pt = level.data.l_Entities.all_DebugStartPoint[0];
-			setPosCase(pt.cx, pt.cy);
+			var d = level.data.l_Entities.all_DebugStartPoint[0];
+			setPosCase(d.cx, d.cy);
 			yr = 0;
 		}
 		#end
@@ -82,6 +82,7 @@ class Hero extends gm.Entity {
 		#if debug
 		if( level.data.l_Entities.all_DebugStartPoint.length>0 ) {
 			var d = level.data.l_Entities.all_DebugStartPoint[0];
+			cd.setS("shield", d.f_shieldDurationS);
 			for(i in d.f_startInv)
 				if( gm.en.Item.isUpgradeItem(i) )
 					game.unlockUpgrade(i);

@@ -10,7 +10,7 @@
 	},
 	"identifier": "Level_12",
 	"uid": 183,
-	"worldX": 8656,
+	"worldX": 8848,
 	"worldY": 0,
 	"pxWid": 352,
 	"pxHei": 320,
@@ -152,7 +152,8 @@
 							}]
 						},
 						{ "__identifier": "holdTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
-						{ "__identifier": "cameraReveal", "__value": true, "__type": "Bool", "defUid": 290, "realEditorValues": [] }
+						{ "__identifier": "cameraReveal", "__value": true, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
+						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] }
 					]
 				},
 				{

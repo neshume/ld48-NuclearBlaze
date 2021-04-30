@@ -45,11 +45,13 @@ class WaterDrop extends Bullet {
 	override function onHitCollision() {
 		super.onHitCollision();
 		tailFxTo(sprX, sprY);
-		fx.wallSplash(lastFixedUpdateX, lastFixedUpdateY);
+		if( isOnScreen() )
+			fx.wallSplash(lastFixedUpdateX, lastFixedUpdateY);
 	}
 
 	inline function tailFxTo(x:Float,y:Float) {
-		fx.waterTail(lastTailX, lastTailY, x,y, getElapsedFactor(), cd.has("touchedFire") ? Const.WATER_COLOR_OFF : Const.WATER_COLOR);
+		if( isOnScreen() )
+			fx.waterTail(lastTailX, lastTailY, x,y, getElapsedFactor(), cd.has("touchedFire") ? Const.WATER_COLOR_OFF : Const.WATER_COLOR);
 		lastTailX = x;
 		lastTailY = y;
 	}
@@ -71,7 +73,8 @@ class WaterDrop extends Bullet {
 		elapsedDist += M.dist(lastX, lastY, centerX, centerY);
 		if( getElapsedFactor()>=1 ) {
 			tailFxTo(sprX,sprY);
-			fx.waterVanish(centerX, centerY);
+			if( isOnScreen() )
+				fx.waterVanish(centerX, centerY);
 			destroy();
 			return;
 		}
@@ -91,13 +94,14 @@ class WaterDrop extends Bullet {
 					if( fs.level<=0 ) {
 						fs.clear();
 						fs.extinguished = true;
-						if( before>0 )
+						if( before>0 && isOnScreen() )
 							fx.fireVanish(x,y, fs.strongFx);
 					}
 
 					if( fs.level>=1 ) {
-						fx.fireSplash( (x+rnd(0.2,0.8))*Const.GRID, (y+rnd(0.2,0.8))*Const.GRID);
-						cd.setS("lock", Const.INFINITE);
+						if( isOnScreen() )
+							fx.fireSplash( (x+rnd(0.2,0.8))*Const.GRID, (y+rnd(0.2,0.8))*Const.GRID);
+						cd.setS("lock", 0.1);
 						cd.setS("touchedFire", Const.INFINITE);
 					}
 				}

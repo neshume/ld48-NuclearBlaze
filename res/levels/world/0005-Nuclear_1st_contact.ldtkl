@@ -403,7 +403,8 @@
 							}]
 						},
 						{ "__identifier": "holdTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
-						{ "__identifier": "cameraReveal", "__value": true, "__type": "Bool", "defUid": 290, "realEditorValues": [] }
+						{ "__identifier": "cameraReveal", "__value": true, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
+						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] }
 					]
 				},
 				{
@@ -521,7 +522,8 @@
 							}]
 						},
 						{ "__identifier": "holdTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
-						{ "__identifier": "cameraReveal", "__value": true, "__type": "Bool", "defUid": 290, "realEditorValues": [] }
+						{ "__identifier": "cameraReveal", "__value": true, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
+						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] }
 					]
 				},
 				{
