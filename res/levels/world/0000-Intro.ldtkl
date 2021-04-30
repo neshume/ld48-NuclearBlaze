@@ -359,6 +359,20 @@
 						{ "__identifier": "dist", "__value": 3, "__type": "Int", "defUid": 167, "realEditorValues": [] },
 						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 168, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [15,19],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [248,320],
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] }
+					]
 				}
 			]
 		},

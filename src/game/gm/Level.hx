@@ -399,7 +399,7 @@ class Level extends dn.Process {
 	}
 
 	public inline function fireSuspended() {
-		return !cd.has("fireSuspended");
+		return cd.has("fireSuspended");
 	}
 
 	function updateFire() {

@@ -28,7 +28,10 @@ class Door extends Entity {
 
 	override function trigger() {
 		super.trigger();
-		open( -dirTo(hero) );
+		if( closed ) {
+			fx.doorOpened(attachX, attachY, cHei*Const.GRID, -dirTo(hero));
+			open( -dirTo(hero) );
+		}
 	}
 
 	public static function getAt(cx,cy) {

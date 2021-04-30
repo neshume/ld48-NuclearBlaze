@@ -10,7 +10,7 @@
 	},
 	"identifier": "Thank_you_for_playing",
 	"uid": 118,
-	"worldX": 6928,
+	"worldX": 5120,
 	"worldY": 0,
 	"pxWid": 576,
 	"pxHei": 400,
@@ -2085,5 +2085,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 126, "dir": "e" }, { "levelUid": 0, "dir": "w" } ]
+	"__neighbours": [ { "levelUid": 89, "dir": "e" }, { "levelUid": 133, "dir": "w" } ]
 }

@@ -8,7 +8,6 @@ class Trigger extends Entity {
 	var g : h2d.Graphics;
 	var data : Entity_Trigger;
 	var holdS = 0.;
-	public var holdTargetS = 3.5;
 	public var done = false;
 	var delayer : dn.Delayer;
 
@@ -84,8 +83,8 @@ class Trigger extends Entity {
 	public function hold() {
 		holdS+=1/Const.FIXED_UPDATE_FPS;
 		cd.setS("maintain",0.1);
-		if( holdS>=holdTargetS ) {
-			holdS = holdTargetS;
+		if( holdS>=data.f_holdTime) {
+			holdS = data.f_holdTime;
 			execute();
 		}
 		updateProgress();
@@ -109,7 +108,7 @@ class Trigger extends Entity {
 		var lastT = t;
 		for(e in Entity.ALL)
 			if( e.isAlive() && e.triggerId==triggerId ) {
-				if( e.distCase(hero)>=5 ) {
+				if( e.distCase(hero)>=5 && data.f_cameraReveal ) {
 					delayer.addS(camera.trackEntity.bind(e,false), t);
 					delayer.addS(e.trigger, t+0.7);
 					lastT = t;
@@ -124,16 +123,23 @@ class Trigger extends Entity {
 
 		delayer.addS(camera.trackEntity.bind(hero,false), t);
 		hero.dx*=0.4;
-		hero.lockControlsS(lastT+0.1);
+		if( data.f_cameraReveal )
+			hero.lockControlsS(lastT+0.1);
 		level.suspendFireForS(t+0.5);
 
-		fx.dotsExplosion(centerX, centerY, 0xffcc00);
+		switch data.f_type {
+			case Gate:
+				fx.dotsExplosion(centerX, centerY, 0xffcc00);
+
+			case TouchPlate:
+				fx.touchPlate(centerX, bottom);
+		}
 	}
 
 	function updateProgress() {
 		g.clear();
 		g.beginFill(0xffcc00);
-		g.drawPieInner(0,0, 16,10, -M.PIHALF, M.PI2 * M.fclamp(holdS/holdTargetS, 0, 1));
+		g.drawPieInner(0,0, 16,10, -M.PIHALF, M.PI2 * M.fclamp(holdS/data.f_holdTime, 0, 1));
 	}
 
 
@@ -151,7 +157,7 @@ class Trigger extends Entity {
 			blink(0xffcc00);
 
 		if( data.f_type==Gate )
-			spr.setFrame( M.round( 9*holdS/holdTargetS * spr.totalFrames() ) % (spr.totalFrames()) );
+			spr.setFrame( M.round( 9*holdS/data.f_holdTime* spr.totalFrames() ) % (spr.totalFrames()) );
 	}
 
 	override function fixedUpdate() {

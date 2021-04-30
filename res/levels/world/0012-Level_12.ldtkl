@@ -10,7 +10,7 @@
 	},
 	"identifier": "Level_12",
 	"uid": 183,
-	"worldX": 8592,
+	"worldX": 8608,
 	"worldY": 0,
 	"pxWid": 352,
 	"pxHei": 320,
@@ -150,7 +150,9 @@
 								"id": "V_String",
 								"params": ["Gate"]
 							}]
-						}
+						},
+						{ "__identifier": "holdTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "cameraReveal", "__value": true, "__type": "Bool", "defUid": 290, "realEditorValues": [] }
 					]
 				},
 				{

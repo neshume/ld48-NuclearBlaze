@@ -10,7 +10,7 @@
 	},
 	"identifier": "Lab",
 	"uid": 126,
-	"worldX": 7536,
+	"worldX": 7552,
 	"worldY": 0,
 	"pxWid": 528,
 	"pxHei": 352,
@@ -280,7 +280,9 @@
 								"id": "V_String",
 								"params": ["Gate"]
 							}]
-						}
+						},
+						{ "__identifier": "holdTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "cameraReveal", "__value": true, "__type": "Bool", "defUid": 290, "realEditorValues": [] }
 					]
 				}
 			]
@@ -319,11 +321,7 @@
 				{ "px": [256,128], "src": [192,16], "f": 0, "t": 52, "d": [177,280] },
 				{ "px": [272,128], "src": [208,16], "f": 0, "t": 53, "d": [177,281] },
 				{ "px": [288,128], "src": [208,16], "f": 0, "t": 53, "d": [177,282] },
-				{ "px": [304,128], "src": [192,16], "f": 0, "t": 52, "d": [177,283] },
-				{ "px": [176,128], "src": [192,48], "f": 1, "t": 132, "d": [286,275] },
-				{ "px": [320,128], "src": [192,48], "f": 0, "t": 132, "d": [286,284] },
-				{ "px": [176,144], "src": [176,64], "f": 1, "t": 171, "d": [287,308] },
-				{ "px": [320,144], "src": [192,64], "f": 0, "t": 172, "d": [287,317] }
+				{ "px": [304,128], "src": [192,16], "f": 0, "t": 52, "d": [177,283] }
 			],
 			"seed": 4317960,
 			"overrideTilesetUid": null,
@@ -1433,5 +1431,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 131, "dir": "e" }, { "levelUid": 118, "dir": "w" } ]
+	"__neighbours": [ { "levelUid": 131, "dir": "e" }, { "levelUid": 0, "dir": "w" } ]
 }

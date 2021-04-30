@@ -184,6 +184,43 @@ class Fx extends dn.Process {
 	}
 
 
+	public function touchPlate(x:Float, y:Float) {
+		var n = 10;
+		var range = M.PI*0.7;
+		for(i in 0...n) {
+			var a = -M.PIHALF - range*0.5 + range*i/(n-1);
+			var p = allocTopAdd( getTile(dict.fxLine), x+Math.cos(a)*4, y+Math.sin(a)*4 );
+			p.setCenterRatio(0.3,0.5);
+			p.alpha = i%2==0 ? 0.6 : 1;
+			p.colorize(0x46afff);
+			p.scaleX = 0.2 + (i%2==0 ? 0.4 : 0);
+			p.scaleXMul = 0.94;
+			p.rotation = a;
+			p.moveAng(a, 3.2);
+			p.frict = 0.8;
+			p.lifeS = around(0.2);
+		}
+	}
+
+
+
+	public function doorOpened(x:Float, y:Float, h:Float, dir:Int) {
+		var n = 9;
+		var range = M.PI*0.3;
+		for(i in 0...n) {
+			var p = allocTopAdd( getTile(dict.fxLine), x-dir*3, y-4 - (h-12)*i/(n-1) + rnd(0,1,true) );
+			p.alpha = around(0.2);
+			p.colorize(0x46afff);
+			p.scaleX = around(0.6);
+			p.scaleXMul = 0.96;
+			p.moveAwayFrom(x-dir*20, y-h*0.5, around(3));
+			p.rotation = p.getMoveAng();
+			p.frict = 0.87;
+			p.lifeS = around(0.2);
+		}
+	}
+
+
 	inline function compressUp(ratio:Float, range:Float) return (1-range) + range*ratio;
 
 	public inline function fireVanish(cx:Int, cy:Int, strong=false) {
@@ -660,8 +697,8 @@ class Fx extends dn.Process {
 			p.lifeS = rnd(0.2,0.3);
 			p.delayS = i==0 ? 0 : rnd(0,0.1);
 		}
-
 	}
+
 
 
 	public function fireSpray(x:Float,y:Float, ang:Float, dist:Float) {
