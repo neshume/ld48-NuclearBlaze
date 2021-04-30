@@ -10,7 +10,7 @@
 	},
 	"identifier": "Level_6",
 	"uid": 133,
-	"worldX": 4320,
+	"worldX": 4576,
 	"worldY": 0,
 	"pxWid": 560,
 	"pxHei": 496,
@@ -292,7 +292,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
 				{
@@ -337,7 +338,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
 				{
@@ -382,7 +384,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
 				{
@@ -427,7 +430,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
 				{
@@ -493,7 +497,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
 				{
@@ -538,7 +543,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
 				{
@@ -583,7 +589,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
 				{
@@ -628,7 +635,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
 				{
@@ -679,7 +687,8 @@
 							"__type": "Bool",
 							"defUid": 280,
 							"realEditorValues": [null]
-						}
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
 				{
@@ -730,7 +739,8 @@
 							"__type": "Bool",
 							"defUid": 280,
 							"realEditorValues": [null]
-						}
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
 				{
@@ -883,7 +893,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1076,7 +1087,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2560,7 +2572,7 @@
 			"entityInstances": []
 		},
 		{
-			"__identifier": "Bg",
+			"__identifier": "BgWalls",
 			"__type": "IntGrid",
 			"__cWid": 35,
 			"__cHei": 31,

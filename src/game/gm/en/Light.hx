@@ -75,15 +75,19 @@ class Light extends Entity {
 
 	override function postUpdate() {
 		super.postUpdate();
+
+		bulb.visible = !data.f_hideSprite;
 		bulb.setPosition(attachX, attachY);
+
 		core.setPosition(attachX, attachY);
+		core.visible = !data.f_hideSprite;
 		mainHalo.setPosition(attachX, attachY);
 		largeHalo.setPosition(attachX, attachY);
 
-		if( isOnScreen() && !cd.hasSetS("smoke",0.1) && power>=0.5 )
+		if( !data.f_hideSprite && isOnScreen() && !cd.hasSetS("smoke",0.1) && power>=0.5 )
 			fx.lightSmoke(centerX, centerY, data.f_color_int);
 
-		if( isOnScreen() && !cd.hasSetS("flare",0.1) && power>=0.66 )
+		if( !data.f_hideSprite && isOnScreen() && !cd.hasSetS("flare",0.1) && power>=0.66 )
 			fx.lightFlare(centerX, centerY, data.f_color_int);
 
 		if( data.f_flicker ) {

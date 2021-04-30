@@ -10,7 +10,7 @@
 	},
 	"identifier": "Thank_you_for_playing",
 	"uid": 118,
-	"worldX": 4912,
+	"worldX": 5168,
 	"worldY": 0,
 	"pxWid": 576,
 	"pxHei": 400,
@@ -1786,7 +1786,7 @@
 			"entityInstances": []
 		},
 		{
-			"__identifier": "Bg",
+			"__identifier": "BgWalls",
 			"__type": "IntGrid",
 			"__cWid": 36,
 			"__cHei": 25,

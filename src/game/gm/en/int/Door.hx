@@ -70,9 +70,9 @@ class Door extends Entity {
 		level.clearFogUpdateDelay();
 		updateCollisions();
 
-		dn.Bresenham.iterateDisc(cx, cy-1, 2, (x,y)->{
+		for(y in cy-1...cy+1)
+		for(x in cx-2...cx+3)
 			level.revealFog(x,y);
-		});
 
 		if( requiredItem!=null ) {
 			hero.sayBubble( Assets.getItem(requiredItem), Assets.tilesDict.emoteOk, 0x83c359);

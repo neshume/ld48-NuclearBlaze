@@ -10,7 +10,7 @@
 	},
 	"identifier": "Tutorial_vertical",
 	"uid": 30,
-	"worldX": 2432,
+	"worldX": 2688,
 	"worldY": 0,
 	"pxWid": 496,
 	"pxHei": 272,
@@ -438,7 +438,8 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
 						},
 						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
-						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] }
+						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
 				{
@@ -483,7 +484,8 @@
 								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] }
+						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
 				{
@@ -530,20 +532,6 @@
 							"defUid": 149,
 							"realEditorValues": [null]
 						}
-					]
-				},
-				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [20,6],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [328,112],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] }
 					]
 				}
 			]
@@ -1347,7 +1335,7 @@
 			"entityInstances": []
 		},
 		{
-			"__identifier": "Bg",
+			"__identifier": "BgWalls",
 			"__type": "IntGrid",
 			"__cWid": 31,
 			"__cHei": 17,

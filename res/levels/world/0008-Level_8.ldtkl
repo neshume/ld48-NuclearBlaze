@@ -10,7 +10,7 @@
 	},
 	"identifier": "Level_8",
 	"uid": 89,
-	"worldX": 5520,
+	"worldX": 5776,
 	"worldY": 0,
 	"pxWid": 704,
 	"pxHei": 608,
@@ -3076,7 +3076,7 @@
 			"entityInstances": []
 		},
 		{
-			"__identifier": "Bg",
+			"__identifier": "BgWalls",
 			"__type": "IntGrid",
 			"__cWid": 44,
 			"__cHei": 38,
