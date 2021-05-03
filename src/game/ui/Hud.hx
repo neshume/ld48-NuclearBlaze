@@ -192,12 +192,12 @@ class Hud extends dn.Process {
 	}
 
 	public function setUpgrades(ups:Map<Enum_Items,Bool>) {
-		upgrades.removeChildren();
-		cd.setS("shakeUps",2);
-		for( i in ups.keys() )
-			new h2d.Bitmap( Assets.getItem(i), upgrades );
-		flow.reflow();
-		updatePos();
+		// upgrades.removeChildren();
+		// cd.setS("shakeUps",2);
+		// for( i in ups.keys() )
+		// 	new h2d.Bitmap( Assets.getItem(i), upgrades );
+		// flow.reflow();
+		// updatePos();
 	}
 
 	public inline function invalidate() invalidated = true;
