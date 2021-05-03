@@ -10,7 +10,7 @@
 	},
 	"identifier": "Tutorial_basics",
 	"uid": 56,
-	"worldX": 1440,
+	"worldX": 1296,
 	"worldY": 0,
 	"pxWid": 1216,
 	"pxHei": 432,
@@ -94,72 +94,6 @@
 						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
 						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
 						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "Door",
-					"__grid": [3,7],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 12,
-					"height": 32,
-					"defUid": 5,
-					"px": [56,128],
-					"fieldInstances": [
-						{
-							"__identifier": "opened",
-							"__value": false,
-							"__type": "Bool",
-							"defUid": 17,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "kicks",
-							"__value": 0,
-							"__type": "Int",
-							"defUid": 21,
-							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
-						},
-						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
-						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
-						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "Say",
-					"__grid": [43,10],
-					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 58,
-					"px": [696,168],
-					"fieldInstances": [
-						{
-							"__identifier": "text",
-							"__value": "Central, I have visual contacts with minor fires.",
-							"__type": "String",
-							"defUid": 59,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Central, I have visual contacts with minor fires."]
-							}]
-						},
-						{
-							"__identifier": "color",
-							"__value": "#F62A1C",
-							"__type": "Color",
-							"defUid": 60,
-							"realEditorValues": [{ "id": "V_Int", "params": [16132636] }]
-						},
-						{
-							"__identifier": "triggerDist",
-							"__value": 2,
-							"__type": "Float",
-							"defUid": 62,
-							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
-						},
-						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] }
 					]
 				},
 				{
@@ -315,22 +249,22 @@
 				},
 				{
 					"__identifier": "Say",
-					"__grid": [33,10],
+					"__grid": [32,10],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 58,
-					"px": [536,168],
+					"px": [520,168],
 					"fieldInstances": [
 						{
 							"__identifier": "text",
-							"__value": "All right, I'm in.",
+							"__value": "Spotted fire!",
 							"__type": "String",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["All right, I'm in."]
+								"params": ["Spotted fire!"]
 							}]
 						},
 						{ "__identifier": "color", "__value": "#FFD600", "__type": "Color", "defUid": 60, "realEditorValues": [] },
@@ -756,10 +690,10 @@
 						{ "__identifier": "spotDir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 208, "realEditorValues": [] },
 						{
 							"__identifier": "color",
-							"__value": "#435EE8",
+							"__value": "#EA1439",
 							"__type": "Color",
 							"defUid": 209,
-							"realEditorValues": [{ "id": "V_Int", "params": [4415208] }]
+							"realEditorValues": [{ "id": "V_Int", "params": [15340601] }]
 						},
 						{
 							"__identifier": "intensity",
@@ -776,7 +710,16 @@
 							"defUid": 279,
 							"realEditorValues": [null]
 						},
-						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
+						{
+							"__identifier": "gyro",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						},
 						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},

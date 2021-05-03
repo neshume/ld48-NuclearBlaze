@@ -4249,8 +4249,8 @@
 			"uid": 85,
 			"worldX": 720,
 			"worldY": 0,
-			"pxWid": 688,
-			"pxHei": 256,
+			"pxWid": 544,
+			"pxHei": 352,
 			"__bgColor": "#242D34",
 			"bgColor": null,
 			"useAutoIdentifier": false,
@@ -4289,7 +4289,7 @@
 		{
 			"identifier": "Tutorial_basics",
 			"uid": 56,
-			"worldX": 1440,
+			"worldX": 1296,
 			"worldY": 0,
 			"pxWid": 1216,
 			"pxHei": 432,
@@ -4313,7 +4313,7 @@
 		{
 			"identifier": "Tutorial_vertical",
 			"uid": 30,
-			"worldX": 2688,
+			"worldX": 2544,
 			"worldY": 0,
 			"pxWid": 496,
 			"pxHei": 272,
@@ -4346,7 +4346,7 @@
 		{
 			"identifier": "Tutorial_defense",
 			"uid": 57,
-			"worldX": 3216,
+			"worldX": 3072,
 			"worldY": 0,
 			"pxWid": 704,
 			"pxHei": 448,
@@ -4370,7 +4370,7 @@
 		{
 			"identifier": "Nuclear_1st_contact",
 			"uid": 70,
-			"worldX": 3952,
+			"worldX": 3808,
 			"worldY": 0,
 			"pxWid": 592,
 			"pxHei": 496,
@@ -4394,7 +4394,7 @@
 		{
 			"identifier": "Level_6",
 			"uid": 133,
-			"worldX": 4576,
+			"worldX": 4432,
 			"worldY": 0,
 			"pxWid": 560,
 			"pxHei": 496,
@@ -4418,7 +4418,7 @@
 		{
 			"identifier": "Sprinklers",
 			"uid": 0,
-			"worldX": 5168,
+			"worldX": 5024,
 			"worldY": 0,
 			"pxWid": 1056,
 			"pxHei": 448,
@@ -4451,7 +4451,7 @@
 		{
 			"identifier": "Level_8",
 			"uid": 89,
-			"worldX": 6256,
+			"worldX": 6112,
 			"worldY": 0,
 			"pxWid": 704,
 			"pxHei": 656,
@@ -4475,7 +4475,7 @@
 		{
 			"identifier": "Thank_you_for_playing",
 			"uid": 118,
-			"worldX": 6992,
+			"worldX": 6848,
 			"worldY": 0,
 			"pxWid": 576,
 			"pxHei": 400,
@@ -4517,7 +4517,7 @@
 		{
 			"identifier": "Lab",
 			"uid": 126,
-			"worldX": 7600,
+			"worldX": 7456,
 			"worldY": 0,
 			"pxWid": 720,
 			"pxHei": 352,
@@ -4541,7 +4541,7 @@
 		{
 			"identifier": "Level_11",
 			"uid": 131,
-			"worldX": 8352,
+			"worldX": 8208,
 			"worldY": 0,
 			"pxWid": 464,
 			"pxHei": 352,
@@ -4565,7 +4565,7 @@
 		{
 			"identifier": "Level_12",
 			"uid": 398,
-			"worldX": 8848,
+			"worldX": 8704,
 			"worldY": 0,
 			"pxWid": 384,
 			"pxHei": 256,
@@ -4589,7 +4589,7 @@
 		{
 			"identifier": "Level_13",
 			"uid": 183,
-			"worldX": 9264,
+			"worldX": 9120,
 			"worldY": 0,
 			"pxWid": 352,
 			"pxHei": 320,

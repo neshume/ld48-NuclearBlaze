@@ -115,13 +115,13 @@
 				},
 				{
 					"__identifier": "Say",
-					"__grid": [23,20],
+					"__grid": [14,20],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 58,
-					"px": [376,328],
+					"px": [232,328],
 					"fieldInstances": [
 						{
 							"__identifier": "text",
@@ -625,6 +625,37 @@
 							"params": ["East"]
 						}]
 					}]
+				},
+				{
+					"__identifier": "Say",
+					"__grid": [35,20],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 58,
+					"px": [568,328],
+					"fieldInstances": [
+						{
+							"__identifier": "text",
+							"__value": "I'm in.",
+							"__type": "String",
+							"defUid": 59,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["I'm in."]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#00FF9D",
+							"__type": "Color",
+							"defUid": 60,
+							"realEditorValues": [{ "id": "V_Int", "params": [65437] }]
+						},
+						{ "__identifier": "triggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] }
+					]
 				}
 			]
 		},
