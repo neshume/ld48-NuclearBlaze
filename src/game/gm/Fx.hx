@@ -601,13 +601,13 @@ class Fx extends dn.Process {
 		var d = 0.;
 		var p : HParticle = null;
 
-		p = radius(x,y,40, 0xffcc00);
+		p = allocRadius(x,y,40, 0xffcc00, false);
 		p.setFadeS(0.7, 0, R.around(0.2));
 		p.ds = 0.1;
 		p.dsFrict = R.around(0.89);
 		p.lifeS = R.around(0.2);
 
-		p = radius(x,y,radiusPx, 0xff0000);
+		p = allocRadius(x,y,radiusPx, 0xffcc00, true);
 		p.ds = 0.03;
 		p.dsFrict = R.around(0.85);
 		p.setFadeS(0.7, 0, R.around(0.2));
@@ -719,11 +719,23 @@ class Fx extends dn.Process {
 	}
 
 
-	public function radius(x:Float, y:Float, r:Float, c:UInt) {
+	public function announceRadius(x:Float, y:Float, r:Float, c:UInt) {
+		var p = allocRadius(x,y,r,c, true);
+		p.setFadeS(0.5, 0, 0.1);
+		p.ds = 0.02;
+		p.dsFrict = 0.8;
+		p.lifeS = 0.03;
+	}
+
+
+	public function allocRadius(x:Float, y:Float, r:Float, c:UInt, fill:Bool) {
 		var p = allocBgNormal( getTile(dict.empty), x,y);
 		p.lifeS = R.around(1);
 		var g = new h2d.Graphics(graphics);
-		g.lineStyle(1, c, 1);
+		if( fill )
+			g.beginFill(c, 0.5);
+		else
+			g.lineStyle(1, c, 1);
 		g.drawCircle(0,0,r);
 		g.alpha = 0; // to avoid 1st frame flickering
 		p.onUpdate = (_)->{

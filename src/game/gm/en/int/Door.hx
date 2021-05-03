@@ -82,12 +82,13 @@ class Door extends Entity {
 
 		// Check if there are fires behind
 		var bigFires = 0;
-		dn.Bresenham.iterateDisc(cx,cy,4, (x,y)->{
-			if( openDir==1 && x<=cx || openDir==-1 && x>=cx )
-				return;
-			if( level.getFireLevel(x,y)==2 && sightCheck(x,y) )
-				bigFires++;
-		});
+		if( data.f_canExplode )
+			dn.Bresenham.iterateDisc(cx,cy,4, (x,y)->{
+				if( openDir==1 && x<=cx || openDir==-1 && x>=cx )
+					return;
+				if( level.getFireLevel(x,y)==2 && sightCheck(x,y) )
+					bigFires++;
+			});
 
 		// Explodes!
 		if( bigFires>=2 ) {

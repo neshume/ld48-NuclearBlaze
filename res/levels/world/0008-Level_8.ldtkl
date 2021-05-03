@@ -156,7 +156,8 @@
 							}]
 						},
 						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
-						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
+						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] }
 					]
 				},
 				{
@@ -173,7 +174,8 @@
 						{ "__identifier": "kicks", "__value": 3, "__type": "Int", "defUid": 21, "realEditorValues": [] },
 						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
 						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
-						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
+						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] }
 					]
 				},
 				{
@@ -275,7 +277,8 @@
 								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
+						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] }
 					]
 				},
 				{
@@ -307,7 +310,8 @@
 							}]
 						},
 						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
-						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
+						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] }
 					]
 				},
 				{
@@ -397,7 +401,8 @@
 						},
 						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
 						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
-						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
+						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
+						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] }
 					]
 				},
 				{
