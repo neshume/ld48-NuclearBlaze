@@ -114,7 +114,12 @@
 				},
 				{
 					"constId": "ExplosiveRadius",
-					"value1": 11
+					"value1": 9,
+					"desc1": "total radius",
+					"desc2": "Full fire wipe radius",
+					"value2": 4,
+					"desc3": "hero kill",
+					"value3": 6
 				}
 			],
 			"props": {

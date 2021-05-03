@@ -17,6 +17,7 @@ class Fx extends dn.Process {
 	public var bgNormalSb    : h2d.SpriteBatch;
 	public var topAddSb       : h2d.SpriteBatch;
 	public var topNormalSb    : h2d.SpriteBatch;
+	var graphics : h2d.Object;
 
 	public function new() {
 		super(Game.ME);
@@ -40,6 +41,10 @@ class Fx extends dn.Process {
 		game.scroller.add(topAddSb, Const.DP_FX_FRONT);
 		topAddSb.blendMode = Add;
 		topAddSb.hasRotationScale = true;
+
+		graphics = new h2d.Object();
+		game.scroller.add(graphics, Const.DP_FX_FRONT);
+		graphics.blendMode = Add;
 	}
 
 	override public function onDispose() {
@@ -50,6 +55,7 @@ class Fx extends dn.Process {
 		bgNormalSb.remove();
 		topAddSb.remove();
 		topNormalSb.remove();
+		graphics.remove();
 	}
 
 	/** Clear all particles **/
@@ -595,6 +601,18 @@ class Fx extends dn.Process {
 		var d = 0.;
 		var p : HParticle = null;
 
+		p = radius(x,y,40, 0xffcc00);
+		p.setFadeS(0.7, 0, R.around(0.2));
+		p.ds = 0.1;
+		p.dsFrict = R.around(0.89);
+		p.lifeS = R.around(0.2);
+
+		p = radius(x,y,radiusPx, 0xff0000);
+		p.ds = 0.03;
+		p.dsFrict = R.around(0.85);
+		p.setFadeS(0.7, 0, R.around(0.2));
+		p.lifeS = 0.2;
+
 		// Explosion anims
 		var n = 60;
 		for(i in 0...n) {
@@ -609,20 +627,38 @@ class Fx extends dn.Process {
 			p.delayS = i/(n-1) * 0.1 + R.around(0.1);
 		}
 
-		// Lines
+		// Long lines
+		var n = 30;
+		for(i in 0...n) {
+			a = M.PI2 * i/(n-1) + R.zeroTo(0.1,true);
+			d = R.around(radiusPx*0.6);
+			p = allocTopAdd(getTile(dict.fxLineDir), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.colorizeRandom(0xff0000, 0xffcc00);
+			p.setCenterRatio(1,0.5);
+			p.scaleY = 2;
+			p.scaleX = 0.5*radiusPx / p.t.width;
+			// p.dsX = R.around(0.1);
+			// p.dsFrict = R.aroundZTO(0.97);
+			p.scaleXMul = R.aroundZTO(0.97);
+			p.moveAwayFrom(x,y, rnd(2,3));
+			p.frict = R.aroundZTO(0.94);
+			p.rotation = a;
+			p.lifeS = R.around(0.4);
+		}
+
+		// Small lines
 		var n = 40;
 		for(i in 0...n) {
 			a = R.fullCircle();
 			d = rnd(20,radiusPx*0.5);
 			p = allocTopAdd(getTile(dict.fxLineDir), x+Math.cos(a)*d, y+Math.sin(a)*d);
 			p.colorizeRandom(0xff0000, 0xffcc00);
-			p.scaleY = 2;
 			p.scaleX = R.around(2);
-			p.scaleXMul = R.aroundZTO(0.98);
+			p.scaleXMul = R.aroundZTO(0.96);
 			p.moveAwayFrom(x,y, rnd(8,10));
 			p.frict = R.aroundZTO(0.94);
 			p.rotation = a;
-			p.lifeS = R.around(0.4);
+			p.lifeS = R.around(1);
 		}
 
 		// Smoke
@@ -655,6 +691,49 @@ class Fx extends dn.Process {
 			p.gy = R.zeroTo(0.03);
 			p.lifeS = rnd(3,5);
 		}
+	}
+
+	public inline function explosionWarning(x:Float, y:Float, ratio:Float) {
+		var p = allocTopAdd( getTile(dict.lightCircle), x,y );
+		p.setFadeS(0.3 + 0.5*ratio, 0, R.around(0.2));
+		p.colorize( C.interpolateInt(0xffcc00, 0xff0000, ratio) );
+		p.setScale(0.5 + 0.5*ratio);
+		p.lifeS = 0.1;
+	}
+
+	public inline function fireExtinguished(fireX:Float,fireY:Float, sourceX:Float, sourceY:Float) {
+		for(i in 0...2) {
+			var p = allocTopNormal( getTile(dict.fxSmoke), fireX+R.zeroTo(4,true), fireY+R.zeroTo(4,true) );
+			p.setFadeS(R.around(0.5), rnd(0.3,0.5), rnd(0.4,1));
+			p.colorAnimS(0xc14132, 0x3b4f77, rnd(0.4, 1.2));
+			p.setScale(rnd(1,2,true));
+			p.rotation = rnd(0,M.PI2);
+			p.dr = rnd(0,0.03,true);
+			p.ds = rnd(0.002, 0.004);
+			p.gx = windX*rnd(0.01,0.02);
+			p.moveAwayFrom(sourceX,sourceY, R.around(3));
+			p.frict = R.aroundZTO(0.92);
+			p.lifeS = R.around(1.5);
+			p.delayS = rnd(0,0.4);
+		}
+	}
+
+
+	public function radius(x:Float, y:Float, r:Float, c:UInt) {
+		var p = allocBgNormal( getTile(dict.empty), x,y);
+		p.lifeS = R.around(1);
+		var g = new h2d.Graphics(graphics);
+		g.lineStyle(1, c, 1);
+		g.drawCircle(0,0,r);
+		g.alpha = 0; // to avoid 1st frame flickering
+		p.onUpdate = (_)->{
+			g.setPosition(p.x, p.y);
+			g.alpha = p.alpha;
+			g.scaleX = p.scaleX;
+			g.scaleY = p.scaleY;
+		}
+		p.onKill = g.remove;
+		return p;
 	}
 
 

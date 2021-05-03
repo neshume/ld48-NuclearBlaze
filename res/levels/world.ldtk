@@ -4589,7 +4589,7 @@
 			"uid": 398,
 			"worldX": 8208,
 			"worldY": 0,
-			"pxWid": 384,
+			"pxWid": 576,
 			"pxHei": 256,
 			"__bgColor": "#242D34",
 			"bgColor": null,
@@ -4611,7 +4611,7 @@
 		{
 			"identifier": "Level_12",
 			"uid": 183,
-			"worldX": 8624,
+			"worldX": 8816,
 			"worldY": 0,
 			"pxWid": 352,
 			"pxHei": 320,

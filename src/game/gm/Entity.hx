@@ -764,7 +764,8 @@ class Entity {
 			if( yr>1 && level.hasAnyCollision(cx,cy+1) ) {
 				dy = 0;
 				yr = 1;
-				bdx*=0.5;
+				if( isAlive() )
+					bdx*=0.8;
 				bdy = 0;
 				var cHei = M.fmax(0, cy+yr-fallStartCy);
 				onPosManuallyChanged();
