@@ -14,7 +14,7 @@
 	"worldY": 0,
 	"pxWid": 592,
 	"pxHei": 496,
-	"__bgColor": "#2F5068",
+	"__bgColor": "#242D34",
 	"bgColor": null,
 	"useAutoIdentifier": false,
 	"bgRelPath": null,
@@ -383,7 +383,7 @@
 							}]
 						},
 						{ "__identifier": "holdTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
-						{ "__identifier": "cameraReveal", "__value": true, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
+						{ "__identifier": "cameraReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] }
 					]
 				},
@@ -502,7 +502,7 @@
 							}]
 						},
 						{ "__identifier": "holdTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
-						{ "__identifier": "cameraReveal", "__value": true, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
+						{ "__identifier": "cameraReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] }
 					]
 				},
