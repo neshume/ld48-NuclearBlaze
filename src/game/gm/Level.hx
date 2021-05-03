@@ -233,6 +233,7 @@ class Level extends dn.Process {
 		data.l_Props_tiles.render(tg);
 		data.l_BgTiles.render(tg);
 		data.l_Pipes.render(tg);
+		data.l_Wires.render(tg);
 		data.l_FrontTiles.render(tg);
 	}
 
