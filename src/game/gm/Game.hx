@@ -53,10 +53,6 @@ class Game extends Process {
 		scroller = new h2d.Layers();
 		root.add(scroller, Const.DP_BG);
 
-		// var m = new h3d.Matrix();
-		// m.identity();
-		// m.colorContrast(0.1);
-		// scroller.filter = new h2d.filter.ColorMatrix(m);
 		scroller.filter = new h2d.filter.Nothing(); // force rendering for pixel perfect
 
 		fx = new Fx();
@@ -74,8 +70,6 @@ class Game extends Process {
 		coldMask.alpha = 0;
 
 		#if debug
-		// unlockUpgrade(UpWaterUp);
-		// unlockUpgrade(UpShield);
 		for(l in Assets.worldData.levels)
 			if( l.l_Entities.all_DebugStartPoint.length>0 ) {
 				curLevelIdx = l.arrayIndex;
