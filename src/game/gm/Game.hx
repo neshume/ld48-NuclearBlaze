@@ -52,6 +52,11 @@ class Game extends Process {
 
 		scroller = new h2d.Layers();
 		root.add(scroller, Const.DP_BG);
+
+		// var m = new h3d.Matrix();
+		// m.identity();
+		// m.colorContrast(0.1);
+		// scroller.filter = new h2d.filter.ColorMatrix(m);
 		scroller.filter = new h2d.filter.Nothing(); // force rendering for pixel perfect
 
 		fx = new Fx();
