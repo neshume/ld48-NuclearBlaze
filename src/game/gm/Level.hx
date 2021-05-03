@@ -312,7 +312,7 @@ class Level extends dn.Process {
 					}
 					else if( fs.extinguished ) {
 						if( smoke && hasAnyCollision(cx,cy+1) )
-							fx.levelExtinguishedSmoke((cx+0.5)*Const.GRID, (cy+1)*Const.GRID, fs);
+							fx.levelExtinguishedSmoke((cx+0.5)*Const.GRID, (cy+1)*Const.GRID, fs, fs.smokePower, fs.smokeColor);
 					}
 				}
 		}

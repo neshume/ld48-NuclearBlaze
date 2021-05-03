@@ -288,10 +288,10 @@ class Fx extends dn.Process {
 		p.delayS = rnd(0,0.4);
 	}
 
-	public inline function levelExtinguishedSmoke(x:Float,y:Float, fs:FireState) {
+	public inline function levelExtinguishedSmoke(x:Float,y:Float, fs:FireState, pow=1.0, col=0x4d4959) {
 		var p = allocBgNormal( getTile(dict.fxSmoke), x+rnd(0,8,true), y-rnd(0,10) );
-		p.setFadeS(rnd(0.4, 0.6), rnd(0.4,0.6), rnd(0.8,1));
-		p.colorAnimS(0x4d4959, 0x0, rnd(0.8, 1.2));
+		p.setFadeS( M.fmin(1, rnd(0.4, 0.6)*pow), rnd(0.4,0.6), rnd(0.8,1) );
+		p.colorAnimS(col, 0x0, rnd(0.8, 1.2));
 		p.setScale(rnd(1,2,true));
 		p.rotation = rnd(0,M.PI2);
 		p.dr = rnd(0,0.02,true);

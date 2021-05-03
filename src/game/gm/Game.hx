@@ -162,8 +162,12 @@ class Game extends Process {
 
 		for(d in level.data.l_Entities.all_Smoker)
 			dn.Bresenham.iterateDisc(d.cx, d.cy, d.f_radius, (x,y)->{
-				if( level.hasFireState(x,y) )
-					level.getFireState(x,y).extinguished = true;
+				if( level.hasFireState(x,y) ) {
+					var fs = level.getFireState(x,y);
+					fs.extinguished = true;
+					fs.smokePower = d.f_intensity;
+					fs.smokeColor = d.f_smokeColor_int;
+				}
 			});
 
 		for(d in level.data.l_Entities.all_FixedFire) {
