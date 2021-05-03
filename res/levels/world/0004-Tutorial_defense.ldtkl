@@ -403,26 +403,6 @@
 					]
 				},
 				{
-					"__identifier": "Exit",
-					"__grid": [16,26],
-					"__pivot": [0.5,1],
-					"__tile": { "tilesetUid": 26, "srcRect": [144,80,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 84,
-					"px": [264,432],
-					"fieldInstances": [{
-						"__identifier": "ExitDir",
-						"__value": "South",
-						"__type": "LocalEnum.Direction",
-						"defUid": 87,
-						"realEditorValues": [{
-							"id": "V_String",
-							"params": ["South"]
-						}]
-					}]
-				},
-				{
 					"__identifier": "Door",
 					"__grid": [12,10],
 					"__pivot": [0.5,1],
@@ -462,6 +442,26 @@
 						"realEditorValues": [{
 							"id": "V_String",
 							"params": ["UpShield"]
+						}]
+					}]
+				},
+				{
+					"__identifier": "Exit",
+					"__grid": [16,27],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [144,80,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 84,
+					"px": [256,432],
+					"fieldInstances": [{
+						"__identifier": "ExitDir",
+						"__value": "South",
+						"__type": "LocalEnum.Direction",
+						"defUid": 87,
+						"realEditorValues": [{
+							"id": "V_String",
+							"params": ["South"]
 						}]
 					}]
 				}

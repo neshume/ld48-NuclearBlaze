@@ -322,6 +322,10 @@ class Entity {
 		onPosManuallyChanged();
 	}
 
+	public inline function inBounds(x:Float, y:Float, pad=0.) {
+		return x>=left-pad && x<=right+pad && y>=top-pad && y<=bottom+pad;
+	}
+
 	/** Should be called when you manually modify entity coordinates **/
 	function onPosManuallyChanged() {
 		if( M.dist(attachX,attachY,prevFrameattachX,prevFrameattachY) > Const.GRID*2 ) {

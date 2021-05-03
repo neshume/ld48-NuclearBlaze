@@ -157,26 +157,6 @@
 					]
 				},
 				{
-					"__identifier": "Exit",
-					"__grid": [21,16],
-					"__pivot": [0.5,1],
-					"__tile": { "tilesetUid": 26, "srcRect": [144,96,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 84,
-					"px": [344,272],
-					"fieldInstances": [{
-						"__identifier": "ExitDir",
-						"__value": "East",
-						"__type": "LocalEnum.Direction",
-						"defUid": 87,
-						"realEditorValues": [{
-							"id": "V_String",
-							"params": ["East"]
-						}]
-					}]
-				},
-				{
 					"__identifier": "FireStarter",
 					"__grid": [17,16],
 					"__pivot": [0.5,0.5],
@@ -190,6 +170,26 @@
 						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
 						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "Exit",
+					"__grid": [21,16],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [144,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 84,
+					"px": [336,256],
+					"fieldInstances": [{
+						"__identifier": "ExitDir",
+						"__value": "East",
+						"__type": "LocalEnum.Direction",
+						"defUid": 87,
+						"realEditorValues": [{
+							"id": "V_String",
+							"params": ["East"]
+						}]
+					}]
 				}
 			]
 		},

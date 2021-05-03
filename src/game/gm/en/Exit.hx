@@ -4,14 +4,19 @@ class Exit extends Entity {
 	var data : Entity_Exit;
 	public function new(d:Entity_Exit) {
 		super(0,0);
+
 		data = d;
-		setPosCase(data.cx, data.cy);
+
+		setPosPixel(data.pixelX, data.pixelY);
+		pivotX = data.pivotX;
+		pivotY = data.pivotY;
 		wid = data.width;
 		hei = data.height;
+
 		gravityMul = 0;
 		collides = false;
 		spr.set( dict.arrow );
-		spr.setCenterRatio(0.5,0.5);
+		spr.setCenterRatio(1, 0.5);
 	}
 
 	override function dispose() {
@@ -41,7 +46,7 @@ class Exit extends Entity {
 		super.fixedUpdate();
 
 		if( game.levelComplete() )
-			if( hero.centerX>=left && hero.centerX<=right && hero.centerY>=top && hero.centerY<=bottom ) {
+			if( inBounds(hero.centerX, hero.centerY, 2) ) {
 				game.nextLevel();
 				destroy();
 			}

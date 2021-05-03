@@ -311,26 +311,6 @@
 					]
 				},
 				{
-					"__identifier": "Exit",
-					"__grid": [36,7],
-					"__pivot": [0.5,1],
-					"__tile": { "tilesetUid": 26, "srcRect": [144,96,16,16] },
-					"width": 16,
-					"height": 48,
-					"defUid": 84,
-					"px": [584,128],
-					"fieldInstances": [{
-						"__identifier": "ExitDir",
-						"__value": "East",
-						"__type": "LocalEnum.Direction",
-						"defUid": 87,
-						"realEditorValues": [{
-							"id": "V_String",
-							"params": ["East"]
-						}]
-					}]
-				},
-				{
 					"__identifier": "CameraOffset",
 					"__grid": [12,9],
 					"__pivot": [0,0],
@@ -551,6 +531,26 @@
 						},
 						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "Exit",
+					"__grid": [36,5],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [144,96,16,16] },
+					"width": 16,
+					"height": 48,
+					"defUid": 84,
+					"px": [576,80],
+					"fieldInstances": [{
+						"__identifier": "ExitDir",
+						"__value": "East",
+						"__type": "LocalEnum.Direction",
+						"defUid": 87,
+						"realEditorValues": [{
+							"id": "V_String",
+							"params": ["East"]
+						}]
+					}]
 				}
 			]
 		},

@@ -1081,13 +1081,17 @@
 					"height": 16,
 					"defUid": 116,
 					"px": [56,368],
-					"fieldInstances": [{
-						"__identifier": "radius",
-						"__value": 3,
-						"__type": "Int",
-						"defUid": 117,
-						"realEditorValues": [{ "id": "V_Int", "params": [3] }]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "radius",
+							"__value": 3,
+							"__type": "Int",
+							"defUid": 117,
+							"realEditorValues": [{ "id": "V_Int", "params": [3] }]
+						},
+						{ "__identifier": "smokeColor", "__value": "#4D4959", "__type": "Color", "defUid": 384, "realEditorValues": [] },
+						{ "__identifier": "intensity", "__value": 1, "__type": "Float", "defUid": 385, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "WallText",
@@ -1131,13 +1135,13 @@
 				},
 				{
 					"__identifier": "Exit",
-					"__grid": [32,30],
-					"__pivot": [0.5,1],
+					"__grid": [31,30],
+					"__pivot": [0,0],
 					"__tile": { "tilesetUid": 26, "srcRect": [144,80,16,16] },
 					"width": 48,
 					"height": 16,
 					"defUid": 84,
-					"px": [520,496],
+					"px": [496,480],
 					"fieldInstances": [{
 						"__identifier": "ExitDir",
 						"__value": "South",
@@ -1148,27 +1152,6 @@
 							"params": ["South"]
 						}]
 					}]
-				},
-				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [25,27],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [408,448],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
-						{
-							"__identifier": "shieldDurationS",
-							"__value": 3,
-							"__type": "Int",
-							"defUid": 380,
-							"realEditorValues": [null]
-						}
-					]
 				}
 			]
 		},

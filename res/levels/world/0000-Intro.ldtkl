@@ -103,26 +103,6 @@
 					]
 				},
 				{
-					"__identifier": "Exit",
-					"__grid": [42,21],
-					"__pivot": [0.5,1],
-					"__tile": { "tilesetUid": 26, "srcRect": [144,96,16,16] },
-					"width": 16,
-					"height": 64,
-					"defUid": 84,
-					"px": [680,352],
-					"fieldInstances": [{
-						"__identifier": "ExitDir",
-						"__value": "East",
-						"__type": "LocalEnum.Direction",
-						"defUid": 87,
-						"realEditorValues": [{
-							"id": "V_String",
-							"params": ["East"]
-						}]
-					}]
-				},
-				{
 					"__identifier": "Hero",
 					"__grid": [9,7],
 					"__pivot": [0.5,1],
@@ -598,6 +578,26 @@
 					"defUid": 374,
 					"px": [208,160],
 					"fieldInstances": []
+				},
+				{
+					"__identifier": "Exit",
+					"__grid": [42,18],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [144,96,16,16] },
+					"width": 16,
+					"height": 64,
+					"defUid": 84,
+					"px": [672,288],
+					"fieldInstances": [{
+						"__identifier": "ExitDir",
+						"__value": "East",
+						"__type": "LocalEnum.Direction",
+						"defUid": 87,
+						"realEditorValues": [{
+							"id": "V_String",
+							"params": ["East"]
+						}]
+					}]
 				}
 			]
 		},

@@ -338,13 +338,13 @@
 				},
 				{
 					"__identifier": "Exit",
-					"__grid": [27,8],
-					"__pivot": [0.5,1],
+					"__grid": [28,8],
+					"__pivot": [0,0],
 					"__tile": { "tilesetUid": 26, "srcRect": [144,96,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 84,
-					"px": [440,144],
+					"px": [448,128],
 					"fieldInstances": [{
 						"__identifier": "ExitDir",
 						"__value": "East",

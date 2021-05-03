@@ -440,26 +440,6 @@
 					]
 				},
 				{
-					"__identifier": "Exit",
-					"__grid": [57,26],
-					"__pivot": [0.5,1],
-					"__tile": { "tilesetUid": 26, "srcRect": [144,80,16,16] },
-					"width": 112,
-					"height": 16,
-					"defUid": 84,
-					"px": [920,432],
-					"fieldInstances": [{
-						"__identifier": "ExitDir",
-						"__value": "South",
-						"__type": "LocalEnum.Direction",
-						"defUid": 87,
-						"realEditorValues": [{
-							"id": "V_String",
-							"params": ["South"]
-						}]
-					}]
-				},
-				{
 					"__identifier": "FireSpray",
 					"__grid": [20,10],
 					"__pivot": [0.5,0.5],
@@ -984,6 +964,26 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [6] }]
 						}
 					]
+				},
+				{
+					"__identifier": "Exit",
+					"__grid": [55,27],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [144,80,16,16] },
+					"width": 96,
+					"height": 16,
+					"defUid": 84,
+					"px": [880,432],
+					"fieldInstances": [{
+						"__identifier": "ExitDir",
+						"__value": "South",
+						"__type": "LocalEnum.Direction",
+						"defUid": 87,
+						"realEditorValues": [{
+							"id": "V_String",
+							"params": ["South"]
+						}]
+					}]
 				}
 			]
 		},
