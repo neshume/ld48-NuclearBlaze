@@ -37,18 +37,12 @@ class Exit extends Entity {
 	}
 
 
-	override function update() {
-		super.update();
-		entityVisible = game.levelComplete();
-	}
-
 	override function fixedUpdate() {
 		super.fixedUpdate();
 
-		if( game.levelComplete() )
-			if( inBounds(hero.centerX, hero.centerY, 2) ) {
-				game.nextLevel();
-				destroy();
-			}
+		if( inBounds(hero.centerX, hero.centerY, 2) ) {
+			game.nextLevel();
+			destroy();
+		}
 	}
 }
