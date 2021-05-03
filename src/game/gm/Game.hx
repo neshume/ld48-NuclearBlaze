@@ -152,6 +152,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_Trigger) new gm.en.Trigger(d);
 		for(d in level.data.l_Entities.all_Light) new gm.en.Light(d);
 		for(d in level.data.l_Entities.all_Sprinkler) new gm.en.Sprinkler(d);
+		for(d in level.data.l_Entities.all_Explosive) new gm.en.Explosive(d);
 
 		for(d in level.data.l_Entities.all_FogPiercer) {
 			for( cy in d.cy...Std.int( d.cy + d.height/Const.GRID ) )

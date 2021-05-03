@@ -107,6 +107,14 @@
 					"constId": "WaterFireDecrease",
 					"value1": 0.3,
 					"desc1": "Fire loss on watering"
+				},
+				{
+					"constId": "ExplosiveTimer",
+					"value1": 5
+				},
+				{
+					"constId": "ExplosiveRadius",
+					"value1": 11
 				}
 			],
 			"props": {

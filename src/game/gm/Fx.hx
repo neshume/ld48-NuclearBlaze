@@ -590,6 +590,75 @@ class Fx extends dn.Process {
 	}
 
 
+	public function largeExplosion(x:Float,y:Float, radiusPx:Float) {
+		var a = 0.;
+		var d = 0.;
+		var p : HParticle = null;
+
+		// Explosion anims
+		var n = 60;
+		for(i in 0...n) {
+			a = R.fullCircle();
+			d = rnd(10,radiusPx-20);
+			p = allocTopAdd(getTile(dict.fxExplode), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.playAnimAndKill( Assets.tiles, dict.fxExplode, rnd(0.3,0.4) );
+			p.setScale(rnd(0.9,2));
+			p.moveAwayFrom(x,y, rnd(3,4));
+			p.frict = R.aroundZTO(0.86);
+			p.rotation = rnd(0, 0.4, true);
+			p.delayS = i/(n-1) * 0.1 + R.around(0.1);
+		}
+
+		// Lines
+		var n = 40;
+		for(i in 0...n) {
+			a = R.fullCircle();
+			d = rnd(20,radiusPx*0.5);
+			p = allocTopAdd(getTile(dict.fxLineDir), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.colorizeRandom(0xff0000, 0xffcc00);
+			p.scaleY = 2;
+			p.scaleX = R.around(2);
+			p.scaleXMul = R.aroundZTO(0.98);
+			p.moveAwayFrom(x,y, rnd(8,10));
+			p.frict = R.aroundZTO(0.94);
+			p.rotation = a;
+			p.lifeS = R.around(0.4);
+		}
+
+		// Smoke
+		var n = 30;
+		for(i in 0...n) {
+			a = i/(n-1) * M.PI2 + R.zeroTo(0.1,true);
+			d = rnd(2,60);
+			p = allocTopNormal(getTile(dict.fxSmoke), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.setFadeS( R.around(0.7), 0, R.around(3) );
+			p.setScale( R.around(2.5) * R.sign() );
+			p.colorAnimS(0x880000, 0x0, R.around(0.7));
+			p.moveAwayFrom(x,y, rnd(2,3));
+			p.frict = R.aroundZTO(0.9);
+			p.rotation = R.fullCircle();
+			p.dr = R.around(0.005);
+			p.gy = R.around(0.01);
+			p.lifeS = rnd(10,12);
+		}
+
+		// Dots
+		var n = 120;
+		for(i in 0...n) {
+			a = R.fullCircle();
+			d = radiusPx * rnd(0.03,0.45);
+			p = allocTopAdd(getTile(dict.pixel), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.alphaFlicker = 0.5;
+			p.colorizeRandom(0xff0000, 0xffcc00);
+			p.moveAwayFrom(x,y, rnd(3,4));
+			p.frict = R.aroundZTO(0.96);
+			p.gy = R.zeroTo(0.03);
+			p.lifeS = rnd(3,5);
+		}
+	}
+
+
+
 	function _dirtPhysics(p:HParticle) {
 		if( collides(p) ) {
 			p.dx *= Math.pow(rnd(0.8,0.9),tmod);
