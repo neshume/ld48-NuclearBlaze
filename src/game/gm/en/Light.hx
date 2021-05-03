@@ -3,6 +3,7 @@ package gm.en;
 class Light extends Entity {
 	var data : Entity_Light;
 	var bulb : HSprite;
+	var white : Null<HSprite>;
 	var core : HSprite;
 	var mainHalo : HSprite;
 	var largeHalo : HSprite;
@@ -34,16 +35,55 @@ class Light extends Entity {
 
 				mainHalo = Assets.tiles.h_get(dict.lightCircle,0, 0.5, 0.5);
 				game.scroller.add(mainHalo, Const.DP_FX_FRONT);
+				mainHalo.setScale( data.f_radius*Const.GRID / ( mainHalo.tile.width*0.5 ) );
 
 				largeHalo = Assets.tiles.h_get(dict.lightCircle,0, 0.5, 0.5);
 				game.scroller.add(largeHalo, Const.DP_FX_FRONT);
 
 
-			// case North:
-			// case East:
-			// case West:
-			// case South:
-			case _: // HACK
+			case North, East, West, South:
+				bulb = Assets.tiles.h_get(dict.lightSpotBulb,0, 0.5, 0);
+				game.scroller.add(bulb, Const.DP_BG);
+
+				white = Assets.tiles.h_get(dict.lightSpotWhite,0, 0.5, 0);
+				game.scroller.add(white, Const.DP_BG);
+				white.colorize( C.toWhite(data.f_color_int, 0.8) );
+
+				core = Assets.tiles.h_get(dict.lightSpotCore,0, 0.5, 0);
+				game.scroller.add(core, Const.DP_FX_FRONT);
+				core.setScale(data.f_radius*Const.GRID / ( core.tile.width*0.5 ));
+
+				mainHalo = Assets.tiles.h_get(dict.lightSpot,0, 0.5, 0);
+				game.scroller.add(mainHalo, Const.DP_FX_FRONT);
+				mainHalo.setScale( data.f_radius*Const.GRID / ( mainHalo.tile.width*0.3 ) );
+
+				largeHalo = Assets.tiles.h_get(dict.lightCircle,0, 0.5, 0.5);
+				game.scroller.add(largeHalo, Const.DP_FX_FRONT);
+
+				switch data.f_spotDir {
+					case North:
+						pivotY = 1;
+						yr = 1.2;
+						white.rotation = bulb.rotation = core.rotation = mainHalo.rotation = M.PI;
+
+					case East:
+						pivotX = 0;
+						pivotY = 0.5;
+						xr = -0.2;
+						white.rotation = bulb.rotation = core.rotation = mainHalo.rotation = -M.PIHALF;
+
+					case West:
+						pivotX = 1;
+						pivotY = 0.5;
+						xr = 1.2;
+						white.rotation = bulb.rotation = core.rotation = mainHalo.rotation = M.PIHALF;
+
+					case South:
+						pivotY = 0;
+						yr = 0;
+
+					case null:
+				}
 		}
 
 		var dark = C.hexToInt("#6d50cd");
@@ -54,7 +94,6 @@ class Light extends Entity {
 		core.blendMode = Add;
 		core.smooth = true;
 
-		mainHalo.setScale( data.f_radius*Const.GRID / ( mainHalo.tile.width*0.5 ) );
 		mainHalo.colorize( C.interpolateInt(data.f_color_int, dark, 0.4) );
 		mainHalo.blendMode = Add;
 		mainHalo.smooth = true;
@@ -67,10 +106,23 @@ class Light extends Entity {
 
 	override function dispose() {
 		super.dispose();
+		if( white!=null )
+			white.remove();
 		bulb.remove();
 		core.remove();
 		mainHalo.remove();
 		largeHalo.remove();
+	}
+
+	public inline function isSpot() return data.f_spotDir!=null;
+	public inline function getSpotAng() : Float {
+		return switch data.f_spotDir {
+			case null: 0;
+			case North: -M.PIHALF;
+			case East: 0;
+			case West: M.PI;
+			case South: M.PIHALF;
+		}
 	}
 
 	override function postUpdate() {
@@ -80,6 +132,8 @@ class Light extends Entity {
 		bulb.setPosition(attachX, attachY);
 
 		core.setPosition(attachX, attachY);
+		if( white!=null )
+			white.setPosition(attachX, attachY);
 		core.visible = !data.f_hideSprite;
 		mainHalo.setPosition(attachX, attachY);
 		largeHalo.setPosition(attachX, attachY);
@@ -88,8 +142,8 @@ class Light extends Entity {
 			if( !data.f_hideSprite && !cd.hasSetS("smoke",0.1) && power>=0.5 )
 				fx.lightSmoke(centerX, centerY, data.f_color_int);
 
-			if( !data.f_hideSprite && !cd.hasSetS("flare",0.1) && power>=0.66 )
-				fx.lightFlare(centerX, centerY, data.f_color_int);
+			if( !data.f_hideSprite && !isSpot() && !cd.hasSetS("flare",0.1) && power>=0.66 )
+				fx.lightFlare(centerX, centerY, data.f_color_int, isSpot()?2:1);
 		}
 
 		if( data.f_flicker ) {
@@ -112,6 +166,8 @@ class Light extends Entity {
 			power = 0.6 + 0.4*Math.cos(ftime*0.2);
 
 		core.alpha = data.f_intensity * power;
+		if( white!=null )
+			white.alpha = power;
 		mainHalo.alpha = data.f_intensity*0.9 * power;
 		largeHalo.alpha = data.f_intensity*0.5 * power;
 	}

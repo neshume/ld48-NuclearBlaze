@@ -240,20 +240,20 @@
 				},
 				{
 					"__identifier": "FireStarter",
-					"__grid": [28,19],
+					"__grid": [29,18],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [208,96,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 14,
-					"px": [456,312],
+					"px": [472,296],
 					"fieldInstances": [
 						{
 							"__identifier": "range",
-							"__value": 2,
+							"__value": 3,
 							"__type": "Int",
 							"defUid": 15,
-							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
+							"realEditorValues": [{ "id": "V_Int", "params": [3] }]
 						},
 						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
 						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] }
@@ -551,6 +551,236 @@
 							"params": ["East"]
 						}]
 					}]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [12,10],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [200,168],
+					"fieldInstances": [
+						{ "__identifier": "spotDir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 208, "realEditorValues": [] },
+						{
+							"__identifier": "color",
+							"__value": "#FF2500",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [16721152] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.6,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 4,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [4] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{
+							"__identifier": "gyro",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [17,0],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [144,96,16,16] },
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [280,8],
+					"fieldInstances": [
+						{
+							"__identifier": "spotDir",
+							"__value": "East",
+							"__type": "LocalEnum.Direction",
+							"defUid": 208,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["East"]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#5418D2",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [5511378] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.6,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 1,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [17,5],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [144,96,16,16] },
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [280,88],
+					"fieldInstances": [
+						{
+							"__identifier": "spotDir",
+							"__value": "East",
+							"__type": "LocalEnum.Direction",
+							"defUid": 208,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["East"]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#5418D2",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [5511378] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.6,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 1,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [28,19],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [144,96,16,16] },
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [456,312],
+					"fieldInstances": [
+						{
+							"__identifier": "spotDir",
+							"__value": "East",
+							"__type": "LocalEnum.Direction",
+							"defUid": 208,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["East"]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#18D235",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [1626677] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.3,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.3] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [28,16],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [144,96,16,16] },
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [456,264],
+					"fieldInstances": [
+						{
+							"__identifier": "spotDir",
+							"__value": "East",
+							"__type": "LocalEnum.Direction",
+							"defUid": 208,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["East"]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#18D235",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [1626677] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.3,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.3] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+					]
 				}
 			]
 		},

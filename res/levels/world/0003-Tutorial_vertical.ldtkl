@@ -341,10 +341,10 @@
 						},
 						{
 							"__identifier": "color",
-							"__value": "#F1BB1A",
+							"__value": "#6F3A14",
 							"__type": "Color",
 							"defUid": 141,
-							"realEditorValues": [{ "id": "V_Int", "params": [15842074] }]
+							"realEditorValues": [{ "id": "V_Int", "params": [7289364] }]
 						},
 						{
 							"__identifier": "size",
@@ -533,6 +533,40 @@
 							"params": ["South"]
 						}]
 					}]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [3,8],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [144,80,16,16] },
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [56,136],
+					"fieldInstances": [
+						{
+							"__identifier": "spotDir",
+							"__value": "South",
+							"__type": "LocalEnum.Direction",
+							"defUid": 208,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["South"]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#FFA600",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [16754176] }]
+						},
+						{ "__identifier": "intensity", "__value": 1, "__type": "Float", "defUid": 210, "realEditorValues": [] },
+						{ "__identifier": "radius", "__value": 3, "__type": "Float", "defUid": 278, "realEditorValues": [] },
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+					]
 				}
 			]
 		},

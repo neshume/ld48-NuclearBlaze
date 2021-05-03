@@ -126,26 +126,6 @@
 				},
 				{
 					"__identifier": "Item",
-					"__grid": [11,6],
-					"__pivot": [0.5,1],
-					"__tile": { "tilesetUid": 26, "srcRect": [0,144,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 23,
-					"px": [184,112],
-					"fieldInstances": [{
-						"__identifier": "type",
-						"__value": "Key",
-						"__type": "LocalEnum.Items",
-						"defUid": 24,
-						"realEditorValues": [{
-							"id": "V_String",
-							"params": ["Key"]
-						}]
-					}]
-				},
-				{
-					"__identifier": "Item",
 					"__grid": [7,6],
 					"__pivot": [0.5,1],
 					"__tile": { "tilesetUid": 26, "srcRect": [32,144,16,16] },
@@ -217,123 +197,6 @@
 						{ "__identifier": "range", "__value": 3, "__type": "Int", "defUid": 15, "realEditorValues": [] },
 						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
 						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "Door",
-					"__grid": [14,10],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 12,
-					"height": 32,
-					"defUid": 5,
-					"px": [232,176],
-					"fieldInstances": [
-						{ "__identifier": "opened", "__value": false, "__type": "Bool", "defUid": 17, "realEditorValues": [] },
-						{
-							"__identifier": "kicks",
-							"__value": 3,
-							"__type": "Int",
-							"defUid": 21,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "requiredItem",
-							"__value": "Key",
-							"__type": "LocalEnum.Items",
-							"defUid": 25,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Key"]
-							}]
-						},
-						{
-							"__identifier": "requireLevelComplete",
-							"__value": false,
-							"__type": "Bool",
-							"defUid": 88,
-							"realEditorValues": [{
-								"id": "V_Bool",
-								"params": [ false ]
-							}]
-						},
-						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "Door",
-					"__grid": [16,10],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 12,
-					"height": 32,
-					"defUid": 5,
-					"px": [264,176],
-					"fieldInstances": [
-						{ "__identifier": "opened", "__value": false, "__type": "Bool", "defUid": 17, "realEditorValues": [] },
-						{
-							"__identifier": "kicks",
-							"__value": 3,
-							"__type": "Int",
-							"defUid": 21,
-							"realEditorValues": [{ "id": "V_Int", "params": [3] }]
-						},
-						{
-							"__identifier": "requiredItem",
-							"__value": "BlueCard",
-							"__type": "LocalEnum.Items",
-							"defUid": 25,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["BlueCard"]
-							}]
-						},
-						{
-							"__identifier": "requireLevelComplete",
-							"__value": false,
-							"__type": "Bool",
-							"defUid": 88,
-							"realEditorValues": [null]
-						},
-						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "Door",
-					"__grid": [18,10],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 12,
-					"height": 32,
-					"defUid": 5,
-					"px": [296,176],
-					"fieldInstances": [
-						{ "__identifier": "opened", "__value": false, "__type": "Bool", "defUid": 17, "realEditorValues": [] },
-						{
-							"__identifier": "kicks",
-							"__value": 3,
-							"__type": "Int",
-							"defUid": 21,
-							"realEditorValues": [{ "id": "V_Int", "params": [3] }]
-						},
-						{
-							"__identifier": "requiredItem",
-							"__value": null,
-							"__type": "LocalEnum.Items",
-							"defUid": 25,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "requireLevelComplete",
-							"__value": true,
-							"__type": "Bool",
-							"defUid": 88,
-							"realEditorValues": [{
-								"id": "V_Bool",
-								"params": [ true ]
-							}]
-						},
-						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1963,5 +1826,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 183, "dir": "e" }, { "levelUid": 126, "dir": "w" } ]
+	"__neighbours": [ { "levelUid": 398, "dir": "e" }, { "levelUid": 126, "dir": "w" } ]
 }
