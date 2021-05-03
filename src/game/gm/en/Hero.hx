@@ -82,6 +82,10 @@ class Hero extends gm.Entity {
 		#if debug
 		if( level.data.l_Entities.all_DebugStartPoint.length>0 ) {
 			var d = level.data.l_Entities.all_DebugStartPoint[0];
+			if( d.f_fallCinematic )
+				cd.setS("cineFalling",Const.INFINITE);
+			else
+				cd.unset("cineFalling");
 			cd.setS("shield", d.f_shieldDurationS);
 			for(i in d.f_startInv)
 				if( gm.en.Item.isUpgradeItem(i) )
