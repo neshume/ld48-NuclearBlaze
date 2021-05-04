@@ -23,7 +23,7 @@ class Explosive extends Entity {
 
 		level.getFireState(cx,cy, true); // Force firestate here
 
-		tf = new h2d.Text(Assets.fontMedium);
+		tf = new h2d.Text(Assets.fontSmall);
 		game.scroller.add(tf, Const.DP_UI);
 		tf.visible = false;
 		tf.blendMode = Add;
@@ -37,6 +37,7 @@ class Explosive extends Entity {
 
 	override function postUpdate() {
 		super.postUpdate();
+		updateTextPos();
 	}
 
 	public function activate() {
@@ -59,6 +60,31 @@ class Explosive extends Entity {
 			return;
 		active = false;
 		tf.visible = false;
+	}
+
+	function updateTextPos() {
+		var tfX = 0.;
+		var tfY = 0.;
+		var tfS = 1.;
+		if( !isOnScreen(-24) ) {
+			var a = Math.atan2(centerY-hero.centerY, centerX-hero.centerX);
+			tfX = hero.centerX + Math.cos(a)*camera.pxHei*0.4;
+			tfY = hero.centerY + Math.sin(a)*camera.pxHei*0.4;
+			tfS = 1;
+		}
+		else {
+			tfX = centerX;
+			tfY = centerY;
+			tfS = 2;
+		}
+		tfX -= tf.textWidth*tf.scaleX * 0.5;
+		tfY -= tf.textHeight*tf.scaleY * 0.5;
+		tf.x += ( tfX-tf.x ) * M.fmin(1, 0.2*tmod);
+		tf.y += ( tfY-tf.y ) * M.fmin(1, 0.2*tmod);
+		tf.setScale( tf.scaleX + ( tfS-tf.scaleX ) * M.fmin(1, 0.2*tmod) );
+
+		if( cd.has("shaking") )
+			tf.y += Math.cos(ftime*1.3) * 1;
 	}
 
 	override function fixedUpdate() {
@@ -90,10 +116,12 @@ class Explosive extends Entity {
 			var fs = level.getFireState(cx,cy);
 			timerS -= 1/Const.FIXED_UPDATE_FPS * ( fs.isUnderControl() ? 0.9 : 1 );
 			tf.visible = true;
-			tf.textColor = fs.isUnderControl() ? 0x1e9eff : 0xffcc77;
+			tf.textColor = fs.isUnderControl() ? 0xc6ff30 : 0xff8a64;
+			tf.blendMode = fs.isUnderControl() ? Alpha : Add;
+			if( fs.isUnderControl() )
+				cd.setS("shaking",0.1);
 			tf.text = Std.string( M.ceil(timerS) );
-			tf.x = Std.int( attachX-tf.textWidth*0.5 );
-			tf.y = Std.int( attachY-tf.textHeight );
+			updateTextPos();
 
 			if( !cd.hasSetS("warn",0.25) ) {
 				fx.explosionWarning(centerX, centerY, 1-timerS/data.f_timer);
