@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.4",
-	"nextUid": 404,
+	"nextUid": 405,
 	"worldLayout": "LinearHorizontal",
 	"worldGridWidth": 256,
 	"worldGridHeight": 256,
@@ -64,7 +64,7 @@
 			"autoTilesetDefUid": 6,
 			"autoRuleGroups": [{ "uid": 175, "name": "oil", "active": true, "collapsed": false, "isOptional": false, "rules": [
 				{
-					"uid": 287,
+					"uid": 404,
 					"active": false,
 					"size": 3,
 					"tileIds": [171,172,173],
@@ -130,8 +130,30 @@
 					"perlinOctaves": 2
 				},
 				{
-					"uid": 178,
+					"uid": 287,
 					"active": true,
+					"size": 3,
+					"tileIds": [171,172,173],
+					"chance": 1,
+					"breakOnMatch": true,
+					"pattern": [0,-1,0,0,1,0,0,0,0],
+					"flipX": false,
+					"flipY": false,
+					"xModulo": 1,
+					"yModulo": 1,
+					"checker": "None",
+					"tileMode": "Single",
+					"pivotX": 0,
+					"pivotY": 0,
+					"outOfBoundsValue": null,
+					"perlinActive": false,
+					"perlinSeed": 669105,
+					"perlinScale": 0.2,
+					"perlinOctaves": 2
+				},
+				{
+					"uid": 178,
+					"active": false,
 					"size": 3,
 					"tileIds": [91,92,93],
 					"chance": 0.43,
@@ -153,7 +175,7 @@
 				},
 				{
 					"uid": 176,
-					"active": true,
+					"active": false,
 					"size": 3,
 					"tileIds": [94,95],
 					"chance": 1,
