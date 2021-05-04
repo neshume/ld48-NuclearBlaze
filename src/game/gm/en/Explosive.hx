@@ -70,13 +70,8 @@ class Explosive extends Entity {
 			if( data.f_cameraCinematic ) {
 				level.suspendFireForS(3);
 				dn.Bresenham.iterateDisc(cx,cy,2, (x,y)->level.revealFog(x,y));
-				camera.trackEntity(this,false);
+				camera.cinematicTrack(centerX, centerY, 1.2);
 				hero.cancelVelocities();
-				hero.lockControlsS(2);
-				game.delayer.addS( ()->{
-					if( hero.isAlive() )
-						camera.trackEntity(hero,false);
-				}, 2 );
 			}
 		}
 		if( !seen )

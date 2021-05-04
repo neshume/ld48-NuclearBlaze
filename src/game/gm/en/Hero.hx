@@ -204,7 +204,8 @@ class Hero extends gm.Entity {
 	}
 
 	public function controlsLocked() {
-		return life<=0 || ca.locked() || Console.ME.isActive() || isChargingAction() || cd.has("cineFalling") || cd.has("lockControls");
+		return life<=0 || ca.locked() || Console.ME.isActive() || isChargingAction()
+			|| cd.has("cineFalling") || cd.has("lockControls") || camera.hasCinematicTracking();
 	}
 
 	public function lockControlsS(t) {
@@ -813,6 +814,9 @@ class Hero extends gm.Entity {
 
 
 
+		if( camera.hasCinematicTracking() ) {
+			cd.setS("shield",0.4);
+		}
 
 		// Shooting water
 		if( isWatering() )

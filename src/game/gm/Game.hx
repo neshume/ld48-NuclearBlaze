@@ -131,6 +131,7 @@ class Game extends Process {
 			e.destroy();
 		garbageCollectEntities();
 		hud.clear();
+		camera.clearCinematicTrackings();
 
 		// Inits
 		heat = 0;

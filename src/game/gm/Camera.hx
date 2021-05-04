@@ -1,5 +1,11 @@
 package gm;
 
+typedef CinematicTarget = {
+	var x : Float;
+	var y : Float;
+	var durationS : Float;
+}
+
 class Camera extends dn.Process {
 	/** Camera focus coord in level pixels. This is the raw camera location: the actual camera location might be clamped to level bounds. **/
 	public var rawFocus : LPoint;
@@ -8,8 +14,8 @@ class Camera extends dn.Process {
 	var clampedFocus : LPoint;
 
 	var target : Null<Entity>;
-	public var targetOffX = 0.;
-	public var targetOffY = 0.;
+	public var trackingOffX = 0.;
+	public var trackingOffY = 0.;
 	var extraOffX = 0.;
 	var extraOffY = 0.;
 
@@ -25,7 +31,7 @@ class Camera extends dn.Process {
 	/** Verticakl camera dead-zone in percentage of viewport height **/
 	public var deadZonePctY = 0.10;
 
-	var baseFrict = 0.89;
+	var baseFrict = 0.86;
 	var dx : Float;
 	var dy : Float;
 	var bumpOffX = 0.;
@@ -38,7 +44,7 @@ class Camera extends dn.Process {
 	public var zoom(get,never) : Float;
 
 	/** Speed multiplier when camera is tracking a target **/
-	var trackingSpeed = 1.0;
+	var baseTrackingSpeed = 1.0;
 
 	/** If TRUE (default), the camera will try to stay inside level bounds. It cannot be done if level is smaller than actual viewport. In such case, the camera will be centered. **/
 	public var clampToLevelBounds = false;
@@ -69,6 +75,8 @@ class Camera extends dn.Process {
 	// Debugging
 	var invalidateDebugBounds = false;
 	var debugBounds : Null<h2d.Graphics>;
+
+	var cinematicPoints : Array<CinematicTarget> = [];
 
 
 	public function new() {
@@ -120,8 +128,24 @@ class Camera extends dn.Process {
 			centerOnTarget();
 	}
 
+	public function cinematicTrack(x:Float, y:Float, durationS:Float) {
+		cinematicPoints.push({
+			x: x,
+			y: y,
+			durationS: durationS,
+		});
+	}
+
+	public function clearCinematicTrackings() {
+		cinematicPoints = [];
+	}
+
 	public inline function setTrackingSpeed(spd:Float) {
-		trackingSpeed = M.fclamp(spd, 0.01, 10);
+		baseTrackingSpeed = M.fclamp(spd, 0.01, 10);
+	}
+
+	inline function getTrackingSpeedMul() {
+		return !hasCinematicTracking() ? baseTrackingSpeed : 0.8;
 	}
 
 	public inline function stopTracking() {
@@ -130,8 +154,8 @@ class Camera extends dn.Process {
 
 	public function centerOnTarget() {
 		if( target!=null ) {
-			rawFocus.levelX = target.centerX + targetOffX;
-			rawFocus.levelY = target.centerY + targetOffY;
+			rawFocus.levelX = target.centerX + trackingOffX;
+			rawFocus.levelY = target.centerY + trackingOffY;
 		}
 	}
 
@@ -248,6 +272,11 @@ class Camera extends dn.Process {
 	}
 
 
+	public inline function hasCinematicTracking() {
+		return cinematicPoints.length>0;
+	}
+
+
 	override function update() {
 		super.update();
 
@@ -257,12 +286,29 @@ class Camera extends dn.Process {
 		curZoom += ( targetZoom - curZoom ) * M.fmin(1, tmod*0.2);
 		bumpZoomFactor *= Math.pow(0.9, tmod);
 
-		// Follow target entity
-		if( target!=null ) {
-			var spdX = 0.015*trackingSpeed*zoom;
-			var spdY = 0.023*trackingSpeed*zoom;
-			var tx = target.centerX + targetOffX;
-			var ty = target.centerY + targetOffY;
+		// Get tracking coord
+		var tx = -1.;
+		var ty = -1.;
+		if( cinematicPoints.length>0 ) {
+			var c = cinematicPoints[0];
+			c.durationS -= tmod * 1/Const.FPS;
+			if( c.durationS<=0 )
+				cinematicPoints.shift();
+			else
+				tx = c.x;
+				ty = c.y;
+		}
+		if( cinematicPoints.length==0 && target!=null ) {
+			tx = target.centerX;
+			ty = target.centerY;
+		}
+
+		// Follow target
+		if( tx>=0 ) {
+			var spdX = 0.015*getTrackingSpeedMul()*zoom;
+			var spdY = 0.023*getTrackingSpeedMul()*zoom;
+			var tx = tx + trackingOffX;
+			var ty = ty + trackingOffY;
 
 			var a = rawFocus.angTo(tx,ty);
 			var distX = M.fabs( tx - rawFocus.levelX );
@@ -275,7 +321,7 @@ class Camera extends dn.Process {
 		}
 
 		// Compute frictions
-		var frictX = baseFrict - trackingSpeed*zoom*0.027*baseFrict;
+		var frictX = baseFrict - getTrackingSpeedMul()*zoom*0.027*baseFrict;
 		var frictY = frictX;
 		if( clampToLevelBounds ) {
 			// "Brake" when approaching bounds

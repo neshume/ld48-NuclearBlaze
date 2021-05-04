@@ -400,8 +400,8 @@ class Level extends dn.Process {
 		cd.setS("fireSuspended", t);
 	}
 
-	public inline function fireSuspended() {
-		return cd.has("fireSuspended");
+	public inline function isFireSuspended() {
+		return cd.has("fireSuspended") || game.camera.hasCinematicTracking();
 	}
 
 	function updateFire() {
@@ -423,7 +423,7 @@ class Level extends dn.Process {
 				if( fs.isBurning() )
 					fireCount++;
 
-				if( fireSuspended() )
+				if( isFireSuspended() )
 					continue;
 
 				// Increase
