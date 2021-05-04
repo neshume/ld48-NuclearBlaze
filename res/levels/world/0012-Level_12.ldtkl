@@ -53,37 +53,6 @@
 			"gridTiles": [],
 			"entityInstances": [
 				{
-					"__identifier": "FireSpray",
-					"__grid": [11,11],
-					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [144,80,16,16] },
-					"width": 12,
-					"height": 12,
-					"defUid": 164,
-					"px": [184,184],
-					"fieldInstances": [
-						{
-							"__identifier": "dir",
-							"__value": "South",
-							"__type": "LocalEnum.Direction",
-							"defUid": 165,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["South"]
-							}]
-						},
-						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 166, "realEditorValues": [] },
-						{
-							"__identifier": "dist",
-							"__value": 4,
-							"__type": "Int",
-							"defUid": 167,
-							"realEditorValues": [{ "id": "V_Int", "params": [4] }]
-						},
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 168, "realEditorValues": [] }
-					]
-				},
-				{
 					"__identifier": "Hero",
 					"__grid": [4,13],
 					"__pivot": [0.5,1],
@@ -190,6 +159,121 @@
 							"params": ["East"]
 						}]
 					}]
+				},
+				{
+					"__identifier": "Sprinkler",
+					"__grid": [4,12],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [112,176,16,16] },
+					"width": 12,
+					"height": 12,
+					"defUid": 375,
+					"px": [72,200],
+					"fieldInstances": [
+						{
+							"__identifier": "startActive",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 376,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						},
+						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] },
+						{
+							"__identifier": "dir",
+							"__value": "East",
+							"__type": "LocalEnum.Direction",
+							"defUid": 405,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["East"]
+							}]
+						}
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [5,13],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [88,224],
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
+						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
+						{ "__identifier": "fallCinematic", "__value": false, "__type": "Bool", "defUid": 396, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Sprinkler",
+					"__grid": [9,13],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [112,176,16,16] },
+					"width": 12,
+					"height": 12,
+					"defUid": 375,
+					"px": [152,216],
+					"fieldInstances": [
+						{
+							"__identifier": "startActive",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 376,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						},
+						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] },
+						{
+							"__identifier": "dir",
+							"__value": "North",
+							"__type": "LocalEnum.Direction",
+							"defUid": 405,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["North"]
+							}]
+						}
+					]
+				},
+				{
+					"__identifier": "Sprinkler",
+					"__grid": [13,12],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [112,176,16,16] },
+					"width": 12,
+					"height": 12,
+					"defUid": 375,
+					"px": [216,200],
+					"fieldInstances": [
+						{
+							"__identifier": "startActive",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 376,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						},
+						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] },
+						{
+							"__identifier": "dir",
+							"__value": "West",
+							"__type": "LocalEnum.Direction",
+							"defUid": 405,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["West"]
+							}]
+						}
+					]
 				}
 			]
 		},

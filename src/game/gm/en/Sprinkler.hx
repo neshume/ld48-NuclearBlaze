@@ -6,20 +6,34 @@ class Sprinkler extends Entity {
 	public var data : Entity_Sprinkler;
 	var active : Bool;
 	var shootIdx : Int;
+	var ang : Float;
 
 	public function new(d:Entity_Sprinkler) {
 		super(0,0);
 		ALL.push(this);
 		data = d;
-		triggerId = data.f_id;
+		triggerId = data.f_triggerId;
 		setPosPixel(data.pixelX, data.pixelY);
+		ang = switch data.f_dir {
+			case null,South: M.PIHALF;
+			case North: -M.PIHALF;
+			case East: 0;
+			case West: M.PI;
+		}
 		gravityMul = 0;
 		collides = false;
 		active = data.f_startActive;
 		shootIdx = irnd(0,100);
+		pivotY = 0.5;
 
 
 		spr.set( dict.sprinklerOff);
+		spr.rotation = switch data.f_dir {
+			case null, South: 0;
+			case North: M.PI;
+			case East: -M.PIHALF;
+			case West: M.PIHALF;
+		}
 		game.scroller.add(spr,Const.DP_MAIN);
 	}
 
@@ -36,7 +50,7 @@ class Sprinkler extends Entity {
 	override function postUpdate() {
 		super.postUpdate();
 		if( active && isOnScreen() && !cd.hasSetS("splash", 0.06) )
-			fx.wallSplash(centerX, centerY+3);
+			fx.wallSplash(centerX+Math.cos(ang)*4, centerY+Math.sin(ang)*4);
 	}
 
 	public inline function isActive() return active;
@@ -55,7 +69,7 @@ class Sprinkler extends Entity {
 		if( active ) {
 			if( !cd.hasSetS("bullet", 0.1) ) {
 				for(i in 0...2) {
-					new gm.en.bu.WaterDrop( centerX, centerY+4, M.PIHALF - 0.5 * Math.cos(shootIdx*0.3 + i*0.7) );
+					new gm.en.bu.WaterDrop( centerX+Math.cos(ang)*4, centerY+Math.sin(ang)*4, ang - 0.5 * Math.cos(shootIdx*0.3 + i*0.7) );
 				}
 				shootIdx++;
 			}

@@ -527,12 +527,13 @@
 					"fieldInstances": [
 						{ "__identifier": "startActive", "__value": false, "__type": "Bool", "defUid": 376, "realEditorValues": [] },
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 1,
 							"__type": "Int",
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [1] }]
-						}
+						},
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -579,12 +580,13 @@
 					"fieldInstances": [
 						{ "__identifier": "startActive", "__value": false, "__type": "Bool", "defUid": 376, "realEditorValues": [] },
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 2,
 							"__type": "Int",
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
-						}
+						},
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -707,7 +709,8 @@
 								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -730,7 +733,8 @@
 								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				}
 			]

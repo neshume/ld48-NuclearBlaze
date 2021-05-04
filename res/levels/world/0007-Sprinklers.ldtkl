@@ -544,12 +544,13 @@
 							"realEditorValues": [null]
 						},
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 2,
 							"__type": "Int",
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
-						}
+						},
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -570,12 +571,13 @@
 							"realEditorValues": [null]
 						},
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 3,
 							"__type": "Int",
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [3] }]
-						}
+						},
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -649,12 +651,13 @@
 							"realEditorValues": [null]
 						},
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 7,
 							"__type": "Int",
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [7] }]
-						}
+						},
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -728,12 +731,13 @@
 							"realEditorValues": [null]
 						},
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 4,
 							"__type": "Int",
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [4] }]
-						}
+						},
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -860,12 +864,13 @@
 							"realEditorValues": [null]
 						},
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 6,
 							"__type": "Int",
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [6] }]
-						}
+						},
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1012,12 +1017,13 @@
 							"realEditorValues": [null]
 						},
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 9,
 							"__type": "Int",
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [9] }]
-						}
+						},
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				}
 			]

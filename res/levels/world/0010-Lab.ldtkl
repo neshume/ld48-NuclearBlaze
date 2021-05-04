@@ -269,7 +269,8 @@
 					"px": [472,56],
 					"fieldInstances": [
 						{ "__identifier": "startActive", "__value": false, "__type": "Bool", "defUid": 376, "realEditorValues": [] },
-						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -283,7 +284,8 @@
 					"px": [408,56],
 					"fieldInstances": [
 						{ "__identifier": "startActive", "__value": false, "__type": "Bool", "defUid": 376, "realEditorValues": [] },
-						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -297,7 +299,8 @@
 					"px": [392,56],
 					"fieldInstances": [
 						{ "__identifier": "startActive", "__value": false, "__type": "Bool", "defUid": 376, "realEditorValues": [] },
-						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -311,7 +314,8 @@
 					"px": [440,56],
 					"fieldInstances": [
 						{ "__identifier": "startActive", "__value": false, "__type": "Bool", "defUid": 376, "realEditorValues": [] },
-						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
