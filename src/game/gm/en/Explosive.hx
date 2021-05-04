@@ -71,7 +71,6 @@ class Explosive extends Entity {
 				level.suspendFireForS(3);
 				dn.Bresenham.iterateDisc(cx,cy,2, (x,y)->level.revealFog(x,y));
 				camera.cinematicTrack(centerX, centerY, 1.2);
-				hero.cancelVelocities();
 			}
 		}
 		if( !seen )

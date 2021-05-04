@@ -86,7 +86,7 @@ class Hero extends gm.Entity {
 				cd.setS("cineFalling",Const.INFINITE);
 			else
 				cd.unset("cineFalling");
-			cd.setS("shield", d.f_shieldDurationS);
+			setShield(d.f_shieldDurationS);
 			for(i in d.f_startInv)
 				if( gm.en.Item.isUpgradeItem(i) )
 					game.unlockUpgrade(i);
@@ -168,10 +168,17 @@ class Hero extends gm.Entity {
 	override function onDamage(dmg:Int, from:Entity) {
 		super.onDamage(dmg, from);
 		fx.flashBangS(0xff0000, 0.3, 1);
-		cd.setS("shield",Const.db.HeroHitShield_1);
+		setShield(Const.db.HeroHitShield_1);
 	}
 
 	public inline function hasShield() return isAlive() && cd.has("shield");
+	public inline function setShield(t:Float, blink=true) {
+		if( isAlive() ) {
+			cd.setS("shield", t, false);
+			if( blink )
+				cd.setS("blinking",t);
+		}
+	}
 
 	inline function queueCommand(c:CtrlCommand, durationS=0.15) {
 		if( isAlive() )
@@ -389,7 +396,7 @@ class Hero extends gm.Entity {
 		if( cd.has("burning") && !cd.hasSetS("flame",0.2) )
 			fx.flame(centerX, centerY);
 
-		if( isAlive() && hasShield() && !cd.hasSetS("shieldBlink",0.2) )
+		if( isAlive() && cd.has("blinking") && !cd.hasSetS("blinkTick",0.2) )
 			blink(0xffffff);
 
 		if( !isAlive() && !onGround && !cd.hasSetS("deathBlink",0.15) )
@@ -815,7 +822,12 @@ class Hero extends gm.Entity {
 
 
 		if( camera.hasCinematicTracking() ) {
-			cd.setS("shield",0.4);
+			setShield(0.4,false);
+			final f = 0.6;
+			dx*=f;
+			dy*=f;
+			bdx*=f;
+			bdy*=f;
 		}
 
 		// Shooting water
