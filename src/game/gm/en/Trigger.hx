@@ -20,7 +20,7 @@ class Trigger extends Entity {
 		delayer = new dn.Delayer(Const.FPS);
 
 		ALL.push(this);
-		triggerId = data.f_id;
+		triggerId = data.f_triggerId;
 
 		spr.set("empty");
 		gravityMul = 0;
@@ -103,29 +103,40 @@ class Trigger extends Entity {
 				setSquashY(0.5);
 		}
 
-		// Triggering sequence
-		var t = 0.35;
-		var lastT = t;
+		var t = 0.4;
 		for(e in Entity.ALL)
-			if( e.isAlive() && e.triggerId==triggerId ) {
-				if( e.distCase(hero)>=5 && data.f_cameraReveal ) {
-					delayer.addS(camera.trackEntity.bind(e,false), t);
-					delayer.addS(e.trigger, t+0.7);
-					lastT = t;
-					t+=1;
-				}
-				else {
-					delayer.addS(e.trigger, t);
-					lastT = t;
-					t+=0.4;
-				}
+			if( e.isAlive() && e.triggerId==triggerId && e!=this ) {
+				if( data.f_cinematicReveal )
+					camera.cinematicTrack(e.centerX, e.centerY, 0.66);
+				level.revealFogArea(e.cx, e.cy, 2);
+
+				delayer.addS(e.trigger, t);
+				t+=0.3;
 			}
 
-		delayer.addS(camera.trackEntity.bind(hero,false), t);
-		hero.dx*=0.4;
-		if( data.f_cameraReveal )
-			hero.lockControlsS(lastT+0.1);
-		level.suspendFireForS(t+0.5);
+		// Triggering sequence
+		// var t = 0.35;
+		// var lastT = t;
+		// for(e in Entity.ALL)
+		// 	if( e.isAlive() && e.triggerId==triggerId ) {
+		// 		if( e.distCase(hero)>=5 && data.f_cinematicReveal ) {
+		// 			delayer.addS(camera.trackEntity.bind(e,false), t);
+		// 			delayer.addS(e.trigger, t+0.7);
+		// 			lastT = t;
+		// 			t+=1;
+		// 		}
+		// 		else {
+		// 			delayer.addS(e.trigger, t);
+		// 			lastT = t;
+		// 			t+=0.4;
+		// 		}
+		// 	}
+
+		// delayer.addS(camera.trackEntity.bind(hero,false), t);
+		// hero.dx*=0.4;
+		// if( data.f_cinematicReveal )
+		// 	hero.lockControlsS(lastT+0.1);
+		// level.suspendFireForS(t+0.5);
 
 		switch data.f_type {
 			case Gate:

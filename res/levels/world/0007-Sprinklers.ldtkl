@@ -35,7 +35,8 @@
 			}]
 		},
 		{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-		{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] }
+		{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+		{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 	],
 	"layerInstances": [
 		{
@@ -81,7 +82,7 @@
 						{ "__identifier": "kicks", "__value": 3, "__type": "Int", "defUid": 21, "realEditorValues": [] },
 						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
 						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
-						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
 						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] }
 					]
 				},
@@ -219,7 +220,7 @@
 						},
 						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
 						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
-						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
 						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] }
 					]
 				},
@@ -284,7 +285,7 @@
 								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
 						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] }
 					]
 				},
@@ -356,7 +357,7 @@
 					"defUid": 179,
 					"px": [296,136],
 					"fieldInstances": [
-						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 180, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 180, "realEditorValues": [] },
 						{
 							"__identifier": "type",
 							"__value": "Gate",
@@ -369,7 +370,7 @@
 						},
 						{ "__identifier": "holdTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{
-							"__identifier": "cameraReveal",
+							"__identifier": "cinematicReveal",
 							"__value": false,
 							"__type": "Bool",
 							"defUid": 290,
@@ -484,7 +485,7 @@
 					"px": [568,56],
 					"fieldInstances": [
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 2,
 							"__type": "Int",
 							"defUid": 180,
@@ -508,7 +509,7 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
 						},
 						{
-							"__identifier": "cameraReveal",
+							"__identifier": "cinematicReveal",
 							"__value": false,
 							"__type": "Bool",
 							"defUid": 290,
@@ -591,7 +592,7 @@
 					"px": [248,152],
 					"fieldInstances": [
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 3,
 							"__type": "Int",
 							"defUid": 180,
@@ -615,7 +616,7 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
 						},
 						{
-							"__identifier": "cameraReveal",
+							"__identifier": "cinematicReveal",
 							"__value": false,
 							"__type": "Bool",
 							"defUid": 290,
@@ -671,7 +672,7 @@
 					"px": [440,88],
 					"fieldInstances": [
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 4,
 							"__type": "Int",
 							"defUid": 180,
@@ -695,7 +696,7 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
 						},
 						{
-							"__identifier": "cameraReveal",
+							"__identifier": "cinematicReveal",
 							"__value": false,
 							"__type": "Bool",
 							"defUid": 290,
@@ -764,7 +765,7 @@
 						},
 						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": -1,
 							"__type": "Int",
 							"defUid": 285,
@@ -804,7 +805,7 @@
 					"px": [328,40],
 					"fieldInstances": [
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 6,
 							"__type": "Int",
 							"defUid": 180,
@@ -828,7 +829,7 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
 						},
 						{
-							"__identifier": "cameraReveal",
+							"__identifier": "cinematicReveal",
 							"__value": false,
 							"__type": "Bool",
 							"defUid": 290,
@@ -904,7 +905,7 @@
 					"px": [760,136],
 					"fieldInstances": [
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 7,
 							"__type": "Int",
 							"defUid": 180,
@@ -928,7 +929,7 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
 						},
 						{
-							"__identifier": "cameraReveal",
+							"__identifier": "cinematicReveal",
 							"__value": false,
 							"__type": "Bool",
 							"defUid": 290,
@@ -957,7 +958,7 @@
 					"px": [680,248],
 					"fieldInstances": [
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 9,
 							"__type": "Int",
 							"defUid": 180,
@@ -981,7 +982,7 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
 						},
 						{
-							"__identifier": "cameraReveal",
+							"__identifier": "cinematicReveal",
 							"__value": false,
 							"__type": "Bool",
 							"defUid": 290,

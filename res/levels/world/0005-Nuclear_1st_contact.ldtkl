@@ -26,7 +26,8 @@
 	"fieldInstances": [
 		{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 		{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-		{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] }
+		{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+		{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 	],
 	"layerInstances": [
 		{
@@ -371,7 +372,7 @@
 					"defUid": 179,
 					"px": [344,104],
 					"fieldInstances": [
-						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 180, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 180, "realEditorValues": [] },
 						{
 							"__identifier": "type",
 							"__value": "Gate",
@@ -383,7 +384,7 @@
 							}]
 						},
 						{ "__identifier": "holdTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
-						{ "__identifier": "cameraReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
+						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] }
 					]
 				},
@@ -466,7 +467,7 @@
 							"realEditorValues": [null]
 						},
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 1,
 							"__type": "Int",
 							"defUid": 285,
@@ -486,7 +487,7 @@
 					"px": [344,216],
 					"fieldInstances": [
 						{
-							"__identifier": "id",
+							"__identifier": "triggerId",
 							"__value": 1,
 							"__type": "Int",
 							"defUid": 180,
@@ -503,7 +504,7 @@
 							}]
 						},
 						{ "__identifier": "holdTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
-						{ "__identifier": "cameraReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
+						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] }
 					]
 				},
@@ -530,7 +531,7 @@
 								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "id", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
 						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] }
 					]
 				},

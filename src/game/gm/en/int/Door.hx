@@ -12,12 +12,12 @@ class Door extends Entity {
 	public function new(d:Entity_Door) {
 		super(d.cx,d.cy);
 		data = d;
-		triggerId = data.f_id;
+		triggerId = data.f_triggerId;
 		ALL.push(this);
 		Game.ME.scroller.add(spr, Const.DP_BG);
 		requiredItem = d.f_requiredItem;
 
-		kicks = d.f_requireLevelComplete || d.f_requiredItem!=null || d.f_id>=0 ? 0 : d.f_kicks;
+		kicks = d.f_requireLevelComplete || d.f_requiredItem!=null || triggerId>=0 ? 0 : d.f_kicks;
 		cHei = M.round(d.height / Const.GRID);
 		hei = cHei*Const.GRID;
 		closed = !d.f_opened;

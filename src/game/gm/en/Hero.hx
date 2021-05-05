@@ -324,7 +324,7 @@ class Hero extends gm.Entity {
 		if( isAlive() && onGround && !controlsLocked() && !cd.has("doorKickLimit") ) {
 			var d = gm.en.int.Door.getAt(cx+wallDir,cy);
 			if( d!=null && d.closed ) {
-				if( d.data.f_id>=0 ) {
+				if( d.triggerId>=0 ) {
 					if( !cd.hasSetS("tryToOpen",1) ) {
 						spr.anim.play(anims.useStart);
 						xr = dirTo(d)==1 ? 0.3 : 0.7;

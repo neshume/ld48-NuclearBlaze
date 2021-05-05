@@ -93,7 +93,7 @@ class Explosive extends Entity {
 		// First sight trigger
 		if( !seen && !cd.hasSetS("sighCheck",0.3) && distCase(hero)<=25 && sightCheck(hero) ) {
 			seen = true;
-			if( data.f_cameraCinematic ) {
+			if( data.f_cinematicReveal ) {
 				level.suspendFireForS(3);
 				dn.Bresenham.iterateDisc(cx,cy,2, (x,y)->level.revealFog(x,y));
 				camera.cinematicTrack(centerX, centerY, 1.2);

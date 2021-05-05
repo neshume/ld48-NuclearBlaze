@@ -325,6 +325,10 @@ class Level extends dn.Process {
 		return fogReveals.exists( coordId(cx,cy) );
 	}
 
+	public inline function revealFogArea(cx,cy, radius:Int) {
+		dn.Bresenham.iterateDisc(cx,cy, radius, (x,y)->revealFog(x,y));
+	}
+
 	public inline function revealFog(cx,cy, allowRecursion=true) {
 		if( !isFogRevealed(cx,cy) ) {
 			fogReveals.set( coordId(cx,cy), 0.33 );

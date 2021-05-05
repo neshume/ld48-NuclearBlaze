@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.4",
-	"nextUid": 406,
+	"nextUid": 407,
 	"worldLayout": "LinearHorizontal",
 	"worldGridWidth": 256,
 	"worldGridHeight": 256,
@@ -2560,7 +2560,7 @@
 			"pivotY": 1,
 			"fieldDefs": [
 				{
-					"identifier": "id",
+					"identifier": "triggerId",
 					"__type": "Int",
 					"uid": 285,
 					"type": "F_Int",
@@ -3968,7 +3968,7 @@
 			"pivotY": 0.5,
 			"fieldDefs": [
 				{
-					"identifier": "id",
+					"identifier": "triggerId",
 					"__type": "Int",
 					"uid": 180,
 					"type": "F_Int",
@@ -4028,7 +4028,7 @@
 					"textLanguageMode": null
 				},
 				{
-					"identifier": "cameraReveal",
+					"identifier": "cinematicReveal",
 					"__type": "Bool",
 					"uid": 290,
 					"type": "F_Bool",
@@ -4142,7 +4142,7 @@
 					"textLanguageMode": null
 				},
 				{
-					"identifier": "cameraCinematic",
+					"identifier": "cinematicReveal",
 					"__type": "Bool",
 					"uid": 403,
 					"type": "F_Bool",
@@ -4321,6 +4321,29 @@
 			"acceptFileTypes": null,
 			"defaultOverride": null,
 			"textLanguageMode": null
+		},
+		{
+			"identifier": "clampCameraToBounds",
+			"__type": "Bool",
+			"uid": 406,
+			"type": "F_Bool",
+			"isArray": false,
+			"canBeNull": false,
+			"arrayMinLength": null,
+			"arrayMaxLength": null,
+			"editorDisplayMode": "NameAndValue",
+			"editorDisplayPos": "Above",
+			"editorAlwaysShow": false,
+			"editorCutLongValues": true,
+			"min": null,
+			"max": null,
+			"regex": null,
+			"acceptFileTypes": null,
+			"defaultOverride": {
+				"id": "V_Bool",
+				"params": [ true ]
+			},
+			"textLanguageMode": null
 		}
 	] },
 	"levels": [
@@ -4370,7 +4393,8 @@
 						"id": "V_Bool",
 						"params": [ true ]
 					}]
-				}
+				},
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [{ "levelUid": 85, "dir": "e" }]
@@ -4412,7 +4436,8 @@
 						"id": "V_Bool",
 						"params": [ true ]
 					}]
-				}
+				},
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [ { "levelUid": 56, "dir": "e" }, { "levelUid": 97, "dir": "w" } ]
@@ -4436,7 +4461,8 @@
 			"fieldInstances": [
 				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] }
+				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [ { "levelUid": 30, "dir": "e" }, { "levelUid": 85, "dir": "w" } ]
@@ -4469,7 +4495,8 @@
 					}]
 				},
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] }
+				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [ { "levelUid": 57, "dir": "e" }, { "levelUid": 56, "dir": "w" } ]
@@ -4493,7 +4520,8 @@
 			"fieldInstances": [
 				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] }
+				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [ { "levelUid": 70, "dir": "e" }, { "levelUid": 30, "dir": "w" } ]
@@ -4517,7 +4545,8 @@
 			"fieldInstances": [
 				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] }
+				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [ { "levelUid": 133, "dir": "e" }, { "levelUid": 57, "dir": "w" } ]
@@ -4541,7 +4570,8 @@
 			"fieldInstances": [
 				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] }
+				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [ { "levelUid": 0, "dir": "e" }, { "levelUid": 70, "dir": "w" } ]
@@ -4574,7 +4604,8 @@
 					}]
 				},
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] }
+				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [ { "levelUid": 89, "dir": "e" }, { "levelUid": 133, "dir": "w" } ]
@@ -4598,7 +4629,8 @@
 			"fieldInstances": [
 				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] }
+				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [ { "levelUid": 118, "dir": "e" }, { "levelUid": 0, "dir": "w" } ]
@@ -4640,7 +4672,8 @@
 						"params": [ true ]
 					}]
 				},
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] }
+				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [ { "levelUid": 126, "dir": "e" }, { "levelUid": 89, "dir": "w" } ]
@@ -4664,7 +4697,8 @@
 			"fieldInstances": [
 				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] }
+				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [ { "levelUid": 398, "dir": "e" }, { "levelUid": 118, "dir": "w" } ]
@@ -4688,7 +4722,8 @@
 			"fieldInstances": [
 				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] }
+				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [ { "levelUid": 183, "dir": "e" }, { "levelUid": 126, "dir": "w" } ]
@@ -4712,7 +4747,17 @@
 			"fieldInstances": [
 				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] }
+				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{
+					"__identifier": "clampCameraToBounds",
+					"__value": false,
+					"__type": "Bool",
+					"defUid": 406,
+					"realEditorValues": [{
+						"id": "V_Bool",
+						"params": [ false ]
+					}]
+				}
 			],
 			"layerInstances": null,
 			"__neighbours": [{ "levelUid": 398, "dir": "w" }]

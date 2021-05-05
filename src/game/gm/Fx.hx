@@ -521,6 +521,32 @@ class Fx extends dn.Process {
 		}
 	}
 
+	public function sprinklerStart(x:Float, y:Float, ang:Float) {
+		for(i in 0...Std.int(R.around(50))) {
+			var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,3,true), y+rnd(0,3,true) );
+			p.setFadeS(R.around(0.7), 0, 0.1);
+			p.moveAng(ang + rnd(0,M.PIHALF*0.35,true), rnd(0,3));
+			p.gy = R.around(0.1,10);
+			p.frict = R.aroundZTO(0.96);
+			p.colorize(Const.WATER_COLOR);
+			p.onUpdate = _waterPhysics;
+			p.lifeS = R.around(1);
+		}
+	}
+
+	public function sprinkler(x:Float, y:Float) {
+		for(i in 0...irnd(5,8)) {
+			var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,3,true), y+rnd(0,3,true) );
+			p.setFadeS(rnd(0.3,0.4), 0, 0.1);
+			p.moveAwayFrom(x,y, rnd(1,2));
+			p.gy = rnd(0.04,0.10);
+			p.frict = R.aroundZTO(0.9);
+			p.colorize(Const.WATER_COLOR);
+			p.onUpdate = _waterPhysics;
+			p.lifeS = rnd(0.1,0.3);
+		}
+	}
+
 	public function waterVanish(x:Float, y:Float) {
 		for(i in 0...2) {
 			var p = allocTopAdd( getTile(dict.fxSmoke), x+rnd(0,3,true), y+rnd(0,3,true));

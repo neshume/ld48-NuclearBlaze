@@ -44,7 +44,8 @@
 				"params": [ true ]
 			}]
 		},
-		{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] }
+		{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+		{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 	],
 	"layerInstances": [
 		{

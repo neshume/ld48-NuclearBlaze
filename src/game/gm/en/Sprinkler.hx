@@ -50,13 +50,14 @@ class Sprinkler extends Entity {
 	override function postUpdate() {
 		super.postUpdate();
 		if( active && isOnScreen() && !cd.hasSetS("splash", 0.06) )
-			fx.wallSplash(centerX+Math.cos(ang)*4, centerY+Math.sin(ang)*4);
+			fx.sprinkler(centerX+Math.cos(ang)*4, centerY+Math.sin(ang)*4);
 	}
 
 	public inline function isActive() return active;
 
 	public function start() {
 		active = true;
+		fx.sprinklerStart(centerX, centerY, ang);
 	}
 	public function stop() {
 		active = false;

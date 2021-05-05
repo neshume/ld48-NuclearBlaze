@@ -141,6 +141,7 @@ class Game extends Process {
 		// Start
 		level = new Level(l);
 		hero = new gm.en.Hero();
+		camera.clampToLevelBounds = level.data.f_clampCameraToBounds;
 
 		for(d in level.data.l_Entities.all_Door) new gm.en.int.Door(d);
 		for(d in level.data.l_Entities.all_Item) new gm.en.Item(d);
