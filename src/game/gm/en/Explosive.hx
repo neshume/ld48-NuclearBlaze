@@ -8,6 +8,7 @@ class Explosive extends Entity {
 	var timerS = 0.;
 	var tf : h2d.Text;
 	var seen = false;
+	var pointer : HSprite;
 
 	public function new(d:Entity_Explosive) {
 		super(0,0);
@@ -17,6 +18,7 @@ class Explosive extends Entity {
 		gravityMul = 0;
 		collides = false;
 		pivotY = 0.5;
+		seen = data.f_startActive;
 
 		spr.set(dict.error);
 		game.scroller.add(spr,Const.DP_BG);
@@ -27,17 +29,25 @@ class Explosive extends Entity {
 		game.scroller.add(tf, Const.DP_UI);
 		tf.visible = false;
 		tf.blendMode = Add;
+		tf.setPosition(centerX, centerY);
+
+		pointer = Assets.tiles.h_get(dict.pointer,0, 0.5, 0.5);
+		game.scroller.add(pointer, Const.DP_UI);
+		pointer.smooth = true;
+		pointer.colorize(0xff8a64);
+		pointer.setPosition(centerX, centerY);
 	}
 
 	override function dispose() {
 		super.dispose();
 		ALL.remove(this);
 		tf.remove();
+		pointer.remove();
 	}
 
 	override function postUpdate() {
 		super.postUpdate();
-		updateTextPos();
+		updateText();
 	}
 
 	public function activate() {
@@ -62,26 +72,44 @@ class Explosive extends Entity {
 		tf.visible = false;
 	}
 
-	function updateTextPos() {
+	function updateText() {
+		if( camera.hasCinematicTracking() || !active ) {
+			tf.visible = false;
+			pointer.visible = false;
+			return;
+		}
+
+		var ang = Math.atan2(centerY-hero.centerY, centerX-hero.centerX);
 		var tfX = 0.;
 		var tfY = 0.;
 		var tfS = 1.;
 		if( !isOnScreen(-24) ) {
-			var a = Math.atan2(centerY-hero.centerY, centerX-hero.centerX);
-			tfX = hero.centerX + Math.cos(a)*camera.pxHei*0.4;
-			tfY = hero.centerY + Math.sin(a)*camera.pxHei*0.4;
+			tfX = hero.centerX + Math.cos(ang)*camera.pxHei*0.4;
+			tfY = hero.centerY + Math.sin(ang)*camera.pxHei*0.4;
 			tfS = 1;
+			pointer.visible = true;
 		}
 		else {
 			tfX = centerX;
 			tfY = centerY;
 			tfS = 2;
+			pointer.visible = false;
+			pointer.alpha = 0;
 		}
+		tf.text = M.ceil(timerS)+"s";
 		tfX -= tf.textWidth*tf.scaleX * 0.5;
 		tfY -= tf.textHeight*tf.scaleY * 0.5;
 		tf.x += ( tfX-tf.x ) * M.fmin(1, 0.2*tmod);
 		tf.y += ( tfY-tf.y ) * M.fmin(1, 0.2*tmod);
 		tf.setScale( tf.scaleX + ( tfS-tf.scaleX ) * M.fmin(1, 0.2*tmod) );
+		tf.visible = true;
+
+		if( pointer.visible ) {
+			pointer.alpha += (0.7-pointer.alpha) * M.fmin(1, 0.1*tmod);
+			pointer.rotation = ang;
+			pointer.x = tf.x + tf.textWidth*0.5 + Math.cos(ang)*16;
+			pointer.y = tf.y + tf.textHeight*0.5 + Math.sin(ang)*16;
+		}
 
 		if( cd.has("shaking") )
 			tf.y += Math.cos(ftime*1.3) * 1;
@@ -120,8 +148,7 @@ class Explosive extends Entity {
 			tf.blendMode = fs.isUnderControl() ? Alpha : Add;
 			if( fs.isUnderControl() )
 				cd.setS("shaking",0.1);
-			tf.text = Std.string( M.ceil(timerS) );
-			updateTextPos();
+			updateText();
 
 			if( !cd.hasSetS("warn",0.25) ) {
 				fx.explosionWarning(centerX, centerY, 1-timerS/data.f_timer);

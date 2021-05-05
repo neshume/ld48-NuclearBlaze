@@ -79,6 +79,7 @@ class Sprinkler extends Entity {
 						ang - 0.5 * Math.cos(shootIdx*0.3 + i*0.7)
 					);
 					b.delayS( rnd(0,0.1) );
+					b.power = 1.5;
 					b.ignoreResist = true;
 				}
 				shootIdx++;

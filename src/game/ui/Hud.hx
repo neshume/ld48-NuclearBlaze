@@ -67,7 +67,7 @@ class Hud extends dn.Process {
 		var name : Null<LocaleString> = null;
 		var desc : Null<LocaleString> = null;
 		switch i {
-			case Key, RedCard, BlueCard:
+			case Key, GreenCard, BlueCard:
 			case WaterSpray:
 
 			case UpWaterLadder:

@@ -66,7 +66,7 @@
 					"__identifier": "Door",
 					"__grid": [30,9],
 					"__pivot": [0.5,1],
-					"__tile": null,
+					"__tile": { "tilesetUid": 26, "srcRect": [16,272,16,16] },
 					"width": 12,
 					"height": 32,
 					"defUid": 5,
@@ -198,7 +198,7 @@
 					"__identifier": "Door",
 					"__grid": [22,14],
 					"__pivot": [0.5,1],
-					"__tile": null,
+					"__tile": { "tilesetUid": 26, "srcRect": [16,272,16,16] },
 					"width": 12,
 					"height": 32,
 					"defUid": 5,
@@ -266,7 +266,7 @@
 					"__identifier": "Door",
 					"__grid": [44,8],
 					"__pivot": [0.5,1],
-					"__tile": null,
+					"__tile": { "tilesetUid": 26, "srcRect": [16,272,16,16] },
 					"width": 12,
 					"height": 32,
 					"defUid": 5,
@@ -739,7 +739,7 @@
 					"__identifier": "Door",
 					"__grid": [13,9],
 					"__pivot": [0.5,1],
-					"__tile": null,
+					"__tile": { "tilesetUid": 26, "srcRect": [16,272,16,16] },
 					"width": 12,
 					"height": 32,
 					"defUid": 5,
@@ -1018,31 +1018,6 @@
 							"params": ["East"]
 						}]
 					}]
-				},
-				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [45,8],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [728,144],
-					"fieldInstances": [
-						{
-							"__identifier": "startInv",
-							"__value": ["RedCard"],
-							"__type": "Array<LocalEnum.Items>",
-							"defUid": 281,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["RedCard"]
-							}]
-						},
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
-						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
-						{ "__identifier": "fallCinematic", "__value": false, "__type": "Bool", "defUid": 396, "realEditorValues": [] }
-					]
 				}
 			]
 		},
