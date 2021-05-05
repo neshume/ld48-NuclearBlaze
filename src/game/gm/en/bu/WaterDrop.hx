@@ -100,7 +100,7 @@ class WaterDrop extends Bullet {
 					}
 
 					if( fs.level>=1 ) {
-						if( isOnScreen() )
+						if( isOnScreen() && !cd.hasSetS("fireSplash",0.4) )
 							fx.fireSplash( (x+rnd(0.2,0.8))*Const.GRID, (y+rnd(0.2,0.8))*Const.GRID);
 						cd.setS("lock", 0.1);
 						cd.setS("touchedFire", Const.INFINITE);
