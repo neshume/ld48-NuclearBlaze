@@ -210,7 +210,7 @@ class Level extends dn.Process {
 
 	/** Return TRUE if "Collisions" layer contains a ONE WAY collision value **/
 	public inline function hasOneWay(cx,cy) : Bool {
-		return !isValid(cx,cy) ? false : data.l_Collisions.getInt(cx,cy)==2 || hasLadder(cx,cy) && !hasLadder(cx,cy-1) && !hasAnyCollision(cx,cy-1);
+		return !isValid(cx,cy) ? false : data.l_Collisions.getInt(cx,cy)==2;// || hasLadder(cx,cy) && !hasLadder(cx,cy-1) && !hasAnyCollision(cx,cy-1);
 	}
 
 	/** Return TRUE if "Collisions" layer contains a GRASS collision value **/
