@@ -22,7 +22,7 @@ class Fx extends dn.Process {
 	public function new() {
 		super(Game.ME);
 
-		pool = new ParticlePool(Assets.tiles.tile, 2048, Const.FPS);
+		pool = new ParticlePool(Assets.tiles.tile, 2500, Const.FPS);
 
 		bgAddSb = new h2d.SpriteBatch(Assets.tiles.tile);
 		game.scroller.add(bgAddSb, Const.DP_FX_BG);
