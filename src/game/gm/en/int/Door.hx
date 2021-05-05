@@ -74,10 +74,8 @@ class Door extends Entity {
 		for(x in cx-2...cx+3)
 			level.revealFog(x,y);
 
-		if( requiredItem!=null ) {
+		if( requiredItem!=null )
 			hero.sayBubble( Assets.getItem(requiredItem), Assets.tilesDict.emoteOk, 0x83c359);
-			hero.removeItem(requiredItem);
-		}
 
 
 		// Check if there are fires behind
