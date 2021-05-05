@@ -121,9 +121,13 @@ class Door extends Entity {
 
 	override function postUpdate() {
 		super.postUpdate();
-		spr.scaleX =  sprScaleX * sprSquashX;
-		if( !closed && dir==-1 )
-			spr.x-=16;
+
+		// Prevent Exit door flipping
+		if( data.f_requireLevelComplete ) {
+			spr.scaleX =  sprScaleX * sprSquashX;
+			if( !closed && dir==-1 )
+				spr.x-=16;
+		}
 	}
 
 	public function close() {
