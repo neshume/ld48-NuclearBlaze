@@ -238,7 +238,7 @@ class Level extends dn.Process {
 	}
 
 	public inline function hasFireState(cx,cy) {
-		return isValid(cx,cy) && fireStates.exists( coordId(cx,cy) );
+		return !destroyed && isValid(cx,cy) && fireStates.exists( coordId(cx,cy) );
 	}
 
 	public inline function getFireState(cx,cy, createIfMissing=false) : Null<FireState> {
@@ -254,11 +254,16 @@ class Level extends dn.Process {
 	}
 
 	public inline function isBurning(cx,cy) {
-		return hasFireState(cx,cy) && fireStates.get( coordId(cx,cy) ).isBurning();
+		return !destroyed && hasFireState(cx,cy) && fireStates.get( coordId(cx,cy) ).isBurning();
 	}
 
 	public inline function getFireLevel(cx,cy) {
 		return isBurning(cx,cy) ? getFireState(cx,cy).level : 0;
+	}
+
+	public inline function decreaseFire(cx,cy, ratio:Float) {
+		if( isBurning(cx,cy) )
+			getFireState(cx,cy).decrease(ratio);
 	}
 
 	public inline function ignite(cx,cy, startLevel=0, startProgress=0.) : Bool {
