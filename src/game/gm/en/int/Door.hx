@@ -24,9 +24,6 @@ class Door extends Entity {
 		updateCollisions();
 		for(y in cy-cHei+1...cy+1)
 			level.setMark(DoorZone, cx,y);
-		for(y in cy-cHei+1...cy+2)
-		// for(x in cx-1...cx+2)
-			level.revealFog(cx,y,false);
 	}
 
 	override function trigger() {
@@ -53,7 +50,7 @@ class Door extends Entity {
 	function updateCollisions() {
 		if( isAlive() ) {
 			if( data.f_requireLevelComplete )
-				spr.set( closed ? dict.exitClosed : dict.exitOpened);
+				spr.set( closed ? dict.exitClosed : dir==1 ? dict.exitOpenedRight : dict.exitOpenedLeft);
 			else if( data.f_requiredItem==GreenCard)
 				spr.set( closed ? dict.greenDoorClosed: dict.greenDoorOpened );
 			else if( data.f_requiredItem==BlueCard)
@@ -120,6 +117,13 @@ class Door extends Entity {
 		}
 		else
 			return false;
+	}
+
+	override function postUpdate() {
+		super.postUpdate();
+		spr.scaleX =  sprScaleX * sprSquashX;
+		if( !closed && dir==-1 )
+			spr.x-=16;
 	}
 
 	public function close() {
