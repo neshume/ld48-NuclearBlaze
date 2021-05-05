@@ -103,7 +103,7 @@ class Explosive extends Entity {
 			return;
 
 		// Check for fire
-		if( !active && !cd.hasSetS("fireCheck",0.4) )
+		if( !active && !cd.hasSetS("fireCheck",0.4) && !cd.has("lock") )
 			dn.Bresenham.iterateDisc(cx,cy, 2, (x,y)->{
 				if( level.getFireLevel(x,y)>=2 )
 					activate();
@@ -129,8 +129,10 @@ class Explosive extends Entity {
 					fx.announceRadius(centerX, centerY, Const.db.ExplosiveRadius_3*Const.GRID, 0xff0000);
 			}
 
-			if( !fs.isBurning() )
+			if( !fs.isBurning() ) {
 				deactivate();
+				cd.setS("lock", R.around(2));
+			}
 			else if( timerS<=0 ) {
 				// BOOM
 				fx.largeExplosion(centerX, centerY, r*Const.GRID);

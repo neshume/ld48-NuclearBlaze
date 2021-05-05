@@ -69,7 +69,12 @@ class Sprinkler extends Entity {
 		if( active ) {
 			if( !cd.hasSetS("bullet", 0.1) ) {
 				for(i in 0...2) {
-					new gm.en.bu.WaterDrop( centerX+Math.cos(ang)*4, centerY+Math.sin(ang)*4, ang - 0.5 * Math.cos(shootIdx*0.3 + i*0.7) );
+					var b = new gm.en.bu.WaterDrop(
+						centerX+Math.cos(ang)*4,
+						centerY+Math.sin(ang)*4,
+						ang - 0.5 * Math.cos(shootIdx*0.3 + i*0.7)
+					);
+					b.ignoreResist = true;
 				}
 				shootIdx++;
 			}

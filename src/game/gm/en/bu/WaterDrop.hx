@@ -5,6 +5,7 @@ class WaterDrop extends Bullet {
 	var lastTailY = 0.;
 	var elapsedDist = 0.;
 	public var power = 1.0;
+	public var ignoreResist = false;
 	public var ignoreCollisionsUntilY : Float = -Const.INFINITE;
 
 	public function new(xx:Float, yy:Float, ang:Float) {
@@ -90,7 +91,7 @@ class WaterDrop extends Bullet {
 
 				if( fs.isBurning() ) {
 					var before = fs.level;
-					fs.decrease( Const.db.WaterFireDecrease_1*power );
+					fs.decrease( Const.db.WaterFireDecrease_1*power, ignoreResist );
 					if( fs.level<=0 ) {
 						fs.clear();
 						fs.extinguished = true;
@@ -105,7 +106,7 @@ class WaterDrop extends Bullet {
 						cd.setS("touchedFire", Const.INFINITE);
 					}
 				}
-				fs.control();
+				fs.control(ignoreResist);
 				if( fs.oil )
 					fs.underControlS*=0.25;
 			}

@@ -33,8 +33,8 @@ class FireState {
 		return underControlS>0;
 	}
 
-	public inline function control() {
-		underControlS = Const.db.ControlDuration_1 * ( 1 - resistance );
+	public inline function control(ignoreResist=false) {
+		underControlS = Const.db.ControlDuration_1 * ( ignoreResist ? 1 : 1-resistance );
 	}
 
 	public inline function getPowerRatio(step=false) {
@@ -81,8 +81,8 @@ class FireState {
 			}
 	}
 
-	public inline function decrease(ratio:Float) {
-		lr -= (1-resistance) * ratio;
+	public inline function decrease(ratio:Float, ignoreResist=false) {
+		lr -= ignoreResist ? ratio : (1-resistance) * ratio;
 		while( lr<0 )
 			if( level<=0 ) {
 				lr = 0;
