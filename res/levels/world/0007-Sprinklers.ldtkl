@@ -338,11 +338,11 @@
 						},
 						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 166, "realEditorValues": [] },
 						{
-							"__identifier": "dist",
+							"__identifier": "distance",
 							"__value": 3,
-							"__type": "Int",
+							"__type": "Float",
 							"defUid": 167,
-							"realEditorValues": [{ "id": "V_Int", "params": [3] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [3] }]
 						},
 						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 168, "realEditorValues": [] }
 					]
@@ -465,11 +465,11 @@
 						},
 						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 166, "realEditorValues": [] },
 						{
-							"__identifier": "dist",
+							"__identifier": "distance",
 							"__value": 2,
-							"__type": "Int",
+							"__type": "Float",
 							"defUid": 167,
-							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
 						},
 						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 168, "realEditorValues": [] }
 					]

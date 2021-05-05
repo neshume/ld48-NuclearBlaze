@@ -8,9 +8,9 @@
 		"appVersion": "0.9.4",
 		"url": "https://ldtk.io"
 	},
-	"identifier": "Level_12",
+	"identifier": "Level_14",
 	"uid": 183,
-	"worldX": 8784,
+	"worldX": 10592,
 	"worldY": 0,
 	"pxWid": 352,
 	"pxHei": 320,
@@ -200,34 +200,6 @@
 						},
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
 						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [7,12],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [120,208],
-					"fieldInstances": [
-						{
-							"__identifier": "startInv",
-							"__value": [ "GreenCard", "BlueCard" ],
-							"__type": "Array<LocalEnum.Items>",
-							"defUid": 281,
-							"realEditorValues": [ {
-								"id": "V_String",
-								"params": ["GreenCard"]
-							}, {
-								"id": "V_String",
-								"params": ["BlueCard"]
-							} ]
-						},
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
-						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
-						{ "__identifier": "fallCinematic", "__value": false, "__type": "Bool", "defUid": 396, "realEditorValues": [] }
 					]
 				},
 				{

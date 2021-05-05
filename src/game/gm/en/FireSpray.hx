@@ -41,7 +41,7 @@ class FireSpray extends Entity {
 		super.postUpdate();
 
 		if( active && !cd.hasSetS("sprayFx",0.03) && isOnScreen() )
-			fx.fireSpray(attachX, attachY, ang, data.f_dist*Const.GRID);
+			fx.fireSpray(attachX, attachY, ang, data.f_distance*Const.GRID);
 	}
 
 	public inline function isActive() return active;
@@ -60,7 +60,7 @@ class FireSpray extends Entity {
 	function iterateOver( cb : (cDist:Int, fcx:Int, fcy:Int)->Bool ) {
 		var fcx = cx;
 		var fcy = cy;
-		for(d in 0...data.f_dist+1) {
+		for(d in 0...Std.int(data.f_distance+1)) {
 			if( !level.isValid(fcx,fcy) )
 				break;
 

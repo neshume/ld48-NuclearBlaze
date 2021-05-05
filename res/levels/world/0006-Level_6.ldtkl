@@ -760,7 +760,13 @@
 							"defUid": 166,
 							"realEditorValues": [null]
 						},
-						{ "__identifier": "dist", "__value": 3, "__type": "Int", "defUid": 167, "realEditorValues": [] },
+						{
+							"__identifier": "distance",
+							"__value": 3,
+							"__type": "Float",
+							"defUid": 167,
+							"realEditorValues": [null]
+						},
 						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 168, "realEditorValues": [] }
 					]
 				},
@@ -786,11 +792,11 @@
 						},
 						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 166, "realEditorValues": [] },
 						{
-							"__identifier": "dist",
+							"__identifier": "distance",
 							"__value": 4,
-							"__type": "Int",
+							"__type": "Float",
 							"defUid": 167,
-							"realEditorValues": [{ "id": "V_Int", "params": [4] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [4] }]
 						},
 						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 168, "realEditorValues": [] }
 					]
@@ -909,11 +915,11 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
 						},
 						{
-							"__identifier": "dist",
+							"__identifier": "distance",
 							"__value": 2,
-							"__type": "Int",
+							"__type": "Float",
 							"defUid": 167,
-							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
 						},
 						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 168, "realEditorValues": [] }
 					]
@@ -940,11 +946,11 @@
 						},
 						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 166, "realEditorValues": [] },
 						{
-							"__identifier": "dist",
+							"__identifier": "distance",
 							"__value": 2,
-							"__type": "Int",
+							"__type": "Float",
 							"defUid": 167,
-							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
 						},
 						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 168, "realEditorValues": [] }
 					]

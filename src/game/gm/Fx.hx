@@ -418,11 +418,11 @@ class Fx extends dn.Process {
 		p.lifeS = rnd(0.3,0.6);
 	}
 
-	public inline function lightFlare(x:Float,y:Float, c:UInt, scale=1.0) {
+	public inline function lightFlare(x:Float,y:Float, c:UInt, intensity=1.0) {
 		var p = allocTopAdd( getTile(dict.fxFlare), x, y );
-		p.setFadeS(R.around(0.2), 0.2, R.around(0.5));
+		p.setFadeS(R.around(0.2)*intensity, 0.2, R.around(0.5));
 		p.colorize(c);
-		p.scaleX = scale * R.around(0.7) 	 * ( 0.8 + 0.2*Math.cos(ftime*0.4) );
+		p.scaleX = intensity * R.around(0.7) * ( 0.8 + 0.2*Math.cos(ftime*0.4) );
 		p.lifeS = R.around(0.2);
 	}
 

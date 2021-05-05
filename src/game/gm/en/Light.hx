@@ -143,11 +143,12 @@ class Light extends Entity {
 				fx.lightSmoke(centerX, centerY, data.f_color_int);
 
 			if( !data.f_hideSprite && !isSpot() && !cd.hasSetS("flare",0.1) && power>=0.66 )
-				fx.lightFlare(centerX, centerY, data.f_color_int, isSpot()?2:1);
+				fx.lightFlare(centerX, centerY, data.f_color_int, data.f_intensity);
 		}
 
 		if( data.f_flicker ) {
 			if( !cd.has("powered") && !cd.has("powerLock") ) {
+				// Turn ON
 				var t = rnd(3,7);
 				cd.setS("powered", t);
 				cd.setS("powerLock", t+rnd(2,4));
@@ -155,11 +156,11 @@ class Light extends Entity {
 
 			power += ( ( cd.has("powered") ? 0.7 : 0.2 ) - power ) * M.fmin(1, 0.3*tmod);
 			if( !cd.has("flickerLock") ) {
-				cd.setS("flickering", rnd(0.4,1));
-				cd.setS("flickerLock", rnd(1,2));
+				cd.setS("flickering", rnd(0.3,0.6));
+				cd.setS("flickerLock", rnd(0.9,1.2));
 			}
 			if( cd.has("flickering") )
-				power+=rnd(0, 0.1, true);
+				power+=rnd(0, 0.2, true);
 		}
 
 		if( data.f_gyro )

@@ -714,6 +714,7 @@ class Hero extends gm.Entity {
 		if( climbing && climbSpeed<0 && !level.hasLadder(cx,cy-1) && !level.hasAnyCollision(cx,cy-1) ) {
 			stopClimbing();
 			dy = -0.5;
+			cd.setS("climbLock", 0.5);
 		}
 
 		// Reach ladder bottom
