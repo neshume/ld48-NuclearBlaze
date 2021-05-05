@@ -533,6 +533,31 @@ class Fx extends dn.Process {
 			p.lifeS = R.around(1);
 		}
 	}
+	public function triggerWire(fx:Float, fy:Float, tx:Float, ty:Float, durationS:Float, col=0x1ec8ff) {
+		var d = M.dist(fx,fy, tx,ty);
+		var a = Math.atan2( ty-fy, tx-fx );
+		var n = M.round(d/16);
+		var step = d/n;
+		var lastX = fx;
+		var lastY = fy;
+		for(i in 1...n) {
+			var x = fx+Math.cos(a)*d*i/(n-1) + rnd(0,8,true);
+			var y = fy+Math.sin(a)*d*i/(n-1) + rnd(0,8,true);
+			var p = allocTopAdd( getTile(dict.fxLightning), x, y );
+			p.setCenterRatio(0, 0.5);
+			p.setFadeS(R.around(0.8), 0.03, R.around(0.1));
+			p.alphaFlicker = rnd(0.2,0.3);
+			p.colorize(col);
+			p.rotation = Math.atan2(lastY-y, lastX-x);
+			p.scaleX = M.dist(lastX,lastY,x,y) / p.t.width;
+			p.scaleY = rnd(1, 1.5, true);
+			p.frict = R.around(0.95);
+			p.delayS = i/(n-1) * durationS;
+			p.lifeS = R.around(0.3);
+			lastX = x;
+			lastY = y;
+		}
+	}
 
 	public function sprinkler(x:Float, y:Float) {
 		for(i in 0...irnd(5,8)) {

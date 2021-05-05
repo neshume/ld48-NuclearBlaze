@@ -106,12 +106,14 @@ class Trigger extends Entity {
 		var t = 0.4;
 		for(e in Entity.ALL)
 			if( e.isAlive() && e.triggerId==triggerId && e!=this ) {
-				if( data.f_cinematicReveal )
-					camera.cinematicTrack(e.centerX, e.centerY, 0.66);
-				level.revealFogArea(e.cx, e.cy, 2);
-
+				var durationS = hero.distCase(e)>=10 ? 1.4 : 0.4;
+				if( data.f_cinematicReveal ) {
+					camera.cinematicTrack(e.centerX, e.centerY, durationS);
+				}
+				delayer.addS(fx.triggerWire.bind(centerX, centerY, e.centerX, e.centerY, 0.3), t-0.3);
 				delayer.addS(e.trigger, t);
-				t+=0.3;
+				level.revealFogArea(e.cx, e.cy, 2);
+				t+=durationS;
 			}
 
 		// Triggering sequence
