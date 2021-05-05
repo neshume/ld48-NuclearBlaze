@@ -5178,7 +5178,7 @@
 			"uid": 432,
 			"worldX": 8960,
 			"worldY": 0,
-			"pxWid": 848,
+			"pxWid": 560,
 			"pxHei": 384,
 			"__bgColor": "#242D34",
 			"bgColor": null,
@@ -5201,7 +5201,7 @@
 		{
 			"identifier": "Lab",
 			"uid": 126,
-			"worldX": 9840,
+			"worldX": 9552,
 			"worldY": 0,
 			"pxWid": 720,
 			"pxHei": 352,
@@ -5226,7 +5226,7 @@
 		{
 			"identifier": "Level_14",
 			"uid": 183,
-			"worldX": 10592,
+			"worldX": 10304,
 			"worldY": 0,
 			"pxWid": 352,
 			"pxHei": 320,
