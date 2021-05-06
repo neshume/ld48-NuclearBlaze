@@ -597,7 +597,7 @@
 					"height": 160,
 					"defUid": 374,
 					"px": [0,0],
-					"fieldInstances": []
+					"fieldInstances": [{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 446, "realEditorValues": [] }]
 				},
 				{
 					"__identifier": "FogPiercer",
@@ -608,7 +608,7 @@
 					"height": 192,
 					"defUid": 374,
 					"px": [208,160],
-					"fieldInstances": []
+					"fieldInstances": [{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 446, "realEditorValues": [] }]
 				},
 				{
 					"__identifier": "Exit",

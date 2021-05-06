@@ -157,12 +157,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_Light) new gm.en.Light(d);
 		for(d in level.data.l_Entities.all_Sprinkler) new gm.en.Sprinkler(d);
 		for(d in level.data.l_Entities.all_Explosive) new gm.en.Explosive(d);
-
-		for(d in level.data.l_Entities.all_FogPiercer) {
-			for( cy in d.cy...Std.int( d.cy + d.height/Const.GRID ) )
-			for( cx in d.cx...Std.int( d.cx + d.width/Const.GRID ) )
-				level.revealFog(cx,cy);
-		}
+		for(d in level.data.l_Entities.all_FogPiercer) new gm.en.FogPiercer(d);
 
 		for(d in level.data.l_Entities.all_Smoker)
 			dn.Bresenham.iterateDisc(d.cx, d.cy, d.f_radius, (x,y)->{
