@@ -9,17 +9,21 @@ class Explosive extends Entity {
 	var tf : h2d.Text;
 	var seen = false;
 	var pointer : HSprite;
+	var needTriggerFirst = false;
 
 	public function new(d:Entity_Explosive) {
 		super(0,0);
 		data = d;
 		ALL.push(this);
-		triggerId = data.f_triggerId;
 		setPosPixel(data.pixelX, data.pixelY);
 		gravityMul = 0;
 		collides = false;
 		pivotY = 0.5;
 		seen = data.f_startActive;
+
+		triggerId = data.f_triggerId;
+		if( triggerId>=0 )
+			needTriggerFirst = true;
 
 		spr.set(dict.error);
 		game.scroller.add(spr,Const.DP_BG);
@@ -69,6 +73,7 @@ class Explosive extends Entity {
 	override function trigger() {
 		super.trigger();
 		activate();
+		needTriggerFirst = false;
 	}
 
 	public function deactivate() {
@@ -137,7 +142,7 @@ class Explosive extends Entity {
 			return;
 
 		// Check for fire
-		if( !active && !cd.hasSetS("fireCheck",0.4) && !cd.has("lock") && triggerId<0 )
+		if( !active && !cd.hasSetS("fireCheck",0.4) && !cd.has("lock") && !needTriggerFirst )
 			dn.Bresenham.iterateDisc(cx,cy, 2, (x,y)->{
 				if( level.getFireLevel(x,y)>=2 )
 					activate();
