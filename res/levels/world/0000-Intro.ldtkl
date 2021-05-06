@@ -662,6 +662,125 @@
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
 						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "WallText",
+					"__grid": [12,17],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 32,
+					"height": 16,
+					"defUid": 139,
+					"px": [200,280],
+					"fieldInstances": [
+						{
+							"__identifier": "title",
+							"__value": "A",
+							"__type": "String",
+							"defUid": 140,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["A"]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#234975",
+							"__type": "Color",
+							"defUid": 141,
+							"realEditorValues": [{ "id": "V_Int", "params": [2312565] }]
+						},
+						{
+							"__identifier": "size",
+							"__value": "Small",
+							"__type": "LocalEnum.Font",
+							"defUid": 146,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Small"]
+							}]
+						},
+						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.FontStyle", "defUid": 149, "realEditorValues": [] },
+						{
+							"__identifier": "alpha",
+							"__value": 1,
+							"__type": "Float",
+							"defUid": 445,
+							"realEditorValues": [null]
+						}
+					]
+				},
+				{
+					"__identifier": "WallText",
+					"__grid": [14,17],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 32,
+					"height": 16,
+					"defUid": 139,
+					"px": [232,280],
+					"fieldInstances": [
+						{
+							"__identifier": "title",
+							"__value": "D",
+							"__type": "String",
+							"defUid": 140,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["D"]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#234975",
+							"__type": "Color",
+							"defUid": 141,
+							"realEditorValues": [{ "id": "V_Int", "params": [2312565] }]
+						},
+						{
+							"__identifier": "size",
+							"__value": "Small",
+							"__type": "LocalEnum.Font",
+							"defUid": 146,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Small"]
+							}]
+						},
+						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.FontStyle", "defUid": 149, "realEditorValues": [] },
+						{
+							"__identifier": "alpha",
+							"__value": 1,
+							"__type": "Float",
+							"defUid": 445,
+							"realEditorValues": [null]
+						}
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [9,13],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [152,224],
+					"fieldInstances": [
+						{
+							"__identifier": "startInv",
+							"__value": ["BlueCard"],
+							"__type": "Array<LocalEnum.Items>",
+							"defUid": 281,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["BlueCard"]
+							}]
+						},
+						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
+						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
+						{ "__identifier": "fallCinematic", "__value": false, "__type": "Bool", "defUid": 396, "realEditorValues": [] }
+					]
 				}
 			]
 		},
@@ -1109,6 +1228,8 @@
 				{ "px": [512,272], "src": [208,112], "f": 0, "t": 293, "d": [763] },
 				{ "px": [576,272], "src": [48,96], "f": 0, "t": 243, "d": [767] },
 				{ "px": [640,272], "src": [48,96], "f": 0, "t": 243, "d": [771] },
+				{ "px": [192,288], "src": [128,384], "f": 1, "t": 968, "d": [786] },
+				{ "px": [224,288], "src": [128,384], "f": 0, "t": 968, "d": [788] },
 				{ "px": [480,288], "src": [128,176], "f": 0, "t": 448, "d": [804] },
 				{ "px": [480,288], "src": [336,32], "f": 1, "t": 101, "d": [804] },
 				{ "px": [496,288], "src": [240,112], "f": 0, "t": 295, "d": [805] },
