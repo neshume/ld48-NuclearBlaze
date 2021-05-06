@@ -299,7 +299,8 @@
 							"__type": "LocalEnum.FontStyle",
 							"defUid": 149,
 							"realEditorValues": [null]
-						}
+						},
+						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
 					]
 				},
 				{
@@ -369,7 +370,8 @@
 							"__type": "LocalEnum.FontStyle",
 							"defUid": 149,
 							"realEditorValues": [null]
-						}
+						},
+						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
 					]
 				},
 				{
@@ -518,7 +520,8 @@
 							"__type": "LocalEnum.FontStyle",
 							"defUid": 149,
 							"realEditorValues": [null]
-						}
+						},
+						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
 					]
 				},
 				{

@@ -10,7 +10,7 @@
 	},
 	"identifier": "Desert_corridors",
 	"uid": 409,
-	"worldX": 6912,
+	"worldX": 7392,
 	"worldY": 0,
 	"pxWid": 752,
 	"pxHei": 816,
@@ -1893,6 +1893,31 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [-48] }]
 						},
 						{ "__identifier": "offsetY", "__value": 0, "__type": "Float", "defUid": 137, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [21,1],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [344,32],
+					"fieldInstances": [
+						{
+							"__identifier": "startInv",
+							"__value": ["BlueCard"],
+							"__type": "Array<LocalEnum.Items>",
+							"defUid": 281,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["BlueCard"]
+							}]
+						},
+						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
+						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
+						{ "__identifier": "fallCinematic", "__value": false, "__type": "Bool", "defUid": 396, "realEditorValues": [] }
 					]
 				}
 			]

@@ -33,6 +33,8 @@ class WallText extends Entity {
 			case Outline:
 				tf.filter = new h2d.filter.Glow(0x0,0.5, 2,2,2, true);
 		}
+
+		tf.alpha *= data.f_alpha;
 	}
 
 	override function dispose() {
