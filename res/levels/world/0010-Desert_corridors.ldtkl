@@ -1847,31 +1847,6 @@
 					]
 				},
 				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [35,13],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [568,224],
-					"fieldInstances": [
-						{
-							"__identifier": "startInv",
-							"__value": ["BlueCard"],
-							"__type": "Array<LocalEnum.Items>",
-							"defUid": 281,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["BlueCard"]
-							}]
-						},
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
-						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
-						{ "__identifier": "fallCinematic", "__value": false, "__type": "Bool", "defUid": 396, "realEditorValues": [] }
-					]
-				},
-				{
 					"__identifier": "FogPiercer",
 					"__grid": [24,13],
 					"__pivot": [0,0],
