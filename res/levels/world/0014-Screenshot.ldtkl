@@ -10,7 +10,7 @@
 	},
 	"identifier": "Screenshot",
 	"uid": 432,
-	"worldX": 8960,
+	"worldX": 9824,
 	"worldY": 0,
 	"pxWid": 560,
 	"pxHei": 384,
@@ -550,22 +550,6 @@
 						},
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
 						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [21,7],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [344,128],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
-						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
-						{ "__identifier": "fallCinematic", "__value": false, "__type": "Bool", "defUid": 396, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1938,6 +1922,7 @@
 				{ "px": [496,80], "src": [224,192], "f": 0, "t": 494, "d": [427,206] },
 				{ "px": [512,80], "src": [224,192], "f": 0, "t": 494, "d": [427,207] },
 				{ "px": [528,80], "src": [224,192], "f": 0, "t": 494, "d": [427,208] },
+				{ "px": [544,80], "src": [224,192], "f": 0, "t": 494, "d": [427,209] },
 				{ "px": [288,96], "src": [224,192], "f": 0, "t": 494, "d": [427,228] },
 				{ "px": [320,368], "src": [224,192], "f": 0, "t": 494, "d": [427,825] },
 				{ "px": [336,368], "src": [224,192], "f": 0, "t": 494, "d": [427,826] },
@@ -1953,6 +1938,7 @@
 				{ "px": [496,368], "src": [224,192], "f": 0, "t": 494, "d": [427,836] },
 				{ "px": [512,368], "src": [224,192], "f": 0, "t": 494, "d": [427,837] },
 				{ "px": [528,368], "src": [224,192], "f": 0, "t": 494, "d": [427,838] },
+				{ "px": [544,368], "src": [224,192], "f": 0, "t": 494, "d": [427,839] },
 				{ "px": [176,48], "src": [208,192], "f": 0, "t": 493, "d": [412,116] },
 				{ "px": [240,48], "src": [208,192], "f": 1, "t": 493, "d": [412,120] },
 				{ "px": [272,80], "src": [208,192], "f": 1, "t": 493, "d": [412,192] },
@@ -3304,5 +3290,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 126, "dir": "e" }, { "levelUid": 118, "dir": "w" } ]
+	"__neighbours": [ { "levelUid": 437, "dir": "e" }, { "levelUid": 118, "dir": "w" } ]
 }

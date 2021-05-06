@@ -143,7 +143,9 @@
 							"defUid": 62,
 							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
 						},
-						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] }
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
 					]
 				},
 				{
@@ -656,7 +658,9 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [65437] }]
 						},
 						{ "__identifier": "triggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
-						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] }
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
 					]
 				}
 			]

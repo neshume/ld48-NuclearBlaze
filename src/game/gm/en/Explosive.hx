@@ -12,8 +12,9 @@ class Explosive extends Entity {
 
 	public function new(d:Entity_Explosive) {
 		super(0,0);
-		ALL.push(this);
 		data = d;
+		ALL.push(this);
+		triggerId = data.f_triggerId;
 		setPosPixel(data.pixelX, data.pixelY);
 		gravityMul = 0;
 		collides = false;
@@ -63,6 +64,11 @@ class Explosive extends Entity {
 		fs.smokePower = 2;
 		fs.oil = true;
 		fs.strongFx = true;
+	}
+
+	override function trigger() {
+		super.trigger();
+		activate();
 	}
 
 	public function deactivate() {
@@ -131,7 +137,7 @@ class Explosive extends Entity {
 			return;
 
 		// Check for fire
-		if( !active && !cd.hasSetS("fireCheck",0.4) && !cd.has("lock") )
+		if( !active && !cd.hasSetS("fireCheck",0.4) && !cd.has("lock") && triggerId<0 )
 			dn.Bresenham.iterateDisc(cx,cy, 2, (x,y)->{
 				if( level.getFireLevel(x,y)>=2 )
 					activate();

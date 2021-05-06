@@ -79,7 +79,13 @@
 							"defUid": 17,
 							"realEditorValues": [null]
 						},
-						{ "__identifier": "kicks", "__value": 3, "__type": "Int", "defUid": 21, "realEditorValues": [] },
+						{
+							"__identifier": "kicks",
+							"__value": 1,
+							"__type": "Int",
+							"defUid": 21,
+							"realEditorValues": [{ "id": "V_Int", "params": [1] }]
+						},
 						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
 						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
@@ -368,7 +374,7 @@
 								"params": ["Gate"]
 							}]
 						},
-						{ "__identifier": "holdTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{
 							"__identifier": "cinematicReveal",
 							"__value": true,
@@ -379,7 +385,8 @@
 								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] }
+						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
+						{ "__identifier": "invisibleRadius", "__value": 1, "__type": "Float", "defUid": 435, "realEditorValues": [] }
 					]
 				},
 				{
@@ -502,7 +509,7 @@
 							}]
 						},
 						{
-							"__identifier": "holdTime",
+							"__identifier": "gateHoldTime",
 							"__value": 1,
 							"__type": "Float",
 							"defUid": 288,
@@ -521,7 +528,8 @@
 							"__type": "Color",
 							"defUid": 381,
 							"realEditorValues": [{ "id": "V_Int", "params": [40191] }]
-						}
+						},
+						{ "__identifier": "invisibleRadius", "__value": 1, "__type": "Float", "defUid": 435, "realEditorValues": [] }
 					]
 				},
 				{
@@ -606,7 +614,7 @@
 							}]
 						},
 						{
-							"__identifier": "holdTime",
+							"__identifier": "gateHoldTime",
 							"__value": 1,
 							"__type": "Float",
 							"defUid": 288,
@@ -625,7 +633,8 @@
 							"__type": "Color",
 							"defUid": 381,
 							"realEditorValues": [{ "id": "V_Int", "params": [40191] }]
-						}
+						},
+						{ "__identifier": "invisibleRadius", "__value": 1, "__type": "Float", "defUid": 435, "realEditorValues": [] }
 					]
 				},
 				{
@@ -683,7 +692,7 @@
 							}]
 						},
 						{
-							"__identifier": "holdTime",
+							"__identifier": "gateHoldTime",
 							"__value": 1,
 							"__type": "Float",
 							"defUid": 288,
@@ -705,7 +714,8 @@
 							"__type": "Color",
 							"defUid": 381,
 							"realEditorValues": [{ "id": "V_Int", "params": [40191] }]
-						}
+						},
+						{ "__identifier": "invisibleRadius", "__value": 1, "__type": "Float", "defUid": 435, "realEditorValues": [] }
 					]
 				},
 				{
@@ -816,7 +826,7 @@
 							}]
 						},
 						{
-							"__identifier": "holdTime",
+							"__identifier": "gateHoldTime",
 							"__value": 1,
 							"__type": "Float",
 							"defUid": 288,
@@ -835,7 +845,8 @@
 							"__type": "Color",
 							"defUid": 381,
 							"realEditorValues": [{ "id": "V_Int", "params": [40191] }]
-						}
+						},
+						{ "__identifier": "invisibleRadius", "__value": 1, "__type": "Float", "defUid": 435, "realEditorValues": [] }
 					]
 				},
 				{
@@ -893,7 +904,7 @@
 							}]
 						},
 						{
-							"__identifier": "holdTime",
+							"__identifier": "gateHoldTime",
 							"__value": 1,
 							"__type": "Float",
 							"defUid": 288,
@@ -915,7 +926,8 @@
 							"__type": "Color",
 							"defUid": 381,
 							"realEditorValues": [{ "id": "V_Int", "params": [40191] }]
-						}
+						},
+						{ "__identifier": "invisibleRadius", "__value": 1, "__type": "Float", "defUid": 435, "realEditorValues": [] }
 					]
 				},
 				{

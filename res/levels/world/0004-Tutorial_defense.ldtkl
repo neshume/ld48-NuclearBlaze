@@ -25,7 +25,16 @@
 	"externalRelPath": null,
 	"fieldInstances": [
 		{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
-		{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
+		{
+			"__identifier": "disableCompleteAnnounce",
+			"__value": true,
+			"__type": "Bool",
+			"defUid": 114,
+			"realEditorValues": [{
+				"id": "V_Bool",
+				"params": [ true ]
+			}]
+		},
 		{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
 		{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 	],
@@ -176,7 +185,18 @@
 							"defUid": 62,
 							"realEditorValues": [{ "id": "V_Float", "params": [4] }]
 						},
-						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] }
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{
+							"__identifier": "politeText",
+							"__value": "WOW!",
+							"__type": "String",
+							"defUid": 439,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["WOW!"]
+							}]
+						}
 					]
 				},
 				{
@@ -213,18 +233,20 @@
 							"defUid": 62,
 							"realEditorValues": [{ "id": "V_Float", "params": [2.35] }]
 						},
-						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] }
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
 					]
 				},
 				{
 					"__identifier": "Say",
-					"__grid": [39,20],
+					"__grid": [38,20],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 58,
-					"px": [632,328],
+					"px": [616,328],
 					"fieldInstances": [
 						{
 							"__identifier": "text",
@@ -239,12 +261,14 @@
 						{ "__identifier": "color", "__value": "#FFD600", "__type": "Color", "defUid": 60, "realEditorValues": [] },
 						{
 							"__identifier": "triggerDist",
-							"__value": 2,
+							"__value": 3,
 							"__type": "Float",
 							"defUid": 62,
-							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+							"realEditorValues": [null]
 						},
-						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] }
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
 					]
 				},
 				{
@@ -281,7 +305,9 @@
 							"defUid": 62,
 							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
 						},
-						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] }
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
 					]
 				},
 				{
@@ -387,7 +413,18 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [16711716] }]
 						},
 						{ "__identifier": "triggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
-						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] }
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{
+							"__identifier": "politeText",
+							"__value": "It's getting really serious!",
+							"__type": "String",
+							"defUid": 439,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["It's getting really serious!"]
+							}]
+						}
 					]
 				},
 				{

@@ -33,12 +33,14 @@ class Game extends Process {
 	public var hero : Hero;
 	public var curLevelIdx = 0;
 	public var kidMode : Bool;
+	public var polite = true;
 
 	public var heat : Float = 0.;
 	var heatMask : h2d.Bitmap;
 	var coldMask : h2d.Bitmap;
 
 	var upgrades : Map<Enum_Items, Bool> = [];
+
 
 	public function new(kidMode) {
 		super(App.ME);

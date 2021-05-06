@@ -22,7 +22,7 @@ class Trigger extends Entity {
 		ALL.push(this);
 		triggerId = data.f_triggerId;
 
-		spr.set("empty");
+		spr.set(dict.empty);
 		gravityMul = 0;
 		collides = false;
 
@@ -31,6 +31,10 @@ class Trigger extends Entity {
 			case Gate:
 				setPosPixel(data.pixelX, data.pixelY);
 				spr.set(dict.pipeGate);
+				pivotY = 0.5;
+
+			case Invisible:
+				setPosPixel(data.pixelX, data.pixelY);
 				pivotY = 0.5;
 
 			case TouchPlate:
@@ -83,8 +87,8 @@ class Trigger extends Entity {
 	public function hold() {
 		holdS+=1/Const.FIXED_UPDATE_FPS;
 		cd.setS("maintain",0.1);
-		if( holdS>=data.f_holdTime) {
-			holdS = data.f_holdTime;
+		if( holdS>=data.f_gateHoldTime) {
+			holdS = data.f_gateHoldTime;
 			execute();
 		}
 		updateProgress();
@@ -97,20 +101,25 @@ class Trigger extends Entity {
 		// Visual effect
 		switch data.f_type {
 			case Gate:
+			case Invisible:
 			case TouchPlate:
 				spr.set( dict.touchPlateOn );
 				blink(0xffffff);
 				setSquashY(0.5);
 		}
 
-		var t = 0.4;
+		var t = data.f_type==Invisible ? 0 : 0.4;
 		for(e in Entity.ALL)
 			if( e.isAlive() && e.triggerId==triggerId && e!=this ) {
 				var durationS = hero.distCase(e)>=10 ? 1.4 : 0.4;
-				if( data.f_cinematicReveal ) {
+				if( data.f_type==Invisible )
+					durationS = 0.2;
+
+				if( data.f_cinematicReveal )
 					camera.cinematicTrack(e.centerX, e.centerY, durationS);
-				}
-				delayer.addS(fx.triggerWire.bind(centerX, centerY, e.centerX, e.centerY, 0.3), t-0.3);
+
+				if( data.f_type!=Invisible )
+					delayer.addS(fx.triggerWire.bind(centerX, centerY, e.centerX, e.centerY, 0.3), t-0.3);
 				delayer.addS(e.trigger, t);
 				level.revealFogArea(e.cx, e.cy, 2);
 				t+=durationS;
@@ -146,13 +155,15 @@ class Trigger extends Entity {
 
 			case TouchPlate:
 				fx.touchPlate(centerX, bottom);
+
+			case Invisible:
 		}
 	}
 
 	function updateProgress() {
 		g.clear();
 		g.beginFill(data.f_fxColor_int, 0.4);
-		g.drawPieInner(0,0, 20,17, -M.PIHALF, M.PI2 * M.fclamp(holdS/data.f_holdTime, 0, 1));
+		g.drawPieInner(0,0, 20,17, -M.PIHALF, M.PI2 * M.fclamp(holdS/data.f_gateHoldTime, 0, 1));
 	}
 
 
@@ -170,7 +181,7 @@ class Trigger extends Entity {
 			blink(data.f_fxColor_int);
 
 		if( data.f_type==Gate )
-			spr.setFrame( M.round( 9*holdS/data.f_holdTime* spr.totalFrames() ) % (spr.totalFrames()) );
+			spr.setFrame( M.round( 9*holdS/data.f_gateHoldTime* spr.totalFrames() ) % (spr.totalFrames()) );
 	}
 
 	override function fixedUpdate() {
@@ -183,9 +194,10 @@ class Trigger extends Entity {
 			updateProgress();
 		}
 
-		if( !done && data.f_type==TouchPlate && hero.cx==cx && hero.cy==cy && hero.onGround) {
+		if( !done && data.f_type==TouchPlate && hero.cx==cx && hero.cy==cy && hero.onGround)
 			execute();
-		}
 
+		if( !done && data.f_type==Invisible && distCase(hero)<=data.f_invisibleRadius )
+			execute();
 	}
 }

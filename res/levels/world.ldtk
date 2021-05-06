@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.4",
-	"nextUid": 433,
+	"nextUid": 440,
 	"worldLayout": "LinearHorizontal",
 	"worldGridWidth": 256,
 	"worldGridHeight": 256,
@@ -717,7 +717,7 @@
 						"perlinOctaves": 2
 					}
 				] },
-				{ "uid": 151, "name": "deco", "active": true, "collapsed": true, "isOptional": false, "rules": [
+				{ "uid": 151, "name": "deco", "active": true, "collapsed": false, "isOptional": false, "rules": [
 					{
 						"uid": 152,
 						"active": true,
@@ -734,7 +734,7 @@
 						"tileMode": "Single",
 						"pivotX": 0,
 						"pivotY": 0,
-						"outOfBoundsValue": null,
+						"outOfBoundsValue": 0,
 						"perlinActive": false,
 						"perlinSeed": 7372195,
 						"perlinScale": 0.2,
@@ -756,7 +756,7 @@
 						"tileMode": "Single",
 						"pivotX": 0,
 						"pivotY": 0,
-						"outOfBoundsValue": null,
+						"outOfBoundsValue": 0,
 						"perlinActive": false,
 						"perlinSeed": 5513172,
 						"perlinScale": 0.2,
@@ -778,7 +778,7 @@
 						"tileMode": "Single",
 						"pivotX": 0,
 						"pivotY": 0,
-						"outOfBoundsValue": null,
+						"outOfBoundsValue": 0,
 						"perlinActive": false,
 						"perlinSeed": 9922380,
 						"perlinScale": 0.2,
@@ -800,7 +800,7 @@
 						"tileMode": "Single",
 						"pivotX": 0,
 						"pivotY": 0,
-						"outOfBoundsValue": null,
+						"outOfBoundsValue": 0,
 						"perlinActive": false,
 						"perlinSeed": 9922380,
 						"perlinScale": 0.2,
@@ -822,7 +822,7 @@
 						"tileMode": "Single",
 						"pivotX": 0,
 						"pivotY": 0,
-						"outOfBoundsValue": null,
+						"outOfBoundsValue": 0,
 						"perlinActive": false,
 						"perlinSeed": 6164958,
 						"perlinScale": 0.2,
@@ -844,7 +844,7 @@
 						"tileMode": "Single",
 						"pivotX": 0,
 						"pivotY": 0,
-						"outOfBoundsValue": null,
+						"outOfBoundsValue": 0,
 						"perlinActive": false,
 						"perlinSeed": 8285600,
 						"perlinScale": 0.2,
@@ -866,7 +866,7 @@
 						"tileMode": "Single",
 						"pivotX": 0,
 						"pivotY": 0,
-						"outOfBoundsValue": null,
+						"outOfBoundsValue": 0,
 						"perlinActive": false,
 						"perlinSeed": 8285600,
 						"perlinScale": 0.2,
@@ -888,7 +888,7 @@
 						"tileMode": "Single",
 						"pivotX": 0,
 						"pivotY": 0,
-						"outOfBoundsValue": null,
+						"outOfBoundsValue": 0,
 						"perlinActive": false,
 						"perlinSeed": 3228728,
 						"perlinScale": 0.2,
@@ -910,7 +910,7 @@
 						"tileMode": "Single",
 						"pivotX": 0,
 						"pivotY": 0,
-						"outOfBoundsValue": null,
+						"outOfBoundsValue": 0,
 						"perlinActive": false,
 						"perlinSeed": 7757657,
 						"perlinScale": 0.2,
@@ -1631,7 +1631,7 @@
 						"perlinOctaves": 2
 					}
 				] },
-				{ "uid": 411, "name": "gray walls", "active": true, "collapsed": false, "isOptional": true, "rules": [
+				{ "uid": 411, "name": "gray walls", "active": true, "collapsed": true, "isOptional": true, "rules": [
 					{
 						"uid": 425,
 						"active": true,
@@ -1714,7 +1714,7 @@
 						"tileMode": "Single",
 						"pivotX": 0,
 						"pivotY": 0,
-						"outOfBoundsValue": null,
+						"outOfBoundsValue": 0,
 						"perlinActive": false,
 						"perlinSeed": 967678,
 						"perlinScale": 0.2,
@@ -2673,7 +2673,7 @@
 						"perlinOctaves": 2
 					}
 				] },
-				{ "uid": 428, "name": "bg hex", "active": true, "collapsed": false, "isOptional": true, "rules": [
+				{ "uid": 428, "name": "bg hex", "active": true, "collapsed": true, "isOptional": true, "rules": [
 					{
 						"uid": 431,
 						"active": true,
@@ -2743,7 +2743,7 @@
 						"perlinOctaves": 2
 					}
 				] },
-				{ "uid": 350, "name": "bg indus", "active": true, "collapsed": false, "isOptional": true, "rules": [
+				{ "uid": 350, "name": "bg indus", "active": true, "collapsed": true, "isOptional": true, "rules": [
 					{
 						"uid": 351,
 						"active": true,
@@ -3969,7 +3969,27 @@
 					"editorDisplayMode": "ValueOnly",
 					"editorDisplayPos": "Above",
 					"editorAlwaysShow": true,
-					"editorCutLongValues": true,
+					"editorCutLongValues": false,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "politeText",
+					"__type": "String",
+					"uid": 439,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": false,
 					"min": null,
 					"max": null,
 					"regex": null,
@@ -3995,6 +4015,26 @@
 					"regex": null,
 					"acceptFileTypes": null,
 					"defaultOverride": { "id": "V_Int", "params": [16766464] },
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "triggerId",
+					"__type": "Int",
+					"uid": 438,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": -1,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [-1] },
 					"textLanguageMode": null
 				},
 				{
@@ -4408,7 +4448,7 @@
 					"textLanguageMode": null
 				},
 				{
-					"identifier": "holdTime",
+					"identifier": "gateHoldTime",
 					"__type": "Float",
 					"uid": 288,
 					"type": "F_Float",
@@ -4469,6 +4509,26 @@
 					"acceptFileTypes": null,
 					"defaultOverride": { "id": "V_Int", "params": [16763904] },
 					"textLanguageMode": null
+				},
+				{
+					"identifier": "invisibleRadius",
+					"__type": "Float",
+					"uid": 435,
+					"type": "F_Float",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "RadiusGrid",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": 1,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Float", "params": [1] },
+					"textLanguageMode": null
 				}
 			]
 		},
@@ -4521,6 +4581,26 @@
 			"pivotX": 0.5,
 			"pivotY": 0.5,
 			"fieldDefs": [
+				{
+					"identifier": "triggerId",
+					"__type": "Int",
+					"uid": 436,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": -1,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [-1] },
+					"textLanguageMode": null
+				},
 				{
 					"identifier": "timer",
 					"__type": "Int",
@@ -4687,7 +4767,11 @@
 			{ "id": "DropShadow", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "Outline", "tileId": null, "color": 0, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null },
-		{ "identifier": "TriggerType", "uid": 181, "values": [ { "id": "Gate", "tileId": 530, "color": 9581871, "__tileSrcRect": [32,176,16,16] }, { "id": "TouchPlate", "tileId": 579, "color": 7116686, "__tileSrcRect": [48,192,16,16] } ], "iconTilesetUid": 26, "externalRelPath": null, "externalFileChecksum": null }
+		{ "identifier": "TriggerType", "uid": 181, "values": [
+			{ "id": "Gate", "tileId": 530, "color": 9581871, "__tileSrcRect": [32,176,16,16] },
+			{ "id": "TouchPlate", "tileId": 579, "color": 7116686, "__tileSrcRect": [48,192,16,16] },
+			{ "id": "Invisible", "tileId": 676, "color": 14979668, "__tileSrcRect": [64,224,16,16] }
+		], "iconTilesetUid": 26, "externalRelPath": null, "externalFileChecksum": null }
 	], "externalEnums": [], "levelFields": [
 		{
 			"identifier": "bigFallIntro",
@@ -4946,7 +5030,16 @@
 			"externalRelPath": "world/0004-Tutorial_defense.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
-				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
+				{
+					"__identifier": "disableCompleteAnnounce",
+					"__value": true,
+					"__type": "Bool",
+					"defUid": 114,
+					"realEditorValues": [{
+						"id": "V_Bool",
+						"params": [ true ]
+					}]
+				},
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
@@ -5068,7 +5161,7 @@
 			"worldX": 6912,
 			"worldY": 0,
 			"pxWid": 752,
-			"pxHei": 768,
+			"pxHei": 816,
 			"__bgColor": "#242D34",
 			"bgColor": null,
 			"useAutoIdentifier": false,
@@ -5099,18 +5192,70 @@
 						"params": [ true ]
 					}]
 				},
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{
+					"__identifier": "ignoreFires",
+					"__value": true,
+					"__type": "Bool",
+					"defUid": 115,
+					"realEditorValues": [{
+						"id": "V_Bool",
+						"params": [ true ]
+					}]
+				},
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 398, "dir": "e" }, { "levelUid": 89, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 434, "dir": "e" }, { "levelUid": 89, "dir": "w" } ]
+		},
+		{
+			"identifier": "Pit",
+			"uid": 434,
+			"worldX": 7696,
+			"worldY": 0,
+			"pxWid": 352,
+			"pxHei": 608,
+			"__bgColor": "#242D34",
+			"bgColor": null,
+			"useAutoIdentifier": false,
+			"bgRelPath": null,
+			"bgPos": null,
+			"bgPivotX": 0.5,
+			"bgPivotY": 0.5,
+			"__bgPos": null,
+			"externalRelPath": "world/0010-Pit.ldtkl",
+			"fieldInstances": [
+				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
+				{
+					"__identifier": "disableCompleteAnnounce",
+					"__value": true,
+					"__type": "Bool",
+					"defUid": 114,
+					"realEditorValues": [{
+						"id": "V_Bool",
+						"params": [ true ]
+					}]
+				},
+				{
+					"__identifier": "ignoreFires",
+					"__value": true,
+					"__type": "Bool",
+					"defUid": 115,
+					"realEditorValues": [{
+						"id": "V_Bool",
+						"params": [ true ]
+					}]
+				},
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
+			],
+			"layerInstances": null,
+			"__neighbours": [ { "levelUid": 398, "dir": "e" }, { "levelUid": 409, "dir": "w" } ]
 		},
 		{
 			"identifier": "Explosives",
 			"uid": 398,
-			"worldX": 7696,
+			"worldX": 8080,
 			"worldY": 0,
-			"pxWid": 624,
+			"pxWid": 704,
 			"pxHei": 496,
 			"__bgColor": "#242D34",
 			"bgColor": null,
@@ -5120,7 +5265,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0010-Explosives.ldtkl",
+			"externalRelPath": "world/0011-Explosives.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
@@ -5128,12 +5273,55 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 118, "dir": "e" }, { "levelUid": 409, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 433, "dir": "e" }, { "levelUid": 434, "dir": "w" } ]
+		},
+		{
+			"identifier": "Transition_corridor",
+			"uid": 433,
+			"worldX": 8816,
+			"worldY": 0,
+			"pxWid": 368,
+			"pxHei": 336,
+			"__bgColor": "#242D34",
+			"bgColor": null,
+			"useAutoIdentifier": false,
+			"bgRelPath": null,
+			"bgPos": null,
+			"bgPivotX": 0.5,
+			"bgPivotY": 0.5,
+			"__bgPos": null,
+			"externalRelPath": "world/0012-Transition_corridor.ldtkl",
+			"fieldInstances": [
+				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
+				{
+					"__identifier": "disableCompleteAnnounce",
+					"__value": true,
+					"__type": "Bool",
+					"defUid": 114,
+					"realEditorValues": [{
+						"id": "V_Bool",
+						"params": [ true ]
+					}]
+				},
+				{
+					"__identifier": "ignoreFires",
+					"__value": true,
+					"__type": "Bool",
+					"defUid": 115,
+					"realEditorValues": [{
+						"id": "V_Bool",
+						"params": [ true ]
+					}]
+				},
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
+			],
+			"layerInstances": null,
+			"__neighbours": [ { "levelUid": 118, "dir": "e" }, { "levelUid": 398, "dir": "w" } ]
 		},
 		{
 			"identifier": "Thank_you_for_playing",
 			"uid": 118,
-			"worldX": 8352,
+			"worldX": 9216,
 			"worldY": 0,
 			"pxWid": 576,
 			"pxHei": 400,
@@ -5145,7 +5333,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0011-Thank_you_for_playing.ldtkl",
+			"externalRelPath": "world/0013-Thank_you_for_playing.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "bigFallIntro",
@@ -5171,12 +5359,12 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 432, "dir": "e" }, { "levelUid": 398, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 432, "dir": "e" }, { "levelUid": 433, "dir": "w" } ]
 		},
 		{
 			"identifier": "Screenshot",
 			"uid": 432,
-			"worldX": 8960,
+			"worldX": 9824,
 			"worldY": 0,
 			"pxWid": 560,
 			"pxHei": 384,
@@ -5188,7 +5376,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0012-Screenshot.ldtkl",
+			"externalRelPath": "world/0014-Screenshot.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
@@ -5196,37 +5384,55 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 126, "dir": "e" }, { "levelUid": 118, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 437, "dir": "e" }, { "levelUid": 118, "dir": "w" } ]
 		},
 		{
-			"identifier": "Lab",
-			"uid": 126,
-			"worldX": 9552,
+			"identifier": "Level_15",
+			"uid": 437,
+			"worldX": 10416,
 			"worldY": 0,
-			"pxWid": 720,
-			"pxHei": 352,
+			"pxWid": 544,
+			"pxHei": 384,
 			"__bgColor": "#242D34",
 			"bgColor": null,
-			"useAutoIdentifier": false,
+			"useAutoIdentifier": true,
 			"bgRelPath": null,
 			"bgPos": null,
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0013-Lab.ldtkl",
+			"externalRelPath": "world/0015-Level_15.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
-				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{
+					"__identifier": "disableCompleteAnnounce",
+					"__value": true,
+					"__type": "Bool",
+					"defUid": 114,
+					"realEditorValues": [{
+						"id": "V_Bool",
+						"params": [ true ]
+					}]
+				},
+				{
+					"__identifier": "ignoreFires",
+					"__value": true,
+					"__type": "Bool",
+					"defUid": 115,
+					"realEditorValues": [{
+						"id": "V_Bool",
+						"params": [ true ]
+					}]
+				},
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [ { "levelUid": 183, "dir": "e" }, { "levelUid": 432, "dir": "w" } ]
 		},
 		{
-			"identifier": "Level_14",
+			"identifier": "Level_16",
 			"uid": 183,
-			"worldX": 10304,
+			"worldX": 10992,
 			"worldY": 0,
 			"pxWid": 352,
 			"pxHei": 320,
@@ -5238,7 +5444,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0014-Level_14.ldtkl",
+			"externalRelPath": "world/0016-Level_16.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
@@ -5255,7 +5461,7 @@
 				}
 			],
 			"layerInstances": null,
-			"__neighbours": [{ "levelUid": 126, "dir": "w" }]
+			"__neighbours": [{ "levelUid": 437, "dir": "w" }]
 		}
 	]
 }

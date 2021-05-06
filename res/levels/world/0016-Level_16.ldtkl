@@ -8,9 +8,9 @@
 		"appVersion": "0.9.4",
 		"url": "https://ldtk.io"
 	},
-	"identifier": "Level_14",
+	"identifier": "Level_16",
 	"uid": 183,
-	"worldX": 10304,
+	"worldX": 10992,
 	"worldY": 0,
 	"pxWid": 352,
 	"pxHei": 320,
@@ -1370,5 +1370,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [{ "levelUid": 126, "dir": "w" }]
+	"__neighbours": [{ "levelUid": 437, "dir": "w" }]
 }
