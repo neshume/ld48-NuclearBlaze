@@ -590,6 +590,81 @@
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
 						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "FogPiercer",
+					"__grid": [7,10],
+					"__pivot": [0,0],
+					"__tile": null,
+					"width": 48,
+					"height": 192,
+					"defUid": 374,
+					"px": [112,160],
+					"fieldInstances": [{
+						"__identifier": "triggerId",
+						"__value": 0,
+						"__type": "Int",
+						"defUid": 446,
+						"realEditorValues": [{ "id": "V_Int", "params": [0] }]
+					}]
+				},
+				{
+					"__identifier": "Trigger",
+					"__grid": [11,15],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [64,224,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 179,
+					"px": [184,248],
+					"fieldInstances": [
+						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 180, "realEditorValues": [] },
+						{
+							"__identifier": "type",
+							"__value": "Invisible",
+							"__type": "LocalEnum.TriggerType",
+							"defUid": 182,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Invisible"]
+							}]
+						},
+						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
+						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
+						{
+							"__identifier": "invisibleRadius",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 435,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						}
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [15,9],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [248,160],
+					"fieldInstances": [
+						{
+							"__identifier": "startInv",
+							"__value": ["BlueCard"],
+							"__type": "Array<LocalEnum.Items>",
+							"defUid": 281,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["BlueCard"]
+							}]
+						},
+						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
+						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
+						{ "__identifier": "fallCinematic", "__value": false, "__type": "Bool", "defUid": 396, "realEditorValues": [] }
+					]
 				}
 			]
 		},
