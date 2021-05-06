@@ -941,6 +941,61 @@ class Fx extends dn.Process {
 
 	}
 
+	public function fireSprayOffSmoke(x:Float,y:Float, ang:Float, dist:Float) {
+		// Smoke
+		for(i in 0...2) {
+			var p = allocBgNormal( getTile(dict.fxSmoke), x+rnd(0,1,true), y+rnd(0,1,true) );
+			p.colorAnimS( 0xff8210, 0xb1b8d5, R.around(0.3) );
+			p.setFadeS(R.around(0.2), 0.03, R.around(0.3));
+			p.setScale( R.around(0.04) );
+			p.ds = R.around(0.03);
+			p.dsFrict = R.around(0.91);
+			p.rotation = R.fullCircle();
+			p.dr = R.around(0.003);
+
+			p.frict = R.aroundZTO(0.91, 5);
+			p.moveAng(ang, R.around(2));
+			p.gy = -R.around(0.01);
+			p.autoRotateSpeed = 1;
+
+			p.lifeS = R.around(0.6);
+			p.delayS = R.zeroTo(0.3);
+		}
+	}
+
+	public function fireSprayOffSparks(x:Float,y:Float, ang:Float, dist:Float) {
+		// Core
+		for(i in 0...3) {
+			var p = allocTopAdd( getTile(dict.fxDot), x+rnd(0,1,true), y+rnd(0,1,true) );
+			p.colorAnimS( 0xffff88, 0xffcc00, R.around(0.3) );
+			p.setFadeS(R.around(0.9), 0.03, R.around(0.1));
+			p.rotation = R.fullCircle();
+			p.alphaFlicker = 0.6;
+			p.frict = R.aroundZTO(0.84);
+			p.gy = R.zeroTo(0.01);
+			p.autoRotateSpeed = 1;
+			p.lifeS = R.around(0.9);
+			p.delayS = R.zeroTo(0.2);
+		}
+
+		// Sparks
+		for(i in 0...irnd(1,2)) {
+			var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,1,true), y+rnd(0,1,true) );
+			p.colorAnimS( 0xffcc00, 0xff0000, R.around(0.3) );
+			p.setFadeS(R.around(0.9), 0.03, R.around(0.1));
+			p.alphaFlicker = 0.6;
+			p.scaleX = 2;
+
+			p.frict = R.aroundZTO(0.84);
+			p.moveAng(ang+rnd(0,1,true), rnd(0.5,2));
+			p.gy = R.around(0.02);
+			p.autoRotateSpeed = 1;
+
+			p.lifeS = R.around(0.6);
+			p.delayS = R.zeroTo(0.2);
+		}
+	}
+
 
 	override function update() {
 		super.update();

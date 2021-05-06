@@ -40,8 +40,16 @@ class FireSpray extends Entity {
 	override function postUpdate() {
 		super.postUpdate();
 
-		if( active && !cd.hasSetS("sprayFx",0.03) && isOnScreen() )
-			fx.fireSpray(attachX, attachY, ang, data.f_distance*Const.GRID);
+		if( isOnScreen() )
+			if( active && !cd.hasSetS("sprayFx",0.03) )
+				fx.fireSpray(attachX, attachY, ang, data.f_distance*Const.GRID);
+			else if( !active ) {
+				if( !cd.hasSetS("sprayOffSmoke",0.15) )
+					fx.fireSprayOffSmoke(attachX, attachY, ang, data.f_distance*Const.GRID);
+
+				if( !cd.hasSetS("sprayOffSpark",0.3) )
+					fx.fireSprayOffSparks(attachX, attachY, ang, data.f_distance*Const.GRID);
+			}
 	}
 
 	public inline function isActive() return active;
