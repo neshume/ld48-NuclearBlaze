@@ -36,6 +36,7 @@ class Camera extends dn.Process {
 	var dy : Float;
 	var bumpOffX = 0.;
 	var bumpOffY = 0.;
+	var bumpFrict = 0.96;
 	var bumpZoomFactor = 0.;
 
 	/** Zoom factor **/
@@ -192,12 +193,12 @@ class Camera extends dn.Process {
 		scroller.y = -clampedFocus.levelY + pxHei*0.5;
 
 		// Bumps friction
-		bumpOffX *= Math.pow(0.75, tmod);
-		bumpOffY *= Math.pow(0.75, tmod);
+		bumpOffX *= Math.pow(bumpFrict, tmod);
+		bumpOffY *= Math.pow(bumpFrict, tmod);
 
 		// Bump
-		scroller.x += bumpOffX;
-		scroller.y += bumpOffY;
+		scroller.x -= bumpOffX;
+		scroller.y -= bumpOffY;
 
 		// Shakes
 		if( cd.has("shaking") ) {
