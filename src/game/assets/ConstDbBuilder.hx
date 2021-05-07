@@ -132,7 +132,7 @@ class ConstDbBuilder {
 
 			// Add field and default value
 			if( kind!=null ) {
-				dbTypeDef.push({ name:k, pos:pos, kind:kind, doc: "["+fileName+"]  "+k });
+				dbTypeDef.push({ name:k, pos:pos, kind:kind, doc: k + " *["+fileName+"]* " });
 				dbDefaults.push({ field:k, expr:macro $v{val} });
 			}
 		}
@@ -244,7 +244,7 @@ class ConstDbBuilder {
 					dbTypeDef.push({
 						name: id,
 						pos: pos,
-						doc: "["+fileName+"]  " + ( doc==null ? id : doc ),
+						doc: ( doc==null ? id : doc ) + "  *["+fileName+"]* ",
 						kind: FVar(macro:Float),
 					});
 					dbDefaults.push({ field:id, expr:macro 0. });
