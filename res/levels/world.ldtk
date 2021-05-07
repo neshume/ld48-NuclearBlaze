@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.4",
-	"nextUid": 448,
+	"nextUid": 450,
 	"worldLayout": "LinearHorizontal",
 	"worldGridWidth": 256,
 	"worldGridHeight": 256,
@@ -2978,6 +2978,46 @@
 						"params": [ true ]
 					},
 					"textLanguageMode": null
+				},
+				{
+					"identifier": "initialFastFall",
+					"__type": "Float",
+					"uid": 448,
+					"type": "F_Float",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": 0,
+					"max": 1,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "lockUntilLand",
+					"__type": "Bool",
+					"uid": 449,
+					"type": "F_Bool",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
 				}
 			]
 		},
@@ -4875,26 +4915,6 @@
 		], "iconTilesetUid": 26, "externalRelPath": null, "externalFileChecksum": null }
 	], "externalEnums": [], "levelFields": [
 		{
-			"identifier": "bigFallIntro",
-			"__type": "Bool",
-			"uid": 113,
-			"type": "F_Bool",
-			"isArray": false,
-			"canBeNull": false,
-			"arrayMinLength": null,
-			"arrayMaxLength": null,
-			"editorDisplayMode": "ValueOnly",
-			"editorDisplayPos": "Above",
-			"editorAlwaysShow": false,
-			"editorCutLongValues": true,
-			"min": null,
-			"max": null,
-			"regex": null,
-			"acceptFileTypes": null,
-			"defaultOverride": null,
-			"textLanguageMode": null
-		},
-		{
 			"identifier": "disableCompleteAnnounce",
 			"__type": "Bool",
 			"uid": 114,
@@ -4977,16 +4997,6 @@
 			"externalRelPath": "world/0000-Intro.ldtkl",
 			"fieldInstances": [
 				{
-					"__identifier": "bigFallIntro",
-					"__value": true,
-					"__type": "Bool",
-					"defUid": 113,
-					"realEditorValues": [{
-						"id": "V_Bool",
-						"params": [ true ]
-					}]
-				},
-				{
 					"__identifier": "disableCompleteAnnounce",
 					"__value": true,
 					"__type": "Bool",
@@ -5028,7 +5038,6 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0001-Title.ldtkl",
 			"fieldInstances": [
-				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{
 					"__identifier": "disableCompleteAnnounce",
 					"__value": true,
@@ -5071,7 +5080,6 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0002-Tutorial_basics.ldtkl",
 			"fieldInstances": [
-				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
@@ -5085,7 +5093,7 @@
 			"worldX": 2704,
 			"worldY": 0,
 			"pxWid": 496,
-			"pxHei": 272,
+			"pxHei": 352,
 			"__bgColor": "#242D34",
 			"bgColor": null,
 			"useAutoIdentifier": false,
@@ -5096,16 +5104,6 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0003-Tutorial_vertical.ldtkl",
 			"fieldInstances": [
-				{
-					"__identifier": "bigFallIntro",
-					"__value": true,
-					"__type": "Bool",
-					"defUid": 113,
-					"realEditorValues": [{
-						"id": "V_Bool",
-						"params": [ true ]
-					}]
-				},
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
@@ -5130,7 +5128,6 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0004-Tutorial_defense.ldtkl",
 			"fieldInstances": [
-				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{
 					"__identifier": "disableCompleteAnnounce",
 					"__value": true,
@@ -5164,7 +5161,6 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0005-Nuclear_1st_contact.ldtkl",
 			"fieldInstances": [
-				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
@@ -5189,7 +5185,6 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0006-Level_6.ldtkl",
 			"fieldInstances": [
-				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
@@ -5214,16 +5209,6 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0007-Sprinklers.ldtkl",
 			"fieldInstances": [
-				{
-					"__identifier": "bigFallIntro",
-					"__value": true,
-					"__type": "Bool",
-					"defUid": 113,
-					"realEditorValues": [{
-						"id": "V_Bool",
-						"params": [ true ]
-					}]
-				},
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
@@ -5248,7 +5233,6 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0008-Grass_corridor.ldtkl",
 			"fieldInstances": [
-				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{
 					"__identifier": "disableCompleteAnnounce",
 					"__value": true,
@@ -5291,7 +5275,6 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0009-Hydroponics.ldtkl",
 			"fieldInstances": [
-				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
@@ -5316,16 +5299,6 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0010-Desert_corridors.ldtkl",
 			"fieldInstances": [
-				{
-					"__identifier": "bigFallIntro",
-					"__value": true,
-					"__type": "Bool",
-					"defUid": 113,
-					"realEditorValues": [{
-						"id": "V_Bool",
-						"params": [ true ]
-					}]
-				},
 				{
 					"__identifier": "disableCompleteAnnounce",
 					"__value": true,
@@ -5368,7 +5341,6 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0011-Pit.ldtkl",
 			"fieldInstances": [
-				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{
 					"__identifier": "disableCompleteAnnounce",
 					"__value": true,
@@ -5411,7 +5383,6 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0012-Explosives.ldtkl",
 			"fieldInstances": [
-				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
@@ -5436,7 +5407,6 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0013-Transition_corridor.ldtkl",
 			"fieldInstances": [
-				{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 				{
 					"__identifier": "disableCompleteAnnounce",
 					"__value": true,
@@ -5479,16 +5449,6 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0014-Thank_you_for_playing.ldtkl",
 			"fieldInstances": [
-				{
-					"__identifier": "bigFallIntro",
-					"__value": true,
-					"__type": "Bool",
-					"defUid": 113,
-					"realEditorValues": [{
-						"id": "V_Bool",
-						"params": [ true ]
-					}]
-				},
 				{
 					"__identifier": "disableCompleteAnnounce",
 					"__value": true,

@@ -24,7 +24,6 @@
 	"__bgPos": null,
 	"externalRelPath": null,
 	"fieldInstances": [
-		{ "__identifier": "bigFallIntro", "__value": false, "__type": "Bool", "defUid": 113, "realEditorValues": [] },
 		{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 		{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
 		{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
@@ -352,7 +351,11 @@
 					"height": 16,
 					"defUid": 1,
 					"px": [8,176],
-					"fieldInstances": [{ "__identifier": "lookRight", "__value": true, "__type": "Bool", "defUid": 28, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "lookRight", "__value": true, "__type": "Bool", "defUid": 28, "realEditorValues": [] },
+						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 448, "realEditorValues": [] },
+						{ "__identifier": "lockUntilLand", "__value": false, "__type": "Bool", "defUid": 449, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "WallText",
@@ -1176,6 +1179,46 @@
 							}]
 						},
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [62,11],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [1000,192],
+					"fieldInstances": [
+						{
+							"__identifier": "startInv",
+							"__value": [ "GreenCard", "BlueCard" ],
+							"__type": "Array<LocalEnum.Items>",
+							"defUid": 281,
+							"realEditorValues": [ {
+								"id": "V_String",
+								"params": ["GreenCard"]
+							}, {
+								"id": "V_String",
+								"params": ["BlueCard"]
+							} ]
+						},
+						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
+						{
+							"__identifier": "shieldDurationS",
+							"__value": 3,
+							"__type": "Int",
+							"defUid": 380,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "fallCinematic",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 396,
+							"realEditorValues": [null]
+						}
 					]
 				}
 			]

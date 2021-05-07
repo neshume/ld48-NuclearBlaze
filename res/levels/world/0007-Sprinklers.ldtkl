@@ -24,16 +24,6 @@
 	"__bgPos": null,
 	"externalRelPath": null,
 	"fieldInstances": [
-		{
-			"__identifier": "bigFallIntro",
-			"__value": true,
-			"__type": "Bool",
-			"defUid": 113,
-			"realEditorValues": [{
-				"id": "V_Bool",
-				"params": [ true ]
-			}]
-		},
 		{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 		{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
 		{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
@@ -239,13 +229,23 @@
 					"height": 16,
 					"defUid": 1,
 					"px": [152,16],
-					"fieldInstances": [{
-						"__identifier": "lookRight",
-						"__value": true,
-						"__type": "Bool",
-						"defUid": 28,
-						"realEditorValues": [null]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "lookRight",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 28,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "initialFastFall",
+							"__value": 0.3,
+							"__type": "Float",
+							"defUid": 448,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.3] }]
+						},
+						{ "__identifier": "lockUntilLand", "__value": false, "__type": "Bool", "defUid": 449, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "FireStarter",

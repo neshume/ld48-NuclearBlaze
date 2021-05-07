@@ -76,10 +76,14 @@ class Hero extends gm.Entity {
 		spr.anim.registerStateAnim(anims.idleCrouch, 1, ()->!cd.has("recentMove"));
 		spr.anim.registerStateAnim(anims.idle, 0);
 
-		if( level.data.f_bigFallIntro ) {
-			forceFastFall();
-			cd.setS("fallLock",Const.INFINITE);
+		if( !onGround ) {
+			hud.notify("fall");
+			dy = getGravity()*4;
 		}
+
+		fallTimerS = Const.db.HeroFastFallMaxTimer * data.f_initialFastFall;
+		if( data.f_lockUntilLand )
+			cd.setS("fallLock",Const.INFINITE);
 
 		clearInventory();
 		#if debug
@@ -245,20 +249,33 @@ class Hero extends gm.Entity {
 		if( isAlive() )
 			spr.anim.play(anims.land);
 
-		if( getFastFallRatio()>=0.5 ) {
-			fx.heavyLand(attachX, attachY);
+		if( getFastFallRatio()>0.5 ) {
+			var r = getFastFallRatio();
+			fx.heavyLand(attachX, attachY, r);
 			fx.flashBangS(0xab7f7a, 0.2, 1);
-			lockControlsS(1.5);
 			setSquashY(0.4);
-			spr.anim.play(anims.cineFallLand);
-			camera.shakeS(2,0.4);
-			camera.bump(0,30);
+			if( r>=1 ) {
+				lockControlsS(1.5);
+				spr.anim.play(anims.cineFallLand);
+			}
+			else
+				lockControlsS(0.5);
+			camera.shakeS(2, 0.4*r);
+			camera.bump(0, 30*r);
 			cd.unset("recentMove");
 		}
-		else if( cHei>=4 )
+		else if( cHei>=8 ) {
+			fx.mediumLand(attachX, attachY, 1);
+			lockControlsS(0.4);
 			setSquashY(0.6);
+		}
+		else if( cHei>=5 ) {
+			fx.mediumLand(attachX, attachY, 0.3);
+			setSquashY(0.6);
+		}
 		else if( cHei>=2 )
 			setSquashY(0.8);
+
 
 		fallTimerS = 0;
 		cd.unset("fallLock");
@@ -868,5 +885,8 @@ class Hero extends gm.Entity {
 		// Shooting water
 		if( isWatering() )
 			updateWatering();
+
+		if( ui.Console.ME.hasFlag("ff") )
+			debugFloat( getFastFallRatio() );
 	}
 }

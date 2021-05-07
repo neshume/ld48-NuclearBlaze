@@ -25,16 +25,6 @@
 	"externalRelPath": null,
 	"fieldInstances": [
 		{
-			"__identifier": "bigFallIntro",
-			"__value": true,
-			"__type": "Bool",
-			"defUid": 113,
-			"realEditorValues": [{
-				"id": "V_Bool",
-				"params": [ true ]
-			}]
-		},
-		{
 			"__identifier": "disableCompleteAnnounce",
 			"__value": true,
 			"__type": "Bool",
@@ -128,7 +118,26 @@
 					"height": 16,
 					"defUid": 1,
 					"px": [248,32],
-					"fieldInstances": [{ "__identifier": "lookRight", "__value": true, "__type": "Bool", "defUid": 28, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "lookRight", "__value": true, "__type": "Bool", "defUid": 28, "realEditorValues": [] },
+						{
+							"__identifier": "initialFastFall",
+							"__value": 0.7,
+							"__type": "Float",
+							"defUid": 448,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.7] }]
+						},
+						{
+							"__identifier": "lockUntilLand",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 449,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						}
+					]
 				},
 				{
 					"__identifier": "Say",
@@ -883,49 +892,6 @@
 							"__type": "Float",
 							"defUid": 445,
 							"realEditorValues": [null]
-						}
-					]
-				},
-				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [15,2],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [248,48],
-					"fieldInstances": [
-						{
-							"__identifier": "startInv",
-							"__value": [ "GreenCard", "BlueCard" ],
-							"__type": "Array<LocalEnum.Items>",
-							"defUid": 281,
-							"realEditorValues": [ {
-								"id": "V_String",
-								"params": ["GreenCard"]
-							}, {
-								"id": "V_String",
-								"params": ["BlueCard"]
-							} ]
-						},
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
-						{
-							"__identifier": "shieldDurationS",
-							"__value": 3,
-							"__type": "Int",
-							"defUid": 380,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "fallCinematic",
-							"__value": true,
-							"__type": "Bool",
-							"defUid": 396,
-							"realEditorValues": [{
-								"id": "V_Bool",
-								"params": [ true ]
-							}]
 						}
 					]
 				}

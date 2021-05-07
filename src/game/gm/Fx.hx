@@ -952,10 +952,11 @@ class Fx extends dn.Process {
 	}
 
 
-	public function heavyLand(x:Float, y:Float) {
+	public function heavyLand(x:Float, y:Float, pow:Float) {
 		var col = C.hexToInt("#ab7f7a");
+
 		// Small hit lines
-		final n = 30;
+		final n = Std.int(pow*30);
 		var range = M.PI*0.6;
 		for(i in 0...n) {
 			var pow = 0.55 + 0.45*Math.sin( M.PI * i/(n-1) );
@@ -972,20 +973,23 @@ class Fx extends dn.Process {
 		}
 
 		// Core hit lines
-		final n = 10;
-		for(i in 0...n) {
-			var p = allocBgAdd( getTile(dict.fxLineThinRight), x+rnd(0,6,true), y );
-			p.colorize(col);
-			p.setCenterRatio(0, 0.5);
-			p.scaleX = rnd(2,3);
-			p.dsX = rnd(0.35,0.40);
-			p.dsFrict = 0.92;
-			p.scaleXMul = R.around(0.9,5);
-			p.rotation = -M.PIHALF;
-			p.lifeS = R.around(0.2);
+		if( pow>=1 ) {
+			final n = Std.int(pow*10);
+			for(i in 0...n) {
+				var p = allocBgAdd( getTile(dict.fxLineThinRight), x+rnd(0,6,true), y );
+				p.colorize(col);
+				p.setCenterRatio(0, 0.5);
+				p.scaleX = rnd(2,3);
+				p.dsX = rnd(0.35,0.40);
+				p.dsFrict = 0.92;
+				p.scaleXMul = R.around(0.9,5);
+				p.rotation = -M.PIHALF;
+				p.lifeS = R.around(0.2);
+			}
 		}
+
 		// Core dirt
-		final n = 50;
+		final n = Std.int(pow*50);
 		for(i in 0...n) {
 			var p = allocTopNormal( getTile(dict.fxDirt), x+rnd(0,6,true), y );
 			p.setFadeS( rnd(0.2,1), 0, R.around(1));
@@ -1002,7 +1006,7 @@ class Fx extends dn.Process {
 			p.onUpdate = _dirtPhysics;
 		}
 		// Falling dust
-		final n = 30;
+		final n = Std.int(pow*30);
 		for(i in 0...n) {
 			var p = allocTopNormal( getTile(dict.pixel), x+rnd(0,10,true), y-rnd(30,80) );
 			p.setFadeS( R.around(0.4), R.around(0.2), R.around(1));
@@ -1014,11 +1018,80 @@ class Fx extends dn.Process {
 			p.delayS = rnd(0,1);
 		}
 		// Ground smoke
-		final n = 40;
+		final n = Std.int(pow*40);
 		for(i in 0...n) {
 			var p = allocTopNormal( getTile(dict.fxSmoke), x+rnd(0,10,true), y-rnd(0,10) );
 			p.setFadeS( R.around(0.2), 0, R.around(3,30));
 			p.colorize( C.toBlack(col, rnd(0,0.5)) );
+			p.frict = R.around(0.88,4);
+			p.dx = rnd(0,2,true);
+			p.dy = -rnd(0,1);
+			p.gx = M.sign(p.dx) * rnd(0,0.03);
+			p.gy = -rnd(0,0.02);
+			p.rotation = R.fullCircle();
+			p.dr = R.around(0.008, true);
+			p.lifeS = rnd(1,3);
+		}
+	}
+
+
+	public function mediumLand(x:Float, y:Float, pow:Float) {
+		var col = C.hexToInt("#ab7f7a");
+
+		// Small hit lines
+		final n = Std.int(pow*10);
+		var range = M.PI*0.6;
+		for(i in 0...n) {
+			var pow = 0.55 + 0.45*Math.sin( M.PI * i/(n-1) );
+			var a = -M.PIHALF - range*0.5 + range*i/(n-1) + rnd(0,0.15,true);
+			var p = allocBgAdd( getTile(dict.fxLineThinRight), x+Math.cos(a)*4, y+Math.sin(a)*4 );
+			p.alpha = R.around(0.2)*pow;
+			p.colorize(col);
+			p.setCenterRatio(0, 0.5);
+			p.scaleX = rnd(0.1,0.2) * pow;
+			p.dsX = rnd(0.45,0.50) * pow;
+			p.dsFrict = 0.92;
+			p.scaleXMul = R.around(0.8,5);
+			p.rotation = a;
+			p.lifeS = R.around(0.2);
+		}
+
+		// Core dirt
+		final n = Std.int(pow*20);
+		for(i in 0...n) {
+			var p = allocTopNormal( getTile(dict.fxDirt), x+rnd(0,6,true), y );
+			p.setFadeS( rnd(0.2,1), 0, R.around(1));
+			p.colorize(col);
+			p.randScale(0.3,0.8,true);
+			p.dx = rnd(0.5,2,true);
+			p.dy = -rnd(1, 2);
+			p.gy = R.around(0.12);
+			p.frict = R.around(0.92,3);
+			p.dr = rnd(0.1,0.4,true);
+			p.drFrict = R.around(0.95);
+			p.rotation = R.fullCircle();
+			p.lifeS = rnd(1,3);
+			p.onUpdate = _dirtPhysics;
+		}
+		// Falling dust
+		final n = Std.int(pow*30);
+		for(i in 0...n) {
+			var p = allocTopNormal( getTile(dict.pixel), x+rnd(0,10,true), y-rnd(10,30) );
+			p.setFadeS( R.around(0.4), R.around(0.2), R.around(1));
+			p.colorize(col);
+			p.gy = rnd(0.01,0.04);
+			p.frict = R.around(0.92,10);
+			p.lifeS = rnd(1,3);
+			p.onUpdate = _dirtPhysics;
+			p.delayS = rnd(0,1);
+		}
+		// Ground smoke
+		final n = Std.int(pow*10);
+		for(i in 0...n) {
+			var p = allocTopNormal( getTile(dict.fxSmoke), x+rnd(0,10,true), y-rnd(0,3) );
+			p.setFadeS( R.around(0.2), 0, R.around(3,30));
+			p.colorize( C.toBlack(col, rnd(0,0.5)) );
+			p.randScale(0.3,0.4,true);
 			p.frict = R.around(0.88,4);
 			p.dx = rnd(0,2,true);
 			p.dy = -rnd(0,1);

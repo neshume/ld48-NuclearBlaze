@@ -25,16 +25,6 @@
 	"externalRelPath": null,
 	"fieldInstances": [
 		{
-			"__identifier": "bigFallIntro",
-			"__value": true,
-			"__type": "Bool",
-			"defUid": 113,
-			"realEditorValues": [{
-				"id": "V_Bool",
-				"params": [ true ]
-			}]
-		},
-		{
 			"__identifier": "disableCompleteAnnounce",
 			"__value": true,
 			"__type": "Bool",
@@ -89,16 +79,32 @@
 					"height": 16,
 					"defUid": 1,
 					"px": [344,16],
-					"fieldInstances": [{
-						"__identifier": "lookRight",
-						"__value": false,
-						"__type": "Bool",
-						"defUid": 28,
-						"realEditorValues": [{
-							"id": "V_Bool",
-							"params": [ false ]
-						}]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "lookRight",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 28,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ false ]
+							}]
+						},
+						{
+							"__identifier": "initialFastFall",
+							"__value": 0.6,
+							"__type": "Float",
+							"defUid": 448,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
+						},
+						{
+							"__identifier": "lockUntilLand",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 449,
+							"realEditorValues": [null]
+						}
+					]
 				},
 				{
 					"__identifier": "Light",
