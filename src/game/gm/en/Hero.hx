@@ -727,8 +727,10 @@ class Hero extends gm.Entity {
 	override function fixedUpdate() {
 		super.fixedUpdate();
 
-		if( !onGround && dyTotal>=0 )
+		if( !climbing && !onGround && dyTotal>=0 )
 			fallTimerS+=1/Const.FIXED_UPDATE_FPS;
+		else
+			fallTimerS = 0;
 
 		// Climb one ways
 		if( level.hasOneWay(cx,cy-1) && dy>0 && yr<=0.3 && !climbing && !cd.has("oneWayLock") ) {
