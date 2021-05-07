@@ -948,14 +948,14 @@ class Fx extends dn.Process {
 			p.colorAnimS( 0xff8210, 0xb1b8d5, R.around(0.3) );
 			p.setFadeS(R.around(0.2), 0.03, R.around(0.3));
 			p.setScale( R.around(0.04) );
-			p.ds = R.around(0.03);
-			p.dsFrict = R.around(0.91);
+			p.ds = R.around(0.015, 5);
+			p.dsFrict = R.around(0.91,3);
 			p.rotation = R.fullCircle();
 			p.dr = R.around(0.003);
 
-			p.frict = R.aroundZTO(0.91, 5);
-			p.moveAng(ang, R.around(2));
-			p.gy = -R.around(0.01);
+			p.moveAng(ang, R.around(0.7,3));
+			p.frict = R.aroundZTO(0.95,1);
+			// p.gy = -R.around(0.01);
 			p.autoRotateSpeed = 1;
 
 			p.lifeS = R.around(0.6);
@@ -967,7 +967,7 @@ class Fx extends dn.Process {
 		// Core
 		for(i in 0...3) {
 			var p = allocTopAdd( getTile(dict.fxDot), x+rnd(0,1,true), y+rnd(0,1,true) );
-			p.colorAnimS( 0xffff88, 0xffcc00, R.around(0.3) );
+			p.colorAnimS( 0xff4400, 0x990000, R.around(0.3) );
 			p.setFadeS(R.around(0.9), 0.03, R.around(0.1));
 			p.rotation = R.fullCircle();
 			p.alphaFlicker = 0.6;
@@ -981,7 +981,7 @@ class Fx extends dn.Process {
 		// Sparks
 		for(i in 0...irnd(1,2)) {
 			var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,1,true), y+rnd(0,1,true) );
-			p.colorAnimS( 0xffcc00, 0xff0000, R.around(0.3) );
+			p.colorAnimS( 0xff8800, 0x880000, R.around(0.3) );
 			p.setFadeS(R.around(0.9), 0.03, R.around(0.1));
 			p.alphaFlicker = 0.6;
 			p.scaleX = 2;
