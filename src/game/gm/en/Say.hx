@@ -31,7 +31,7 @@ class Say extends Entity {
 	override function fixedUpdate() {
 		super.fixedUpdate();
 
-		if( hero.isAlive() && distCase(hero)<=data.f_triggerDist && ( !data.f_needSight || sightCheck(hero) ) )
+		if( hero.isAlive() && distCase(hero)<=data.f_selfTriggerDist && ( !data.f_needSight || sightCheck(hero) ) )
 			trigger();
 	}
 }

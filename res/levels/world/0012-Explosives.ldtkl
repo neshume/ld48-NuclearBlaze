@@ -10,7 +10,7 @@
 	},
 	"identifier": "Explosives",
 	"uid": 398,
-	"worldX": 8560,
+	"worldX": 8608,
 	"worldY": 0,
 	"pxWid": 704,
 	"pxHei": 496,
@@ -976,7 +976,7 @@
 							"realEditorValues": [null]
 						},
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
-						{ "__identifier": "invisibleRadius", "__value": 1, "__type": "Float", "defUid": 435, "realEditorValues": [] }
+						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1009,7 +1009,7 @@
 						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
-						{ "__identifier": "invisibleRadius", "__value": 1, "__type": "Float", "defUid": 435, "realEditorValues": [] }
+						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1138,7 +1138,7 @@
 						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
-						{ "__identifier": "invisibleRadius", "__value": 1, "__type": "Float", "defUid": 435, "realEditorValues": [] }
+						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1271,7 +1271,7 @@
 						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
-						{ "__identifier": "invisibleRadius", "__value": 1, "__type": "Float", "defUid": 435, "realEditorValues": [] }
+						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1490,7 +1490,7 @@
 						},
 						{ "__identifier": "color", "__value": "#FFD600", "__type": "Color", "defUid": 60, "realEditorValues": [] },
 						{
-							"__identifier": "triggerDist",
+							"__identifier": "selfTriggerDist",
 							"__value": 3,
 							"__type": "Float",
 							"defUid": 62,
@@ -1529,7 +1529,7 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [16711705] }]
 						},
 						{
-							"__identifier": "triggerDist",
+							"__identifier": "selfTriggerDist",
 							"__value": 2.5,
 							"__type": "Float",
 							"defUid": 62,

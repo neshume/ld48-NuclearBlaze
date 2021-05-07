@@ -10,7 +10,7 @@
 	},
 	"identifier": "Level_6",
 	"uid": 133,
-	"worldX": 4432,
+	"worldX": 4480,
 	"worldY": 0,
 	"pxWid": 560,
 	"pxHei": 496,
@@ -732,7 +732,7 @@
 							}]
 						},
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
-						{ "__identifier": "invisibleRadius", "__value": 1, "__type": "Float", "defUid": 435, "realEditorValues": [] }
+						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] }
 					]
 				},
 				{

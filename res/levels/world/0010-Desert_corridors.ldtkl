@@ -10,7 +10,7 @@
 	},
 	"identifier": "Desert_corridors",
 	"uid": 409,
-	"worldX": 7392,
+	"worldX": 7440,
 	"worldY": 0,
 	"pxWid": 752,
 	"pxHei": 816,
@@ -359,7 +359,7 @@
 						},
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
-						{ "__identifier": "invisibleRadius", "__value": 1, "__type": "Float", "defUid": 435, "realEditorValues": [] }
+						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1544,7 +1544,7 @@
 							"realEditorValues": [null]
 						},
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
-						{ "__identifier": "invisibleRadius", "__value": 1, "__type": "Float", "defUid": 435, "realEditorValues": [] }
+						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1589,7 +1589,7 @@
 							"realEditorValues": [null]
 						},
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
-						{ "__identifier": "invisibleRadius", "__value": 1, "__type": "Float", "defUid": 435, "realEditorValues": [] }
+						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] }
 					]
 				},
 				{
