@@ -10,7 +10,7 @@
 	},
 	"identifier": "Explosives",
 	"uid": 398,
-	"worldX": 8608,
+	"worldX": 8768,
 	"worldY": 0,
 	"pxWid": 704,
 	"pxHei": 496,
@@ -144,7 +144,7 @@
 								"params": ["Small"]
 							}]
 						},
-						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.FontStyle", "defUid": 149, "realEditorValues": [] },
+						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.TextStyle", "defUid": 149, "realEditorValues": [] },
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
 					]
 				},
@@ -185,7 +185,7 @@
 								"params": ["Tiny"]
 							}]
 						},
-						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.FontStyle", "defUid": 149, "realEditorValues": [] },
+						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.TextStyle", "defUid": 149, "realEditorValues": [] },
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
 					]
 				},
@@ -394,7 +394,7 @@
 								"params": ["Small"]
 							}]
 						},
-						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.FontStyle", "defUid": 149, "realEditorValues": [] },
+						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.TextStyle", "defUid": 149, "realEditorValues": [] },
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
 					]
 				},
@@ -552,7 +552,7 @@
 								"params": ["Small"]
 							}]
 						},
-						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.FontStyle", "defUid": 149, "realEditorValues": [] },
+						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.TextStyle", "defUid": 149, "realEditorValues": [] },
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
 					]
 				},

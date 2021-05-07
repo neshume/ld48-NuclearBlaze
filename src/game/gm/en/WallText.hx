@@ -32,6 +32,24 @@ class WallText extends Entity {
 
 			case Outline:
 				tf.filter = new h2d.filter.Glow(0x0,0.5, 2,2,2, true);
+
+			case Keyboard:
+				var bg = new h2d.ScaleGrid( Assets.tiles.getTile(dict.keyboard), 3, 4 );
+				spr.addChildAt(bg,0);
+				bg.width = tf.textWidth + 8;
+				bg.height = tf.textHeight + 2;
+				bg.x = -Std.int(bg.width*0.5);
+				bg.y = -Std.int(bg.height*0.5) + 2;
+
+			case GamePad:
+				var bg = new h2d.ScaleGrid( Assets.tiles.getTile(dict.padButton), 8, 8 );
+				spr.addChildAt(bg,0);
+				bg.width = M.fmax( 16, tf.textWidth+8 );
+				bg.height = 16;
+				bg.x = -Std.int(bg.width*0.5);
+				bg.y = -Std.int(bg.height*0.5) + 1;
+				bg.color.setColor( C.addAlphaF(data.f_color_int) );
+				tf.textColor = 0xffffff;
 		}
 
 		tf.alpha *= data.f_alpha;

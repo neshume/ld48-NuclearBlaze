@@ -10,7 +10,7 @@
 	},
 	"identifier": "Thank_you_for_playing",
 	"uid": 118,
-	"worldX": 9744,
+	"worldX": 9904,
 	"worldY": 0,
 	"pxWid": 576,
 	"pxHei": 400,
@@ -218,7 +218,7 @@
 								"params": ["Small"]
 							}]
 						},
-						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.FontStyle", "defUid": 149, "realEditorValues": [] },
+						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.TextStyle", "defUid": 149, "realEditorValues": [] },
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
 					]
 				},
@@ -259,7 +259,7 @@
 								"params": ["Medium"]
 							}]
 						},
-						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.FontStyle", "defUid": 149, "realEditorValues": [] },
+						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.TextStyle", "defUid": 149, "realEditorValues": [] },
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
 					]
 				},
@@ -300,7 +300,7 @@
 								"params": ["Small"]
 							}]
 						},
-						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.FontStyle", "defUid": 149, "realEditorValues": [] },
+						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.TextStyle", "defUid": 149, "realEditorValues": [] },
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
 					]
 				}

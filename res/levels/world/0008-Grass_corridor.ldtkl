@@ -10,7 +10,7 @@
 	},
 	"identifier": "Grass_corridor",
 	"uid": 444,
-	"worldX": 6080,
+	"worldX": 6240,
 	"worldY": 0,
 	"pxWid": 448,
 	"pxHei": 336,
@@ -417,7 +417,7 @@
 						{
 							"__identifier": "style",
 							"__value": null,
-							"__type": "LocalEnum.FontStyle",
+							"__type": "LocalEnum.TextStyle",
 							"defUid": 149,
 							"realEditorValues": [null]
 						},

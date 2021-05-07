@@ -10,7 +10,7 @@
 	},
 	"identifier": "Sprinklers",
 	"uid": 0,
-	"worldX": 5072,
+	"worldX": 5232,
 	"worldY": 0,
 	"pxWid": 976,
 	"pxHei": 448,
@@ -447,7 +447,7 @@
 								"params": ["Tiny"]
 							}]
 						},
-						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.FontStyle", "defUid": 149, "realEditorValues": [] },
+						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.TextStyle", "defUid": 149, "realEditorValues": [] },
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
 					]
 				},

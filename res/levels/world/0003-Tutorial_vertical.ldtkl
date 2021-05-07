@@ -10,7 +10,7 @@
 	},
 	"identifier": "Tutorial_vertical",
 	"uid": 30,
-	"worldX": 2544,
+	"worldX": 2704,
 	"worldY": 0,
 	"pxWid": 496,
 	"pxHei": 272,
@@ -296,7 +296,7 @@
 						{
 							"__identifier": "style",
 							"__value": null,
-							"__type": "LocalEnum.FontStyle",
+							"__type": "LocalEnum.TextStyle",
 							"defUid": 149,
 							"realEditorValues": [null]
 						},
@@ -367,7 +367,7 @@
 						{
 							"__identifier": "style",
 							"__value": null,
-							"__type": "LocalEnum.FontStyle",
+							"__type": "LocalEnum.TextStyle",
 							"defUid": 149,
 							"realEditorValues": [null]
 						},
@@ -517,7 +517,7 @@
 						{
 							"__identifier": "style",
 							"__value": null,
-							"__type": "LocalEnum.FontStyle",
+							"__type": "LocalEnum.TextStyle",
 							"defUid": 149,
 							"realEditorValues": [null]
 						},
