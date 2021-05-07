@@ -8,129 +8,118 @@
 					"name": "constId"
 				},
 				{
-					"typeStr": "1",
-					"name": "valueName1",
-					"opt": true
-				},
-				{
 					"typeStr": "4",
-					"name": "value1",
+					"name": "value",
 					"opt": true
 				},
 				{
 					"typeStr": "1",
-					"name": "valueName2",
-					"opt": true
-				},
-				{
-					"typeStr": "4",
-					"name": "value2",
-					"opt": true
-				},
-				{
-					"typeStr": "1",
-					"name": "valueName3",
-					"opt": true
-				},
-				{
-					"typeStr": "4",
-					"name": "value3",
+					"name": "doc",
 					"opt": true
 				}
 			],
 			"lines": [
 				{
 					"constId": "MaxCameraZoom",
-					"value1": 10
+					"value": 10
 				},
 				{
 					"constId": "FogRevealAnimSpeed",
-					"value1": 0.05
+					"value": 0.05
 				},
 				{
-					"desc1": "power",
-					"value1": 0.05,
-					"constId": "Gravity"
+					"constId": "Gravity",
+					"value": 0.05
 				},
 				{
 					"constId": "HeroJump",
-					"desc1": "base power",
-					"value1": 0.8
+					"doc": "Base jump power",
+					"value": 0.8
 				},
 				{
 					"constId": "HeroHP",
-					"value1": 1,
-					"desc1": "life"
+					"doc": "Start life",
+					"value": 1
 				},
 				{
 					"constId": "HeroHitShield",
-					"desc1": "shield duration (sec)",
-					"value1": 2
+					"doc": "Shield duration (sec)",
+					"value": 2
 				},
 				{
 					"constId": "FireTick",
-					"desc1": "fire update frequency (sec)",
-					"value1": 0.5
+					"doc": "fire update frequency (sec)",
+					"value": 0.5
 				},
 				{
 					"constId": "FireIncPerTick",
-					"value1": 0.2,
-					"desc1": "ratio increase per tick"
+					"doc": "ratio increase per tick",
+					"value": 0.2
 				},
 				{
 					"constId": "FirePropagationChance",
-					"desc1": "success %",
-					"value1": 1
+					"doc": "success %",
+					"value": 1
 				},
 				{
 					"constId": "FirePropagationCd",
-					"desc1": "cooldown if propagates",
-					"value1": 3,
-					"desc2": "offscreen cooldown",
-					"value2": 10
+					"doc": "Cooldown after propagation when on screen",
+					"value": 3
+				},
+				{
+					"constId": "FirePropagationCdOffScreen",
+					"value": 10,
+					"doc": "Cooldown after propagation when OFF screen"
 				},
 				{
 					"constId": "FirePropagationRange",
-					"value1": 2,
-					"desc1": "X",
-					"desc2": "Y",
-					"value2": 2
+					"value": 2,
+					"doc": "Applies to both X and Y"
 				},
 				{
 					"constId": "ControlDuration",
-					"value1": 10,
-					"desc1": "Fire kept under control when watering it"
+					"doc": "Fire kept under control when watering it",
+					"value": 10
 				},
 				{
 					"constId": "WaterFireDecrease",
-					"value1": 0.3,
-					"desc1": "Fire loss on watering"
+					"doc": "Fire loss on watering",
+					"value": 0.3
 				},
 				{
 					"constId": "ExplosiveTimer",
-					"value1": 10
+					"value": 10,
+					"doc": "Seconds"
 				},
 				{
 					"constId": "ExplosiveRadius",
-					"value1": 20,
-					"desc1": "total radius",
-					"desc2": "Full fire wipe radius",
-					"value2": 3,
-					"desc3": "hero kill",
-					"value3": 10
+					"doc": "Max radius of effect",
+					"value": 20
+				},
+				{
+					"constId": "ExplosiveFullFireRadius",
+					"value": 3,
+					"doc": "Radius where fire is fully affected by explosion"
+				},
+				{
+					"constId": "ExplosiveKillRadius",
+					"value": 10,
+					"doc": "Distance that kills the player"
 				}
 			],
 			"props": {
 				"separatorTitles": [
 					"General",
 					"Hero",
-					"Fire"
+					"Fire",
+					"Explosives"
 				]
 			},
 			"separatorIds": [
 				"MaxCameraZoom",
 				"HeroJump",
-				"FireTick"
+				"FireTick",
+				"ExplosiveTimer"
 			]
 		}
 	],

@@ -38,7 +38,7 @@ class Hero extends gm.Entity {
 		dir = data.f_lookRight ? 1 : -1;
 		hei = 12;
 
-		initLife( Std.int(Const.db.HeroHP_1) );
+		initLife( Std.int(Const.db.HeroHP) );
 		if( Console.ME.hasFlag("god") )
 			initLife(9999);
 
@@ -168,7 +168,7 @@ class Hero extends gm.Entity {
 	override function onDamage(dmg:Int, from:Entity) {
 		super.onDamage(dmg, from);
 		fx.flashBangS(0xff0000, 0.3, 1);
-		setShield(Const.db.HeroHitShield_1);
+		setShield(Const.db.HeroHitShield);
 	}
 
 	public inline function hasShield() return isAlive() && cd.has("shield");
@@ -544,10 +544,10 @@ class Hero extends gm.Entity {
 					else if( climbing ) {
 						if( level.hasOneWay(cx,cy-1) || level.hasOneWay(cx,cy-2) )
 							cd.setS("oneWayLock",0.25);
-						dy = -Const.db.HeroJump_1 * 0.25;
+						dy = -Const.db.HeroJump * 0.25;
 					}
 					else
-						dy = -Const.db.HeroJump_1;
+						dy = -Const.db.HeroJump;
 					if( climbing )
 						cd.setS("climbLock",0.35);
 					stopClimbing();

@@ -385,7 +385,7 @@ class Level extends dn.Process {
 			var be = fogElements.get( fogCoordId(ox,oy) );
 			if( isFogRevealed( fogCx+ox, fogCy+oy ) ) {
 				r = fogReveals.get( coordId(fogCx+ox, fogCy+oy) );
-				r = M.fmin( r+Const.db.FogRevealAnimSpeed_1*tmod, 1 );
+				r = M.fmin( r+Const.db.FogRevealAnimSpeed*tmod, 1 );
 				fogReveals.set( coordId(fogCx+ox, fogCy+oy), r );
 				be.alpha = 1-r;
 				be.visible = r<1;
@@ -421,8 +421,8 @@ class Level extends dn.Process {
 				fireCount++;
 
 		var fs : FireState = null;
-		var rangeX = Std.int(Const.db.FirePropagationRange_1);
-		var rangeY = Std.int(Const.db.FirePropagationRange_2);
+		var rangeX = Std.int(Const.db.FirePropagationRange);
+		var rangeY = Std.int(Const.db.FirePropagationRange);
 
 		for(cy in 0...data.l_Collisions.cHei)
 		for(cx in 0...data.l_Collisions.cWid) {
@@ -437,7 +437,7 @@ class Level extends dn.Process {
 
 				// Increase
 				if( fs.isBurning() && !fs.isUnderControl() ) {
-					fs.increase( Const.db.FireIncPerTick_1);
+					fs.increase( Const.db.FireIncPerTick);
 					if( fs.oil ) {
 						ignite(cx-1,cy, 1);
 						ignite(cx+1,cy, 1);
@@ -446,16 +446,16 @@ class Level extends dn.Process {
 
 				// Update cooldown
 				if( fs.propgationCdS>0 )
-					fs.propgationCdS -= Const.db.FireTick_1;
+					fs.propgationCdS -= Const.db.FireTick;
 
 				// Update underControlness
 				if( fs.underControlS>0 )
-					fs.underControlS -= Const.db.FireTick_1;
+					fs.underControlS -= Const.db.FireTick;
 
 				// Try to propagate
 				if( !game.kidMode && !fs.isUnderControl() && fs.isMaxed() && fs.propgationCdS<=0 && fs.propagates )
-					if( Std.random(100) < Const.db.FirePropagationChance_1*100 ) {
-						fs.propgationCdS = game.camera.isOnScreenCase(cx,cy) ? Const.db.FirePropagationCd_1 : Const.db.FirePropagationCd_2;
+					if( Std.random(100) < Const.db.FirePropagationChance*100 ) {
+						fs.propgationCdS = game.camera.isOnScreenCase(cx,cy) ? Const.db.FirePropagationCd : Const.db.FirePropagationCdOffScreen;
 						for(y in cy-rangeY...cy+rangeY+1)
 						for(x in cx-rangeX...cx+rangeX+1)
 							if( sighCheck(cx,cy, x,y) )
@@ -469,7 +469,7 @@ class Level extends dn.Process {
 		super.update();
 
 		// Fire update
-		if( !cd.hasSetS("fireTick",Const.db.FireTick_1) )
+		if( !cd.hasSetS("fireTick",Const.db.FireTick) )
 			updateFire();
 	}
 }

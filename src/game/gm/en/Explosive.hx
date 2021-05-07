@@ -150,7 +150,7 @@ class Explosive extends Entity {
 
 		// Countdown
 		if( active ) {
-			var r = Std.int( Const.db.ExplosiveRadius_1 );
+			var r = Std.int( Const.db.ExplosiveRadius );
 
 			var fs = level.getFireState(cx,cy);
 			timerS -= 1/Const.FIXED_UPDATE_FPS * ( fs.isUnderControl() ? 0.9 : 1 );
@@ -164,7 +164,7 @@ class Explosive extends Entity {
 			if( !cd.hasSetS("warn",0.25) ) {
 				fx.explosionWarning(centerX, centerY, 1-timerS/data.f_timer);
 				if( timerS<=3 )
-					fx.announceRadius(centerX, centerY, Const.db.ExplosiveRadius_3*Const.GRID, 0xff0000);
+					fx.announceRadius(centerX, centerY, Const.db.ExplosiveKillRadius*Const.GRID, 0xff0000);
 			}
 
 			if( !fs.isBurning() ) {
@@ -188,7 +188,7 @@ class Explosive extends Entity {
 						return;
 
 					var fs = level.getFireState(x,y);
-					if( distCase(x,y)<=Const.db.ExplosiveRadius_2 )
+					if( distCase(x,y)<=Const.db.ExplosiveFullFireRadius )
 						fs.clear();
 					else {
 						if( Std.random(100)<=66 )
@@ -206,7 +206,7 @@ class Explosive extends Entity {
 
 				if( distCase(hero)<=r ) {
 					var dr = 0.3 + 0.7*(1-distCase(hero)/r);
-					if( distCase(hero)<=Const.db.ExplosiveRadius_3 ) {
+					if( distCase(hero)<=Const.db.ExplosiveKillRadius ) {
 						hero.kill(this);
 						hero.dir = hero.dirTo(this);
 					}

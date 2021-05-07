@@ -91,7 +91,7 @@ class WaterDrop extends Bullet {
 
 				if( fs.isBurning() ) {
 					var before = fs.level;
-					fs.decrease( Const.db.WaterFireDecrease_1*power, ignoreResist );
+					fs.decrease( Const.db.WaterFireDecrease * power, ignoreResist );
 					if( fs.level<=0 ) {
 						fs.clear();
 						fs.extinguished = true;

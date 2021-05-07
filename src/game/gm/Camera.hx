@@ -93,7 +93,7 @@ class Camera extends dn.Process {
 	}
 
 	inline function set_targetZoom(v) {
-		return targetZoom = M.fclamp(v, 1, Const.db.MaxCameraZoom_1);
+		return targetZoom = M.fclamp(v, 1, Const.db.MaxCameraZoom);
 	}
 
 	public inline function bumpZoom(z:Float) {
@@ -101,7 +101,7 @@ class Camera extends dn.Process {
 	}
 
 	inline function get_zoom() {
-		return M.fclamp( curZoom + bumpZoomFactor, 1, Const.db.MaxCameraZoom_1 );
+		return M.fclamp( curZoom + bumpZoomFactor, 1, Const.db.MaxCameraZoom );
 	}
 
 	function get_pxWid() {

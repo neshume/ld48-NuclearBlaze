@@ -780,7 +780,7 @@ class Entity {
 
 
 	function getGravity() {
-		return Const.db.Gravity_1 * gravityMul;
+		return Const.db.Gravity * gravityMul;
 	}
 
 

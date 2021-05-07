@@ -34,7 +34,7 @@ class FireState {
 	}
 
 	public inline function control(ignoreResist=false) {
-		underControlS = Const.db.ControlDuration_1 * ( ignoreResist ? 1 : 1-resistance );
+		underControlS = Const.db.ControlDuration * ( ignoreResist ? 1 : 1-resistance );
 	}
 
 	public inline function getPowerRatio(step=false) {
