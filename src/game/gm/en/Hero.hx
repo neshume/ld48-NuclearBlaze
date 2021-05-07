@@ -115,8 +115,9 @@ class Hero extends gm.Entity {
 	}
 
 	override function onDie() {
-		hud.notify(L.t._("Press R (or GamePad-Select) to restart"));
+		hud.setPermanentText(L.t._("Press R (or GamePad-Select) to restart"));
 		stopClimbing();
+		clearInventory();
 		cancelAction();
 		cancelVelocities();
 		clearBubble();

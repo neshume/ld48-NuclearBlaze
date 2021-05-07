@@ -14,6 +14,7 @@ class Hud extends dn.Process {
 	var curUp: Null<h2d.Flow>;
 
 	var debugText : h2d.Text;
+	var permanentTf : h2d.Text;
 
 	public function new() {
 		super(Game.ME);
@@ -44,14 +45,21 @@ class Hud extends dn.Process {
 	override function onResize() {
 		super.onResize();
 		root.setScale(Const.UI_SCALE);
+
 		if( curUp!=null )
 			curUp.minWidth = Std.int( w()/Const.UI_SCALE );
+
+		if( permanentTf!=null ) {
+			permanentTf.x = Std.int( 0.5*w()/Const.UI_SCALE - 0.5*permanentTf.textWidth*permanentTf.scaleX );
+			permanentTf.y = 8;
+		}
 	}
 
 	public function clear() {
 		clearDebug();
 		clearNotifications();
 		clearUpgradeMessage();
+		clearPermanentText();
 		setInventory([]);
 	}
 
@@ -130,6 +138,22 @@ class Hud extends dn.Process {
 		debugText.x = Std.int( w()/Const.UI_SCALE - 4 - debugText.textWidth );
 	}
 
+	public function clearPermanentText() {
+		if( permanentTf!=null ) {
+			permanentTf.remove();
+			permanentTf = null;
+		}
+
+	}
+	public function setPermanentText(str:LocaleString, color=0xffcc00) {
+		clearPermanentText();
+		permanentTf = new h2d.Text(Assets.fontPixel, root);
+		permanentTf.text = str;
+		permanentTf.textColor = color;
+		onResize();
+		var ty = permanentTf.y;
+		tw.createS(permanentTf.y, -10>ty, 0.5);
+	}
 
 	/** Pop a quick s in the corner **/
 	public function notify(str:String, color=0xA56DE7) {
