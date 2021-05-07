@@ -298,6 +298,8 @@ class Hero extends gm.Entity {
 
 		var s = Assets.tiles.h_get( Assets.tilesDict.sayLine, saying );
 		s.colorize(c);
+
+		hud.radio(str, c);
 	}
 
 	function clearBubble() {

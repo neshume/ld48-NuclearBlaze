@@ -8,9 +8,9 @@
 		"appVersion": "0.9.4",
 		"url": "https://ldtk.io"
 	},
-	"identifier": "Transition_corridor",
-	"uid": 433,
-	"worldX": 9616,
+	"identifier": "Lab",
+	"uid": 450,
+	"worldX": 10016,
 	"worldY": 0,
 	"pxWid": 368,
 	"pxHei": 336,
@@ -58,7 +58,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": null,
 			"__tilesetRelPath": null,
-			"levelId": 433,
+			"levelId": 450,
 			"layerDefUid": 3,
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
@@ -270,21 +270,6 @@
 						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
 						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "Smoker",
-					"__grid": [6,10],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 16,
-					"defUid": 116,
-					"px": [104,176],
-					"fieldInstances": [
-						{ "__identifier": "radius", "__value": 5, "__type": "Int", "defUid": 117, "realEditorValues": [] },
-						{ "__identifier": "smokeColor", "__value": "#4D4959", "__type": "Color", "defUid": 384, "realEditorValues": [] },
-						{ "__identifier": "intensity", "__value": 1, "__type": "Float", "defUid": 385, "realEditorValues": [] }
 					]
 				},
 				{
@@ -523,6 +508,118 @@
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
 						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "Say",
+					"__grid": [12,10],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 58,
+					"px": [200,168],
+					"fieldInstances": [
+						{
+							"__identifier": "text",
+							"__value": "Proceed with caution!",
+							"__type": "String",
+							"defUid": 59,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Proceed with caution!"]
+							}]
+						},
+						{ "__identifier": "color", "__value": "#FFD600", "__type": "Color", "defUid": 60, "realEditorValues": [] },
+						{
+							"__identifier": "selfTriggerDist",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 62,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [9,10],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [152,176],
+					"fieldInstances": [
+						{
+							"__identifier": "startInv",
+							"__value": [ "GreenCard", "BlueCard" ],
+							"__type": "Array<LocalEnum.Items>",
+							"defUid": 281,
+							"realEditorValues": [ {
+								"id": "V_String",
+								"params": ["GreenCard"]
+							}, {
+								"id": "V_String",
+								"params": ["BlueCard"]
+							} ]
+						},
+						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
+						{
+							"__identifier": "shieldDurationS",
+							"__value": 3,
+							"__type": "Int",
+							"defUid": 380,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "fallCinematic",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 396,
+							"realEditorValues": [null]
+						}
+					]
+				},
+				{
+					"__identifier": "Say",
+					"__grid": [16,10],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 58,
+					"px": [264,168],
+					"fieldInstances": [
+						{
+							"__identifier": "text",
+							"__value": "Good luck",
+							"__type": "String",
+							"defUid": 59,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Good luck"]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#FFFFFF",
+							"__type": "Color",
+							"defUid": 60,
+							"realEditorValues": [{ "id": "V_Int", "params": [16777215] }]
+						},
+						{
+							"__identifier": "selfTriggerDist",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 62,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
+					]
 				}
 			]
 		},
@@ -537,7 +634,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 6,
 			"__tilesetRelPath": "../atlas/world.aseprite",
-			"levelId": 433,
+			"levelId": 450,
 			"layerDefUid": 174,
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
@@ -561,7 +658,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": null,
 			"__tilesetRelPath": null,
-			"levelId": 433,
+			"levelId": 450,
 			"layerDefUid": 20,
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
@@ -600,7 +697,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 6,
 			"__tilesetRelPath": "../atlas/world.aseprite",
-			"levelId": 433,
+			"levelId": 450,
 			"layerDefUid": 169,
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
@@ -624,7 +721,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 6,
 			"__tilesetRelPath": "../atlas/world.aseprite",
-			"levelId": 433,
+			"levelId": 450,
 			"layerDefUid": 386,
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
@@ -663,7 +760,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 6,
 			"__tilesetRelPath": "../atlas/world.aseprite",
-			"levelId": 433,
+			"levelId": 450,
 			"layerDefUid": 73,
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
@@ -702,7 +799,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 6,
 			"__tilesetRelPath": "../atlas/world.aseprite",
-			"levelId": 433,
+			"levelId": 450,
 			"layerDefUid": 69,
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
@@ -741,7 +838,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 6,
 			"__tilesetRelPath": "../atlas/world.aseprite",
-			"levelId": 433,
+			"levelId": 450,
 			"layerDefUid": 4,
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
@@ -1597,7 +1694,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 6,
 			"__tilesetRelPath": "../atlas/world.aseprite",
-			"levelId": 433,
+			"levelId": 450,
 			"layerDefUid": 291,
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
@@ -2110,5 +2207,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 450, "dir": "e" }, { "levelUid": 398, "dir": "w" } ]
+	"__neighbours": [ { "levelUid": 118, "dir": "e" }, { "levelUid": 433, "dir": "w" } ]
 }

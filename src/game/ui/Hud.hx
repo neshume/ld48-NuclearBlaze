@@ -14,7 +14,8 @@ class Hud extends dn.Process {
 	var curUp: Null<h2d.Flow>;
 
 	var debugText : h2d.Text;
-	var permanentTf : h2d.Text;
+	var permanentTf : Null<h2d.Text>;
+	var lastRadio : Null<h2d.Object>;
 
 	public function new() {
 		super(Game.ME);
@@ -60,6 +61,7 @@ class Hud extends dn.Process {
 		clearNotifications();
 		clearUpgradeMessage();
 		clearPermanentText();
+		clearRadio();
 		setInventory([]);
 	}
 
@@ -154,6 +156,53 @@ class Hud extends dn.Process {
 		onResize();
 		var ty = permanentTf.y;
 		tw.createS(permanentTf.y, -10>ty, 0.5);
+	}
+
+	public function clearRadio() {
+		if( lastRadio!=null ) {
+			lastRadio.remove();
+			lastRadio = null;
+		}
+	}
+
+	public function radio(msg:String, color=0xffffff) {
+		clearRadio();
+
+		var wrapper = new h2d.Object(root);
+		lastRadio = wrapper;
+		wrapper.scaleX = 0.1;
+
+		var bubble = new h2d.ScaleGrid( Assets.tiles.getTile(Assets.tilesDict.radioBubble), 4,4, wrapper );
+		bubble.tileBorders = true;
+		var pad = 8;
+		bubble.color.setColor( C.addAlphaF(color) );
+
+		var tf = new h2d.Text(Assets.fontPixel, wrapper);
+		tf.setPosition(pad,pad);
+		tf.text = msg;
+		tf.maxWidth = w()/Const.UI_SCALE - 32;
+
+		bubble.width = pad*2 + tf.textWidth;
+		bubble.height = pad*2 + tf.textHeight;
+
+		cd.setS("radioShaking",0.4);
+		cd.setS("keepRadio", 3 + msg.length*0.05);
+		createChildProcess( (p)->{
+			if( wrapper.parent==null ) {
+				p.destroy();
+				return;
+			}
+			wrapper.scaleX += (1-wrapper.scaleX ) * M.fmin(1, 0.4*tmod);
+			wrapper.x = 3;
+			wrapper.y = Std.int( 3 + cd.getRatio("radioShaking")*Math.sin(2+ftime*2.8)*2 );
+			if( !cd.has("keepRadio") ) {
+				wrapper.alpha -= 0.03*tmod;
+				if( wrapper.alpha<=0 ) {
+					clearRadio();
+					p.destroy();
+				}
+			}
+		}, true);
 	}
 
 	/** Pop a quick s in the corner **/
