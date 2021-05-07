@@ -52,7 +52,7 @@ class Const {
 		}
 
 	/** Specific scaling for top UI elements **/
-	public static var UI_SCALE(get,never) : Float;
+	public static var UI_SCALE(get,never) : Int;
 		static inline function get_UI_SCALE() {
 			// can be replaced with another way to determine the UI scaling
 			return SCALE;
