@@ -33,7 +33,7 @@ class Game extends Process {
 	public var hero : Hero;
 	public var curLevelIdx = 0;
 	public var kidMode : Bool;
-	public var polite = true;
+	public var polite = false;
 
 	public var heat : Float = 0.;
 	var heatMask : h2d.Bitmap;
@@ -47,6 +47,8 @@ class Game extends Process {
 
 		ME = this;
 		this.kidMode = kidMode;
+		if( kidMode )
+			polite = true;
 		ca = App.ME.controller.createAccess("game");
 		ca.setLeftDeadZone(0.2);
 		ca.setRightDeadZone(0.2);
