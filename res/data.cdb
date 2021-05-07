@@ -47,6 +47,19 @@
 					"value": 2
 				},
 				{
+					"constId": "HeroFastFallMinTimer",
+					"value": 0.7,
+					"doc": "Min fall timer before triggering fast fall effects"
+				},
+				{
+					"constId": "HeroFastFallMaxTimer",
+					"value": 3
+				},
+				{
+					"constId": "HeroFastFallGravityBoost",
+					"value": 1.2
+				},
+				{
 					"constId": "FireTick",
 					"doc": "fire update frequency (sec)",
 					"value": 0.5

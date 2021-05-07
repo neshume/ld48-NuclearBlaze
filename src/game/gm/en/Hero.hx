@@ -19,6 +19,7 @@ class Hero extends gm.Entity {
 	var bubble : Null<HSprite>;
 	var saying : Null<h2d.Flow>;
 	var waterAng = 0.;
+	var fallTimerS = 0.;
 
 	public function new() {
 		data = level.data.l_Entities.all_Hero[0];
@@ -46,7 +47,7 @@ class Hero extends gm.Entity {
 
 		spr.filter = new dn.heaps.filter.PixelOutline(0x330000, 0.4);
 		spr.set(Assets.hero);
-		spr.anim.registerStateAnim(anims.cineFall, 99, ()->cd.has("cineFalling") && !onGround );
+		spr.anim.registerStateAnim(anims.cineFall, 99, ()->getFastFallRatio()>0.6 && !onGround );
 		spr.anim.registerStateAnim(anims.deathJump, 99, ()->life<=0 && !onGround );
 		spr.anim.registerStateAnim(anims.deathLand, 99, ()->life<=0 && onGround);
 		spr.anim.registerStateAnim(anims.kickCharge, 8, ()->isChargingAction("kickDoor") );
@@ -75,17 +76,23 @@ class Hero extends gm.Entity {
 		spr.anim.registerStateAnim(anims.idleCrouch, 1, ()->!cd.has("recentMove"));
 		spr.anim.registerStateAnim(anims.idle, 0);
 
-		if( level.data.f_bigFallIntro )
-			cd.setS("cineFalling",Const.INFINITE);
+		if( level.data.f_bigFallIntro ) {
+			forceFastFall();
+			cd.setS("fallLock",Const.INFINITE);
+		}
 
 		clearInventory();
 		#if debug
 		if( level.data.l_Entities.all_DebugStartPoint.length>0 ) {
 			var d = level.data.l_Entities.all_DebugStartPoint[0];
-			if( d.f_fallCinematic )
-				cd.setS("cineFalling",Const.INFINITE);
-			else
-				cd.unset("cineFalling");
+			if( d.f_fallCinematic ) {
+				forceFastFall();
+				cd.setS("fallLock",Const.INFINITE);
+			}
+			else {
+				fallTimerS = 0;
+				cd.unset("fallLock");
+			}
 			setShield(d.f_shieldDurationS);
 			for(i in d.f_startInv)
 				if( gm.en.Item.isUpgradeItem(i) )
@@ -103,8 +110,19 @@ class Hero extends gm.Entity {
 		#end
 	}
 
+	public function forceFastFall() {
+		fallTimerS = Const.INFINITE;
+	}
+
+	public inline function getFastFallRatio() {
+		return M.fclamp(
+			( fallTimerS - Const.db.HeroFastFallMinTimer )  /  ( Const.db.HeroFastFallMaxTimer - Const.db.HeroFastFallMinTimer ),
+			0, 1
+		);
+	}
+
 	override function getGravity():Float {
-		return super.getGravity() * ( cd.has("cineFalling") ? 1.5 : 1 );
+		return super.getGravity() * ( 1 + Const.db.HeroFastFallGravityBoost * getFastFallRatio() );
 	}
 
 	public function hasItem(k:Enum_Items) {
@@ -213,7 +231,7 @@ class Hero extends gm.Entity {
 
 	public function controlsLocked() {
 		return life<=0 || ca.locked() || Console.ME.isActive() || isChargingAction()
-			|| cd.has("cineFalling") || cd.has("lockControls") || camera.hasCinematicTracking();
+			|| cd.has("fallLock") || cd.has("lockControls") || camera.hasCinematicTracking();
 	}
 
 	public function lockControlsS(t) {
@@ -223,21 +241,27 @@ class Hero extends gm.Entity {
 
 	override function onLand(cHei:Float) {
 		super.onLand(cHei);
-		if( cHei>=4 )
-			setSquashY(0.6);
-		else if( cHei>=2 )
-			setSquashY(0.8);
 
 		if( isAlive() )
 			spr.anim.play(anims.land);
 
-		if( cd.has("cineFalling") )  {
-			cd.unset("cineFalling");
+		if( getFastFallRatio()>=0.5 ) {
+			fx.heavyLand(attachX, attachY);
+			fx.flashBangS(0xab7f7a, 0.2, 1);
+			lockControlsS(1.5);
+			setSquashY(0.4);
 			spr.anim.play(anims.cineFallLand);
-			lockControlsS(1.6);
 			camera.shakeS(2,0.4);
+			camera.bump(0,30);
 			cd.unset("recentMove");
 		}
+		else if( cHei>=4 )
+			setSquashY(0.6);
+		else if( cHei>=2 )
+			setSquashY(0.8);
+
+		fallTimerS = 0;
+		cd.unset("fallLock");
 	}
 
 	public function say(str:String, c=0xffffff) {
@@ -429,6 +453,10 @@ class Hero extends gm.Entity {
 					clearSaying();
 			}
 		}
+
+		camera.setTrackingSpeed(1 + getFastFallRatio()*0.5);
+		if( getFastFallRatio()>0 )
+			fx.fastFalling(attachX, attachY, getFastFallRatio());
 	}
 
 	function isChargingDirLockAction() {
@@ -696,9 +724,11 @@ class Hero extends gm.Entity {
 	}
 
 
-
 	override function fixedUpdate() {
 		super.fixedUpdate();
+
+		if( !onGround && dyTotal>=0 )
+			fallTimerS+=1/Const.FIXED_UPDATE_FPS;
 
 		// Climb one ways
 		if( level.hasOneWay(cx,cy-1) && dy>0 && yr<=0.3 && !climbing && !cd.has("oneWayLock") ) {
@@ -734,7 +764,7 @@ class Hero extends gm.Entity {
 			if( climbing && climbSpeed==0 )
 				dx += walkSpeed*0.048;
 			else if( !climbing )
-				dx += walkSpeed*0.03;
+				dx += walkSpeed*0.03 * ( 1 - getFastFallRatio() );
 			cd.setS("recentMove",0.3);
 		}
 		else if( !isChargingAction("jump") )

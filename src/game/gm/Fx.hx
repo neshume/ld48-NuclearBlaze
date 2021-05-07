@@ -246,7 +246,7 @@ class Fx extends dn.Process {
 		// Lines
 		var n = Std.int( strong ? R.around(50) : R.around(7) );
 		for(i in 0...n) {
-			var p = allocTopAdd( getTile(dict.fxLineDir), (cx+0.5)*Const.GRID+rnd(0,1,true), (cy+0.2)*Const.GRID+rnd(0,1,true));
+			var p = allocTopAdd( getTile(dict.fxLineThinLeft), (cx+0.5)*Const.GRID+rnd(0,1,true), (cy+0.2)*Const.GRID+rnd(0,1,true));
 			p.colorize( R.colorMix(0xff0000,0xffcc00) );
 			p.setFadeS( R.around(0.7), 0.1, R.around(0.7));
 			p.moveAng( 0.3 - i/(n-1)*(M.PI+0.6) + R.zeroTo(0.1,true), R.around(1.6) );
@@ -388,7 +388,7 @@ class Fx extends dn.Process {
 	public function upgradeHalo(x:Float, y:Float) {
 		for(i in 0...4) {
 			var a = R.fullCircle();
-			var p = allocTopAdd( getTile(dict.fxLineDir), x,y );
+			var p = allocTopAdd( getTile(dict.fxLineThinLeft), x,y );
 			p.setFadeS( R.around(0.5), 0.3, 0.4 );
 			p.colorize(0xff8800);
 			p.setCenterRatio(1.3, 0.5);
@@ -438,7 +438,7 @@ class Fx extends dn.Process {
 		}
 
 		for(i in 0...4) {
-			var p = allocTopAdd( getTile(dict.fxLineDir), x, y);
+			var p = allocTopAdd( getTile(dict.fxLineThinLeft), x, y);
 			p.setFadeS(R.aroundZTO(0.7), 0.03, R.around(0.1));
 			p.scaleX = R.around(0.25);
 			p.scaleY = rnd(1,2);
@@ -482,7 +482,7 @@ class Fx extends dn.Process {
 		var offX = rnd(0,5,true);
 		var offY = rnd(0.5,2,true);
 		var p = allocTopAdd(
-			getTile(dict.fxLineDir),
+			getTile(dict.fxLineThinLeft),
 			(lastX+curX)*0.5 + Math.cos(a+M.PIHALF)*offY + Math.cos(a)*offX,
 			(lastY+curY)*0.5+Math.sin(a+M.PIHALF)*offY + Math.sin(a)*offX
 		);
@@ -683,7 +683,7 @@ class Fx extends dn.Process {
 		for(i in 0...n) {
 			a = M.PI2 * i/(n-1) + R.zeroTo(0.1,true);
 			d = R.around(radiusPx*0.6);
-			p = allocTopAdd(getTile(dict.fxLineDir), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p = allocTopAdd(getTile(dict.fxLineThinLeft), x+Math.cos(a)*d, y+Math.sin(a)*d);
 			p.colorizeRandom(0xff0000, 0xffcc00);
 			p.setCenterRatio(1,0.5);
 			p.scaleY = 2;
@@ -702,7 +702,7 @@ class Fx extends dn.Process {
 		for(i in 0...n) {
 			a = R.fullCircle();
 			d = rnd(20,radiusPx*0.5);
-			p = allocTopAdd(getTile(dict.fxLineDir), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p = allocTopAdd(getTile(dict.fxLineThinLeft), x+Math.cos(a)*d, y+Math.sin(a)*d);
 			p.colorizeRandom(0xff0000, 0xffcc00);
 			p.scaleX = R.around(2);
 			p.scaleXMul = R.aroundZTO(0.96);
@@ -938,7 +938,96 @@ class Fx extends dn.Process {
 			p.lifeS = R.around(0.2);
 			p.delayS = i==0 ? 0 : R.around(0.06);
 		}
+	}
 
+
+	public function fastFalling(x:Float, y:Float, ratio:Float) {
+		for(i in 0...irnd(1,2)) {
+			var p = allocBgAdd( getTile(dict.fxLine), x+rnd(0,6,true), y );
+			p.setFadeS( R.around(0.1)*ratio, R.around(0.2), R.around(0.2) );
+			p.dy = -rnd(1,2)*ratio;
+			p.rotation = -M.PIHALF;
+			p.lifeS = R.around(0.2);
+		}
+	}
+
+
+	public function heavyLand(x:Float, y:Float) {
+		var col = C.hexToInt("#ab7f7a");
+		// Small hit lines
+		final n = 30;
+		var range = M.PI*0.6;
+		for(i in 0...n) {
+			var pow = 0.55 + 0.45*Math.sin( M.PI * i/(n-1) );
+			var a = -M.PIHALF - range*0.5 + range*i/(n-1) + rnd(0,0.15,true);
+			var p = allocBgAdd( getTile(dict.fxLineThinRight), x+Math.cos(a)*4, y+Math.sin(a)*4 );
+			p.colorize(col);
+			p.setCenterRatio(0, 0.5);
+			p.scaleX = rnd(0.3,0.6) * pow;
+			p.dsX = rnd(0.45,0.50) * pow;
+			p.dsFrict = 0.92;
+			p.scaleXMul = R.around(0.8,5);
+			p.rotation = a;
+			p.lifeS = R.around(0.2);
+		}
+
+		// Core hit lines
+		final n = 10;
+		for(i in 0...n) {
+			var p = allocBgAdd( getTile(dict.fxLineThinRight), x+rnd(0,6,true), y );
+			p.colorize(col);
+			p.setCenterRatio(0, 0.5);
+			p.scaleX = rnd(2,3);
+			p.dsX = rnd(0.35,0.40);
+			p.dsFrict = 0.92;
+			p.scaleXMul = R.around(0.9,5);
+			p.rotation = -M.PIHALF;
+			p.lifeS = R.around(0.2);
+		}
+		// Core dirt
+		final n = 50;
+		for(i in 0...n) {
+			var p = allocTopNormal( getTile(dict.fxDirt), x+rnd(0,6,true), y );
+			p.setFadeS( rnd(0.2,1), 0, R.around(1));
+			p.colorize(col);
+			p.randScale(0.3,0.8,true);
+			p.dx = rnd(0,1,true);
+			p.dy = -rnd(2, 8);
+			p.gy = R.around(0.09);
+			p.frict = R.around(0.92,3);
+			p.dr = rnd(0.1,0.4,true);
+			p.drFrict = R.around(0.95);
+			p.rotation = R.fullCircle();
+			p.lifeS = rnd(1,3);
+			p.onUpdate = _dirtPhysics;
+		}
+		// Falling dust
+		final n = 30;
+		for(i in 0...n) {
+			var p = allocTopNormal( getTile(dict.pixel), x+rnd(0,10,true), y-rnd(30,80) );
+			p.setFadeS( R.around(0.4), R.around(0.2), R.around(1));
+			p.colorize(col);
+			p.gy = rnd(0.01,0.04);
+			p.frict = R.around(0.92,10);
+			p.lifeS = rnd(1,3);
+			p.onUpdate = _dirtPhysics;
+			p.delayS = rnd(0,1);
+		}
+		// Ground smoke
+		final n = 40;
+		for(i in 0...n) {
+			var p = allocTopNormal( getTile(dict.fxSmoke), x+rnd(0,10,true), y-rnd(0,10) );
+			p.setFadeS( R.around(0.2), 0, R.around(3,30));
+			p.colorize( C.toBlack(col, rnd(0,0.5)) );
+			p.frict = R.around(0.88,4);
+			p.dx = rnd(0,2,true);
+			p.dy = -rnd(0,1);
+			p.gx = M.sign(p.dx) * rnd(0,0.03);
+			p.gy = -rnd(0,0.02);
+			p.rotation = R.fullCircle();
+			p.dr = R.around(0.008, true);
+			p.lifeS = rnd(1,3);
+		}
 	}
 
 	public function fireSprayOffSmoke(x:Float,y:Float, ang:Float, dist:Float) {
