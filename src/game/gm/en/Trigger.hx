@@ -125,30 +125,6 @@ class Trigger extends Entity {
 				t+=durationS;
 			}
 
-		// Triggering sequence
-		// var t = 0.35;
-		// var lastT = t;
-		// for(e in Entity.ALL)
-		// 	if( e.isAlive() && e.triggerId==triggerId ) {
-		// 		if( e.distCase(hero)>=5 && data.f_cinematicReveal ) {
-		// 			delayer.addS(camera.trackEntity.bind(e,false), t);
-		// 			delayer.addS(e.trigger, t+0.7);
-		// 			lastT = t;
-		// 			t+=1;
-		// 		}
-		// 		else {
-		// 			delayer.addS(e.trigger, t);
-		// 			lastT = t;
-		// 			t+=0.4;
-		// 		}
-		// 	}
-
-		// delayer.addS(camera.trackEntity.bind(hero,false), t);
-		// hero.dx*=0.4;
-		// if( data.f_cinematicReveal )
-		// 	hero.lockControlsS(lastT+0.1);
-		// level.suspendFireForS(t+0.5);
-
 		switch data.f_type {
 			case Gate:
 				fx.dotsExplosion(centerX, centerY, data.f_fxColor_int);
