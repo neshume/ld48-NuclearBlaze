@@ -59,12 +59,11 @@ class FireSpray extends Entity {
 		iterateOver( (d,x,y)->{
 			var fs = level.getFireState(x,y);
 			if( fs!=null ) {
+				fs.resistance = 0;
 				if( !level.hasMark(NearCollision, x,y) ) {
 					fs.clear();
 					fs.control(true, 999999);
 				}
-				if( fs.isBurning() )
-					fs.resistance = 0;
 			}
 			return true;
 		});
