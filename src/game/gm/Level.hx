@@ -57,6 +57,8 @@ class Level extends dn.Process {
 				if( !hc(cx+1,cy+1) || !hc(cx+1,cy-1) || !hc(cx-1,cy-1) || !hc(cx-1,cy+1) )
 					setMark(WallEdge, cx,cy);
 			}
+			if( !hc(cx,cy) && ( hc(cx+1,cy) || hc(cx-1,cy) || hc(cx,cy+1) || hc(cx,cy-1) ) )
+				setMark(NearCollision, cx,cy);
 
 			if( !hc(cx,cy) && hc(cx,cy+1) && !hc(cx,cy-1) && !hc(cx,cy-2) )
 				for(d in dirs) {

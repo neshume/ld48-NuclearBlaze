@@ -3,6 +3,7 @@ enum Affect {
 }
 
 enum LevelMark {
+	NearCollision;
 	WallEdge;
 	DoorZone;
 	AutoJump1;
