@@ -705,29 +705,35 @@
 				},
 				{
 					"__identifier": "Trigger",
-					"__grid": [34,21],
+					"__grid": [34,20],
 					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [48,192,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [64,224,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 179,
-					"px": [552,344],
+					"px": [552,328],
 					"fieldInstances": [
 						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 180, "realEditorValues": [] },
 						{
 							"__identifier": "type",
-							"__value": "TouchPlate",
+							"__value": "Invisible",
 							"__type": "LocalEnum.TriggerType",
 							"defUid": 182,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["TouchPlate"]
+								"params": ["Invisible"]
 							}]
 						},
 						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
-						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] }
+						{
+							"__identifier": "invisibleRadius",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 435,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						}
 					]
 				},
 				{

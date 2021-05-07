@@ -1027,43 +1027,6 @@
 					]
 				},
 				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [24,13],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [392,224],
-					"fieldInstances": [
-						{
-							"__identifier": "startInv",
-							"__value": [ "GreenCard", "BlueCard" ],
-							"__type": "Array<LocalEnum.Items>",
-							"defUid": 281,
-							"realEditorValues": [ {
-								"id": "V_String",
-								"params": ["GreenCard"]
-							}, {
-								"id": "V_String",
-								"params": ["BlueCard"]
-							} ]
-						},
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
-						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
-						{
-							"__identifier": "fallCinematic",
-							"__value": true,
-							"__type": "Bool",
-							"defUid": 396,
-							"realEditorValues": [{
-								"id": "V_Bool",
-								"params": [ true ]
-							}]
-						}
-					]
-				},
-				{
 					"__identifier": "WallText",
 					"__grid": [21,3],
 					"__pivot": [0.5,0.5],
