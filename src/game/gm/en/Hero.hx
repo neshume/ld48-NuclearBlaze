@@ -454,7 +454,8 @@ class Hero extends gm.Entity {
 
 		// Control queueing
 		if( ca.xDown() && !isWatering() && !isChargingAction("water") ) {
-			cancelAction();
+			if( !isChargingAction("openDoor") )
+				cancelAction();
 			queueCommand(UseWater);
 		}
 		if( ca.yPressed() ) {
