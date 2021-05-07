@@ -76,10 +76,8 @@ class Hero extends gm.Entity {
 		spr.anim.registerStateAnim(anims.idleCrouch, 1, ()->!cd.has("recentMove"));
 		spr.anim.registerStateAnim(anims.idle, 0);
 
-		if( !onGround ) {
-			hud.notify("fall");
+		if( !onGround )
 			dy = getGravity()*4;
-		}
 
 		fallTimerS = Const.db.HeroFastFallMaxTimer * data.f_initialFastFall;
 		if( data.f_lockUntilLand )
