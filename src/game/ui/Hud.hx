@@ -140,6 +140,7 @@ class Hud extends dn.Process {
 
 	public function clearPermanentText() {
 		if( permanentTf!=null ) {
+			tw.terminateWithoutCallbacks(permanentTf.y);
 			permanentTf.remove();
 			permanentTf = null;
 		}
