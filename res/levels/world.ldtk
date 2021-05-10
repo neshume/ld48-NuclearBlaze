@@ -5669,7 +5669,7 @@
 			"__neighbours": [ { "levelUid": 465, "dir": "e" }, { "levelUid": 398, "dir": "w" } ]
 		},
 		{
-			"identifier": "Transition_corridor2",
+			"identifier": "Burning_pit",
 			"uid": 465,
 			"worldX": 11488,
 			"worldY": 0,
@@ -5683,7 +5683,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0016-Transition_corridor2.ldtkl",
+			"externalRelPath": "world/0016-Burning_pit.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
