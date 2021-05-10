@@ -16,6 +16,7 @@ class Hud extends dn.Process {
 	var debugText : h2d.Text;
 	var permanentTf : Null<h2d.Text>;
 	var lastRadio : Null<h2d.Object>;
+	var dict = Assets.tilesDict;
 
 	public function new() {
 		super(Game.ME);
@@ -168,25 +169,37 @@ class Hud extends dn.Process {
 	public function radio(msg:String, color=0xffffff) {
 		clearRadio();
 
+		var left = 32;
+
 		var wrapper = new h2d.Object(root);
 		lastRadio = wrapper;
 		wrapper.scaleX = 0.1;
+
+		var mic = Assets.tiles.h_get(dict.radioMic,0, 0.5,0.5, wrapper);
+		mic.setPosition(Std.int(mic.tile.width*0.5), Std.int(mic.tile.height*0.5));
 
 		var bubble = new h2d.ScaleGrid( Assets.tiles.getTile(Assets.tilesDict.radioBubble), 4,4, wrapper );
 		bubble.tileBorders = true;
 		var pad = 8;
 		bubble.color.setColor( C.addAlphaF(color) );
 
+		var link = Assets.tiles.h_get(dict.radioBubbleLink,0, 1, 0.5, wrapper);
+		link.colorize(color);
+
 		var tf = new h2d.Text(Assets.fontPixel, wrapper);
-		tf.setPosition(pad,pad);
+		tf.setPosition(pad+left,pad);
 		tf.text = msg;
 		tf.maxWidth = w()/Const.UI_SCALE - 32;
 
+		bubble.x = left;
 		bubble.width = pad*2 + tf.textWidth;
 		bubble.height = pad*2 + tf.textHeight;
+		link.x = bubble.x+8;
+		link.y = Std.int(bubble.height*0.5);
 
-		cd.setS("radioShaking",0.4);
-		cd.setS("keepRadio", 3 + msg.length*0.05);
+		cd.setS("radioBubbleShaking",0.4);
+		cd.setS("keepRadio", 3 + msg.length*0.05, true);
+		cd.setS("radioMicTalking", cd.getS("keepRadio")*0.3, true);
 		createChildProcess( (p)->{
 			if( wrapper.parent==null ) {
 				p.destroy();
@@ -194,7 +207,18 @@ class Hud extends dn.Process {
 			}
 			wrapper.scaleX += (1-wrapper.scaleX ) * M.fmin(1, 0.4*tmod);
 			wrapper.x = 3;
-			wrapper.y = Std.int( 3 + cd.getRatio("radioShaking")*Math.sin(2+ftime*2.8)*2 );
+			wrapper.y = 3;
+			if( cd.has("radioMicTalking") &&!cd.has("radioMicShakingLock") ) {
+				cd.setS("radioMicShaking", rnd(0.2,0.4));
+				cd.setS("radioMicShakingLock", rnd(0.2,0.5),true);
+			}
+			if( !cd.has("radioMicShaking") )
+				mic.setScale( mic.scaleX + (1-mic.scaleX)*0.3 );
+			else
+				mic.setScale( 1.1 + 0.1 * cd.getRatio("radioMicShaking") * Math.sin(1+ftime*2.8) );
+			// mic.y = 1 * cd.getRatio("radioMicShaking") * Math.sin(1+ftime*2.8);
+			bubble.y = 3 + 2 * cd.getRatio("radioBubbleShaking")*Math.sin(2+ftime*2.8);
+
 			if( !cd.has("keepRadio") ) {
 				wrapper.alpha -= 0.03*tmod;
 				if( wrapper.alpha<=0 ) {
@@ -286,9 +310,9 @@ class Hud extends dn.Process {
 	}
 
 	function updatePos() {
-		inventory.setPosition(3,3);
-		// if( cd.has("shakeInv") )
-		// 	inventory.y += Math.cos(uftime*0.4) * 3 * cd.getRatio("shakeInv");
+		inventory.setPosition( w()/Const.UI_SCALE-inventory.outerWidth-3, 3 );
+		if( cd.has("shakeInv") )
+			inventory.y += Math.cos(uftime*0.4) * 3 * cd.getRatio("shakeInv");
 
 		upgrades.setPosition( w()/Const.UI_SCALE - upgrades.outerWidth-3, 3 );
 		// if( cd.has("shakeUps") )
