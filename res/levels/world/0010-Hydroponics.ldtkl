@@ -10,7 +10,7 @@
 	},
 	"identifier": "Hydroponics",
 	"uid": 89,
-	"worldX": 6720,
+	"worldX": 7184,
 	"worldY": 0,
 	"pxWid": 848,
 	"pxHei": 672,
@@ -309,7 +309,7 @@
 					]
 				},
 				{
-					"__identifier": "Say",
+					"__identifier": "Dialog",
 					"__grid": [43,13],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
@@ -319,21 +319,14 @@
 					"px": [696,216],
 					"fieldInstances": [
 						{
-							"__identifier": "text",
-							"__value": "Something really went wrong here. I need to stop this!",
-							"__type": "String",
+							"__identifier": "lines",
+							"__value": ["Something really went wrong here. I need to stop this!"],
+							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
 								"params": ["Something really went wrong here. I need to stop this!"]
 							}]
-						},
-						{
-							"__identifier": "color",
-							"__value": "#FF4E00",
-							"__type": "Color",
-							"defUid": 60,
-							"realEditorValues": [{ "id": "V_Int", "params": [16731648] }]
 						},
 						{
 							"__identifier": "selfTriggerDist",
@@ -343,8 +336,7 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2643,7 +2635,7 @@
 					]
 				},
 				{
-					"__identifier": "Say",
+					"__identifier": "Dialog",
 					"__grid": [6,9],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
@@ -2653,24 +2645,22 @@
 					"px": [104,152],
 					"fieldInstances": [
 						{
-							"__identifier": "text",
-							"__value": "Nice flowers.",
-							"__type": "String",
+							"__identifier": "lines",
+							"__value": ["Nice flowers."],
+							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
 								"params": ["Nice flowers."]
 							}]
 						},
-						{ "__identifier": "color", "__value": "#FFD600", "__type": "Color", "defUid": 60, "realEditorValues": [] },
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				},
 				{
-					"__identifier": "Say",
+					"__identifier": "Dialog",
 					"__grid": [13,9],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
@@ -2680,20 +2670,18 @@
 					"px": [216,152],
 					"fieldInstances": [
 						{
-							"__identifier": "text",
-							"__value": "Highly flammable, but still nice.",
-							"__type": "String",
+							"__identifier": "lines",
+							"__value": ["Highly flammable, but still nice."],
+							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
 								"params": ["Highly flammable, but still nice."]
 							}]
 						},
-						{ "__identifier": "color", "__value": "#FFD600", "__type": "Color", "defUid": 60, "realEditorValues": [] },
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				},
 				{

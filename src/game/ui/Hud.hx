@@ -166,7 +166,7 @@ class Hud extends dn.Process {
 		}
 	}
 
-	public function radio(msg:String, color=0xffffff) {
+	public function radio(msg:String, color=0x4a5462) {
 		clearRadio();
 
 		var left = 32;
@@ -174,6 +174,7 @@ class Hud extends dn.Process {
 		var wrapper = new h2d.Object(root);
 		lastRadio = wrapper;
 		wrapper.scaleX = 0.1;
+		wrapper.filter = new h2d.filter.Nothing();
 
 		var mic = Assets.tiles.h_get(dict.radioMic,0, 0.5,0.5, wrapper);
 		mic.setPosition(Std.int(mic.tile.width*0.5), Std.int(mic.tile.height*0.5));
@@ -193,7 +194,7 @@ class Hud extends dn.Process {
 
 		bubble.x = left;
 		bubble.width = pad*2 + tf.textWidth;
-		bubble.height = pad*2 + tf.textHeight;
+		bubble.height = pad*2 + tf.textHeight-4;
 		link.x = bubble.x+8;
 		link.y = Std.int(bubble.height*0.5);
 
@@ -227,6 +228,8 @@ class Hud extends dn.Process {
 				}
 			}
 		}, true);
+
+		return cd.getS("keepRadio");
 	}
 
 	/** Pop a quick s in the corner **/

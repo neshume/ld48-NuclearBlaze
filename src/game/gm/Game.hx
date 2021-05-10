@@ -149,7 +149,7 @@ class Game extends Process {
 
 		for(d in level.data.l_Entities.all_Door) new gm.en.int.Door(d);
 		for(d in level.data.l_Entities.all_Item) new gm.en.Item(d);
-		for(d in level.data.l_Entities.all_Say) new gm.en.Say(d);
+		for(d in level.data.l_Entities.all_Dialog) new gm.en.Dialog(d);
 		for(d in level.data.l_Entities.all_Tutorial) new gm.en.Tutorial(d);
 		for(d in level.data.l_Entities.all_Exit) new gm.en.Exit(d);
 		for(d in level.data.l_Entities.all_WallText) new gm.en.WallText(d);

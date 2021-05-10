@@ -10,7 +10,7 @@
 	},
 	"identifier": "Thank_you_for_playing",
 	"uid": 118,
-	"worldX": 10016,
+	"worldX": 10480,
 	"worldY": 0,
 	"pxWid": 576,
 	"pxHei": 400,
@@ -77,7 +77,7 @@
 					]
 				},
 				{
-					"__identifier": "Say",
+					"__identifier": "Dialog",
 					"__grid": [10,19],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
@@ -87,24 +87,22 @@
 					"px": [168,312],
 					"fieldInstances": [
 						{
-							"__identifier": "text",
-							"__value": "A 48h game by Sebastien Benard",
-							"__type": "String",
+							"__identifier": "lines",
+							"__value": ["A 48h game by Sebastien Benard"],
+							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
 								"params": ["A 48h game by Sebastien Benard"]
 							}]
 						},
-						{ "__identifier": "color", "__value": "#FFD600", "__type": "Color", "defUid": 60, "realEditorValues": [] },
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				},
 				{
-					"__identifier": "Say",
+					"__identifier": "Dialog",
 					"__grid": [24,19],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
@@ -114,20 +112,18 @@
 					"px": [392,312],
 					"fieldInstances": [
 						{
-							"__identifier": "text",
-							"__value": "Sorry, no real ending, I was bit short on time!",
-							"__type": "String",
+							"__identifier": "lines",
+							"__value": ["Sorry, no real ending, I was bit short on time!"],
+							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
 								"params": ["Sorry, no real ending, I was bit short on time!"]
 							}]
 						},
-						{ "__identifier": "color", "__value": "#FFD600", "__type": "Color", "defUid": 60, "realEditorValues": [] },
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				},
 				{

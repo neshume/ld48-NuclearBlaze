@@ -10,7 +10,7 @@
 	},
 	"identifier": "Lab",
 	"uid": 450,
-	"worldX": 10624,
+	"worldX": 11088,
 	"worldY": 0,
 	"pxWid": 368,
 	"pxHei": 336,
@@ -510,7 +510,7 @@
 					]
 				},
 				{
-					"__identifier": "Say",
+					"__identifier": "Dialog",
 					"__grid": [12,10],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
@@ -520,94 +520,23 @@
 					"px": [200,168],
 					"fieldInstances": [
 						{
-							"__identifier": "text",
-							"__value": "Proceed with caution!",
-							"__type": "String",
+							"__identifier": "lines",
+							"__value": [ "!>Shit! | Damn.", "+>I'm in!", "R>Ok, proceed with caution!", "R!>Good luck" ],
+							"__type": "Array<String>",
 							"defUid": 59,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Proceed with caution!"]
-							}]
-						},
-						{ "__identifier": "color", "__value": "#FFD600", "__type": "Color", "defUid": 60, "realEditorValues": [] },
-						{
-							"__identifier": "selfTriggerDist",
-							"__value": 2,
-							"__type": "Float",
-							"defUid": 62,
-							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
-						},
-						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [9,10],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [152,176],
-					"fieldInstances": [
-						{
-							"__identifier": "startInv",
-							"__value": [ "GreenCard", "BlueCard" ],
-							"__type": "Array<LocalEnum.Items>",
-							"defUid": 281,
 							"realEditorValues": [ {
 								"id": "V_String",
-								"params": ["GreenCard"]
+								"params": ["!>Shit! | Damn."]
 							}, {
 								"id": "V_String",
-								"params": ["BlueCard"]
-							} ]
-						},
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
-						{
-							"__identifier": "shieldDurationS",
-							"__value": 3,
-							"__type": "Int",
-							"defUid": 380,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "fallCinematic",
-							"__value": false,
-							"__type": "Bool",
-							"defUid": 396,
-							"realEditorValues": [null]
-						}
-					]
-				},
-				{
-					"__identifier": "Say",
-					"__grid": [16,10],
-					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 58,
-					"px": [264,168],
-					"fieldInstances": [
-						{
-							"__identifier": "text",
-							"__value": "Good luck",
-							"__type": "String",
-							"defUid": 59,
-							"realEditorValues": [{
+								"params": ["+>I'm in!"]
+							}, {
 								"id": "V_String",
-								"params": ["Good luck"]
-							}]
-						},
-						{
-							"__identifier": "color",
-							"__value": "#FFFFFF",
-							"__type": "Color",
-							"defUid": 60,
-							"realEditorValues": [{ "id": "V_Int", "params": [16777215] }]
+								"params": ["R>Ok, proceed with caution!"]
+							}, {
+								"id": "V_String",
+								"params": ["R!>Good luck"]
+							} ]
 						},
 						{
 							"__identifier": "selfTriggerDist",
@@ -617,8 +546,7 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				}
 			]

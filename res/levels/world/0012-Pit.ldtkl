@@ -10,7 +10,7 @@
 	},
 	"identifier": "Pit",
 	"uid": 434,
-	"worldX": 8384,
+	"worldX": 8848,
 	"worldY": 0,
 	"pxWid": 464,
 	"pxHei": 1408,
@@ -1033,7 +1033,7 @@
 					]
 				},
 				{
-					"__identifier": "Say",
+					"__identifier": "Dialog",
 					"__grid": [11,71],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
@@ -1043,16 +1043,15 @@
 					"px": [184,1144],
 					"fieldInstances": [
 						{
-							"__identifier": "text",
-							"__value": "Guess I'm not going up anytime soon...",
-							"__type": "String",
+							"__identifier": "lines",
+							"__value": ["Guess I'm not going up anytime soon..."],
+							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
 								"params": ["Guess I'm not going up anytime soon..."]
 							}]
 						},
-						{ "__identifier": "color", "__value": "#FFD600", "__type": "Color", "defUid": 60, "realEditorValues": [] },
 						{
 							"__identifier": "selfTriggerDist",
 							"__value": 1.2,
@@ -1061,8 +1060,7 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [1.2] }]
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				},
 				{

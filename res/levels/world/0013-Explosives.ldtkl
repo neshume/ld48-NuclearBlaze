@@ -10,7 +10,7 @@
 	},
 	"identifier": "Explosives",
 	"uid": 398,
-	"worldX": 8880,
+	"worldX": 9344,
 	"worldY": 0,
 	"pxWid": 704,
 	"pxHei": 496,
@@ -1472,7 +1472,7 @@
 					]
 				},
 				{
-					"__identifier": "Say",
+					"__identifier": "Dialog",
 					"__grid": [8,18],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
@@ -1482,16 +1482,15 @@
 					"px": [136,296],
 					"fieldInstances": [
 						{
-							"__identifier": "text",
-							"__value": "Explosives, huh?",
-							"__type": "String",
+							"__identifier": "lines",
+							"__value": ["Explosives, huh?"],
+							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
 								"params": ["Explosives, huh?"]
 							}]
 						},
-						{ "__identifier": "color", "__value": "#FFD600", "__type": "Color", "defUid": 60, "realEditorValues": [] },
 						{
 							"__identifier": "selfTriggerDist",
 							"__value": 3,
@@ -1500,12 +1499,11 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [3] }]
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				},
 				{
-					"__identifier": "Say",
+					"__identifier": "Dialog",
 					"__grid": [17,19],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
@@ -1515,21 +1513,14 @@
 					"px": [280,312],
 					"fieldInstances": [
 						{
-							"__identifier": "text",
-							"__value": "Shit.",
-							"__type": "String",
+							"__identifier": "lines",
+							"__value": ["Shit."],
+							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
 								"params": ["Shit."]
 							}]
-						},
-						{
-							"__identifier": "color",
-							"__value": "#FF0019",
-							"__type": "Color",
-							"defUid": 60,
-							"realEditorValues": [{ "id": "V_Int", "params": [16711705] }]
 						},
 						{
 							"__identifier": "selfTriggerDist",
@@ -1539,17 +1530,7 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [2.5] }]
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{
-							"__identifier": "politeText",
-							"__value": "Damn!",
-							"__type": "String",
-							"defUid": 439,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Damn!"]
-							}]
-						}
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				}
 			]

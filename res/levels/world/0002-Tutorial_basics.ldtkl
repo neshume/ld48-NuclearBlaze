@@ -182,7 +182,7 @@
 					]
 				},
 				{
-					"__identifier": "Say",
+					"__identifier": "Dialog",
 					"__grid": [61,11],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
@@ -192,21 +192,14 @@
 					"px": [984,184],
 					"fieldInstances": [
 						{
-							"__identifier": "text",
-							"__value": "There's no turning back...",
-							"__type": "String",
+							"__identifier": "lines",
+							"__value": ["There's no turning back..."],
+							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
 								"params": ["There's no turning back..."]
 							}]
-						},
-						{
-							"__identifier": "color",
-							"__value": "#737598",
-							"__type": "Color",
-							"defUid": 60,
-							"realEditorValues": [{ "id": "V_Int", "params": [7566744] }]
 						},
 						{
 							"__identifier": "selfTriggerDist",
@@ -216,12 +209,11 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				},
 				{
-					"__identifier": "Say",
+					"__identifier": "Dialog",
 					"__grid": [32,10],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
@@ -231,24 +223,22 @@
 					"px": [520,168],
 					"fieldInstances": [
 						{
-							"__identifier": "text",
-							"__value": "Spotted fire!",
-							"__type": "String",
+							"__identifier": "lines",
+							"__value": ["!>Spotted fire!"],
+							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Spotted fire!"]
+								"params": ["!>Spotted fire!"]
 							}]
 						},
-						{ "__identifier": "color", "__value": "#FFD600", "__type": "Color", "defUid": 60, "realEditorValues": [] },
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				},
 				{
-					"__identifier": "Say",
+					"__identifier": "Dialog",
 					"__grid": [17,10],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
@@ -258,20 +248,18 @@
 					"px": [280,168],
 					"fieldInstances": [
 						{
-							"__identifier": "text",
-							"__value": "Central, I see smoke.",
-							"__type": "String",
+							"__identifier": "lines",
+							"__value": ["Central, I see smoke."],
+							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
 								"params": ["Central, I see smoke."]
 							}]
 						},
-						{ "__identifier": "color", "__value": "#FFD600", "__type": "Color", "defUid": 60, "realEditorValues": [] },
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1179,6 +1167,31 @@
 							}]
 						},
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Dialog",
+					"__grid": [39,6],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 58,
+					"px": [632,104],
+					"fieldInstances": [
+						{
+							"__identifier": "lines",
+							"__value": ["R>Try to keep things under control."],
+							"__type": "Array<String>",
+							"defUid": 59,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["R>Try to keep things under control."]
+							}]
+						},
+						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				}
 			]

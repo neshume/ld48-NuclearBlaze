@@ -143,7 +143,7 @@
 					]
 				},
 				{
-					"__identifier": "Say",
+					"__identifier": "Dialog",
 					"__grid": [30,10],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
@@ -153,20 +153,18 @@
 					"px": [488,168],
 					"fieldInstances": [
 						{
-							"__identifier": "text",
-							"__value": "Noice.",
-							"__type": "String",
+							"__identifier": "lines",
+							"__value": ["Noice."],
+							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
 								"params": ["Noice."]
 							}]
 						},
-						{ "__identifier": "color", "__value": "#FFD600", "__type": "Color", "defUid": 60, "realEditorValues": [] },
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "politeText", "__value": null, "__type": "String", "defUid": 439, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				},
 				{
@@ -972,6 +970,37 @@
 						},
 						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.TextStyle", "defUid": 149, "realEditorValues": [] },
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Dialog",
+					"__grid": [4,11],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 58,
+					"px": [72,184],
+					"fieldInstances": [
+						{
+							"__identifier": "lines",
+							"__value": ["R>Roger. Proceed with caution."],
+							"__type": "Array<String>",
+							"defUid": 59,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["R>Roger. Proceed with caution."]
+							}]
+						},
+						{
+							"__identifier": "selfTriggerDist",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 62,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
 					]
 				}
 			]
