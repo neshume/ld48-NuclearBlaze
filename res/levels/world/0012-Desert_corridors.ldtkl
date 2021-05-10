@@ -10,7 +10,7 @@
 	},
 	"identifier": "Desert_corridors",
 	"uid": 409,
-	"worldX": 8064,
+	"worldX": 8736,
 	"worldY": 0,
 	"pxWid": 752,
 	"pxHei": 816,
@@ -1667,7 +1667,8 @@
 								"id": "V_String",
 								"params": ["East"]
 							}]
-						}
+						},
+						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1703,7 +1704,8 @@
 								"id": "V_String",
 								"params": ["West"]
 							}]
-						}
+						},
+						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
 					]
 				},
 				{

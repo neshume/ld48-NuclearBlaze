@@ -10,7 +10,7 @@
 	},
 	"identifier": "Hydroponics",
 	"uid": 89,
-	"worldX": 7184,
+	"worldX": 7856,
 	"worldY": 0,
 	"pxWid": 848,
 	"pxHei": 672,
@@ -470,7 +470,8 @@
 								"id": "V_String",
 								"params": ["East"]
 							}]
-						}
+						},
+						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
 					]
 				},
 				{
@@ -533,7 +534,8 @@
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
 						},
-						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] },
+						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
 					]
 				},
 				{
@@ -753,7 +755,8 @@
 								"id": "V_String",
 								"params": ["East"]
 							}]
-						}
+						},
+						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
 					]
 				},
 				{
@@ -825,7 +828,8 @@
 								"id": "V_String",
 								"params": ["East"]
 							}]
-						}
+						},
+						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
 					]
 				},
 				{
@@ -999,7 +1003,8 @@
 								"id": "V_String",
 								"params": ["West"]
 							}]
-						}
+						},
+						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1029,7 +1034,8 @@
 								"id": "V_String",
 								"params": ["West"]
 							}]
-						}
+						},
+						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2100,7 +2106,8 @@
 								"id": "V_String",
 								"params": ["North"]
 							}]
-						}
+						},
+						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
 					]
 				},
 				{
