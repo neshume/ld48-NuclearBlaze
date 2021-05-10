@@ -10,7 +10,7 @@
 	},
 	"identifier": "Explosives",
 	"uid": 398,
-	"worldX": 10016,
+	"worldX": 10208,
 	"worldY": 0,
 	"pxWid": 704,
 	"pxHei": 496,
@@ -946,8 +946,7 @@
 					"fieldInstances": [
 						{ "__identifier": "startActive", "__value": false, "__type": "Bool", "defUid": 376, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] },
-						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] },
-						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1034,8 +1033,7 @@
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [1] }]
 						},
-						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] },
-						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1056,8 +1054,7 @@
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [1] }]
 						},
-						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] },
-						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1084,8 +1081,7 @@
 							"__type": "LocalEnum.Direction",
 							"defUid": 405,
 							"realEditorValues": [null]
-						},
-						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
+						}
 					]
 				},
 				{
@@ -1112,8 +1108,7 @@
 							"__type": "LocalEnum.Direction",
 							"defUid": 405,
 							"realEditorValues": [null]
-						},
-						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
+						}
 					]
 				},
 				{
@@ -1225,8 +1220,7 @@
 					"fieldInstances": [
 						{ "__identifier": "startActive", "__value": false, "__type": "Bool", "defUid": 376, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 377, "realEditorValues": [] },
-						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] },
-						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1247,8 +1241,7 @@
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [3] }]
 						},
-						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] },
-						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1506,7 +1499,8 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [3] }]
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1537,7 +1531,8 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [2.5] }]
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] }
 					]
 				}
 			]

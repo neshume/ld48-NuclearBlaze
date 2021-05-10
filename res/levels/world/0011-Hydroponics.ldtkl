@@ -10,7 +10,7 @@
 	},
 	"identifier": "Hydroponics",
 	"uid": 89,
-	"worldX": 7856,
+	"worldX": 8048,
 	"worldY": 0,
 	"pxWid": 848,
 	"pxHei": 672,
@@ -336,7 +336,8 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] }
 					]
 				},
 				{
@@ -470,8 +471,7 @@
 								"id": "V_String",
 								"params": ["East"]
 							}]
-						},
-						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
+						}
 					]
 				},
 				{
@@ -534,8 +534,7 @@
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
 						},
-						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] },
-						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
 					]
 				},
 				{
@@ -755,8 +754,7 @@
 								"id": "V_String",
 								"params": ["East"]
 							}]
-						},
-						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
+						}
 					]
 				},
 				{
@@ -828,8 +826,7 @@
 								"id": "V_String",
 								"params": ["East"]
 							}]
-						},
-						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
+						}
 					]
 				},
 				{
@@ -1003,8 +1000,7 @@
 								"id": "V_String",
 								"params": ["West"]
 							}]
-						},
-						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
+						}
 					]
 				},
 				{
@@ -1034,8 +1030,7 @@
 								"id": "V_String",
 								"params": ["West"]
 							}]
-						},
-						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
+						}
 					]
 				},
 				{
@@ -2106,8 +2101,7 @@
 								"id": "V_String",
 								"params": ["North"]
 							}]
-						},
-						{ "__identifier": "drips", "__value": false, "__type": "Bool", "defUid": 455, "realEditorValues": [] }
+						}
 					]
 				},
 				{
@@ -2663,7 +2657,8 @@
 						},
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2678,17 +2673,18 @@
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": ["Highly flammable, but still nice."],
+							"__value": ["!>Highly flammable, but still nice."],
 							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Highly flammable, but still nice."]
+								"params": ["!>Highly flammable, but still nice."]
 							}]
 						},
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2783,6 +2779,28 @@
 						"defUid": 446,
 						"realEditorValues": [{ "id": "V_Int", "params": [10] }]
 					}]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [15,25],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [248,416],
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
+						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
+						{
+							"__identifier": "fallCinematic",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 396,
+							"realEditorValues": [null]
+						}
+					]
 				}
 			]
 		},

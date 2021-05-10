@@ -1035,6 +1035,51 @@ class Fx extends dn.Process {
 	}
 
 
+	function _drip(p:HParticle) {
+		p.data0 -= tmod/Const.FPS;
+
+		// Start falling
+		if( p.data0<=0 && p.data1!=1 ) {
+			p.data1 = 1;
+			p.gy = R.around(0.15);
+			p.frict = R.around(0.92, 5);
+		}
+
+		// Only start colliding after passing over empty spaces
+		if( !collides(p) )
+			p.data2 = 1;
+
+		// Small drips when hitting ground
+		if( p.data1==1 && p.data2==1 && collides(p) ) {
+			for(i in 0...irnd(2,4)) {
+				var d = allocBgAdd( getTile(dict.pixel), p.x+rnd(0,2,true), p.y-rnd(0,2) );
+				d.setFadeS(rnd(0.1,0.4), 0, 0.1);
+				d.moveAwayFrom(p.x,p.y, rnd(0.3,0.8));
+				d.gy = R.around(0.03);
+				d.frict = R.around(0.93);
+				d.onUpdate = _waterPhysics;
+				d.lifeS = R.around(0.2);
+			}
+			p.kill();
+		}
+	}
+
+	public function drips(x:Float, y:Float, range=16.) {
+		var p = allocTopAdd( getTile(dict.fxLineThinLeft), x+rnd(0,range*0.5,true), y-irnd(0,2) );
+		p.setFadeS( rnd(0.1,0.4), R.around(0.3), R.around(0.2));
+		p.setCenterRatio(1,0.5);
+		p.dy = R.around(0.05);
+		p.frict = 0.94;
+
+		p.scaleX = R.around(0.1,5);
+		p.data0 = rnd(0.5,1.5);
+		p.rotation = M.PIHALF;
+
+		p.onUpdate = _drip;
+		p.lifeS = R.around(3);
+		p.delayS = rnd(0,0.3);
+	}
+
 	public function mediumLand(x:Float, y:Float, pow:Float) {
 		var col = C.hexToInt("#ab7f7a");
 

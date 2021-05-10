@@ -10,7 +10,7 @@
 	},
 	"identifier": "Pit",
 	"uid": 434,
-	"worldX": 9520,
+	"worldX": 9712,
 	"worldY": 0,
 	"pxWid": 464,
 	"pxHei": 1408,
@@ -1060,7 +1060,8 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [1.2] }]
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1250,6 +1251,44 @@
 							"__type": "Float",
 							"defUid": 137,
 							"realEditorValues": [{ "id": "V_Float", "params": [20] }]
+						}
+					]
+				},
+				{
+					"__identifier": "Dialog",
+					"__grid": [8,74],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 58,
+					"px": [136,1192],
+					"fieldInstances": [
+						{
+							"__identifier": "lines",
+							"__value": ["!>My back..."],
+							"__type": "Array<String>",
+							"defUid": 59,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["!>My back..."]
+							}]
+						},
+						{
+							"__identifier": "selfTriggerDist",
+							"__value": 1.2,
+							"__type": "Float",
+							"defUid": 62,
+							"realEditorValues": [{ "id": "V_Float", "params": [1.2] }]
+						},
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{
+							"__identifier": "startPause",
+							"__value": 0.6,
+							"__type": "Float",
+							"defUid": 462,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
 						}
 					]
 				}

@@ -110,7 +110,7 @@ class Trigger extends Entity {
 
 		var t = data.f_type==Invisible ? 0 : 0.4;
 		for(e in Entity.ALL)
-			if( e.isAlive() && e.triggerId==triggerId && e!=this ) {
+			if( e.isAlive() && e.triggerId==triggerId && !e.is(gm.en.Trigger) ) {
 				var durationS = hero.distCase(e)>=10 ? 1.4 : 0.4;
 				if( data.f_type==Invisible )
 					durationS = 0.2;

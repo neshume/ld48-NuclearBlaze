@@ -25,7 +25,12 @@ class Dialog extends Entity {
 
 	override function trigger() {
 		super.trigger();
-		started = true;
+		if( !started ) {
+			started = true;
+			if( data.f_startPause>0 )
+				cd.setS("nextLine", data.f_startPause);
+
+		}
 	}
 
 	override function fixedUpdate() {
