@@ -70,7 +70,10 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [1] }]
 						},
 						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
-						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] }
+						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
+						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
 					]
 				},
 				{
@@ -85,7 +88,10 @@
 					"fieldInstances": [
 						{ "__identifier": "range", "__value": 3, "__type": "Int", "defUid": 15, "realEditorValues": [] },
 						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
-						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] }
+						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
+						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
 					]
 				},
 				{
@@ -100,7 +106,10 @@
 					"fieldInstances": [
 						{ "__identifier": "range", "__value": 3, "__type": "Int", "defUid": 15, "realEditorValues": [] },
 						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
-						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] }
+						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
+						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
 					]
 				},
 				{
@@ -115,12 +124,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": ["Damn this place is big..."],
+							"__value": ["Damn this building is big..."],
 							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Damn this place is big..."]
+								"params": ["Damn this building is big..."]
 							}]
 						},
 						{
@@ -185,7 +194,10 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
 						},
 						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
-						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] }
+						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
+						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
 					]
 				},
 				{
@@ -208,10 +220,22 @@
 								"params": ["!>Central? Do you copy? CENTRAL?"]
 							}]
 						},
-						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
+						{
+							"__identifier": "selfTriggerDist",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 62,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] }
+						{
+							"__identifier": "startPause",
+							"__value": 0.5,
+							"__type": "Float",
+							"defUid": 462,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.5] }]
+						}
 					]
 				},
 				{
@@ -226,7 +250,10 @@
 					"fieldInstances": [
 						{ "__identifier": "range", "__value": 3, "__type": "Int", "defUid": 15, "realEditorValues": [] },
 						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
-						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] }
+						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
+						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
 					]
 				},
 				{
@@ -247,7 +274,10 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [3] }]
 						},
 						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
-						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] }
+						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
+						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1162,6 +1192,70 @@
 							"__type": "Float",
 							"defUid": 137,
 							"realEditorValues": [{ "id": "V_Float", "params": [-32] }]
+						}
+					]
+				},
+				{
+					"__identifier": "Dialog",
+					"__grid": [15,18],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 58,
+					"px": [248,296],
+					"fieldInstances": [
+						{
+							"__identifier": "lines",
+							"__value": ["What the hell is this place?! | What is this place?!"],
+							"__type": "Array<String>",
+							"defUid": 59,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["What the hell is this place?! | What is this place?!"]
+							}]
+						},
+						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Dialog",
+					"__grid": [23,6],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 58,
+					"px": [376,104],
+					"fieldInstances": [
+						{
+							"__identifier": "lines",
+							"__value": ["Wow, careful here."],
+							"__type": "Array<String>",
+							"defUid": 59,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Wow, careful here."]
+							}]
+						},
+						{
+							"__identifier": "selfTriggerDist",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 62,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{
+							"__identifier": "startPause",
+							"__value": 0.6,
+							"__type": "Float",
+							"defUid": 462,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
 						}
 					]
 				}

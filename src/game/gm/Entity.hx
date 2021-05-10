@@ -607,7 +607,7 @@ class Entity {
 	function onAffectEnd(k:Affect) {}
 
 	public inline function isOnScreen(padding=32) {
-		return camera.isOnScreen(centerX, centerY, padding);
+		return camera.isOnScreen(centerX, centerY, padding + M.fmax(wid*0.6, hei*0.6));
 	}
 
 

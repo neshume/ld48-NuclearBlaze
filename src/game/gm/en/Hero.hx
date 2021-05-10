@@ -279,7 +279,7 @@ class Hero extends gm.Entity {
 		cd.unset("fallLock");
 	}
 
-	public function say(str:String, c=0xffffff) {
+	public function say(str:String, c=0xffcc00) {
 		clearSaying();
 
 		saying = new h2d.Flow();

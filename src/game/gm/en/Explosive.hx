@@ -19,7 +19,7 @@ class Explosive extends Entity {
 		gravityMul = 0;
 		collides = false;
 		pivotY = 0.5;
-		seen = data.f_startActive;
+		seen = data.f_startActive || !data.f_requireSight;
 
 		triggerId = data.f_triggerId;
 		if( triggerId>=0 )

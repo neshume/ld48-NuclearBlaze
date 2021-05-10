@@ -75,10 +75,11 @@ class Level extends dn.Process {
 				if( cx<=0 || cy<=0 || cx>=cWid-1 || cy>=cHei-1 )
 					continue;
 
+				if( hasProperty(cx,cy,StopFire) )
+					continue;
+
 				if( hasAnyCollision(cx,cy+1) && !hasProperty(cx,cy+1,StopFire) )
 					fireStates.set( coordId(cx,cy), new FireState() );
-				// else if( hasAnyCollision(cx,cy-1) )
-				// 	fireStates.set( coordId(cx,cy), new FireState() );
 				else if( ( hasAnyCollision(cx-1,cy) && !hasProperty(cx-1,cy,StopFire) || hasAnyCollision(cx+1,cy) && !hasProperty(cx+1,cy,StopFire) ) )
 					fireStates.set( coordId(cx,cy), new FireState() );
 
@@ -306,7 +307,7 @@ class Level extends dn.Process {
 			var smoke = !cd.hasSetS("flamesSmoke",0.4);
 			var fs : FireState = null;
 			for(cy in 0...data.l_Collisions.cHei)
-			for(cx in 0...data.l_Collisions.cWid)
+			for(cx in 0...data.l_Collisions.cWid) {
 				if( Game.ME.camera.isOnScreenCase(cx,cy,32) && hasFireState(cx,cy) ) {
 					fs = getFireState(cx,cy);
 					if( fs.isBurning() ) {
@@ -323,6 +324,7 @@ class Level extends dn.Process {
 							fx.levelExtinguishedSmoke((cx+0.5)*Const.GRID, (cy+1)*Const.GRID, fs, fs.smokePower, fs.smokeColor);
 					}
 				}
+			}
 		}
 
 		updateFog();

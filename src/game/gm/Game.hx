@@ -161,6 +161,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_Explosive) new gm.en.Explosive(d);
 		for(d in level.data.l_Entities.all_FogPiercer) new gm.en.FogPiercer(d);
 		for(d in level.data.l_Entities.all_FxEmitter) new gm.en.FxEmitter(d);
+		for(d in level.data.l_Entities.all_FireStarter) new gm.en.FireStarter(d);
 
 		for(d in level.data.l_Entities.all_Smoker)
 			dn.Bresenham.iterateDisc(d.cx, d.cy, d.f_radius, (x,y)->{
@@ -180,13 +181,13 @@ class Game extends Process {
 		}
 
 
-		for(d in level.data.l_Entities.all_FireStarter)
-			dn.Bresenham.iterateDisc( d.cx, d.cy, d.f_range, (x,y)->{
-				level.ignite(x,y, d.f_startFireLevel);
-				var fs = level.getFireState(x,y);
-				if( fs!=null )
-					fs.resistance = d.f_resistance;
-			});
+		// for(d in level.data.l_Entities.all_FireStarter)
+		// 	dn.Bresenham.iterateDisc( d.cx, d.cy, d.f_range, (x,y)->{
+		// 		level.ignite(x,y, d.f_startFireLevel);
+		// 		var fs = level.getFireState(x,y);
+		// 		if( fs!=null )
+		// 			fs.resistance = d.f_resistance;
+		// 	});
 
 		camera.centerOnTarget();
 		hud.onLevelStart();

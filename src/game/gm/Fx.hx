@@ -316,6 +316,28 @@ class Fx extends dn.Process {
 		p.delayS = rnd(0,0.6);
 	}
 
+	public inline function smoke(x:Float,y:Float, col=0x4d4959) {
+		var p = allocTopNormal( getTile(dict.fxSmoke), x+rnd(0,8,true), y-rnd(0,10) );
+		p.setFadeS( M.fmin(1, rnd(0.2, 0.3)), rnd(0.4,0.6), rnd(0.8,1) );
+		p.colorAnimS(col, 0x0, rnd(0.8, 1.2));
+		p.setScale(rnd(1,2,true));
+		p.rotation = rnd(0,M.PI2);
+		p.dr = rnd(0,0.02,true);
+		p.ds = rnd(0.002, 0.004);
+		p.gx = windX*rnd(0.01,0.02);
+		p.gy = -rnd(0.01, 0.02);
+		p.frict = rnd(0.97,0.98);
+		p.lifeS = rnd(0.3,0.6);
+		p.delayS = rnd(0,0.4);
+
+		var p = allocBgAdd( getTile(dict.pixel), x+rnd(0,8,true), y+rnd(0,1) );
+		p.setFadeS(rnd(0.3, 0.6), rnd(0.1,0.2), rnd(0.4,0.6));
+		p.colorize( C.interpolateInt(0xff0000,0xffcc00, rnd(0,1)) );
+		p.alphaFlicker = 0.2;
+		p.lifeS = rnd(0.3,0.6);
+		p.delayS = rnd(0,0.6);
+	}
+
 	public inline function levelFireSparks(cx:Int, cy:Int, fs:FireState) {
 		var pow = fs.getPowerRatio(true);
 
@@ -635,15 +657,33 @@ class Fx extends dn.Process {
 
 	public function explosion(x:Float,y:Float) {
 		var r = Const.GRID*3;
-		for(i in 0...12) {
+		for(i in 0...16) {
 			var d = i<=2 ? rnd(0,20) : rnd(0,r-10);
 			var a = rnd(0,M.PI2);
 			var p = allocBgAdd(getTile(dict.fxExplode), x+Math.cos(a)*d, y+Math.sin(a)*d);
-			p.playAnimAndKill( Assets.tiles, dict.fxExplode, rnd(0.3,0.4) );
-			p.setScale(rnd(0.9,2));
+			p.playAnimAndKill( Assets.tiles, dict.fxExplode, rnd(0.6,0.8) );
+			p.setScale(rnd(0.9,1.5));
 			p.rotation = rnd(0, 0.4, true);
-			p.delayS = i*0.05 + rnd(0.1,0.2,true);
+			p.delayS = i*0.02 + rnd(0,0.1,true);
 		}
+
+		// Small lines
+		var n = 70;
+		for(i in 0...n) {
+			var a = M.PI2*i/(n-1) + rnd(0,0.2,true);
+			var d = rnd(20,r*0.5);
+			var p = allocTopAdd(getTile(dict.fxLineThinLeft), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.colorizeRandom(0xff0000, 0xffcc00);
+			p.scaleX = R.around(1);
+			p.scaleY = rnd(1,2);
+			p.scaleXMul = R.aroundZTO(0.94);
+			p.moveAwayFrom(x,y, rnd(8,10));
+			p.frict = R.aroundZTO(0.8);
+			p.rotation = a;
+			p.lifeS = R.around(0.2);
+			p.delayS = rnd(0,0.1);
+		}
+
 	}
 
 

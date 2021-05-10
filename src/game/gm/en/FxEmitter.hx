@@ -30,11 +30,14 @@ class FxEmitter extends Entity {
 	override function postUpdate() {
 		super.postUpdate();
 
-		if( active && !cd.has("fx") ) {
+		if( active && !cd.has("fx") && isOnScreen() ) {
 			switch data.f_type {
 				case Drips:
 					fx.drips(centerX, attachY-2, wid==16 ? 6 : wid*0.5);
 					cd.setS("fx",0.1);
+
+				case Smoke:
+					fx.smoke(rnd(left,right), bottom, data.f_customColor_int);
 			}
 		}
 	}

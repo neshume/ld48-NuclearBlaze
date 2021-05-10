@@ -1034,22 +1034,22 @@
 				},
 				{
 					"__identifier": "Dialog",
-					"__grid": [11,71],
+					"__grid": [13,70],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 58,
-					"px": [184,1144],
+					"px": [216,1128],
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": ["Guess I'm not going up anytime soon..."],
+							"__value": ["And guess I'm not going up anytime soon..."],
 							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Guess I'm not going up anytime soon..."]
+								"params": ["And guess I'm not going up anytime soon..."]
 							}]
 						},
 						{
@@ -1256,40 +1256,92 @@
 				},
 				{
 					"__identifier": "Dialog",
-					"__grid": [8,74],
+					"__grid": [8,78],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 58,
-					"px": [136,1192],
+					"px": [136,1256],
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": ["!>My back..."],
+							"__value": [ "!>OUCH!", "I'm too old for this shit... | I'm too old for this." ],
 							"__type": "Array<String>",
 							"defUid": 59,
-							"realEditorValues": [{
+							"realEditorValues": [ {
 								"id": "V_String",
-								"params": ["!>My back..."]
-							}]
+								"params": ["!>OUCH!"]
+							}, {
+								"id": "V_String",
+								"params": ["I'm too old for this shit... | I'm too old for this."]
+							} ]
 						},
 						{
 							"__identifier": "selfTriggerDist",
-							"__value": 1.2,
+							"__value": 3,
 							"__type": "Float",
 							"defUid": 62,
-							"realEditorValues": [{ "id": "V_Float", "params": [1.2] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [3] }]
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
 						{
 							"__identifier": "startPause",
-							"__value": 0.6,
+							"__value": 1.5,
 							"__type": "Float",
 							"defUid": 462,
-							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [1.5] }]
 						}
+					]
+				},
+				{
+					"__identifier": "FireSpray",
+					"__grid": [10,79],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [128,96,16,16] },
+					"width": 12,
+					"height": 12,
+					"defUid": 164,
+					"px": [168,1272],
+					"fieldInstances": [
+						{
+							"__identifier": "dir",
+							"__value": "West",
+							"__type": "LocalEnum.Direction",
+							"defUid": 165,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["West"]
+							}]
+						},
+						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 166, "realEditorValues": [] },
+						{ "__identifier": "distance", "__value": 3, "__type": "Float", "defUid": 167, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 168, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "FireStarter",
+					"__grid": [9,75],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [208,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 14,
+					"px": [152,1208],
+					"fieldInstances": [
+						{
+							"__identifier": "range",
+							"__value": 5,
+							"__type": "Int",
+							"defUid": 15,
+							"realEditorValues": [{ "id": "V_Int", "params": [5] }]
+						},
+						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
+						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
+						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
 					]
 				}
 			]
@@ -1325,8 +1377,6 @@
 				{ "px": [384,1136], "src": [208,64], "f": 0, "t": 173, "d": [287,2083] },
 				{ "px": [400,1136], "src": [208,64], "f": 0, "t": 173, "d": [287,2084] },
 				{ "px": [96,1232], "src": [192,64], "f": 0, "t": 172, "d": [287,2239] },
-				{ "px": [128,1232], "src": [176,64], "f": 0, "t": 171, "d": [287,2241] },
-				{ "px": [144,1232], "src": [176,64], "f": 0, "t": 171, "d": [287,2242] },
 				{ "px": [160,336], "src": [176,16], "f": 0, "t": 51, "d": [177,619] },
 				{ "px": [176,336], "src": [208,16], "f": 0, "t": 53, "d": [177,620] },
 				{ "px": [160,1120], "src": [208,16], "f": 0, "t": 53, "d": [177,2040] },
@@ -1338,9 +1388,7 @@
 				{ "px": [352,1120], "src": [208,16], "f": 0, "t": 53, "d": [177,2052] },
 				{ "px": [384,1120], "src": [176,16], "f": 0, "t": 51, "d": [177,2054] },
 				{ "px": [400,1120], "src": [208,16], "f": 0, "t": 53, "d": [177,2055] },
-				{ "px": [96,1216], "src": [192,16], "f": 0, "t": 52, "d": [177,2210] },
-				{ "px": [128,1216], "src": [192,16], "f": 0, "t": 52, "d": [177,2212] },
-				{ "px": [144,1216], "src": [208,16], "f": 0, "t": 53, "d": [177,2213] }
+				{ "px": [96,1216], "src": [192,16], "f": 0, "t": 52, "d": [177,2210] }
 			],
 			"seed": 9063646,
 			"overrideTilesetUid": null,
@@ -1429,7 +1477,7 @@
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-				0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

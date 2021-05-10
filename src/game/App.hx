@@ -146,11 +146,17 @@ class App extends dn.Process {
 		Assets.update(tmod);
         super.update();
 
+		if( ca.isKeyboardPressed(K.ENTER) && ca.isKeyboardDown(K.ALT) ) {
+			engine.fullScreen = !engine.fullScreen;
+		}
 
-		// Screenshot pause
+
+		// Special "Screenshot" pause
+		#if debug
 		if( ca.isKeyboardPressed(K.BACKSPACE) && Game.exists() ) {
 			Game.ME.togglePause();
 			Game.ME.setScreenshotMode( Game.ME.isPaused() );
 		}
+		#end
     }
 }

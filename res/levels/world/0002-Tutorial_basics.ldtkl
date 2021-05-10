@@ -70,7 +70,10 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [4] }]
 						},
 						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
-						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] }
+						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
+						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
 					]
 				},
 				{
@@ -152,33 +155,6 @@
 						{ "__identifier": "radius", "__value": 5, "__type": "Int", "defUid": 117, "realEditorValues": [] },
 						{ "__identifier": "smokeColor", "__value": "#4D4959", "__type": "Color", "defUid": 384, "realEditorValues": [] },
 						{ "__identifier": "intensity", "__value": 1, "__type": "Float", "defUid": 385, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "Smoker",
-					"__grid": [26,10],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 16,
-					"defUid": 116,
-					"px": [424,176],
-					"fieldInstances": [
-						{
-							"__identifier": "radius",
-							"__value": 3,
-							"__type": "Int",
-							"defUid": 117,
-							"realEditorValues": [{ "id": "V_Int", "params": [3] }]
-						},
-						{ "__identifier": "smokeColor", "__value": "#4D4959", "__type": "Color", "defUid": 384, "realEditorValues": [] },
-						{
-							"__identifier": "intensity",
-							"__value": 4,
-							"__type": "Float",
-							"defUid": 385,
-							"realEditorValues": [{ "id": "V_Float", "params": [4] }]
-						}
 					]
 				},
 				{
@@ -310,7 +286,10 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
 						},
 						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
-						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] }
+						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
+						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1196,6 +1175,111 @@
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
 						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Smoker",
+					"__grid": [24,10],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 16,
+					"defUid": 116,
+					"px": [392,176],
+					"fieldInstances": [
+						{ "__identifier": "radius", "__value": 5, "__type": "Int", "defUid": 117, "realEditorValues": [] },
+						{ "__identifier": "smokeColor", "__value": "#4D4959", "__type": "Color", "defUid": 384, "realEditorValues": [] },
+						{ "__identifier": "intensity", "__value": 1, "__type": "Float", "defUid": 385, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "FxEmitter",
+					"__grid": [17,11],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [64,0,16,16] },
+					"width": 176,
+					"height": 16,
+					"defUid": 458,
+					"px": [272,176],
+					"fieldInstances": [
+						{
+							"__identifier": "type",
+							"__value": "Smoke",
+							"__type": "LocalEnum.FxType",
+							"defUid": 459,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Smoke"]
+							}]
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
+						{
+							"__identifier": "customColor",
+							"__value": "#934242",
+							"__type": "Color",
+							"defUid": 463,
+							"realEditorValues": [{ "id": "V_Int", "params": [9650754] }]
+						}
+					]
+				},
+				{
+					"__identifier": "FxEmitter",
+					"__grid": [21,9],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [64,0,16,16] },
+					"width": 96,
+					"height": 16,
+					"defUid": 458,
+					"px": [336,144],
+					"fieldInstances": [
+						{
+							"__identifier": "type",
+							"__value": "Smoke",
+							"__type": "LocalEnum.FxType",
+							"defUid": 459,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Smoke"]
+							}]
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
+						{
+							"__identifier": "customColor",
+							"__value": "#934242",
+							"__type": "Color",
+							"defUid": 463,
+							"realEditorValues": [{ "id": "V_Int", "params": [9650754] }]
+						}
+					]
+				},
+				{
+					"__identifier": "FxEmitter",
+					"__grid": [32,6],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [64,0,16,16] },
+					"width": 144,
+					"height": 16,
+					"defUid": 458,
+					"px": [512,96],
+					"fieldInstances": [
+						{
+							"__identifier": "type",
+							"__value": "Smoke",
+							"__type": "LocalEnum.FxType",
+							"defUid": 459,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Smoke"]
+							}]
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
+						{
+							"__identifier": "customColor",
+							"__value": "#934242",
+							"__type": "Color",
+							"defUid": 463,
+							"realEditorValues": [{ "id": "V_Int", "params": [9650754] }]
+						}
 					]
 				}
 			]
