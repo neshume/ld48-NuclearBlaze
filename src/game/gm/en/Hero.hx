@@ -279,7 +279,7 @@ class Hero extends gm.Entity {
 		saying.horizontalAlign = Middle;
 		saying.verticalSpacing = 3;
 
-		var tf = new h2d.Text(Assets.fontPixel, saying);
+		var tf = new h2d.Text(Assets.fontPixelOutline, saying);
 		tf.maxWidth = 160;
 		tf.text = str;
 		tf.textColor = c;

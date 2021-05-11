@@ -8,6 +8,7 @@ import dn.heaps.slib.*;
 class Assets {
 	// Fonts
 	public static var fontPixel : h2d.Font;
+	public static var fontPixelOutline : h2d.Font;
 	public static var fontTiny : h2d.Font;
 	public static var fontSmall : h2d.Font;
 	public static var fontMedium : h2d.Font;
@@ -31,7 +32,8 @@ class Assets {
 		_initDone = true;
 
 		// Fonts
-		fontPixel = hxd.Res.fonts.minecraftiaOutline.toFont();
+		fontPixel = hxd.Res.fonts.minecraftia.toFont();
+		fontPixelOutline = hxd.Res.fonts.minecraftiaOutline.toFont();
 		fontTiny = new hxd.res.BitmapFont( hxd.Res.fonts.saira_extracondensed_thin_10_xml.entry ).toFont();
 		fontSmall = new hxd.res.BitmapFont( hxd.Res.fonts.saira_extracondensed_light_14_xml.entry ).toFont();
 		fontMedium = new hxd.res.BitmapFont( hxd.Res.fonts.saira_extracondensed_extralight_24_xml.entry ).toFont();

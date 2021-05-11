@@ -49,7 +49,7 @@ class DebugDrone extends Entity {
 		setPivots(0.5);
 		setColor(DEFAULT_COLOR);
 
-		help = new h2d.Text(Assets.fontPixel);
+		help = new h2d.Text(Assets.fontPixelOutline);
 		game.root.add(help, Const.DP_TOP);
 		help.textColor = DEFAULT_COLOR;
 		help.text = [
