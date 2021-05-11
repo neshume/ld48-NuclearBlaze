@@ -2782,22 +2782,16 @@
 				},
 				{
 					"__identifier": "CheckPoint",
-					"__grid": [14,11],
+					"__grid": [15,10],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [256,144,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 470,
-					"px": [232,176],
+					"px": [248,168],
 					"fieldInstances": [
 						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 471, "realEditorValues": [] },
-						{
-							"__identifier": "radius",
-							"__value": 3,
-							"__type": "Float",
-							"defUid": 472,
-							"realEditorValues": [{ "id": "V_Float", "params": [3] }]
-						},
+						{ "__identifier": "radius", "__value": 4, "__type": "Float", "defUid": 472, "realEditorValues": [] },
 						{ "__identifier": "requireSight", "__value": true, "__type": "Bool", "defUid": 473, "realEditorValues": [] }
 					]
 				}

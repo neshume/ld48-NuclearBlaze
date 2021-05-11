@@ -789,13 +789,13 @@
 				},
 				{
 					"__identifier": "FxEmitter",
-					"__grid": [21,7],
+					"__grid": [23,7],
 					"__pivot": [0,0],
 					"__tile": { "tilesetUid": 26, "srcRect": [48,160,16,16] },
-					"width": 80,
+					"width": 48,
 					"height": 16,
 					"defUid": 458,
-					"px": [336,112],
+					"px": [368,112],
 					"fieldInstances": [
 						{
 							"__identifier": "type",
@@ -813,13 +813,13 @@
 				},
 				{
 					"__identifier": "FxEmitter",
-					"__grid": [28,7],
+					"__grid": [32,8],
 					"__pivot": [0,0],
 					"__tile": { "tilesetUid": 26, "srcRect": [48,160,16,16] },
-					"width": 32,
+					"width": 16,
 					"height": 16,
 					"defUid": 458,
-					"px": [448,112],
+					"px": [512,128],
 					"fieldInstances": [
 						{
 							"__identifier": "type",
@@ -1103,6 +1103,30 @@
 								"params": [ true ]
 							}]
 						}
+					]
+				},
+				{
+					"__identifier": "FxEmitter",
+					"__grid": [29,7],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [48,160,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 458,
+					"px": [464,112],
+					"fieldInstances": [
+						{
+							"__identifier": "type",
+							"__value": "Drips",
+							"__type": "LocalEnum.FxType",
+							"defUid": 459,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Drips"]
+							}]
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
+						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] }
 					]
 				}
 			]

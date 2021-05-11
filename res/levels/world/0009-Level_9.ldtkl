@@ -863,13 +863,13 @@
 				},
 				{
 					"__identifier": "FogPiercer",
-					"__grid": [2,19],
+					"__grid": [0,19],
 					"__pivot": [0,0],
 					"__tile": null,
-					"width": 128,
+					"width": 160,
 					"height": 256,
 					"defUid": 374,
-					"px": [32,304],
+					"px": [0,304],
 					"fieldInstances": [{
 						"__identifier": "triggerId",
 						"__value": 2,
