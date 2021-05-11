@@ -131,34 +131,43 @@
 				},
 				{
 					"__identifier": "Dialog",
-					"__grid": [20,27],
+					"__grid": [15,27],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 58,
-					"px": [328,440],
+					"px": [248,440],
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": ["Central, I'm now proceeding to entrance."],
+							"__value": [ "R>We have you on radar.", "R>Proceed to entrance." ],
 							"__type": "Array<String>",
 							"defUid": 59,
-							"realEditorValues": [{
+							"realEditorValues": [ {
 								"id": "V_String",
-								"params": ["Central, I'm now proceeding to entrance."]
-							}]
+								"params": ["R>We have you on radar."]
+							}, {
+								"id": "V_String",
+								"params": ["R>Proceed to entrance."]
+							} ]
 						},
 						{
 							"__identifier": "selfTriggerDist",
-							"__value": 2,
+							"__value": 6,
 							"__type": "Float",
 							"defUid": 62,
-							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [6] }]
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] }
+						{
+							"__identifier": "startPause",
+							"__value": 1.5,
+							"__type": "Float",
+							"defUid": 462,
+							"realEditorValues": [{ "id": "V_Float", "params": [1.5] }]
+						}
 					]
 				},
 				{
@@ -624,12 +633,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": ["+>I'm in."],
+							"__value": ["+>Central, I'm in."],
 							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["+>I'm in."]
+								"params": ["+>Central, I'm in."]
 							}]
 						},
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },

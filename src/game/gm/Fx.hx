@@ -331,6 +331,76 @@ class Fx extends dn.Process {
 		p.delayS = rnd(0,0.4);
 	}
 
+	public inline function bubbles(x:Float,y:Float, bounds:h2d.col.Bounds, col=0x4d4959) {
+		var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,8,true), y+rnd(0,8,true) );
+		p.colorize(col);
+		p.setFadeS( rnd(0.1, 0.4), rnd(0.6,1), rnd(1,2) );
+		p.alphaFlicker = rnd(0.1,0.4);
+		p.gx = R.around(0.005);
+		p.gy = -rnd(0.005, 0.030);
+		p.frict = rnd(0.97,0.98);
+		p.lifeS = rnd(1,2);
+		p.delayS = rnd(0,0.4);
+		p.bounds = bounds;
+	}
+
+	public inline function waterSurface(x:Float,y:Float, col=0x4d4959) {
+		// Dark bg
+		var p = allocBgNormal( getTile(dict.fxWaterSurfaceMask), x+rnd(0,4,true), y+rnd(0,2) );
+		p.setCenterRatio(0.5, 0);
+		p.colorize( C.toBlack(col,rnd(0.6,0.9)) );
+		p.setFadeS( rnd(0.6, 0.9), rnd(0.6,1), rnd(1,2) );
+		p.dx = rnd(0,0.3,true);
+		p.dy = rnd(0,0.1);
+		p.frict = rnd(0.97,0.98);
+		p.lifeS = rnd(0.4,0.7);
+		p.delayS = rnd(0,0.3);
+
+		// Surface ripples
+		var sinOffY = Math.cos(ftime*0.02 + x*0.03)*2;
+		var p = allocTopAdd( getTile(dict.fxWaterSurface), x+rnd(0,4,true), y+rnd(0,1)+sinOffY );
+		p.colorize(col);
+		p.setFadeS( rnd(0.8, 0.9), rnd(0.3,0.5), rnd(0.3,0.6) );
+		p.scaleXMul = rnd(0.993, 0.995);
+		p.dx = rnd(0,0.3,true);
+		p.dy = rnd(0,0.06);
+		// p.gy = R.around(0.002,3);
+		p.frict = rnd(0.97,0.98);
+		p.lifeS = rnd(0.4,1);
+		p.delayS = rnd(0,0.4);
+	}
+
+
+	public inline function waterSideDrips(x:Float,y:Float, dir:Int, col=0x4d4959) {
+		var delay = rnd(0.1,0.3);
+		var sinOffY = Math.cos(ftime*0.02 + x*0.03)*2;
+
+		var p = allocTopAdd( getTile(dict.fxWaterSurfaceSide), x+rnd(0,2,true), y+rnd(0,2,true)+sinOffY );
+		p.setCenterRatio(0,0.5);
+		p.colorize(col);
+		p.setFadeS( rnd(0.4, 0.6), R.around(0.05), R.around(0.2) );
+		p.rotation = rnd(0,0.1,true);
+		p.scaleX = rnd(0.3,1.6) * dir;
+		p.scaleXMul = rnd(0.98,0.99);
+		p.scaleY = rnd(0.5,1);
+		p.lifeS = rnd(0.2,0.4);
+		p.delayS = delay*0.5;
+
+		if( Std.random(100)<20 )
+			for( i in 0...irnd(1,4)) {
+				var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,2,true), y+rnd(0,2,true)+sinOffY );
+				p.colorize(col);
+				p.setFadeS( rnd(0.4, 0.6), R.around(0.1), R.around(0.1) );
+				p.dx = dir*rnd(0,0.4);
+				p.dy = -rnd(0.3, 1.2);
+				p.gy = R.around(0.04,3);
+				p.groundY = y+rnd(1,3);
+				p.frict = rnd(0.97,0.98);
+				p.lifeS = rnd(0.2,0.4);
+				p.delayS = delay+rnd(0,0.2);
+			}
+	}
+
 	public inline function levelFireSparks(cx:Int, cy:Int, fs:FireState) {
 		var pow = fs.getPowerRatio(true);
 
@@ -1097,8 +1167,8 @@ class Fx extends dn.Process {
 		}
 	}
 
-	public function drips(x:Float, y:Float, range=16.) {
-		var p = allocTopAdd( getTile(dict.fxLineThinLeft), x+rnd(0,range*0.5,true), y-irnd(0,2) );
+	public function drips(x:Float, y:Float) {
+		var p = allocTopAdd( getTile(dict.fxLineThinLeft), x, y-irnd(0,2) );
 		p.setFadeS( rnd(0.1,0.4), R.around(0.3), R.around(0.2));
 		p.setCenterRatio(1,0.5);
 		p.dy = R.around(0.05);
