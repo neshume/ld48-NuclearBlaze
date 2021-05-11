@@ -216,9 +216,11 @@ class Game extends Process {
 		}
 
 		// Debug start
+		#if debug
 		var debug = level.data.l_Entities.all_DebugStartPoint[0];
 		if( debug!=null )
 			pos.pt.setLevelCase(debug.cx, debug.cy);
+		#end
 
 		// Checkpoints
 		if( validatedCheckPoints.length>0 ) {
