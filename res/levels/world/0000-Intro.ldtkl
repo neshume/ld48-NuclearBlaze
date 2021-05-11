@@ -572,24 +572,24 @@
 				},
 				{
 					"__identifier": "FogPiercer",
-					"__grid": [6,0],
+					"__grid": [0,0],
 					"__pivot": [0,0],
 					"__tile": null,
-					"width": 496,
-					"height": 272,
+					"width": 592,
+					"height": 304,
 					"defUid": 374,
-					"px": [96,0],
+					"px": [0,0],
 					"fieldInstances": [{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 446, "realEditorValues": [] }]
 				},
 				{
 					"__identifier": "FogPiercer",
-					"__grid": [19,17],
+					"__grid": [0,17],
 					"__pivot": [0,0],
 					"__tile": null,
-					"width": 304,
+					"width": 608,
 					"height": 192,
 					"defUid": 374,
-					"px": [304,272],
+					"px": [0,272],
 					"fieldInstances": [{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 446, "realEditorValues": [] }]
 				},
 				{
