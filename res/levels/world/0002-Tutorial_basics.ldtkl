@@ -1150,7 +1150,7 @@
 					"__grid": [22,11],
 					"__pivot": [0,0],
 					"__tile": { "tilesetUid": 26, "srcRect": [64,0,16,16] },
-					"width": 176,
+					"width": 96,
 					"height": 16,
 					"defUid": 458,
 					"px": [352,176],
@@ -1541,6 +1541,36 @@
 						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
 						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "FxEmitter",
+					"__grid": [28,11],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [64,0,16,16] },
+					"width": 112,
+					"height": 16,
+					"defUid": 458,
+					"px": [448,176],
+					"fieldInstances": [
+						{
+							"__identifier": "type",
+							"__value": "Smoke",
+							"__type": "LocalEnum.FxType",
+							"defUid": 459,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Smoke"]
+							}]
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
+						{
+							"__identifier": "customColor",
+							"__value": "#FF2A2A",
+							"__type": "Color",
+							"defUid": 463,
+							"realEditorValues": [{ "id": "V_Int", "params": [16722474] }]
+						}
 					]
 				}
 			]

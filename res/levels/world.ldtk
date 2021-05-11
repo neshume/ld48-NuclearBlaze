@@ -1119,7 +1119,7 @@
 						"perlinOctaves": 2
 					}
 				] },
-				{ "uid": 32, "name": "ladders", "active": true, "collapsed": true, "isOptional": false, "rules": [
+				{ "uid": 32, "name": "ladders", "active": true, "collapsed": false, "isOptional": false, "rules": [
 					{
 						"uid": 38,
 						"active": true,
@@ -4139,7 +4139,7 @@
 			"showName": true,
 			"tilesetId": 26,
 			"tileId": 302,
-			"tileRenderMode": "FitInside",
+			"tileRenderMode": "Repeat",
 			"maxCount": 0,
 			"limitScope": "PerLevel",
 			"limitBehavior": "MoveLastOne",
@@ -5373,7 +5373,7 @@
 			"worldX": 4048,
 			"worldY": 0,
 			"pxWid": 1152,
-			"pxHei": 448,
+			"pxHei": 704,
 			"__bgColor": "#242D34",
 			"bgColor": null,
 			"useAutoIdentifier": false,
