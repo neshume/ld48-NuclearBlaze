@@ -159,7 +159,7 @@
 							"__value": [
 								"!>Oh oh.",
 								"I see NUCLEAR warnings here.",
-								"!>CENTRAL. I REPEAT. NUCLEAR WARNINGS!",
+								"!>CENTRAL? I repeat. NUCLEAR WARNINGS!",
 								"What the hell is this place? | What is this place?!"
 							],
 							"__type": "Array<String>",
@@ -172,7 +172,7 @@
 								"params": ["I see NUCLEAR warnings here."]
 							}, {
 								"id": "V_String",
-								"params": ["!>CENTRAL. I REPEAT. NUCLEAR WARNINGS!"]
+								"params": ["!>CENTRAL? I repeat. NUCLEAR WARNINGS!"]
 							}, {
 								"id": "V_String",
 								"params": ["What the hell is this place? | What is this place?!"]

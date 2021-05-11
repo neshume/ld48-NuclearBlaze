@@ -387,7 +387,7 @@ class Entity {
 	}
 
 	function canSeeThrough(cx:Int, cy:Int) {
-		return !level.hasWallCollision(cx,cy) || this.cx==cx && this.cy==cy;
+		return level.canSeeThrough(cx,cy) || this.cx==cx && this.cy==cy;
 	}
 
 	/** Check if the grid-based line between this and given target isn't blocked by some obstacle **/

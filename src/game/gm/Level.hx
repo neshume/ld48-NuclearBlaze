@@ -190,7 +190,7 @@ class Level extends dn.Process {
 	inline function hc(x,y) return hasAnyCollision(x,y);
 
 	inline function isWallCollisionValue(intGrid:Int) {
-		return intGrid==1 || intGrid==4;
+		return intGrid==1 || intGrid==4 || intGrid==5;
 	}
 
 	/** Return TRUE if "Collisions" layer contains a collision value **/
@@ -401,8 +401,8 @@ class Level extends dn.Process {
 		}
 	}
 
-	function canSeeThrough(cx,cy) {
-		return isValid(cx,cy) && !hasAnyCollision(cx,cy);
+	public function canSeeThrough(cx,cy) {
+		return isValid(cx,cy) && ( !hasWallCollision(cx,cy) || data.l_Collisions.getInt(cx,cy)==5 );
 	}
 	inline function sighCheck(x1,y1,x2,y2) {
 		return dn.Bresenham.checkThinLine(x1,y1, x2,y2, canSeeThrough);
