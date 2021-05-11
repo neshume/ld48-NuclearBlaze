@@ -90,8 +90,7 @@
 								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 448, "realEditorValues": [] },
-						{ "__identifier": "lockUntilLand", "__value": false, "__type": "Bool", "defUid": 449, "realEditorValues": [] }
+						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 448, "realEditorValues": [] }
 					]
 				},
 				{

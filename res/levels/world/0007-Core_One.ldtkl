@@ -8,15 +8,15 @@
 		"appVersion": "0.9.4",
 		"url": "https://ldtk.io"
 	},
-	"identifier": "Level_7",
+	"identifier": "Core_One",
 	"uid": 133,
-	"worldX": 5200,
+	"worldX": 5280,
 	"worldY": 0,
 	"pxWid": 560,
 	"pxHei": 496,
 	"__bgColor": "#242D34",
 	"bgColor": null,
-	"useAutoIdentifier": true,
+	"useAutoIdentifier": false,
 	"bgRelPath": null,
 	"bgPos": null,
 	"bgPivotX": 0.5,
@@ -198,8 +198,7 @@
 					"px": [24,224],
 					"fieldInstances": [
 						{ "__identifier": "lookRight", "__value": true, "__type": "Bool", "defUid": 28, "realEditorValues": [] },
-						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 448, "realEditorValues": [] },
-						{ "__identifier": "lockUntilLand", "__value": false, "__type": "Bool", "defUid": 449, "realEditorValues": [] }
+						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 448, "realEditorValues": [] }
 					]
 				},
 				{
@@ -214,12 +213,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "title",
-							"__value": "CORE 1",
+							"__value": "CORE ONE",
 							"__type": "String",
 							"defUid": 140,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["CORE 1"]
+								"params": ["CORE ONE"]
 							}]
 						},
 						{
@@ -867,12 +866,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "title",
-							"__value": "CORE 1",
+							"__value": "CORE ONE",
 							"__type": "String",
 							"defUid": 140,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["CORE 1"]
+								"params": ["CORE ONE"]
 							}]
 						},
 						{
@@ -1053,13 +1052,13 @@
 				},
 				{
 					"__identifier": "Smoker",
-					"__grid": [3,22],
+					"__grid": [2,22],
 					"__pivot": [0.5,1],
 					"__tile": null,
 					"width": 16,
 					"height": 16,
 					"defUid": 116,
-					"px": [56,368],
+					"px": [40,368],
 					"fieldInstances": [
 						{
 							"__identifier": "radius",
@@ -1333,6 +1332,21 @@
 							}]
 						},
 						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "CheckPoint",
+					"__grid": [3,22],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [256,144,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 470,
+					"px": [56,360],
+					"fieldInstances": [
+						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 471, "realEditorValues": [] },
+						{ "__identifier": "radius", "__value": 4, "__type": "Float", "defUid": 472, "realEditorValues": [] },
+						{ "__identifier": "requireSight", "__value": true, "__type": "Bool", "defUid": 473, "realEditorValues": [] }
 					]
 				}
 			]

@@ -10,7 +10,7 @@
 	},
 	"identifier": "Hydroponics",
 	"uid": 89,
-	"worldX": 8048,
+	"worldX": 8128,
 	"worldY": 0,
 	"pxWid": 848,
 	"pxHei": 672,
@@ -322,8 +322,7 @@
 					"px": [8,176],
 					"fieldInstances": [
 						{ "__identifier": "lookRight", "__value": true, "__type": "Bool", "defUid": 28, "realEditorValues": [] },
-						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 448, "realEditorValues": [] },
-						{ "__identifier": "lockUntilLand", "__value": false, "__type": "Bool", "defUid": 449, "realEditorValues": [] }
+						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 448, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2671,39 +2670,16 @@
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": ["Nice flowers."],
+							"__value": [ "Nice flowers.", "!>Highly flammable, but still nice." ],
 							"__type": "Array<String>",
 							"defUid": 59,
-							"realEditorValues": [{
+							"realEditorValues": [ {
 								"id": "V_String",
 								"params": ["Nice flowers."]
-							}]
-						},
-						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
-						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "Dialog",
-					"__grid": [13,9],
-					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 58,
-					"px": [216,152],
-					"fieldInstances": [
-						{
-							"__identifier": "lines",
-							"__value": ["!>Highly flammable, but still nice."],
-							"__type": "Array<String>",
-							"defUid": 59,
-							"realEditorValues": [{
+							}, {
 								"id": "V_String",
 								"params": ["!>Highly flammable, but still nice."]
-							}]
+							} ]
 						},
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
@@ -2803,6 +2779,27 @@
 						"defUid": 446,
 						"realEditorValues": [{ "id": "V_Int", "params": [10] }]
 					}]
+				},
+				{
+					"__identifier": "CheckPoint",
+					"__grid": [14,11],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [256,144,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 470,
+					"px": [232,176],
+					"fieldInstances": [
+						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 471, "realEditorValues": [] },
+						{
+							"__identifier": "radius",
+							"__value": 3,
+							"__type": "Float",
+							"defUid": 472,
+							"realEditorValues": [{ "id": "V_Float", "params": [3] }]
+						},
+						{ "__identifier": "requireSight", "__value": true, "__type": "Bool", "defUid": 473, "realEditorValues": [] }
+					]
 				}
 			]
 		},

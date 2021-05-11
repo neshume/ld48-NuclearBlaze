@@ -40,6 +40,7 @@ class Game extends Process {
 	var coldMask : h2d.Bitmap;
 
 	var upgrades : Map<Enum_Items, Bool> = [];
+	var validatedCheckPoints : Array<LPoint> = [];
 
 
 	public function new(kidMode) {
@@ -116,6 +117,7 @@ class Game extends Process {
 		else
 			curLevelIdx++;
 		level.destroy();
+		validatedCheckPoints = [];
 		restartCurrentLevel();
 	}
 
@@ -162,6 +164,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_FogPiercer) new gm.en.FogPiercer(d);
 		for(d in level.data.l_Entities.all_FxEmitter) new gm.en.FxEmitter(d);
 		for(d in level.data.l_Entities.all_FireStarter) new gm.en.FireStarter(d);
+		for(d in level.data.l_Entities.all_CheckPoint) new gm.en.CheckPoint(d);
 
 		for(d in level.data.l_Entities.all_Smoker)
 			dn.Bresenham.iterateDisc(d.cx, d.cy, d.f_radius, (x,y)->{
@@ -194,6 +197,42 @@ class Game extends Process {
 		Process.resizeAll();
 	}
 
+
+	public function registerCheckPoint(data:Entity_CheckPoint) {
+		for(pt in validatedCheckPoints)
+			if( pt.cx==data.cx && pt.cy==data.cy )
+				return false;
+		validatedCheckPoints.push( LPoint.fromCase(data.cx, data.cy) );
+		return true;
+	}
+
+	public function getHeroStartPosition() : { pt:LPoint, initialFastFall:Float, dir:Int }{
+		// Base start pos
+		var h = level.data.l_Entities.all_Hero[0];
+		var pos = {
+			pt: LPoint.fromCase(h.cx, h.cy),
+			initialFastFall: h.f_initialFastFall,
+			dir: h.f_lookRight ? 1 : -1,
+		}
+
+		// Debug start
+		var debug = level.data.l_Entities.all_DebugStartPoint[0];
+		if( debug!=null )
+			pos.pt.setLevelCase(debug.cx, debug.cy);
+
+		// Checkpoints
+		if( validatedCheckPoints.length>0 ) {
+			var last = validatedCheckPoints[validatedCheckPoints.length-1];
+			for(c in level.data.l_Entities.all_CheckPoint)
+				if( c.cx==last.cx && c.cy==last.cy ) {
+					pos.pt.setLevelCase(c.cx, c.cy);
+					pos.initialFastFall = c.f_initialFastFall;
+					break;
+				}
+		}
+
+		return pos;
+	}
 
 
 	/** Called when either CastleDB or `const.json` changes on disk **/

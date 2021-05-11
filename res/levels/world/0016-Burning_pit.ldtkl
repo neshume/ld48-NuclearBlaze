@@ -10,7 +10,7 @@
 	},
 	"identifier": "Burning_pit",
 	"uid": 465,
-	"worldX": 11488,
+	"worldX": 11568,
 	"worldY": 0,
 	"pxWid": 784,
 	"pxHei": 1456,
@@ -234,8 +234,7 @@
 					"px": [8,176],
 					"fieldInstances": [
 						{ "__identifier": "lookRight", "__value": true, "__type": "Bool", "defUid": 28, "realEditorValues": [] },
-						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 448, "realEditorValues": [] },
-						{ "__identifier": "lockUntilLand", "__value": false, "__type": "Bool", "defUid": 449, "realEditorValues": [] }
+						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 448, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2117,31 +2116,6 @@
 					]
 				},
 				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [25,63],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [408,1024],
-					"fieldInstances": [
-						{
-							"__identifier": "startInv",
-							"__value": ["GreenCard"],
-							"__type": "Array<LocalEnum.Items>",
-							"defUid": 281,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["GreenCard"]
-							}]
-						},
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
-						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
-						{ "__identifier": "fallCinematic", "__value": false, "__type": "Bool", "defUid": 396, "realEditorValues": [] }
-					]
-				},
-				{
 					"__identifier": "Light",
 					"__grid": [22,68],
 					"__pivot": [0.5,0.5],
@@ -2260,6 +2234,27 @@
 							"params": ["East"]
 						}]
 					}]
+				},
+				{
+					"__identifier": "CheckPoint",
+					"__grid": [26,47],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [256,144,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 470,
+					"px": [424,760],
+					"fieldInstances": [
+						{
+							"__identifier": "initialFastFall",
+							"__value": 1,
+							"__type": "Float",
+							"defUid": 471,
+							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
+						},
+						{ "__identifier": "radius", "__value": 4, "__type": "Float", "defUid": 472, "realEditorValues": [] },
+						{ "__identifier": "requireSight", "__value": true, "__type": "Bool", "defUid": 473, "realEditorValues": [] }
+					]
 				}
 			]
 		},

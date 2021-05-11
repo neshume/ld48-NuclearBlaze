@@ -10,7 +10,7 @@
 	},
 	"identifier": "Thank_you_for_playing",
 	"uid": 118,
-	"worldX": 12304,
+	"worldX": 12384,
 	"worldY": 0,
 	"pxWid": 576,
 	"pxHei": 400,
@@ -72,8 +72,7 @@
 					"px": [296,32],
 					"fieldInstances": [
 						{ "__identifier": "lookRight", "__value": true, "__type": "Bool", "defUid": 28, "realEditorValues": [] },
-						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 448, "realEditorValues": [] },
-						{ "__identifier": "lockUntilLand", "__value": false, "__type": "Bool", "defUid": 449, "realEditorValues": [] }
+						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 448, "realEditorValues": [] }
 					]
 				},
 				{

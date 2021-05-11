@@ -10,7 +10,7 @@
 	},
 	"identifier": "Sprinklers",
 	"uid": 0,
-	"worldX": 6560,
+	"worldX": 6640,
 	"worldY": 0,
 	"pxWid": 976,
 	"pxHei": 448,
@@ -255,8 +255,7 @@
 							"__type": "Float",
 							"defUid": 448,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.3] }]
-						},
-						{ "__identifier": "lockUntilLand", "__value": false, "__type": "Bool", "defUid": 449, "realEditorValues": [] }
+						}
 					]
 				},
 				{
@@ -1214,6 +1213,21 @@
 							"defUid": 435,
 							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
 						}
+					]
+				},
+				{
+					"__identifier": "CheckPoint",
+					"__grid": [9,14],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [256,144,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 470,
+					"px": [152,232],
+					"fieldInstances": [
+						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 471, "realEditorValues": [] },
+						{ "__identifier": "radius", "__value": 4, "__type": "Float", "defUid": 472, "realEditorValues": [] },
+						{ "__identifier": "requireSight", "__value": true, "__type": "Bool", "defUid": 473, "realEditorValues": [] }
 					]
 				}
 			]

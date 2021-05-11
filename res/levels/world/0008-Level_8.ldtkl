@@ -10,7 +10,7 @@
 	},
 	"identifier": "Level_8",
 	"uid": 454,
-	"worldX": 5792,
+	"worldX": 5872,
 	"worldY": 0,
 	"pxWid": 736,
 	"pxHei": 560,
@@ -111,8 +111,7 @@
 							"__type": "Float",
 							"defUid": 448,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.3] }]
-						},
-						{ "__identifier": "lockUntilLand", "__value": false, "__type": "Bool", "defUid": 449, "realEditorValues": [] }
+						}
 					]
 				},
 				{

@@ -10,7 +10,7 @@
 	},
 	"identifier": "Desert_corridors",
 	"uid": 409,
-	"worldX": 8928,
+	"worldX": 9008,
 	"worldY": 0,
 	"pxWid": 752,
 	"pxHei": 816,
@@ -96,16 +96,6 @@
 							"__type": "Float",
 							"defUid": 448,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.75] }]
-						},
-						{
-							"__identifier": "lockUntilLand",
-							"__value": true,
-							"__type": "Bool",
-							"defUid": 449,
-							"realEditorValues": [{
-								"id": "V_Bool",
-								"params": [ true ]
-							}]
 						}
 					]
 				},

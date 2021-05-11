@@ -24,15 +24,7 @@ class Hero extends gm.Entity {
 	public function new() {
 		data = level.data.l_Entities.all_Hero[0];
 
-		super(data.cx, data.cy);
-
-		#if debug
-		if( level.data.l_Entities.all_DebugStartPoint.length>0 ) {
-			var d = level.data.l_Entities.all_DebugStartPoint[0];
-			setPosCase(d.cx, d.cy);
-			yr = 0;
-		}
-		#end
+		super(0,0);
 
 		ca = App.ME.controller.createAccess("hero");
 		ca.setLeftDeadZone(0.3);
@@ -76,25 +68,12 @@ class Hero extends gm.Entity {
 		spr.anim.registerStateAnim(anims.idleCrouch, 1, ()->!cd.has("recentMove"));
 		spr.anim.registerStateAnim(anims.idle, 0);
 
-		if( !onGround )
-			dy = getGravity()*4;
-
-		fallTimerS = Const.db.HeroFastFallMaxTimer * data.f_initialFastFall;
-		if( data.f_lockUntilLand )
-			cd.setS("fallLock",Const.INFINITE);
-
 		clearInventory();
+
+		// Debug start equipment & settings
 		#if debug
 		if( level.data.l_Entities.all_DebugStartPoint.length>0 ) {
 			var d = level.data.l_Entities.all_DebugStartPoint[0];
-			if( d.f_fallCinematic ) {
-				forceFastFall();
-				cd.setS("fallLock",Const.INFINITE);
-			}
-			else {
-				fallTimerS = 0;
-				cd.unset("fallLock");
-			}
 			setShield(d.f_shieldDurationS);
 			for(i in d.f_startInv)
 				if( gm.en.Item.isUpgradeItem(i) )
@@ -107,9 +86,18 @@ class Hero extends gm.Entity {
 					if( gm.en.Item.isUpgradeItem(i) )
 						game.unlockUpgrade(i);
 				}
-
 		}
 		#end
+
+		// Start position
+		var pos = game.getHeroStartPosition();
+		setPosCase(pos.pt.cx, pos.pt.cy);
+		xr = 0.5;
+		yr = level.hasAnyCollision(cx,cy+1) ? 1 : 0.5;
+		fallTimerS = Const.db.HeroFastFallMaxTimer * pos.initialFastFall;
+
+		if( !onGround )
+			dy = getGravity()*4;
 	}
 
 	public function forceFastFall() {

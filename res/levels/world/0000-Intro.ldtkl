@@ -122,20 +122,10 @@
 						{ "__identifier": "lookRight", "__value": true, "__type": "Bool", "defUid": 28, "realEditorValues": [] },
 						{
 							"__identifier": "initialFastFall",
-							"__value": 0.7,
+							"__value": 1,
 							"__type": "Float",
 							"defUid": 448,
-							"realEditorValues": [{ "id": "V_Float", "params": [0.7] }]
-						},
-						{
-							"__identifier": "lockUntilLand",
-							"__value": true,
-							"__type": "Bool",
-							"defUid": 449,
-							"realEditorValues": [{
-								"id": "V_Bool",
-								"params": [ true ]
-							}]
+							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
 						}
 					]
 				},

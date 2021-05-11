@@ -10,7 +10,7 @@
 	},
 	"identifier": "Tutorial_defense",
 	"uid": 57,
-	"worldX": 3232,
+	"worldX": 3312,
 	"worldY": 0,
 	"pxWid": 704,
 	"pxHei": 448,
@@ -896,8 +896,7 @@
 							"__type": "Float",
 							"defUid": 448,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.3] }]
-						},
-						{ "__identifier": "lockUntilLand", "__value": false, "__type": "Bool", "defUid": 449, "realEditorValues": [] }
+						}
 					]
 				},
 				{

@@ -10,7 +10,7 @@
 	},
 	"identifier": "Level_6",
 	"uid": 453,
-	"worldX": 4640,
+	"worldX": 4720,
 	"worldY": 0,
 	"pxWid": 528,
 	"pxHei": 256,
@@ -101,8 +101,7 @@
 					"px": [8,128],
 					"fieldInstances": [
 						{ "__identifier": "lookRight", "__value": true, "__type": "Bool", "defUid": 28, "realEditorValues": [] },
-						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 448, "realEditorValues": [] },
-						{ "__identifier": "lockUntilLand", "__value": false, "__type": "Bool", "defUid": 449, "realEditorValues": [] }
+						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 448, "realEditorValues": [] }
 					]
 				},
 				{
@@ -117,12 +116,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "title",
-							"__value": "CORE 1",
+							"__value": "CORE ONE",
 							"__type": "String",
 							"defUid": 140,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["CORE 1"]
+								"params": ["CORE ONE"]
 							}]
 						},
 						{
