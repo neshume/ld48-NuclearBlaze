@@ -281,6 +281,7 @@ class Entity {
 
 		cancelVelocities();
 		climbing = true;
+		fallStartCy = cy+yr;
 		onClimbStart();
 	}
 
@@ -819,7 +820,7 @@ class Entity {
 				while( yr>1 ) { yr--; cy++; }
 				while( yr<0 ) { yr++; cy--; }
 
-				if( dyTotal<=0 || onGround )
+				if( dyTotal<=0 || onGround || climbing )
 					fallStartCy = cy+yr;
 
 				n++;

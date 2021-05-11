@@ -10,7 +10,7 @@
 	},
 	"identifier": "Core_One",
 	"uid": 133,
-	"worldX": 5280,
+	"worldX": 6464,
 	"worldY": 0,
 	"pxWid": 560,
 	"pxHei": 496,
@@ -1347,6 +1347,49 @@
 						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 471, "realEditorValues": [] },
 						{ "__identifier": "radius", "__value": 4, "__type": "Float", "defUid": 472, "realEditorValues": [] },
 						{ "__identifier": "requireSight", "__value": true, "__type": "Bool", "defUid": 473, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [2,13],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [40,224],
+					"fieldInstances": [
+						{
+							"__identifier": "startInv",
+							"__value": ["GreenCard"],
+							"__type": "Array<LocalEnum.Items>",
+							"defUid": 281,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["GreenCard"]
+							}]
+						},
+						{
+							"__identifier": "unlockAllUpgrades",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 282,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						},
+						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
+						{
+							"__identifier": "fallCinematic",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 396,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						}
 					]
 				}
 			]

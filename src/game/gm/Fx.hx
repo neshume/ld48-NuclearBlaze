@@ -318,7 +318,7 @@ class Fx extends dn.Process {
 
 	public inline function smoke(x:Float,y:Float, col=0x4d4959) {
 		var p = allocTopNormal( getTile(dict.fxSmoke), x+rnd(0,8,true), y-rnd(0,10) );
-		p.setFadeS( M.fmin(1, rnd(0.2, 0.3)), rnd(0.4,0.6), rnd(0.8,1) );
+		p.setFadeS( rnd(0.1, 0.2), rnd(0.6,1), rnd(1,2) );
 		p.colorAnimS(col, 0x0, rnd(0.8, 1.2));
 		p.setScale(rnd(1,2,true));
 		p.rotation = rnd(0,M.PI2);
@@ -327,15 +327,8 @@ class Fx extends dn.Process {
 		p.gx = windX*rnd(0.01,0.02);
 		p.gy = -rnd(0.01, 0.02);
 		p.frict = rnd(0.97,0.98);
-		p.lifeS = rnd(0.3,0.6);
+		p.lifeS = rnd(1,2);
 		p.delayS = rnd(0,0.4);
-
-		var p = allocBgAdd( getTile(dict.pixel), x+rnd(0,8,true), y+rnd(0,1) );
-		p.setFadeS(rnd(0.3, 0.6), rnd(0.1,0.2), rnd(0.4,0.6));
-		p.colorize( C.interpolateInt(0xff0000,0xffcc00, rnd(0,1)) );
-		p.alphaFlicker = 0.2;
-		p.lifeS = rnd(0.3,0.6);
-		p.delayS = rnd(0,0.6);
 	}
 
 	public inline function levelFireSparks(cx:Int, cy:Int, fs:FireState) {

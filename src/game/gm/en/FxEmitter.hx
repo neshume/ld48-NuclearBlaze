@@ -37,7 +37,10 @@ class FxEmitter extends Entity {
 					cd.setS("fx",0.1);
 
 				case Smoke:
-					fx.smoke(rnd(left,right), bottom, data.f_customColor_int);
+					var n = M.ceil( M.round(wid/Const.GRID) * M.round(hei/Const.GRID) * 0.33 );
+					for(i in 0...n)
+						fx.smoke(rnd(left,right), rnd(top,bottom), data.f_customColor_int);
+					cd.setS("fx",0.06);
 			}
 		}
 	}
