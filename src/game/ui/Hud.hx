@@ -208,7 +208,7 @@ class Hud extends dn.Process {
 			}
 			wrapper.scaleX += (1-wrapper.scaleX ) * M.fmin(1, 0.2*tmod);
 			wrapper.x = 3;
-			wrapper.y = 32;
+			wrapper.y = 24;
 			if( cd.has("radioMicTalking") &&!cd.has("radioMicShakingLock") ) {
 				cd.setS("radioMicShaking", rnd(0.2,0.4));
 				cd.setS("radioMicShakingLock", rnd(0.2,0.5),true);
