@@ -504,7 +504,7 @@ class Hero extends gm.Entity {
 
 
 		// Dir control
-		if( isAlive() && ca.leftDist()>0 && !isChargingDirLockAction() ) {
+		if( isAlive() && ca.leftDist()>0 && !isChargingDirLockAction() && !cd.has("dirLock") ) {
 			if( !game.kidMode || !isWatering() )
 				dir = M.radDistance(0,ca.leftAngle()) <= M.PIHALF ? 1 : -1;
 		}
@@ -771,7 +771,7 @@ class Hero extends gm.Entity {
 			if( climbing && climbSpeed==0 )
 				dx += walkSpeed*0.048;
 			else if( !climbing )
-				dx += walkSpeed*0.03 * ( 1 - getFastFallRatio() );
+				dx += walkSpeed*Const.db.HeroWalkSpeed * ( 1 - getFastFallRatio() );
 			cd.setS("recentMove",0.3);
 		}
 		else if( !isChargingAction("jump") )

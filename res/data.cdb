@@ -32,6 +32,11 @@
 					"value": 0.05
 				},
 				{
+					"constId": "HeroWalkSpeed",
+					"value": 0.03,
+					"doc": "Base walk speed"
+				},
+				{
 					"constId": "HeroJump",
 					"doc": "Base jump power",
 					"value": 0.8
@@ -130,7 +135,7 @@
 			},
 			"separatorIds": [
 				"MaxCameraZoom",
-				"HeroJump",
+				"HeroWalkSpeed",
 				"FireTick",
 				"ExplosiveTimer"
 			]
