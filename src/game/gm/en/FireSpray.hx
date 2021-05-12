@@ -40,7 +40,7 @@ class FireSpray extends Entity {
 	override function postUpdate() {
 		super.postUpdate();
 
-		if( isOnScreen() )
+		if( isOnScreenCenter() )
 			if( active && !cd.hasSetS("sprayFx",0.03) )
 				fx.fireSpray(attachX, attachY, ang, data.f_distance*Const.GRID);
 			else if( !active ) {

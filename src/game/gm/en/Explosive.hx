@@ -94,7 +94,7 @@ class Explosive extends Entity {
 		var tfX = 0.;
 		var tfY = 0.;
 		var tfS = 1.;
-		if( !isOnScreen(-24) ) {
+		if( !isOnScreenCenter(-24) ) {
 			tfX = hero.centerX + Math.cos(ang)*camera.pxHei*0.4;
 			tfY = hero.centerY + Math.sin(ang)*camera.pxHei*0.4;
 			tfS = 1;

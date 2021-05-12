@@ -138,7 +138,7 @@ class Light extends Entity {
 		mainHalo.setPosition(attachX, attachY);
 		largeHalo.setPosition(attachX, attachY);
 
-		if( isOnScreen() ) {
+		if( isOnScreenCenter() ) {
 			if( !data.f_hideSprite && !cd.hasSetS("smoke",0.1) && power>=0.5 )
 				fx.lightSmoke(centerX, centerY, data.f_color_int);
 

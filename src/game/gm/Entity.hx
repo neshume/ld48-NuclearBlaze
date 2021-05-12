@@ -617,8 +617,12 @@ class Entity {
 	function onAffectStart(k:Affect) {}
 	function onAffectEnd(k:Affect) {}
 
-	public inline function isOnScreen(padding=32) {
-		return camera.isOnScreen(centerX, centerY, padding + M.fmax(wid*0.6, hei*0.6));
+	public inline function isOnScreenCenter(padding=32) {
+		return camera.isOnScreen(centerX, centerY, padding + M.fmax(wid*0.5, hei*0.5));
+	}
+
+	public inline function isOnScreenBounds(padding=32) {
+		return camera.isOnScreenRect(left,top, wid, hei, padding);
 	}
 
 

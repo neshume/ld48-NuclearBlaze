@@ -49,7 +49,7 @@ class Sprinkler extends Entity {
 
 	override function postUpdate() {
 		super.postUpdate();
-		if( active && isOnScreen() && !cd.hasSetS("splash", 0.06) )
+		if( active && isOnScreenCenter() && !cd.hasSetS("splash", 0.06) )
 			fx.sprinkler(centerX+Math.cos(ang)*4, centerY+Math.sin(ang)*4);
 	}
 

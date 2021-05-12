@@ -316,10 +316,11 @@ class Fx extends dn.Process {
 		p.delayS = rnd(0,0.6);
 	}
 
-	public inline function smoke(x:Float,y:Float, col=0x4d4959) {
+	
+	public inline function smoke(x:Float,y:Float, fromColor=0x4d4959, toColor=0x0) {
 		var p = allocTopNormal( getTile(dict.fxSmoke), x+rnd(0,8,true), y-rnd(0,10) );
 		p.setFadeS( rnd(0.1, 0.2), rnd(0.6,1), rnd(1,2) );
-		p.colorAnimS(col, 0x0, rnd(0.8, 1.2));
+		p.colorAnimS(fromColor, toColor, rnd(0.8, 1.2));
 		p.setScale(rnd(1,2,true));
 		p.rotation = rnd(0,M.PI2);
 		p.dr = rnd(0,0.02,true);

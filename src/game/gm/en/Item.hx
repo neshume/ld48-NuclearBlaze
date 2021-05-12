@@ -50,7 +50,7 @@ class Item extends Entity {
 			halo.y += ( Std.int( sprY - spr.tile.height*0.5 ) - halo.y ) * 0.3;
 		}
 
-		if( isUpgrade && !cd.hasSetS("fx",0.03) && isOnScreen() )
+		if( isUpgrade && !cd.hasSetS("fx",0.03) && isOnScreenCenter() )
 			fx.upgradeHalo(centerX, centerY);
 	}
 

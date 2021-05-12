@@ -37,24 +37,49 @@ class FxEmitter extends Entity {
 	override function postUpdate() {
 		super.postUpdate();
 
-		if( active && isOnScreen() ) {
+		if( active && isOnScreenBounds() ) {
 			switch data.f_type {
 				case Drips:
 					if( !cd.hasSetS("fx",0.1) )
 						fx.drips(wid==16 ? 6 : rnd(left,right), top-2);
 
-				case Smoke:
+				case BlackSmoke:
 					if( !cd.hasSetS("fx",0.06) ) {
 						var n = M.ceil( M.round(wid/Const.GRID) * M.round(hei/Const.GRID) * 0.33 );
-						for(i in 0...n)
-							fx.smoke(rnd(left,right), rnd(top,bottom), data.f_customColor_int);
+						var x = 0.;
+						var y = 0.;
+						for(i in 0...n) {
+							x = rnd(left,right);
+							y = rnd(top,bottom);
+							if( camera.isOnScreen(x,y,32) )
+								fx.smoke(x, y, data.f_customColor_int);
+						}
+					}
+
+				case ColorSmoke:
+					if( !cd.hasSetS("fx",0.06) ) {
+						var n = M.ceil( M.round(wid/Const.GRID) * M.round(hei/Const.GRID) * 0.33 );
+						var x = 0.;
+						var y = 0.;
+						for(i in 0...n) {
+							x = rnd(left,right);
+							y = rnd(top,bottom);
+							if( camera.isOnScreen(x,y,32) )
+								fx.smoke(x, y, data.f_customColor_int, C.toBlack(data.f_customColor_int,0.5));
+						}
 					}
 
 				case Water:
 					if( !cd.hasSetS("bubbles",0.2) ) {
 						var n = M.ceil( M.round(wid/Const.GRID) * M.round(hei/Const.GRID) * 0.33 );
-						for(i in 0...n)
-							fx.tinyBubbles(rnd(left,right), rnd(top,bottom), bounds, data.f_customColor_int);
+						var x = 0.;
+						var y = 0.;
+						for(i in 0...n) {
+							x = rnd(left,right);
+							y = rnd(top,bottom);
+							if( camera.isOnScreen(x,y,24) )
+								fx.tinyBubbles(x,y, bounds, data.f_customColor_int);
+						}
 
 						n = M.ceil( M.round(wid/Const.GRID) * M.round(hei/Const.GRID) * 0.1 );
 						for(i in 0...n)
@@ -63,10 +88,13 @@ class FxEmitter extends Entity {
 
 					if( !cd.hasSetS("surface",0.1) ) {
 						for( x in cLeft+1...cRight )
-							fx.waterSurface((x+rnd(0.3,0.7))*Const.GRID, top, data.f_customColor_int);
+							if( camera.isOnScreen(x*Const.GRID, top, 16) )
+								fx.waterSurface((x+rnd(0.3,0.7))*Const.GRID, top, data.f_customColor_int);
 
-						fx.waterSideDrips(left,top, 1, data.f_customColor_int);
-						fx.waterSideDrips(right,top, -1, data.f_customColor_int);
+						if( camera.isOnScreen(left, top, 16) )
+							fx.waterSideDrips(left,top, 1, data.f_customColor_int);
+						if( camera.isOnScreen(right, top, 16) )
+							fx.waterSideDrips(right,top, -1, data.f_customColor_int);
 					}
 			}
 		}

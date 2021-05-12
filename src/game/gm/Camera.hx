@@ -117,6 +117,13 @@ class Camera extends dn.Process {
 		return levelX>=left-padding && levelX<=right+padding && levelY>=top-padding && levelY<=bottom+padding;
 	}
 
+	public inline function isOnScreenRect(x:Float, y:Float, wid:Float, hei:Float, padding=0.) {
+		return Lib.rectangleOverlaps(
+			left-padding, top-padding, pxWid+padding*2, pxHei+padding*2,
+			x, y, wid, hei
+		);
+	}
+
 	public inline function isOnScreenCase(cx:Int, cy:Int, padding=32) {
 		return cx*Const.GRID>=left-padding && (cx+1)*Const.GRID<=right+padding
 			&& cy*Const.GRID>=top-padding && (cy+1)*Const.GRID<=bottom+padding;
