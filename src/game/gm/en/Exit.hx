@@ -58,14 +58,14 @@ class Exit extends Entity {
 				case East:
 					hero.dir = 1;
 					if( hero.onGround ) {
-						hero.dx += hero.dir*Const.db.HeroWalkSpeed;
+						hero.dx += hero.dir*Const.db.HeroWalkSpeed*2;
 						hero.bdx = hero.bdy = hero.dy = 0;
 					}
 
 				case West:
 					hero.dir = -1;
 					if( hero.onGround ) {
-						hero.dx += hero.dir*Const.db.HeroWalkSpeed;
+						hero.dx += hero.dir*Const.db.HeroWalkSpeed*2;
 						hero.bdx = hero.bdy = hero.dy = 0;
 					}
 
