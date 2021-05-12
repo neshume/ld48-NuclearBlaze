@@ -128,6 +128,12 @@ class Door extends Entity {
 			if( !closed && dir==-1 )
 				spr.x-=16;
 		}
+
+		if( closed && !cd.hasSetS("blink",1) ) {
+			blink(0x996600);
+			cd.setS("keepBlink",0.1);
+			blinkFrict = 0.8;
+		}
 	}
 
 	public function close() {

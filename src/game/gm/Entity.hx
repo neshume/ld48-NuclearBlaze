@@ -157,6 +157,7 @@ class Entity {
 
 	// Animated blink color on damage hit
 	var blinkColor : h3d.Vector;
+	var blinkFrict = 0.6;
 
 	// Debug stuff
 	var debugLabel : Null<h2d.Text>;
@@ -707,9 +708,9 @@ class Entity {
 
 		// Blink
 		if( !cd.has("keepBlink") ) {
-			blinkColor.r*=Math.pow(0.60, tmod);
-			blinkColor.g*=Math.pow(0.55, tmod);
-			blinkColor.b*=Math.pow(0.50, tmod);
+			blinkColor.r*=Math.pow(blinkFrict, tmod);
+			blinkColor.g*=Math.pow(blinkFrict*0.9, tmod);
+			blinkColor.b*=Math.pow(blinkFrict*0.8, tmod);
 		}
 
 		// Color adds
