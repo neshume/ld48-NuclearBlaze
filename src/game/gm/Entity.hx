@@ -182,6 +182,11 @@ class Entity {
 	public var top(get,never) : Float; inline function get_top() return attachY + (0-pivotY) * hei;
 	public var bottom(get,never) : Float; inline function get_bottom() return attachY + (1-pivotY) * hei;
 
+	/** Left grid coordinate of the bounding box **/
+	public var cLeft(get,never) : Int; inline function get_cLeft() return Std.int( left/Const.GRID );
+	/** Right grid coordinate of the bounding box **/
+	public var cRight(get,never) : Int; inline function get_cRight() return Std.int( right/Const.GRID );
+
 	/** Center X pixel coordinate of the bounding box **/
 	public var centerX(get,never) : Float; inline function get_centerX() return attachX + (0.5-pivotX) * wid;
 	/** Center Y pixel coordinate of the bounding box **/

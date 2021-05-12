@@ -37,30 +37,37 @@ class FxEmitter extends Entity {
 	override function postUpdate() {
 		super.postUpdate();
 
-		if( active && !cd.has("fx") && isOnScreen() ) {
+		if( active && isOnScreen() ) {
 			switch data.f_type {
 				case Drips:
-					fx.drips(wid==16 ? 6 : rnd(left,right), top-2);
-					cd.setS("fx",0.1);
+					if( !cd.hasSetS("fx",0.1) )
+						fx.drips(wid==16 ? 6 : rnd(left,right), top-2);
 
 				case Smoke:
-					var n = M.ceil( M.round(wid/Const.GRID) * M.round(hei/Const.GRID) * 0.33 );
-					for(i in 0...n)
-						fx.smoke(rnd(left,right), rnd(top,bottom), data.f_customColor_int);
-					cd.setS("fx",0.06);
+					if( !cd.hasSetS("fx",0.06) ) {
+						var n = M.ceil( M.round(wid/Const.GRID) * M.round(hei/Const.GRID) * 0.33 );
+						for(i in 0...n)
+							fx.smoke(rnd(left,right), rnd(top,bottom), data.f_customColor_int);
+					}
 
 				case Water:
-					var n = M.ceil( M.round(wid/Const.GRID) * M.round(hei/Const.GRID) * 0.33 );
-					for(i in 0...n)
-						fx.bubbles(rnd(left,right), rnd(top,bottom), bounds, data.f_customColor_int);
+					if( !cd.hasSetS("bubbles",0.2) ) {
+						var n = M.ceil( M.round(wid/Const.GRID) * M.round(hei/Const.GRID) * 0.33 );
+						for(i in 0...n)
+							fx.tinyBubbles(rnd(left,right), rnd(top,bottom), bounds, data.f_customColor_int);
 
-					n = M.ceil( wid/Const.GRID * 0.7 );
-					for(i in 0...n)
-						fx.waterSurface(rnd(left+6,right-6), top, data.f_customColor_int);
+						n = M.ceil( M.round(wid/Const.GRID) * M.round(hei/Const.GRID) * 0.1 );
+						for(i in 0...n)
+							fx.largeBubbles(rnd(left,right), rnd(top,bottom), bounds, data.f_customColor_int);
+					}
 
-					fx.waterSideDrips(left,top, 1, data.f_customColor_int);
-					fx.waterSideDrips(right,top, -1, data.f_customColor_int);
-					cd.setS("fx",0.12);
+					if( !cd.hasSetS("surface",0.1) ) {
+						for( x in cLeft+1...cRight )
+							fx.waterSurface((x+rnd(0.3,0.7))*Const.GRID, top, data.f_customColor_int);
+
+						fx.waterSideDrips(left,top, 1, data.f_customColor_int);
+						fx.waterSideDrips(right,top, -1, data.f_customColor_int);
+					}
 			}
 		}
 	}

@@ -331,25 +331,76 @@ class Fx extends dn.Process {
 		p.delayS = rnd(0,0.4);
 	}
 
-	public inline function bubbles(x:Float,y:Float, bounds:h2d.col.Bounds, col=0x4d4959) {
-		var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,8,true), y+rnd(0,8,true) );
+
+	function _bubbleDistort(p:HParticle) {
+		if( Math.isNaN(p.data0) ) {
+			p.data1 = rnd(0.07,0.10); // speed
+			p.data0 = R.fullCircle(); // rad offset
+		}
+
+		p.scaleX = 1+Math.cos(ftime*p.data1 + p.data0)*0.2;
+		p.scaleY = 1/p.scaleX;
+	}
+
+	function _bubblePop(b:HParticle) {
+		var p = allocBgAdd(getTile(dict.fxBubblePop), b.x, b.y);
+		p.setCenterRatio(0.5,1);
+		p.colorize(b.userData);
+		p.setFadeS( rnd(0.4,0.6), 0, 0.1 );
+		p.dsX = rnd(0.01,0.05);
+		p.dsY = rnd(0.01,0.05);
+		p.dsFrict = R.around(0.9, 5);
+		p.lifeS = R.around(0.1);
+	}
+
+
+	public inline function largeBubbles(x:Float,y:Float, bounds:h2d.col.Bounds, col=0x4d4959) {
+		var p = allocTopAdd( getTile(dict.fxBubble), x+rnd(0,8,true), y+rnd(0,8,true) );
 		p.colorize(col);
-		p.setFadeS( rnd(0.1, 0.4), rnd(0.6,1), rnd(1,2) );
-		p.alphaFlicker = rnd(0.1,0.4);
+		p.setFadeS( rnd(0.1, 0.3), rnd(0.6,1), rnd(1,2) );
 		p.gx = R.around(0.005);
-		p.gy = -rnd(0.005, 0.030);
+		p.gy = -rnd(0.001, 0.020);
 		p.frict = rnd(0.97,0.98);
 		p.lifeS = rnd(1,2);
 		p.delayS = rnd(0,0.4);
 		p.bounds = bounds;
+		p.userData = col;
+		p.onKillP = _bubblePop;
+		p.onUpdate = _bubbleDistort;
+	}
+
+
+	public inline function tinyBubbles(x:Float,y:Float, bounds:h2d.col.Bounds, col=0x4d4959) {
+		var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,8,true), y+rnd(0,8,true) );
+		p.colorize(col);
+		p.setFadeS( rnd(0.2, 0.6), rnd(0.2,0.4), rnd(0.2,0.4) );
+		p.alphaFlicker = rnd(0,0.1);
+		p.gx = R.around(0.005);
+		p.gy = -rnd(0.001, 0.020);
+		p.frict = rnd(0.97,0.98);
+		p.lifeS = rnd(0.3,0.6);
+		p.delayS = rnd(0,0.4);
+		p.bounds = bounds;
+	}
+
+
+	final waveSpeed = 0.06;
+	inline function getWaveOffY(x:Float) {
+		return 2 * Math.cos(ftime*waveSpeed + x*0.03);
+	}
+	inline function getWaveAng(x:Float) {
+		return 0.2 * Math.cos(ftime*waveSpeed + x*0.03 + M.PIHALF);
 	}
 
 	public inline function waterSurface(x:Float,y:Float, col=0x4d4959) {
+		var waveOffY = getWaveOffY(x);
+
 		// Dark bg
-		var p = allocBgNormal( getTile(dict.fxWaterSurfaceMask), x+rnd(0,4,true), y+rnd(0,2) );
+		var p = allocBgNormal( getTile(dict.fxWaterSurfaceMask), x+rnd(0,4,true), y-rnd(0,2)+waveOffY );
 		p.setCenterRatio(0.5, 0);
 		p.colorize( C.toBlack(col,rnd(0.6,0.9)) );
 		p.setFadeS( rnd(0.6, 0.9), rnd(0.6,1), rnd(1,2) );
+		p.scaleX = R.sign();
 		p.dx = rnd(0,0.3,true);
 		p.dy = rnd(0,0.1);
 		p.frict = rnd(0.97,0.98);
@@ -357,25 +408,27 @@ class Fx extends dn.Process {
 		p.delayS = rnd(0,0.3);
 
 		// Surface ripples
-		var sinOffY = Math.cos(ftime*0.02 + x*0.03)*2;
-		var p = allocTopAdd( getTile(dict.fxWaterSurface), x+rnd(0,4,true), y+rnd(0,1)+sinOffY );
+		// var p = allocTopAdd( getTile(dict.fxLine), x, y+waveOffY );
+		var p = allocTopAdd( getTile(dict.fxWaterSurface), x+rnd(0,4,true), y+rnd(0,1)+waveOffY );
 		p.colorize(col);
-		p.setFadeS( rnd(0.8, 0.9), rnd(0.3,0.5), rnd(0.3,0.6) );
+		p.setFadeS( rnd(0.8, 0.9), rnd(0.2,0.4), R.around(0.2) );
+		p.scaleX = rnd(0.8,1.2,true);
 		p.scaleXMul = rnd(0.993, 0.995);
 		p.dx = rnd(0,0.3,true);
 		p.dy = rnd(0,0.06);
 		// p.gy = R.around(0.002,3);
 		p.frict = rnd(0.97,0.98);
-		p.lifeS = rnd(0.4,1);
-		p.delayS = rnd(0,0.4);
+		p.rotation = getWaveAng(x);
+		p.lifeS = rnd(0.3,0.6);
+		p.delayS = rnd(0,0.2);
 	}
 
 
 	public inline function waterSideDrips(x:Float,y:Float, dir:Int, col=0x4d4959) {
 		var delay = rnd(0.1,0.3);
-		var sinOffY = Math.cos(ftime*0.02 + x*0.03)*2;
+		var waveOffY = getWaveOffY(x);
 
-		var p = allocTopAdd( getTile(dict.fxWaterSurfaceSide), x+rnd(0,2,true), y+rnd(0,2,true)+sinOffY );
+		var p = allocTopAdd( getTile(dict.fxWaterSurfaceSide), x+rnd(0,2,true), y+rnd(0,2,true)+waveOffY );
 		p.setCenterRatio(0,0.5);
 		p.colorize(col);
 		p.setFadeS( rnd(0.4, 0.6), R.around(0.05), R.around(0.2) );
@@ -386,9 +439,9 @@ class Fx extends dn.Process {
 		p.lifeS = rnd(0.2,0.4);
 		p.delayS = delay*0.5;
 
-		if( Std.random(100)<20 )
+		if( Std.random(100)<30 )
 			for( i in 0...irnd(1,4)) {
-				var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,2,true), y+rnd(0,2,true)+sinOffY );
+				var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,2,true), y+rnd(0,2,true)+waveOffY );
 				p.colorize(col);
 				p.setFadeS( rnd(0.4, 0.6), R.around(0.1), R.around(0.1) );
 				p.dx = dir*rnd(0,0.4);
