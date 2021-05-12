@@ -180,12 +180,17 @@ class Entity {
 	public var right(get,never) : Float; inline function get_right() return attachX + (1-pivotX) * wid;
 	/** Top pixel coordinate of the bounding box **/
 	public var top(get,never) : Float; inline function get_top() return attachY + (0-pivotY) * hei;
+	/** Bottompixel coordinate of the bounding box **/
 	public var bottom(get,never) : Float; inline function get_bottom() return attachY + (1-pivotY) * hei;
 
 	/** Left grid coordinate of the bounding box **/
 	public var cLeft(get,never) : Int; inline function get_cLeft() return Std.int( left/Const.GRID );
 	/** Right grid coordinate of the bounding box **/
 	public var cRight(get,never) : Int; inline function get_cRight() return Std.int( right/Const.GRID );
+	/** Top grid coordinate of the bounding box **/
+	public var cTop(get,never) : Int; inline function get_cTop() return Std.int( top/Const.GRID );
+	/** Bottom grid coordinate of the bounding box **/
+	public var cBottom(get,never) : Int; inline function get_cBottom() return Std.int( bottom/Const.GRID );
 
 	/** Center X pixel coordinate of the bounding box **/
 	public var centerX(get,never) : Float; inline function get_centerX() return attachX + (0.5-pivotX) * wid;
