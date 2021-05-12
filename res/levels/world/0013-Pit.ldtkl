@@ -72,13 +72,13 @@
 			"entityInstances": [
 				{
 					"__identifier": "Hero",
-					"__grid": [26,2],
+					"__grid": [28,2],
 					"__pivot": [0.5,1],
 					"__tile": { "tilesetUid": 26, "srcRect": [0,176,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 1,
-					"px": [424,48],
+					"px": [456,48],
 					"fieldInstances": [
 						{
 							"__identifier": "lookRight",
@@ -1319,30 +1319,6 @@
 						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 166, "realEditorValues": [] },
 						{ "__identifier": "distance", "__value": 3, "__type": "Float", "defUid": 167, "realEditorValues": [] },
 						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 168, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "FireStarter",
-					"__grid": [9,75],
-					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [208,96,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 14,
-					"px": [152,1208],
-					"fieldInstances": [
-						{
-							"__identifier": "range",
-							"__value": 5,
-							"__type": "Int",
-							"defUid": 15,
-							"realEditorValues": [{ "id": "V_Int", "params": [5] }]
-						},
-						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
-						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
-						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
-						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
 					]
 				}
 			]

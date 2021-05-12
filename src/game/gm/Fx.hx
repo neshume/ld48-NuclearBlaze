@@ -393,11 +393,8 @@ class Fx extends dn.Process {
 		return 0.2 * Math.cos(ftime*waveSpeed + x*0.03 + M.PIHALF);
 	}
 
-	public inline function waterSurface(x:Float,y:Float, col=0x4d4959) {
-		var waveOffY = getWaveOffY(x);
-
-		// Dark bg
-		var p = allocBgNormal( getTile(dict.fxWaterSurfaceMask), x+rnd(0,4,true), y-rnd(0,2)+waveOffY );
+	public inline function waterSurfaceDark(x:Float,y:Float, col=0x4d4959) {
+		var p = allocBgNormal( getTile(dict.fxWaterSurfaceMask), x+rnd(0,4,true), y-rnd(0,2)+getWaveOffY(x) );
 		p.setCenterRatio(0.5, 0);
 		p.colorize( C.toBlack(col,rnd(0.6,0.9)) );
 		p.setFadeS( rnd(0.6, 0.9), rnd(0.6,1), rnd(1,2) );
@@ -407,10 +404,11 @@ class Fx extends dn.Process {
 		p.frict = rnd(0.97,0.98);
 		p.lifeS = rnd(0.4,0.7);
 		p.delayS = rnd(0,0.3);
+	}
 
-		// Surface ripples
-		// var p = allocTopAdd( getTile(dict.fxLine), x, y+waveOffY );
-		var p = allocTopAdd( getTile(dict.fxWaterSurface), x+rnd(0,4,true), y+rnd(0,1)+waveOffY );
+
+	public inline function waterSurfaceRipples(x:Float,y:Float, col=0x4d4959) {
+		var p = allocTopAdd( getTile(dict.fxWaterSurface), x+rnd(0,4,true), y+rnd(0,1)+getWaveOffY(x) );
 		p.colorize(col);
 		p.setFadeS( rnd(0.8, 0.9), rnd(0.2,0.4), R.around(0.2) );
 		p.scaleX = rnd(0.8,1.2,true);
@@ -445,8 +443,8 @@ class Fx extends dn.Process {
 				var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,2,true), y+rnd(0,2,true)+waveOffY );
 				p.colorize(col);
 				p.setFadeS( rnd(0.4, 0.6), R.around(0.1), R.around(0.1) );
-				p.dx = dir*rnd(0,0.4);
-				p.dy = -rnd(0.3, 1.2);
+				p.dx = dir*rnd(0,0.5);
+				p.dy = -rnd(0.3, 1);
 				p.gy = R.around(0.04,3);
 				p.groundY = y+rnd(1,3);
 				p.frict = rnd(0.97,0.98);
@@ -672,6 +670,24 @@ class Fx extends dn.Process {
 			p.lifeS = R.around(1);
 		}
 	}
+
+
+	public function triggerTarget(x:Float, y:Float) {
+		var n = 20;
+		var d = 8;
+		for(i in 0...n) {
+			var a = M.PI2 * i/n;
+			var p = allocTopAdd( getTile(dict.fxLightning), x+Math.cos(a)*d, y+Math.sin(a)*d );
+			p.setFadeS(R.around(0.7), 0, R.around(0.2));
+			p.colorAnimS(0xffcc00, 0x244aed, 1);
+			p.scaleY = rnd(0.5,1);
+			p.rotation = a+M.PIHALF;
+			p.moveAwayFrom(x,y, R.around(3));
+			p.frict = 0.82;
+			p.lifeS = R.around(0.4);
+		}
+	}
+
 	public function triggerWire(fx:Float, fy:Float, tx:Float, ty:Float, durationS:Float, col=0x1ec8ff) {
 		var d = M.dist(fx,fy, tx,ty);
 		var a = Math.atan2( ty-fy, tx-fx );
@@ -684,7 +700,7 @@ class Fx extends dn.Process {
 			var y = fy+Math.sin(a)*d*i/(n-1) + rnd(0,8,true);
 			var p = allocTopAdd( getTile(dict.fxLightning), x, y );
 			p.setCenterRatio(0, 0.5);
-			p.setFadeS(R.around(0.8), 0.03, R.around(0.1));
+			p.setFadeS(R.around(0.8), 0, R.around(0.1));
 			p.alphaFlicker = rnd(0.2,0.3);
 			p.colorize(col);
 			p.rotation = Math.atan2(lastY-y, lastX-x);

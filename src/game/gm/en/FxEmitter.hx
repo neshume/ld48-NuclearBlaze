@@ -89,7 +89,11 @@ class FxEmitter extends Entity {
 					if( !cd.hasSetS("surface",0.1) ) {
 						for( x in cLeft+1...cRight )
 							if( camera.isOnScreen(x*Const.GRID, top, 40) )
-								fx.waterSurface((x+rnd(0.3,0.7))*Const.GRID, top, data.f_customColor_int);
+								fx.waterSurfaceRipples((x+rnd(0.3,0.7))*Const.GRID, top, data.f_customColor_int);
+
+						for( x in cLeft...cRight )
+							if( camera.isOnScreen(x*Const.GRID, top, 40) )
+								fx.waterSurfaceDark((x+rnd(0.3,0.7))*Const.GRID, top, data.f_customColor_int);
 
 						if( camera.isOnScreen(left, top, 32) )
 							fx.waterSideDrips(left,top, 1, data.f_customColor_int);

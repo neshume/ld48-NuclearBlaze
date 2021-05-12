@@ -11,7 +11,6 @@ class Trigger extends Entity {
 	public var done = false;
 	var delayer : dn.Delayer;
 
-
 	public function new(d:Entity_Trigger) {
 		data = d;
 
@@ -108,22 +107,35 @@ class Trigger extends Entity {
 				setSquashY(0.5);
 		}
 
-		var t = data.f_type==Invisible ? 0 : 0.4;
+		var eachDurationS = data.f_cinematicReveal ? 1.25  :  data.f_type==Invisible ? 0.2 : 0.5;
+		var t = 0.;
 		for(e in Entity.ALL)
 			if( e.isAlive() && e.triggerId==triggerId && !e.is(gm.en.Trigger) ) {
-				var durationS = hero.distCase(e)>=10 ? 1.4 : 0.4;
-				if( data.f_type==Invisible )
-					durationS = 0.2;
-
+				// Camera track
 				if( data.f_cinematicReveal )
-					camera.cinematicTrack(e.centerX, e.centerY, durationS);
+					delayer.addS( ()->{
+						camera.clearCinematicTrackings();
+						camera.cinematicTrack(e.centerX, e.centerY, eachDurationS);
+					}, t);
 
+				// Wire fx
 				if( data.f_type!=Invisible )
-					delayer.addS(fx.triggerWire.bind(centerX, centerY, e.centerX, e.centerY, 0.3), t-0.3);
-				delayer.addS(e.trigger, t);
-				level.revealFogArea(e.cx, e.cy, 2);
-				t+=durationS;
+					delayer.addS( fx.triggerWire.bind(centerX, centerY, e.centerX, e.centerY, eachDurationS*0.2), t + eachDurationS*0.4 );
+
+				// Trigger
+				delayer.addS( e.trigger, t + eachDurationS*0.6 );
+
+				// Trigger fx
+				if( data.f_type!=Invisible )
+					delayer.addS( fx.triggerTarget.bind(e.centerX,e.centerY), t + eachDurationS*0.6 );
+
+				// Fog
+				if( !e.is(gm.en.FogPiercer) )
+					delayer.addS( level.revealFogArea.bind(e.cx, e.cy, 3), t + eachDurationS*0.2 );
+
+				t+=eachDurationS;
 			}
+		delayer.addS( camera.clearCinematicTrackings, t );
 
 		switch data.f_type {
 			case Gate:

@@ -153,7 +153,7 @@ class Camera extends dn.Process {
 	}
 
 	inline function getTrackingSpeedMul() {
-		return !hasCinematicTracking() ? baseTrackingSpeed : 0.8;
+		return !hasCinematicTracking() ? baseTrackingSpeed : 1.25;
 	}
 
 	public inline function stopTracking() {
