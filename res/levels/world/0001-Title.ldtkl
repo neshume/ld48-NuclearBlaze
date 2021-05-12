@@ -169,13 +169,13 @@
 				},
 				{
 					"__identifier": "WallText",
-					"__grid": [26,8],
+					"__grid": [26,2],
 					"__pivot": [0.5,0.5],
 					"__tile": null,
 					"width": 32,
 					"height": 16,
 					"defUid": 139,
-					"px": [424,136],
+					"px": [424,40],
 					"fieldInstances": [
 						{
 							"__identifier": "title",
@@ -210,13 +210,13 @@
 				},
 				{
 					"__identifier": "WallText",
-					"__grid": [26,9],
+					"__grid": [26,3],
 					"__pivot": [0.5,0.5],
 					"__tile": null,
 					"width": 32,
 					"height": 16,
 					"defUid": 139,
-					"px": [424,152],
+					"px": [424,56],
 					"fieldInstances": [
 						{
 							"__identifier": "title",
@@ -1075,6 +1075,30 @@
 					]
 				},
 				{
+					"__identifier": "FxEmitter",
+					"__grid": [29,7],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [48,160,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 458,
+					"px": [464,112],
+					"fieldInstances": [
+						{
+							"__identifier": "type",
+							"__value": "Drips",
+							"__type": "LocalEnum.FxType",
+							"defUid": 459,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Drips"]
+							}]
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
+						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] }
+					]
+				},
+				{
 					"__identifier": "DebugStartPoint",
 					"__grid": [21,11],
 					"__pivot": [0.5,1],
@@ -1103,30 +1127,6 @@
 								"params": [ true ]
 							}]
 						}
-					]
-				},
-				{
-					"__identifier": "FxEmitter",
-					"__grid": [29,7],
-					"__pivot": [0,0],
-					"__tile": { "tilesetUid": 26, "srcRect": [48,160,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 458,
-					"px": [464,112],
-					"fieldInstances": [
-						{
-							"__identifier": "type",
-							"__value": "Drips",
-							"__type": "LocalEnum.FxType",
-							"defUid": 459,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Drips"]
-							}]
-						},
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
-						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] }
 					]
 				}
 			]
