@@ -31,7 +31,7 @@ class WallText extends Entity {
 				tf.filter = new h2d.filter.DropShadow(1, M.PIHALF, 0x0,0.7, 0,1, true);
 
 			case Outline:
-				tf.filter = new h2d.filter.Glow(0x0,0.5, 2,2,2, true);
+				tf.filter = new h2d.filter.Glow(0x0,1, 2,2,2, true);
 
 			case Keyboard:
 				tf.font = Assets.fontPixelOutline;
