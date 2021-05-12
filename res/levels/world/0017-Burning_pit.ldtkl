@@ -10,7 +10,7 @@
 	},
 	"identifier": "Burning_pit",
 	"uid": 465,
-	"worldX": 12960,
+	"worldX": 13536,
 	"worldY": 0,
 	"pxWid": 784,
 	"pxHei": 1456,
@@ -606,12 +606,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "type",
-							"__value": "Smoke",
+							"__value": "BlackSmoke",
 							"__type": "LocalEnum.FxType",
 							"defUid": 459,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Smoke"]
+								"params": ["BlackSmoke"]
 							}]
 						},
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },

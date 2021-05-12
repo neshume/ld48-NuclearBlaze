@@ -10,7 +10,7 @@
 	},
 	"identifier": "Transition_corridor",
 	"uid": 433,
-	"worldX": 12416,
+	"worldX": 12992,
 	"worldY": 0,
 	"pxWid": 512,
 	"pxHei": 336,
@@ -682,12 +682,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "type",
-							"__value": "Smoke",
+							"__value": "BlackSmoke",
 							"__type": "LocalEnum.FxType",
 							"defUid": 459,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Smoke"]
+								"params": ["BlackSmoke"]
 							}]
 						},
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
@@ -780,12 +780,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "type",
-							"__value": "Smoke",
+							"__value": "BlackSmoke",
 							"__type": "LocalEnum.FxType",
 							"defUid": 459,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Smoke"]
+								"params": ["BlackSmoke"]
 							}]
 						},
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
