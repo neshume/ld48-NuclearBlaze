@@ -105,7 +105,7 @@ class Game extends Process {
 	public function fadeFromBlack() {
 		fadeMask.visible = true;
 		tw.terminateWithoutCallbacks(fadeMask.alpha);
-		tw.createS(fadeMask.alpha, 1>0, 1.6).end( ()->fadeMask.visible = false );
+		tw.createS(fadeMask.alpha, 1>0, 1.2).end( ()->fadeMask.visible = false );
 	}
 
 	public function fadeToBlack() {
