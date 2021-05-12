@@ -10,7 +10,7 @@
 	},
 	"identifier": "Transition_corridor",
 	"uid": 433,
-	"worldX": 13296,
+	"worldX": 13968,
 	"worldY": 0,
 	"pxWid": 512,
 	"pxHei": 336,
@@ -697,7 +697,8 @@
 							"__type": "Color",
 							"defUid": 463,
 							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
-						}
+						},
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
 					]
 				},
 				{
@@ -721,7 +722,8 @@
 							}]
 						},
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
-						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] }
+						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] },
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
 					]
 				},
 				{
@@ -745,7 +747,8 @@
 							}]
 						},
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
-						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] }
+						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] },
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
 					]
 				},
 				{
@@ -795,7 +798,8 @@
 							"__type": "Color",
 							"defUid": 463,
 							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
-						}
+						},
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
 					]
 				}
 			]

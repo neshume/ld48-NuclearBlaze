@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.4",
-	"nextUid": 484,
+	"nextUid": 499,
 	"worldLayout": "LinearHorizontal",
 	"worldGridWidth": 256,
 	"worldGridHeight": 256,
@@ -3071,6 +3071,115 @@
 			]
 		},
 		{
+			"identifier": "DebugStartPoint",
+			"uid": 143,
+			"tags": [],
+			"width": 16,
+			"height": 12,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#D900FF",
+			"renderMode": "Cross",
+			"showName": true,
+			"tilesetId": null,
+			"tileId": null,
+			"tileRenderMode": "Stretch",
+			"maxCount": 1,
+			"limitScope": "PerWorld",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": [
+				{
+					"identifier": "unlockAllUpgrades",
+					"__type": "Bool",
+					"uid": 282,
+					"type": "F_Bool",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "ValueOnly",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": true,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_Bool",
+						"params": [ true ]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "startInv",
+					"__type": "Array<LocalEnum.Items>",
+					"uid": 281,
+					"type": { "id": "F_Enum", "params": [22] },
+					"isArray": true,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "ValueOnly",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "shieldDurationS",
+					"__type": "Int",
+					"uid": 380,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": 0,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [3] },
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "fallCinematic",
+					"__type": "Bool",
+					"uid": 396,
+					"type": "F_Bool",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
 			"identifier": "CheckPoint",
 			"uid": 470,
 			"tags": [],
@@ -3304,115 +3413,6 @@
 						"id": "V_Bool",
 						"params": [ true ]
 					},
-					"textLanguageMode": null
-				}
-			]
-		},
-		{
-			"identifier": "DebugStartPoint",
-			"uid": 143,
-			"tags": [],
-			"width": 16,
-			"height": 12,
-			"resizableX": false,
-			"resizableY": false,
-			"keepAspectRatio": false,
-			"fillOpacity": 1,
-			"lineOpacity": 1,
-			"hollow": false,
-			"color": "#D900FF",
-			"renderMode": "Cross",
-			"showName": true,
-			"tilesetId": null,
-			"tileId": null,
-			"tileRenderMode": "Stretch",
-			"maxCount": 1,
-			"limitScope": "PerWorld",
-			"limitBehavior": "MoveLastOne",
-			"pivotX": 0.5,
-			"pivotY": 1,
-			"fieldDefs": [
-				{
-					"identifier": "unlockAllUpgrades",
-					"__type": "Bool",
-					"uid": 282,
-					"type": "F_Bool",
-					"isArray": false,
-					"canBeNull": false,
-					"arrayMinLength": null,
-					"arrayMaxLength": null,
-					"editorDisplayMode": "ValueOnly",
-					"editorDisplayPos": "Above",
-					"editorAlwaysShow": true,
-					"editorCutLongValues": true,
-					"min": null,
-					"max": null,
-					"regex": null,
-					"acceptFileTypes": null,
-					"defaultOverride": {
-						"id": "V_Bool",
-						"params": [ true ]
-					},
-					"textLanguageMode": null
-				},
-				{
-					"identifier": "startInv",
-					"__type": "Array<LocalEnum.Items>",
-					"uid": 281,
-					"type": { "id": "F_Enum", "params": [22] },
-					"isArray": true,
-					"canBeNull": false,
-					"arrayMinLength": null,
-					"arrayMaxLength": null,
-					"editorDisplayMode": "ValueOnly",
-					"editorDisplayPos": "Above",
-					"editorAlwaysShow": false,
-					"editorCutLongValues": true,
-					"min": null,
-					"max": null,
-					"regex": null,
-					"acceptFileTypes": null,
-					"defaultOverride": null,
-					"textLanguageMode": null
-				},
-				{
-					"identifier": "shieldDurationS",
-					"__type": "Int",
-					"uid": 380,
-					"type": "F_Int",
-					"isArray": false,
-					"canBeNull": false,
-					"arrayMinLength": null,
-					"arrayMaxLength": null,
-					"editorDisplayMode": "NameAndValue",
-					"editorDisplayPos": "Above",
-					"editorAlwaysShow": false,
-					"editorCutLongValues": true,
-					"min": 0,
-					"max": null,
-					"regex": null,
-					"acceptFileTypes": null,
-					"defaultOverride": { "id": "V_Int", "params": [3] },
-					"textLanguageMode": null
-				},
-				{
-					"identifier": "fallCinematic",
-					"__type": "Bool",
-					"uid": 396,
-					"type": "F_Bool",
-					"isArray": false,
-					"canBeNull": false,
-					"arrayMinLength": null,
-					"arrayMaxLength": null,
-					"editorDisplayMode": "NameAndValue",
-					"editorDisplayPos": "Above",
-					"editorAlwaysShow": false,
-					"editorCutLongValues": true,
-					"min": null,
-					"max": null,
-					"regex": null,
-					"acceptFileTypes": null,
-					"defaultOverride": null,
 					"textLanguageMode": null
 				}
 			]
@@ -4274,6 +4274,212 @@
 					"acceptFileTypes": null,
 					"defaultOverride": { "id": "V_Int", "params": [16777215] },
 					"textLanguageMode": null
+				},
+				{
+					"identifier": "customIntensity",
+					"__type": "Float",
+					"uid": 484,
+					"type": "F_Float",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": 0.1,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Float", "params": [1] },
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "CinematicEvent",
+			"uid": 485,
+			"tags": ["narration"],
+			"width": 16,
+			"height": 16,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#00FF2D",
+			"renderMode": "Tile",
+			"showName": true,
+			"tilesetId": 26,
+			"tileId": 250,
+			"tileRenderMode": "Cover",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 0.5,
+			"fieldDefs": [
+				{
+					"identifier": "eventType",
+					"__type": "LocalEnum.CinematicEventType",
+					"uid": 488,
+					"type": { "id": "F_Enum", "params": [487] },
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": true,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "triggerId",
+					"__type": "Int",
+					"uid": 486,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": true,
+					"editorCutLongValues": true,
+					"min": 0,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "triggerDelay",
+					"__type": "Float",
+					"uid": 494,
+					"type": "F_Float",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": 0,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "x",
+					"__type": "Float",
+					"uid": 489,
+					"type": "F_Float",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "y",
+					"__type": "Float",
+					"uid": 490,
+					"type": "F_Float",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "power",
+					"__type": "Float",
+					"uid": 491,
+					"type": "F_Float",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": 0,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "selfTriggerDist",
+					"__type": "Float",
+					"uid": 493,
+					"type": "F_Float",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": 0,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "duration",
+					"__type": "Float",
+					"uid": 495,
+					"type": "F_Float",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": 0,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
 				}
 			]
 		},
@@ -4537,7 +4743,7 @@
 					"textLanguageMode": null
 				},
 				{
-					"identifier": "startPause",
+					"identifier": "startDelay",
 					"__type": "Float",
 					"uid": 462,
 					"type": "F_Float",
@@ -4785,7 +4991,7 @@
 			"fillOpacity": 1,
 			"lineOpacity": 1,
 			"hollow": false,
-			"color": "#94D9B3",
+			"color": "#48518E",
 			"renderMode": "Ellipse",
 			"showName": true,
 			"tilesetId": null,
@@ -4918,6 +5124,26 @@
 					"regex": null,
 					"acceptFileTypes": null,
 					"defaultOverride": { "id": "V_Float", "params": [0] },
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "triggerDelay",
+					"__type": "Float",
+					"uid": 496,
+					"type": "F_Float",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": 0,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
 					"textLanguageMode": null
 				}
 			]
@@ -5196,7 +5422,7 @@
 			"savedSelections": [],
 			"cachedPixelData": {
 				"opaqueTiles": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001001000000000010000000000000000",
-				"averageColors": "afff2fff0fff4fff5fff0fff000000009fee8feb9fee8feb9fee8fda8fe46fd36e613e5100000fff1fff1fff1fff0fff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001fff2fff1fff8fffafff0fff000000008feb8fd98fdb3fb57fdb2fa35fd31f823e510d42000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000fff0000000000002ddd3fff0fff1fff1fff0fff0fff1fff3e611d421d421d422fff5fff3fff0000000000000000000000000000000000000000000000000000000000000000000000001fff2fff3fff2fff1fff00000000000000000fff2fff3fff2fff0fff00003ddd2ddd00001fff2fff3fff1fff7fff3e510d421d420fff6fff1fff5fff000000000000000000000000000000000000000000000000000000000000000000001fff4fff6fff7fff6fff4fff1fff0000000000001fff5fffafff4fff1fff00002fff1fff2fff0fff1fff1fff0fff0fff00000000000000001fff5fff1fff00001fff2fff0000000000000000000000000fff1fff1fff1fff0fff0000000000002fff6fff7fff8fff7fff6fff3fff0000000000001fff4fff8fff4fff0fff00002fff1fff1fff1fff1fff1fff000000006fff6fff0000000000000000000000007fff9fff0000000000000000000000001fff2fff3fff2fff1fff0000000000003fff7fff8fff8fff8fff7fff4fff0000000000000fff1fff2fff1fff0fff000000001fff1fff1fff1fff1fff000000006fff6fff5eee6c832eb46e93893400000fff0fff0000000000000000000000001fff3fff9fff3fff1fff00001ccc00002fff6fff7fff8fff7fff6fff3fff0000000000000000000000000000000000000fff0fff0fff7fff7fff00002fff6fff1fff6fff7fff1bc51fd90feb00000000000000000000000000000000000000001fff2fff3fff2fff1fff0777177707771fff4fff6fff7fff6fff4fff1fff0000000000000000000000000000000000000fff0fff0fff3fff2fff00007fffffff6fff8fff7fff1ba43dca0feb7fff0000eddd0000bddd000000000000000000000fff1fff1fff1fff0fff00000000000000001fff2fff3fff3fff1fff00000000000000000000000000000000000000001fd576a4729b1fff1fff00002fff7fff2fff1ddd0eee1fff1fff1fff1fff0fff17b300000000000000000fff4fff0fff00000fff4fff1fff0000000000000000000000000fff2fff2fff2fff0fff000000000000000000000000000000000000457a38bb2abc3aed4ba5000000003a320fff1fff6fff7fff1eee1fffc888c766000000000000000000000fff1fff0fff00002fff6fff3fff000000000000000000000fff2fff4fff4fff4fff3fff0fff000000000000000000000000000000008a760000a666a666a666a666a666a6550fff1fff6fff7fff2eee1fffc756c756000000000000000000000000000000000fff3fff5fff4fff0fff0000000000000fff1fff4fff5fff5fff5fff4fff2fff0fff00000000000000000000000000001c950d526abb4799279900000000000000000000000000000000000000000000000000000000000000000000000000000fff2fff2fff2fff0fff0000000000001fff3fff4fff5fff5fff5fff4fff3fff1fff00000000000000000000000000002d721e7300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000fff1fff1fff1fff0fff000000000fff2fff3fff4fff5fff5fff5fff4fff3fff2fff0fff0000000000000000000000005e945ea55fc65e955d955d730000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000fff1fff2fff3fff3fff3fff3fff3fff3fff3fff2fff1fff0fff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000fff0fff1fff1fff1fff2fff2fff2fff2fff2fff1fff1fff1fff0fff0fff0000000000000000a64399640000000000000000000000000000000000000000000000000000000000000000000000000c74000000000000000000000000000000000fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0000000000000000f533d965000000000000000000000000000000000000000000000000000000000000000000000000ada6000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a269938ba373959400000000000000000000000000000000000000000000000000000000000000002d94000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f258d38cf263d5a4000000000000000000000000000000000000000000001fff6fff6fff6fff6fff6fff6fff6fff6fff6fff6fff6fff6fff6fff6fff6fff6fff0000000000000000000000000000000000000000000000000000000000000000a743a953a7530000000000000000000000000000000000000000000000003fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000f523fa53f5230000000000000000000000000000000000000000000000003fffffffffffffffffffdfffafffafff9fff9fffbfffdfffefffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffffffffffdfff8fff1fff2fff0fff1fff1fff6fff8fffafffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffffffdfff5fff1fff0fff00000000000000000fff0fff3fffafffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffefff5fff0fff000000000000000000000000000000000fff6fffefffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffbfff2fff0000000000000000000000000000000000001fff9fffefffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffdfff3fff0000000000000000000000000000000000000fff4fffcfffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffefff7fff0fff000000000000000000000000000000000fff3fffcfffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffffffdfff6fff3fff1fff0fff000000000fff1fff1fff1fff9fffefffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffffffffffefffdfff9fff2fff1fff3fff3fff8fffbfff6fffafffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffffffffffffffffffffffefffdfffdfffefffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000"
+				"averageColors": "afff2fff0fff4fff5fff0fff000000009fee8feb9fee8feb9fee8fda8fe46fd36e613e5100000fff1fff1fff1fff0fff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001fff2fff1fff8fffafff0fff000000008feb8fd98fdb3fb57fdb2fa35fd31f823e510d42000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000fff0000000000002ddd3fff0fff1fff1fff0fff0fff1fff3e611d421d421d422fff5fff3fff0000000000000000000000000000000000000000000000000000000000000000000000001fff2fff3fff2fff1fff00000000000000000fff2fff3fff2fff0fff00003ddd2ddd00001fff2fff3fff1fff7fff3e510d421d420fff6fff1fff5fff000000000000000000000000000000000000000000000000000000000000000000001fff4fff6fff7fff6fff4fff1fff0000000000001fff5fffafff4fff1fff00002fff1fff2fff0fff1fff1fff0fff0fff00000000000000001fff5fff1fff00001fff2fff0000000000000000000000000fff1fff1fff1fff0fff0000000000002fff6fff7fff8fff7fff6fff3fff0000000000001fff4fff8fff4fff0fff00002fff1fff1fff1fff1fff1fff000000006fff6fff5fff000000000000000000007fff9fff0000000000000000000000001fff2fff3fff2fff1fff0000000000003fff7fff8fff8fff8fff7fff4fff0000000000000fff1fff2fff1fff0fff000000001fff1fff1fff1fff1fff000000006fff6fff5eee6c832eb46e93893400000fff0fff0000000000000000000000001fff3fff9fff3fff1fff00001ccc00002fff6fff7fff8fff7fff6fff3fff0000000000000000000000000000000000000fff0fff0fff7fff7fff00002fff6fff1fff6fff7fff1bc51fd90feb00000000000000000000000000000000000000001fff2fff3fff2fff1fff0777177707771fff4fff6fff7fff6fff4fff1fff0000000000000000000000000000000000000fff0fff0fff3fff2fff00007fffffff6fff8fff7fff1ba43dca0feb7fff0000eddd0000bddd000000000000000000000fff1fff1fff1fff0fff00000000000000001fff2fff3fff3fff1fff00000000000000000000000000000000000000001fd576a4729b1fff1fff00002fff7fff2fff1ddd0eee1fff1fff1fff1fff0fff17b300000000000000000fff4fff0fff00000fff4fff1fff0000000000000000000000000fff2fff2fff2fff0fff000000000000000000000000000000000000457a38bb2abc3aed4ba5000000003a320fff1fff6fff7fff1eee1fffc888c766000000000000000000000fff1fff0fff00002fff6fff3fff000000000000000000000fff2fff4fff4fff4fff3fff0fff000000000000000000000000000000008a760000a666a666a666a666a666a6550fff1fff6fff7fff2eee1fffc756c756000000000000000000000000000000000fff3fff5fff4fff0fff0000000000000fff1fff4fff5fff5fff5fff4fff2fff0fff00000000000000000000000000001c950d526abb4799279900000000000000000000000000000000000000000000000000000000000000000000000000000fff2fff2fff2fff0fff0000000000001fff3fff4fff5fff5fff5fff4fff3fff1fff00000000000000000000000000002d721e7300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000fff1fff1fff1fff0fff000000000fff2fff3fff4fff5fff5fff5fff4fff3fff2fff0fff0000000000000000000000005e945ea55fc65e955d955d730000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000fff1fff2fff3fff3fff3fff3fff3fff3fff3fff2fff1fff0fff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000fff0fff1fff1fff1fff2fff2fff2fff2fff2fff1fff1fff1fff0fff0fff0000000000000000a64399640000000000000000000000000000000000000000000000000000000000000000000000000c74000000000000000000000000000000000fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0000000000000000f533d965000000000000000000000000000000000000000000000000000000000000000000000000ada6000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a269938ba373959400000000000000000000000000000000000000000000000000000000000000002d94000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f258d38cf263d5a4000000000000000000000000000000000000000000001fff6fff6fff6fff6fff6fff6fff6fff6fff6fff6fff6fff6fff6fff6fff6fff6fff0000000000000000000000000000000000000000000000000000000000000000a743a953a7530000000000000000000000000000000000000000000000003fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000f523fa53f5230000000000000000000000000000000000000000000000003fffffffffffffffffffdfffafffafff9fff9fffbfffdfffefffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffffffffffdfff8fff1fff2fff0fff1fff1fff6fff8fffafffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffffffdfff5fff1fff0fff00000000000000000fff0fff3fffafffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffefff5fff0fff000000000000000000000000000000000fff6fffefffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffbfff2fff0000000000000000000000000000000000001fff9fffefffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffdfff3fff0000000000000000000000000000000000000fff4fffcfffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffefff7fff0fff000000000000000000000000000000000fff3fffcfffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffffffdfff6fff3fff1fff0fff000000000fff1fff1fff1fff9fffefffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffffffffffefffdfff9fff2fff1fff3fff3fff8fffbfff6fffafffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffffffffffffffffffffffefffdfffdfffefffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000"
 			}
 		}
 	], "enums": [
@@ -5239,7 +5465,12 @@
 			{ "id": "BlackSmoke", "tileId": 4, "color": 9049622, "__tileSrcRect": [64,0,16,16] },
 			{ "id": "ColorSmoke", "tileId": 3, "color": 12235871, "__tileSrcRect": [48,0,16,16] },
 			{ "id": "Water", "tileId": 291, "color": 2442449, "__tileSrcRect": [48,96,16,16] }
-		], "iconTilesetUid": 26, "externalRelPath": null, "externalFileChecksum": null }
+		], "iconTilesetUid": 26, "externalRelPath": null, "externalFileChecksum": null },
+		{ "identifier": "CinematicEventType", "uid": 487, "values": [
+			{ "id": "BumpHero", "tileId": null, "color": 13726719, "__tileSrcRect": null },
+			{ "id": "Explosion", "tileId": null, "color": 16711680, "__tileSrcRect": null },
+			{ "id": "CamShake", "tileId": null, "color": 11117176, "__tileSrcRect": null }
+		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null }
 	], "externalEnums": [], "levelFields": [
 		{
 			"identifier": "disableCompleteAnnounce",
@@ -5469,15 +5700,15 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 474, "dir": "e" }, { "levelUid": 30, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 498, "dir": "e" }, { "levelUid": 30, "dir": "w" } ]
 		},
 		{
-			"identifier": "Vehicle_corridor",
-			"uid": 474,
+			"identifier": "Tutorial_valves",
+			"uid": 498,
 			"worldX": 4336,
 			"worldY": 0,
-			"pxWid": 1280,
-			"pxHei": 848,
+			"pxWid": 640,
+			"pxHei": 400,
 			"__bgColor": "#242D34",
 			"bgColor": null,
 			"useAutoIdentifier": false,
@@ -5486,28 +5717,49 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0005-Vehicle_corridor.ldtkl",
+			"externalRelPath": "world/0005-Tutorial_valves.ldtkl",
+			"fieldInstances": [
+				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
+				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
+			],
+			"layerInstances": null,
+			"__neighbours": [ { "levelUid": 474, "dir": "e" }, { "levelUid": 57, "dir": "w" } ]
+		},
+		{
+			"identifier": "Vehicle_corridor",
+			"uid": 474,
+			"worldX": 5008,
+			"worldY": 0,
+			"pxWid": 1280,
+			"pxHei": 928,
+			"__bgColor": "#242D34",
+			"bgColor": null,
+			"useAutoIdentifier": false,
+			"bgRelPath": null,
+			"bgPos": null,
+			"bgPivotX": 0.5,
+			"bgPivotY": 0.5,
+			"__bgPos": null,
+			"externalRelPath": "world/0006-Vehicle_corridor.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
-					"__value": true,
+					"__value": false,
 					"__type": "Bool",
 					"defUid": 114,
-					"realEditorValues": [{
-						"id": "V_Bool",
-						"params": [ true ]
-					}]
+					"realEditorValues": [null]
 				},
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 70, "dir": "e" }, { "levelUid": 57, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 70, "dir": "e" }, { "levelUid": 498, "dir": "w" } ]
 		},
 		{
 			"identifier": "Nuclear_1st_contact",
 			"uid": 70,
-			"worldX": 5648,
+			"worldX": 6320,
 			"worldY": 0,
 			"pxWid": 640,
 			"pxHei": 496,
@@ -5519,7 +5771,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0006-Nuclear_1st_contact.ldtkl",
+			"externalRelPath": "world/0007-Nuclear_1st_contact.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
@@ -5529,9 +5781,9 @@
 			"__neighbours": [ { "levelUid": 453, "dir": "e" }, { "levelUid": 474, "dir": "w" } ]
 		},
 		{
-			"identifier": "Level_7",
+			"identifier": "Level_8",
 			"uid": 453,
-			"worldX": 6320,
+			"worldX": 6992,
 			"worldY": 0,
 			"pxWid": 1120,
 			"pxHei": 320,
@@ -5543,7 +5795,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0007-Level_7.ldtkl",
+			"externalRelPath": "world/0008-Level_8.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -5573,7 +5825,7 @@
 		{
 			"identifier": "Core_One",
 			"uid": 133,
-			"worldX": 7472,
+			"worldX": 8144,
 			"worldY": 0,
 			"pxWid": 560,
 			"pxHei": 496,
@@ -5585,7 +5837,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0008-Core_One.ldtkl",
+			"externalRelPath": "world/0009-Core_One.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
@@ -5595,9 +5847,9 @@
 			"__neighbours": [ { "levelUid": 454, "dir": "e" }, { "levelUid": 453, "dir": "w" } ]
 		},
 		{
-			"identifier": "Level_9",
+			"identifier": "Level_10",
 			"uid": 454,
-			"worldX": 8064,
+			"worldX": 8736,
 			"worldY": 0,
 			"pxWid": 816,
 			"pxHei": 560,
@@ -5609,7 +5861,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0009-Level_9.ldtkl",
+			"externalRelPath": "world/0010-Level_10.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -5639,7 +5891,7 @@
 		{
 			"identifier": "Sprinklers",
 			"uid": 0,
-			"worldX": 8912,
+			"worldX": 9584,
 			"worldY": 0,
 			"pxWid": 976,
 			"pxHei": 448,
@@ -5651,7 +5903,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0010-Sprinklers.ldtkl",
+			"externalRelPath": "world/0011-Sprinklers.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
@@ -5663,7 +5915,7 @@
 		{
 			"identifier": "Hydroponics",
 			"uid": 89,
-			"worldX": 9920,
+			"worldX": 10592,
 			"worldY": 0,
 			"pxWid": 1328,
 			"pxHei": 672,
@@ -5675,7 +5927,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0011-Hydroponics.ldtkl",
+			"externalRelPath": "world/0012-Hydroponics.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
@@ -5687,7 +5939,7 @@
 		{
 			"identifier": "Desert_corridors",
 			"uid": 409,
-			"worldX": 11280,
+			"worldX": 11952,
 			"worldY": 0,
 			"pxWid": 752,
 			"pxHei": 816,
@@ -5699,7 +5951,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0012-Desert_corridors.ldtkl",
+			"externalRelPath": "world/0013-Desert_corridors.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -5729,7 +5981,7 @@
 		{
 			"identifier": "Pit",
 			"uid": 434,
-			"worldX": 12064,
+			"worldX": 12736,
 			"worldY": 0,
 			"pxWid": 464,
 			"pxHei": 1408,
@@ -5741,7 +5993,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0013-Pit.ldtkl",
+			"externalRelPath": "world/0014-Pit.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -5771,7 +6023,7 @@
 		{
 			"identifier": "Explosives",
 			"uid": 398,
-			"worldX": 12560,
+			"worldX": 13232,
 			"worldY": 0,
 			"pxWid": 704,
 			"pxHei": 496,
@@ -5783,7 +6035,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0014-Explosives.ldtkl",
+			"externalRelPath": "world/0015-Explosives.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
@@ -5795,7 +6047,7 @@
 		{
 			"identifier": "Transition_corridor",
 			"uid": 433,
-			"worldX": 13296,
+			"worldX": 13968,
 			"worldY": 0,
 			"pxWid": 512,
 			"pxHei": 336,
@@ -5807,7 +6059,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0015-Transition_corridor.ldtkl",
+			"externalRelPath": "world/0016-Transition_corridor.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -5837,7 +6089,7 @@
 		{
 			"identifier": "Burning_pit",
 			"uid": 465,
-			"worldX": 13840,
+			"worldX": 14512,
 			"worldY": 0,
 			"pxWid": 784,
 			"pxHei": 1456,
@@ -5849,7 +6101,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0016-Burning_pit.ldtkl",
+			"externalRelPath": "world/0017-Burning_pit.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -5879,7 +6131,7 @@
 		{
 			"identifier": "Thank_you_for_playing",
 			"uid": 118,
-			"worldX": 14656,
+			"worldX": 15328,
 			"worldY": 0,
 			"pxWid": 576,
 			"pxHei": 400,
@@ -5891,7 +6143,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0017-Thank_you_for_playing.ldtkl",
+			"externalRelPath": "world/0018-Thank_you_for_playing.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -5912,7 +6164,7 @@
 		{
 			"identifier": "Lab",
 			"uid": 450,
-			"worldX": 15264,
+			"worldX": 15936,
 			"worldY": 0,
 			"pxWid": 448,
 			"pxHei": 336,
@@ -5924,7 +6176,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0018-Lab.ldtkl",
+			"externalRelPath": "world/0019-Lab.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -5954,7 +6206,7 @@
 		{
 			"identifier": "Lab2",
 			"uid": 478,
-			"worldX": 15744,
+			"worldX": 16416,
 			"worldY": 0,
 			"pxWid": 560,
 			"pxHei": 288,
@@ -5966,7 +6218,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0019-Lab2.ldtkl",
+			"externalRelPath": "world/0020-Lab2.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },

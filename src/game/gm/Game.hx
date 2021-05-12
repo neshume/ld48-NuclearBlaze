@@ -183,6 +183,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_FxEmitter) new gm.en.FxEmitter(d);
 		for(d in level.data.l_Entities.all_FireStarter) new gm.en.FireStarter(d);
 		for(d in level.data.l_Entities.all_CheckPoint) new gm.en.CheckPoint(d);
+		for(d in level.data.l_Entities.all_CinematicEvent) new gm.en.CinematicEvent(d);
 
 		for(d in level.data.l_Entities.all_Smoker)
 			dn.Bresenham.iterateDisc(d.cx, d.cy, d.f_radius, (x,y)->{

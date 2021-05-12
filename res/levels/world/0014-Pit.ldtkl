@@ -10,7 +10,7 @@
 	},
 	"identifier": "Pit",
 	"uid": 434,
-	"worldX": 12064,
+	"worldX": 12736,
 	"worldY": 0,
 	"pxWid": 464,
 	"pxHei": 1408,
@@ -640,7 +640,8 @@
 							"__type": "Float",
 							"defUid": 435,
 							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
-						}
+						},
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1060,7 +1061,7 @@
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] },
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] },
 						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
 					]
 				},
@@ -1287,7 +1288,7 @@
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
 						{
-							"__identifier": "startPause",
+							"__identifier": "startDelay",
 							"__value": 1.5,
 							"__type": "Float",
 							"defUid": 462,

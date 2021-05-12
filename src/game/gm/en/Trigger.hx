@@ -9,6 +9,7 @@ class Trigger extends Entity {
 	var data : Entity_Trigger;
 	var holdS = 0.;
 	public var done = false;
+	var started = false;
 	var delayer : dn.Delayer;
 
 	public function new(d:Entity_Trigger) {
@@ -56,9 +57,9 @@ class Trigger extends Entity {
 		delayer = null;
 	}
 
-	public function canBeTriggered(by:Entity) {
+	public function canBeManuallyTriggered(by:Entity) {
 		return
-			isAlive() && !done && by!=null && by.isAlive()
+			isAlive() && !done && !started && by!=null && by.isAlive()
 			&& data.f_type!=TouchPlate
 			&& M.fabs(cx-by.cx)<=useDistX
 			&& M.fabs(cy-by.cy)<=useDistY
@@ -67,7 +68,7 @@ class Trigger extends Entity {
 
 	public static function anyAvailable(by:Entity) : Bool {
 		for(e in ALL )
-			if( e.canBeTriggered(by) )
+			if( e.canBeManuallyTriggered(by) )
 				return true;
 		return false;
 	}
@@ -76,7 +77,7 @@ class Trigger extends Entity {
 		if( !anyAvailable(by) )
 			return null;
 
-		var dh = new dn.DecisionHelper( ALL.filter( e->e.canBeTriggered(by) ) );
+		var dh = new dn.DecisionHelper( ALL.filter( e->e.canBeManuallyTriggered(by) ) );
 		dh.score( (e)->-e.distCase(by) );
 		dh.score( (e)->by.dirTo(e)==by.dir ? 2 : 0 );
 		return dh.getBest();
@@ -88,9 +89,18 @@ class Trigger extends Entity {
 		cd.setS("maintain",0.1);
 		if( holdS>=data.f_gateHoldTime) {
 			holdS = data.f_gateHoldTime;
-			execute();
+			start();
 		}
 		updateProgress();
+	}
+
+
+	function start() {
+		started = true;
+		if( data.f_triggerDelay<=0 )
+			execute();
+		else
+			cd.setS("executeLock", data.f_triggerDelay);
 	}
 
 	function execute() {
@@ -107,7 +117,7 @@ class Trigger extends Entity {
 				setSquashY(0.5);
 		}
 
-		var eachDurationS = data.f_cinematicReveal ? 1.25  :  data.f_type==Invisible ? 0.2 : 0.5;
+		var eachDurationS = data.f_cinematicReveal ? 1.25  :  data.f_type==Invisible ? 0 : 0.5;
 		var t = 0.;
 		for(e in Entity.ALL)
 			if( e.isAlive() && e.triggerId==triggerId && !e.is(gm.en.Trigger) ) {
@@ -165,27 +175,33 @@ class Trigger extends Entity {
 
 		g.setPosition(attachX, attachY);
 
-		if( !done && holdS<=0  && !cd.hasSetS("blink",0.5) )
+		if( !started && !done && data.f_type!=Invisible && holdS<=0  && !cd.hasSetS("blink",0.5) )
 			blink(data.f_fxColor_int);
 
 		if( data.f_type==Gate )
 			spr.setFrame( M.round( 9*holdS/data.f_gateHoldTime* spr.totalFrames() ) % (spr.totalFrames()) );
 	}
 
+
 	override function fixedUpdate() {
 		super.fixedUpdate();
 
-		if( !done && !cd.has("maintain") ) {
-			holdS *= 0.8;
-			if( holdS<=0.1 )
-				holdS = 0;
-			updateProgress();
+		if( !done && !started ) {
+			if( !cd.has("maintain") ) {
+				holdS *= 0.8;
+				if( holdS<=0.1 )
+					holdS = 0;
+				updateProgress();
+			}
+
+			if( data.f_type==TouchPlate && hero.cx==cx && hero.cy==cy && hero.onGround)
+				start();
+
+			if( data.f_type==Invisible && distCase(hero)<=data.f_invisibleRadius )
+				start();
 		}
 
-		if( !done && data.f_type==TouchPlate && hero.cx==cx && hero.cy==cy && hero.onGround)
-			execute();
-
-		if( !done && data.f_type==Invisible && distCase(hero)<=data.f_invisibleRadius )
+		if( started && !done && !cd.has("executeLock") )
 			execute();
 	}
 }

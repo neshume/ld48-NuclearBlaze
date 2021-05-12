@@ -32,6 +32,7 @@ class FxEmitter extends Entity {
 	override function trigger() {
 		super.trigger();
 		active = true;
+		triggerId = -1;
 	}
 
 	override function postUpdate() {
@@ -40,11 +41,11 @@ class FxEmitter extends Entity {
 		if( active && isOnScreenBounds() ) {
 			switch data.f_type {
 				case Drips:
-					if( !cd.hasSetS("fx",0.2) )
+					if( !cd.hasSetS("fx", 0.2/data.f_customIntensity ) )
 						fx.drips(wid==16 ? centerX+rnd(0,6,true) : rnd(left,right), top-2, data.f_customColor_int);
 
 				case BlackSmoke:
-					if( !cd.hasSetS("fx",0.06) ) {
+					if( !cd.hasSetS("fx",0.06/data.f_customIntensity) ) {
 						var n = M.ceil( M.round(wid/Const.GRID) * M.round(hei/Const.GRID) * 0.33 );
 						var x = 0.;
 						var y = 0.;
@@ -57,7 +58,7 @@ class FxEmitter extends Entity {
 					}
 
 				case ColorSmoke:
-					if( !cd.hasSetS("fx",0.06) ) {
+					if( !cd.hasSetS("fx",0.06/data.f_customIntensity) ) {
 						var n = M.ceil( M.round(wid/Const.GRID) * M.round(hei/Const.GRID) * 0.33 );
 						var x = 0.;
 						var y = 0.;
@@ -70,7 +71,7 @@ class FxEmitter extends Entity {
 					}
 
 				case Water:
-					if( !cd.hasSetS("bubbles",0.2) ) {
+					if( !cd.hasSetS("bubbles",0.2/data.f_customIntensity) ) {
 						var n = M.ceil( M.round(wid/Const.GRID) * M.round(hei/Const.GRID) * 0.33 );
 						var x = 0.;
 						var y = 0.;
@@ -86,7 +87,7 @@ class FxEmitter extends Entity {
 							fx.largeBubbles(rnd(left,right), rnd(top,bottom), bounds, data.f_customColor_int);
 					}
 
-					if( !cd.hasSetS("surface",0.1) ) {
+					if( !cd.hasSetS("surface",0.1/data.f_customIntensity) ) {
 						for( x in cLeft+1...cRight )
 							if( camera.isOnScreen(x*Const.GRID, top, 40) )
 								fx.waterSurfaceRipples((x+rnd(0.3,0.7))*Const.GRID, top, data.f_customColor_int);

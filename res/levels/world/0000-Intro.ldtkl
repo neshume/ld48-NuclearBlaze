@@ -162,7 +162,7 @@
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
 						{
-							"__identifier": "startPause",
+							"__identifier": "startDelay",
 							"__value": 1.5,
 							"__type": "Float",
 							"defUid": 462,
@@ -517,7 +517,7 @@
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
 						{
-							"__identifier": "startPause",
+							"__identifier": "startDelay",
 							"__value": 0.5,
 							"__type": "Float",
 							"defUid": 462,
@@ -756,7 +756,8 @@
 						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
-						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] }
+						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] },
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
 					]
 				},
 				{
@@ -875,7 +876,8 @@
 							"__type": "Color",
 							"defUid": 463,
 							"realEditorValues": [{ "id": "V_Int", "params": [54886] }]
-						}
+						},
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
 					]
 				},
 				{
@@ -905,7 +907,8 @@
 							"__type": "Color",
 							"defUid": 463,
 							"realEditorValues": [{ "id": "V_Int", "params": [54886] }]
-						}
+						},
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
 					]
 				},
 				{
@@ -935,7 +938,8 @@
 							"__type": "Color",
 							"defUid": 463,
 							"realEditorValues": [{ "id": "V_Int", "params": [54886] }]
-						}
+						},
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
 					]
 				},
 				{

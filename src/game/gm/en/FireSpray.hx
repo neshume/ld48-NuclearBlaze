@@ -29,7 +29,10 @@ class FireSpray extends Entity {
 
 	override function trigger() {
 		super.trigger();
-		stop();
+		if( active )
+			stop();
+		else
+			start();
 	}
 
 	override function dispose() {
@@ -53,6 +56,10 @@ class FireSpray extends Entity {
 	}
 
 	public inline function isActive() return active;
+
+	public function start() {
+		active = true;
+	}
 
 	public function stop() {
 		active = false;

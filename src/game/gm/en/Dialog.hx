@@ -27,8 +27,8 @@ class Dialog extends Entity {
 		super.trigger();
 		if( !started ) {
 			started = true;
-			if( data.f_startPause>0 )
-				cd.setS("nextLine", data.f_startPause);
+			if( data.f_startDelay>0 )
+				cd.setS("nextLine", data.f_startDelay);
 
 		}
 	}
