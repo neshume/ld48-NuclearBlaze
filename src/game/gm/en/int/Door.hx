@@ -24,6 +24,11 @@ class Door extends Entity {
 		updateCollisions();
 		for(y in cy-cHei+1...cy+1)
 			level.setMark(DoorZone, cx,y);
+
+		for(i in 0...cHei) {
+			level.setMark(DoorToLeft, cx+1, cy-i);
+			level.setMark(DoorToRight, cx-1, cy-i);
+		}
 	}
 
 	override function trigger() {

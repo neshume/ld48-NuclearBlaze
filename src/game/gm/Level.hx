@@ -135,7 +135,7 @@ class Level extends dn.Process {
 			var be = new h2d.SpriteBatch.BatchElement(t);
 			fogElements.set( fogCoordId(cx,cy), be );
 			fogRender.add(be);
-			be.x = (cx+0.5)*Const.GRID;
+			be.x = (cx+0.5)*Const.GRID; // overridden in updateFog()
 			be.y = (cy+0.5)*Const.GRID;
 			C.colorizeBatchElement(be, 0x0);
 		}
@@ -397,6 +397,11 @@ class Level extends dn.Process {
 			else {
 				be.alpha = 1;
 				be.visible = true;
+				be.x = (ox+0.5)*Const.GRID;
+				if( hasMark(DoorToLeft, fogCx+ox, fogCy+oy) )
+					be.x += 8;
+				else if( hasMark(DoorToRight, fogCx+ox, fogCy+oy) )
+					be.x -= 8;
 			}
 		}
 	}
