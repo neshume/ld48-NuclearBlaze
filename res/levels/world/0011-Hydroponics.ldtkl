@@ -10,7 +10,7 @@
 	},
 	"identifier": "Hydroponics",
 	"uid": 89,
-	"worldX": 9616,
+	"worldX": 9920,
 	"worldY": 0,
 	"pxWid": 1328,
 	"pxHei": 672,
@@ -354,7 +354,8 @@
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] }
+						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] },
+						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2684,7 +2685,8 @@
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] }
+						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] },
+						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
 					]
 				},
 				{
@@ -3474,7 +3476,6 @@
 				{ "px": [736,176], "src": [16,304], "f": 0, "t": 761, "d": [388,959] },
 				{ "px": [736,192], "src": [32,304], "f": 0, "t": 762, "d": [388,1042] },
 				{ "px": [736,208], "src": [0,304], "f": 0, "t": 760, "d": [388,1125] },
-				{ "px": [848,208], "src": [32,304], "f": 0, "t": 762, "d": [388,1132] },
 				{ "px": [736,224], "src": [0,304], "f": 0, "t": 760, "d": [388,1208] },
 				{ "px": [736,240], "src": [16,304], "f": 0, "t": 761, "d": [388,1291] },
 				{ "px": [736,256], "src": [32,304], "f": 0, "t": 762, "d": [388,1374] },
@@ -3506,7 +3507,8 @@
 				{ "px": [1024,144], "src": [48,304], "f": 2, "t": 763, "d": [389,811] },
 				{ "px": [736,160], "src": [48,304], "f": 0, "t": 763, "d": [389,876] },
 				{ "px": [832,176], "src": [48,304], "f": 0, "t": 763, "d": [389,965] },
-				{ "px": [768,288], "src": [48,304], "f": 0, "t": 763, "d": [389,1542] }
+				{ "px": [768,288], "src": [48,304], "f": 0, "t": 763, "d": [389,1542] },
+				{ "px": [848,208], "src": [48,288], "f": 1, "t": 723, "d": [483,1132] }
 			],
 			"seed": 2282362,
 			"overrideTilesetUid": null,
@@ -13982,5 +13984,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 409, "dir": "e" }, { "levelUid": 444, "dir": "w" } ]
+	"__neighbours": [ { "levelUid": 409, "dir": "e" }, { "levelUid": 0, "dir": "w" } ]
 }

@@ -10,7 +10,7 @@
 	},
 	"identifier": "Level_9",
 	"uid": 454,
-	"worldX": 7280,
+	"worldX": 8064,
 	"worldY": 0,
 	"pxWid": 816,
 	"pxHei": 560,
@@ -659,7 +659,8 @@
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] }
+						{ "__identifier": "startPause", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] },
+						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
 					]
 				},
 				{
@@ -697,7 +698,8 @@
 							"__type": "Float",
 							"defUid": 462,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.5] }]
-						}
+						},
+						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1026,13 +1028,13 @@
 				},
 				{
 					"__identifier": "FxEmitter",
-					"__grid": [0,28],
+					"__grid": [0,26],
 					"__pivot": [0,0],
 					"__tile": { "tilesetUid": 26, "srcRect": [48,96,16,16] },
 					"width": 144,
 					"height": 96,
 					"defUid": 458,
-					"px": [0,448],
+					"px": [0,416],
 					"fieldInstances": [
 						{
 							"__identifier": "type",
