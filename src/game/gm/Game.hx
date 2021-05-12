@@ -36,6 +36,7 @@ class Game extends Process {
 	public var polite = false;
 
 	public var heat : Float = 0.;
+	var fadeMask : h2d.Bitmap;
 	var heatMask : h2d.Bitmap;
 	var coldMask : h2d.Bitmap;
 
@@ -63,6 +64,11 @@ class Game extends Process {
 		fx = new Fx();
 		hud = new ui.Hud();
 		camera = new Camera();
+
+		// Fade in/out mask
+		fadeMask = new h2d.Bitmap( h2d.Tile.fromColor( C.hexToInt("#000000") ) );
+		root.add(fadeMask, Const.DP_TOP);
+		fadeMask.visible = false;
 
 		// Heat/cold masks
 		heatMask = new h2d.Bitmap( h2d.Tile.fromColor( C.hexToInt("#ff6600") ) );
@@ -95,6 +101,18 @@ class Game extends Process {
 		#end
 	}
 
+
+	public function fadeFromBlack() {
+		fadeMask.visible = true;
+		tw.terminateWithoutCallbacks(fadeMask.alpha);
+		tw.createS(fadeMask.alpha, 1>0, 1).end( ()->fadeMask.visible = false );
+	}
+
+	public function fadeToBlack() {
+		fadeMask.visible = true;
+		tw.terminateWithoutCallbacks(fadeMask.alpha);
+		tw.createS(fadeMask.alpha, 0>1, 0.5);
+	}
 
 	public inline function unlockUpgrade(i:Enum_Items) {
 		upgrades.set(i,true);
@@ -195,6 +213,7 @@ class Game extends Process {
 		camera.centerOnTarget();
 		hud.onLevelStart();
 		Process.resizeAll();
+		fadeFromBlack();
 	}
 
 
@@ -255,6 +274,9 @@ class Game extends Process {
 	/** Window/app resize event **/
 	override function onResize() {
 		super.onResize();
+		fadeMask.scaleX = w();
+		fadeMask.scaleY = h();
+
 		heatMask.scaleX = w();
 		heatMask.scaleY = h();
 

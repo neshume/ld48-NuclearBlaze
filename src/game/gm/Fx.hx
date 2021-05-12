@@ -316,7 +316,7 @@ class Fx extends dn.Process {
 		p.delayS = rnd(0,0.6);
 	}
 
-	
+
 	public inline function smoke(x:Float,y:Float, fromColor=0x4d4959, toColor=0x0) {
 		var p = allocTopNormal( getTile(dict.fxSmoke), x+rnd(0,8,true), y-rnd(0,10) );
 		p.setFadeS( rnd(0.1, 0.2), rnd(0.6,1), rnd(1,2) );
@@ -1221,8 +1221,9 @@ class Fx extends dn.Process {
 		}
 	}
 
-	public function drips(x:Float, y:Float) {
+	public function drips(x:Float, y:Float, c:Int) {
 		var p = allocTopAdd( getTile(dict.fxLineThinLeft), x, y-irnd(0,2) );
+		p.colorize(c);
 		p.setFadeS( rnd(0.1,0.4), R.around(0.3), R.around(0.2));
 		p.setCenterRatio(1,0.5);
 		p.dy = R.around(0.05);

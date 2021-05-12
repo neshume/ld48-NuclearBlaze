@@ -92,7 +92,7 @@ class Level extends dn.Process {
 		}
 
 		fogRender = new h2d.SpriteBatch(Assets.tiles.tile);
-		game.scroller.add(fogRender, Const.DP_TOP);
+		game.scroller.add(fogRender, Const.DP_FOG);
 		fogRender.visible = !game.kidMode;
 		buildFog();
 	}

@@ -50,7 +50,7 @@ class DebugDrone extends Entity {
 		setColor(DEFAULT_COLOR);
 
 		help = new h2d.Text(Assets.fontPixelOutline);
-		game.root.add(help, Const.DP_TOP);
+		game.root.add(help, Const.DP_UI);
 		help.textColor = DEFAULT_COLOR;
 		help.text = [
 			"ESCAPE - kill debug drone",

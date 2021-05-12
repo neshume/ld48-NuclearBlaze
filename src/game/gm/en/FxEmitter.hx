@@ -40,8 +40,8 @@ class FxEmitter extends Entity {
 		if( active && isOnScreenBounds() ) {
 			switch data.f_type {
 				case Drips:
-					if( !cd.hasSetS("fx",0.1) )
-						fx.drips(wid==16 ? 6 : rnd(left,right), top-2);
+					if( !cd.hasSetS("fx",0.2) )
+						fx.drips(wid==16 ? centerX+rnd(0,6,true) : rnd(left,right), top-2, data.f_customColor_int);
 
 				case BlackSmoke:
 					if( !cd.hasSetS("fx",0.06) ) {
@@ -77,7 +77,7 @@ class FxEmitter extends Entity {
 						for(i in 0...n) {
 							x = rnd(left,right);
 							y = rnd(top,bottom);
-							if( camera.isOnScreen(x,y,24) )
+							if( camera.isOnScreen(x,y,40) )
 								fx.tinyBubbles(x,y, bounds, data.f_customColor_int);
 						}
 
@@ -88,12 +88,12 @@ class FxEmitter extends Entity {
 
 					if( !cd.hasSetS("surface",0.1) ) {
 						for( x in cLeft+1...cRight )
-							if( camera.isOnScreen(x*Const.GRID, top, 16) )
+							if( camera.isOnScreen(x*Const.GRID, top, 40) )
 								fx.waterSurface((x+rnd(0.3,0.7))*Const.GRID, top, data.f_customColor_int);
 
-						if( camera.isOnScreen(left, top, 16) )
+						if( camera.isOnScreen(left, top, 32) )
 							fx.waterSideDrips(left,top, 1, data.f_customColor_int);
-						if( camera.isOnScreen(right, top, 16) )
+						if( camera.isOnScreen(right, top, 32) )
 							fx.waterSideDrips(right,top, -1, data.f_customColor_int);
 					}
 			}
