@@ -10,7 +10,7 @@
 	},
 	"identifier": "Tutorial_defense",
 	"uid": 57,
-	"worldX": 3600,
+	"worldX": 5872,
 	"worldY": 0,
 	"pxWid": 704,
 	"pxHei": 448,
@@ -223,12 +223,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": ["Hey CENTRAL, what was this place again?"],
+							"__value": ["Hey Central, are you sure you have no intel about this place?"],
 							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Hey CENTRAL, what was this place again?"]
+								"params": ["Hey Central, are you sure you have no intel about this place?"]
 							}]
 						},
 						{

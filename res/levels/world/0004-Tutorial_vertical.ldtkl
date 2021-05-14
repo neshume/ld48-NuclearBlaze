@@ -10,7 +10,7 @@
 	},
 	"identifier": "Tutorial_vertical",
 	"uid": 30,
-	"worldX": 3072,
+	"worldX": 5344,
 	"worldY": 0,
 	"pxWid": 496,
 	"pxHei": 352,
@@ -160,12 +160,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": ["Woah, it's hot here."],
+							"__value": ["Damn, this place is falling apart! | This place is falling apart!"],
 							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Woah, it's hot here."]
+								"params": ["Damn, this place is falling apart! | This place is falling apart!"]
 							}]
 						},
 						{

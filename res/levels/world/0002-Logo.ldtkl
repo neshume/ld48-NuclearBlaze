@@ -10,7 +10,7 @@
 	},
 	"identifier": "Logo",
 	"uid": 85,
-	"worldX": 816,
+	"worldX": 3088,
 	"worldY": 0,
 	"pxWid": 704,
 	"pxHei": 352,
@@ -3527,5 +3527,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 56, "dir": "e" }, { "levelUid": 97, "dir": "w" } ]
+	"__neighbours": [ { "levelUid": 56, "dir": "e" }, { "levelUid": 499, "dir": "w" } ]
 }
