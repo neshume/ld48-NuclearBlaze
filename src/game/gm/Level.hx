@@ -63,10 +63,8 @@ class Level extends dn.Process {
 			if( !hc(cx,cy) && hc(cx,cy+1) && !hc(cx,cy-1) )
 				for(d in dirs) {
 					if( hc(cx+d,cy) ) {
-						if( !hc(cx+d,cy-1) ) {
+						if( !hc(cx+d,cy-1) ) 
 							setMark(AutoJump1, cx,cy);
-							game.fx.markerCase(cx,cy, 999);
-						}
 						else if( !hc(cx+d,cy-2) && !hc(cx,cy-2) )
 							setMark(AutoJump2, cx,cy);
 					}
