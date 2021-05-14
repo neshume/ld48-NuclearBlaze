@@ -727,10 +727,10 @@
 					"px": [1248,128],
 					"fieldInstances": [{
 						"__identifier": "triggerId",
-						"__value": 10,
+						"__value": 11,
 						"__type": "Int",
 						"defUid": 446,
-						"realEditorValues": [{ "id": "V_Int", "params": [10] }]
+						"realEditorValues": [{ "id": "V_Int", "params": [11] }]
 					}]
 				},
 				{
@@ -745,10 +745,10 @@
 					"fieldInstances": [
 						{
 							"__identifier": "triggerId",
-							"__value": 10,
+							"__value": 11,
 							"__type": "Int",
 							"defUid": 180,
-							"realEditorValues": [{ "id": "V_Int", "params": [10] }]
+							"realEditorValues": [{ "id": "V_Int", "params": [11] }]
 						},
 						{
 							"__identifier": "type",
@@ -970,13 +970,13 @@
 				},
 				{
 					"__identifier": "WallText",
-					"__grid": [47,12],
+					"__grid": [51,12],
 					"__pivot": [0.5,0.5],
 					"__tile": null,
 					"width": 32,
 					"height": 16,
 					"defUid": 139,
-					"px": [760,200],
+					"px": [824,200],
 					"fieldInstances": [
 						{
 							"__identifier": "title",
@@ -1049,19 +1049,28 @@
 								"params": ["Pixel"]
 							}]
 						},
-						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.TextStyle", "defUid": 149, "realEditorValues": [] },
+						{
+							"__identifier": "style",
+							"__value": "Outline",
+							"__type": "LocalEnum.TextStyle",
+							"defUid": 149,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Outline"]
+							}]
+						},
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
 					]
 				},
 				{
 					"__identifier": "WallText",
-					"__grid": [50,12],
+					"__grid": [48,12],
 					"__pivot": [0.5,0.5],
 					"__tile": null,
 					"width": 32,
 					"height": 16,
 					"defUid": 139,
-					"px": [808,200],
+					"px": [776,200],
 					"fieldInstances": [
 						{
 							"__identifier": "title",
@@ -1289,12 +1298,12 @@
 						},
 						{
 							"__identifier": "style",
-							"__value": "Keyboard",
+							"__value": "GamePad",
 							"__type": "LocalEnum.TextStyle",
 							"defUid": 149,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Keyboard"]
+								"params": ["GamePad"]
 							}]
 						},
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
@@ -1374,12 +1383,12 @@
 						},
 						{
 							"__identifier": "style",
-							"__value": "GamePad",
+							"__value": "Keyboard",
 							"__type": "LocalEnum.TextStyle",
 							"defUid": 149,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["GamePad"]
+								"params": ["Keyboard"]
 							}]
 						},
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
