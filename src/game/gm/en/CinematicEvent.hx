@@ -25,6 +25,9 @@ class CinematicEvent extends Entity {
 
 	function executeEvent() {
 		switch data.f_eventType {
+			case ShieldHero:
+				hero.setShield(data.f_duration, false);
+
 			case BumpHero:
 				hero.cancelVelocities();
 				hero.bump( data.f_x, data.f_y );

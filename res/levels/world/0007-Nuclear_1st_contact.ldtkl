@@ -10,7 +10,7 @@
 	},
 	"identifier": "Nuclear_1st_contact",
 	"uid": 70,
-	"worldX": 6320,
+	"worldX": 6384,
 	"worldY": 0,
 	"pxWid": 640,
 	"pxHei": 496,
@@ -110,39 +110,6 @@
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
 						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
 						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "Dialog",
-					"__grid": [30,18],
-					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 58,
-					"px": [488,296],
-					"fieldInstances": [
-						{
-							"__identifier": "lines",
-							"__value": ["Damn this building is big..."],
-							"__type": "Array<String>",
-							"defUid": 59,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Damn this building is big..."]
-							}]
-						},
-						{
-							"__identifier": "selfTriggerDist",
-							"__value": 2,
-							"__type": "Float",
-							"defUid": 62,
-							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
-						},
-						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] },
-						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1053,34 +1020,6 @@
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
 						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] },
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [22,13],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [360,224],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{
-							"__identifier": "unlockAllUpgrades",
-							"__value": true,
-							"__type": "Bool",
-							"defUid": 282,
-							"realEditorValues": [null]
-						},
-						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
-						{
-							"__identifier": "fallCinematic",
-							"__value": false,
-							"__type": "Bool",
-							"defUid": 396,
-							"realEditorValues": [null]
-						}
 					]
 				},
 				{
