@@ -425,7 +425,7 @@ class Game extends Process {
 	}
 
 	public function levelComplete() {
-		return level.fireCount==0 && successTimerS>=1 || level.data.f_ignoreFires;
+		return level.fireCount==0 && successTimerS>=0.3 || level.data.f_ignoreFires;
 	}
 
 
