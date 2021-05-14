@@ -851,7 +851,7 @@ class Hero extends gm.Entity {
 			}
 			else {
 				// Jump 1 grass
-				if( level.hasMark(AutoJump1,cx,cy) && level.hasGrass(cx+dir,cy) && ( dir>0 && xr>0.35 || dir<0 && xr<0.65 ) ) {
+				if( level.hasMark(AutoJump1,cx,cy) && level.hasWallCollision(cx+dir,cy) && ( dir>0 && xr>0.35 || dir<0 && xr<0.65 ) ) {
 					bump(0.1*dir, 0);
 					dx = 0;
 					dy = -0.51;
