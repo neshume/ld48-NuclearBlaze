@@ -10,7 +10,7 @@
 	},
 	"identifier": "Vehicle_corridor",
 	"uid": 474,
-	"worldX": 7280,
+	"worldX": 7440,
 	"worldY": 0,
 	"pxWid": 1344,
 	"pxHei": 928,
@@ -348,13 +348,13 @@
 				},
 				{
 					"__identifier": "FxEmitter",
-					"__grid": [10,36],
+					"__grid": [13,36],
 					"__pivot": [0,0],
 					"__tile": { "tilesetUid": 26, "srcRect": [48,160,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 458,
-					"px": [160,576],
+					"px": [208,576],
 					"fieldInstances": [
 						{
 							"__identifier": "type",
@@ -2297,6 +2297,68 @@
 						},
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
 						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [11,36],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [191,590],
+					"fieldInstances": [
+						{ "__identifier": "spotDir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 208, "realEditorValues": [] },
+						{
+							"__identifier": "color",
+							"__value": "#FF0000",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [16711680] }]
+						},
+						{ "__identifier": "intensity", "__value": 1, "__type": "Float", "defUid": 210, "realEditorValues": [] },
+						{
+							"__identifier": "radius",
+							"__value": 1,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{
+							"__identifier": "gyro",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [17,39],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [280,640],
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
+						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
+						{
+							"__identifier": "fallCinematic",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 396,
+							"realEditorValues": [null]
+						}
 					]
 				}
 			]

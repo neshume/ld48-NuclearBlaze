@@ -5699,7 +5699,7 @@
 			"uid": 56,
 			"worldX": 3824,
 			"worldY": 0,
-			"pxWid": 1488,
+			"pxWid": 1584,
 			"pxHei": 432,
 			"__bgColor": "#242D34",
 			"bgColor": null,
@@ -5721,9 +5721,9 @@
 		{
 			"identifier": "Tutorial_vertical",
 			"uid": 30,
-			"worldX": 5344,
+			"worldX": 5440,
 			"worldY": 0,
-			"pxWid": 496,
+			"pxWid": 560,
 			"pxHei": 352,
 			"__bgColor": "#242D34",
 			"bgColor": null,
@@ -5745,7 +5745,7 @@
 		{
 			"identifier": "Tutorial_defense",
 			"uid": 57,
-			"worldX": 5872,
+			"worldX": 6032,
 			"worldY": 0,
 			"pxWid": 704,
 			"pxHei": 448,
@@ -5778,7 +5778,7 @@
 		{
 			"identifier": "Tutorial_valves",
 			"uid": 498,
-			"worldX": 6608,
+			"worldX": 6768,
 			"worldY": 0,
 			"pxWid": 640,
 			"pxHei": 400,
@@ -5802,7 +5802,7 @@
 		{
 			"identifier": "Vehicle_corridor",
 			"uid": 474,
-			"worldX": 7280,
+			"worldX": 7440,
 			"worldY": 0,
 			"pxWid": 1344,
 			"pxHei": 928,
@@ -5832,7 +5832,7 @@
 		{
 			"identifier": "Nuclear_1st_contact",
 			"uid": 70,
-			"worldX": 8656,
+			"worldX": 8816,
 			"worldY": 0,
 			"pxWid": 640,
 			"pxHei": 496,
@@ -5856,7 +5856,7 @@
 		{
 			"identifier": "Level_9",
 			"uid": 453,
-			"worldX": 9328,
+			"worldX": 9488,
 			"worldY": 0,
 			"pxWid": 1120,
 			"pxHei": 320,
@@ -5898,7 +5898,7 @@
 		{
 			"identifier": "Core_One",
 			"uid": 133,
-			"worldX": 10480,
+			"worldX": 10640,
 			"worldY": 0,
 			"pxWid": 560,
 			"pxHei": 496,
@@ -5922,7 +5922,7 @@
 		{
 			"identifier": "Level_11",
 			"uid": 454,
-			"worldX": 11072,
+			"worldX": 11232,
 			"worldY": 0,
 			"pxWid": 816,
 			"pxHei": 560,
@@ -5964,7 +5964,7 @@
 		{
 			"identifier": "Sprinklers",
 			"uid": 0,
-			"worldX": 11920,
+			"worldX": 12080,
 			"worldY": 0,
 			"pxWid": 976,
 			"pxHei": 448,
@@ -5988,7 +5988,7 @@
 		{
 			"identifier": "Hydroponics",
 			"uid": 89,
-			"worldX": 12928,
+			"worldX": 13088,
 			"worldY": 0,
 			"pxWid": 1328,
 			"pxHei": 672,
@@ -6012,7 +6012,7 @@
 		{
 			"identifier": "Desert_corridors",
 			"uid": 409,
-			"worldX": 14288,
+			"worldX": 14448,
 			"worldY": 0,
 			"pxWid": 752,
 			"pxHei": 816,
@@ -6054,7 +6054,7 @@
 		{
 			"identifier": "Pit",
 			"uid": 434,
-			"worldX": 15072,
+			"worldX": 15232,
 			"worldY": 0,
 			"pxWid": 464,
 			"pxHei": 1408,
@@ -6096,7 +6096,7 @@
 		{
 			"identifier": "Explosives",
 			"uid": 398,
-			"worldX": 15568,
+			"worldX": 15728,
 			"worldY": 0,
 			"pxWid": 704,
 			"pxHei": 496,
@@ -6120,7 +6120,7 @@
 		{
 			"identifier": "Transition_corridor",
 			"uid": 433,
-			"worldX": 16304,
+			"worldX": 16464,
 			"worldY": 0,
 			"pxWid": 512,
 			"pxHei": 336,
@@ -6162,7 +6162,7 @@
 		{
 			"identifier": "Burning_pit",
 			"uid": 465,
-			"worldX": 16848,
+			"worldX": 17008,
 			"worldY": 0,
 			"pxWid": 784,
 			"pxHei": 1456,
@@ -6204,7 +6204,7 @@
 		{
 			"identifier": "Thank_you_for_playing",
 			"uid": 118,
-			"worldX": 17664,
+			"worldX": 17824,
 			"worldY": 0,
 			"pxWid": 576,
 			"pxHei": 400,
@@ -6237,7 +6237,7 @@
 		{
 			"identifier": "Lab",
 			"uid": 450,
-			"worldX": 18272,
+			"worldX": 18432,
 			"worldY": 0,
 			"pxWid": 448,
 			"pxHei": 336,
@@ -6279,7 +6279,7 @@
 		{
 			"identifier": "Lab2",
 			"uid": 478,
-			"worldX": 18752,
+			"worldX": 18912,
 			"worldY": 0,
 			"pxWid": 560,
 			"pxHei": 288,
