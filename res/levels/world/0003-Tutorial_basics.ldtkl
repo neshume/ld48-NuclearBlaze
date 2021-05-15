@@ -1921,7 +1921,7 @@
 			"entityInstances": []
 		},
 		{
-			"__identifier": "BgTiles",
+			"__identifier": "BgTiles1",
 			"__type": "Tiles",
 			"__cWid": 93,
 			"__cHei": 27,
@@ -2034,6 +2034,30 @@
 				{ "px": [1280,416], "src": [128,96], "f": 0, "t": 248, "d": [2498] },
 				{ "px": [1296,416], "src": [80,80], "f": 0, "t": 205, "d": [2499] }
 			],
+			"entityInstances": []
+		},
+		{
+			"__identifier": "BgTiles2",
+			"__type": "Tiles",
+			"__cWid": 93,
+			"__cHei": 27,
+			"__gridSize": 16,
+			"__opacity": 1,
+			"__pxTotalOffsetX": 0,
+			"__pxTotalOffsetY": 0,
+			"__tilesetDefUid": 6,
+			"__tilesetRelPath": "../atlas/world.aseprite",
+			"levelId": 56,
+			"layerDefUid": 500,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"visible": true,
+			"optionalRules": [],
+			"intGridCsv": [],
+			"autoLayerTiles": [],
+			"seed": 6425090,
+			"overrideTilesetUid": null,
+			"gridTiles": [],
 			"entityInstances": []
 		},
 		{

@@ -63,7 +63,7 @@ class Level extends dn.Process {
 			if( !hc(cx,cy) && hc(cx,cy+1) && !hc(cx,cy-1) )
 				for(d in dirs) {
 					if( hc(cx+d,cy) ) {
-						if( !hc(cx+d,cy-1) ) 
+						if( !hc(cx+d,cy-1) )
 							setMark(AutoJump1, cx,cy);
 						else if( !hc(cx+d,cy-2) && !hc(cx,cy-2) )
 							setMark(AutoJump2, cx,cy);
@@ -234,7 +234,8 @@ class Level extends dn.Process {
 		data.l_BgWalls.render(tg);
 		data.l_Collisions.render(tg);
 		data.l_Props_tiles.render(tg);
-		data.l_BgTiles.render(tg);
+		data.l_BgTiles2.render(tg);
+		data.l_BgTiles1.render(tg);
 		data.l_Pipes.render(tg);
 		data.l_Wires.render(tg);
 		data.l_FrontTiles.render(tg);
