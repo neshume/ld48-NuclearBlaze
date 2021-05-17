@@ -170,10 +170,12 @@ class Camera extends dn.Process {
 	public inline function levelToGlobalX(v:Float) return v*Const.SCALE + Game.ME.scroller.x;
 	public inline function levelToGlobalY(v:Float) return v*Const.SCALE + Game.ME.scroller.y;
 
-	var shakePower = 1.0;
+	var shakePower = 0.;
 	public function shakeS(t:Float, ?pow=1.0) {
-		cd.setS("shaking", t, false);
-		shakePower = pow;
+		if( pow>=shakePower ) {
+			cd.setS("shaking", t, true);
+			shakePower = pow;
+		}
 	}
 
 	public inline function bumpAng(a, dist) {

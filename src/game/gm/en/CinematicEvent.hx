@@ -45,6 +45,9 @@ class CinematicEvent extends Entity {
 
 			case CamShake:
 				camera.shakeS(data.f_duration, data.f_power);
+
+			case ForceFastFall:
+				hero.forceFastFall();
 		}
 
 		destroy();

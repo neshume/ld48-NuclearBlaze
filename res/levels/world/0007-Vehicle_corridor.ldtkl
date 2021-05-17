@@ -344,7 +344,9 @@
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
 						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] },
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
@@ -376,7 +378,9 @@
 							"defUid": 484,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
 						},
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
@@ -475,7 +479,9 @@
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
 						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] },
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
@@ -501,14 +507,16 @@
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
 						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] },
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
 					"__identifier": "FxEmitter",
 					"__grid": [46,38],
 					"__pivot": [0,0],
-					"__tile": { "tilesetUid": 26, "srcRect": [64,0,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [176,80,16,16] },
 					"width": 16,
 					"height": 64,
 					"defUid": 458,
@@ -533,14 +541,16 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [11508892] }]
 						},
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
 					"__identifier": "FxEmitter",
 					"__grid": [28,39],
 					"__pivot": [0,0],
-					"__tile": { "tilesetUid": 26, "srcRect": [64,0,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [176,80,16,16] },
 					"width": 16,
 					"height": 64,
 					"defUid": 458,
@@ -565,7 +575,9 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [11508892] }]
 						},
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
@@ -591,7 +603,9 @@
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
 						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] },
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
@@ -840,7 +854,9 @@
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
 						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] },
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
@@ -866,7 +882,9 @@
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
 						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] },
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1166,14 +1184,16 @@
 							"defUid": 484,
 							"realEditorValues": [{ "id": "V_Float", "params": [1.5] }]
 						},
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
 					"__identifier": "FxEmitter",
 					"__grid": [3,39],
 					"__pivot": [0,0],
-					"__tile": { "tilesetUid": 26, "srcRect": [48,0,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [176,80,16,16] },
 					"width": 64,
 					"height": 16,
 					"defUid": 458,
@@ -1198,7 +1218,9 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [8292508] }]
 						},
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1684,7 +1706,7 @@
 					"__identifier": "FxEmitter",
 					"__grid": [63,38],
 					"__pivot": [0,0],
-					"__tile": { "tilesetUid": 26, "srcRect": [64,0,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [176,80,16,16] },
 					"width": 16,
 					"height": 32,
 					"defUid": 458,
@@ -1721,7 +1743,18 @@
 							"defUid": 484,
 							"realEditorValues": [{ "id": "V_Float", "params": [1.5] }]
 						},
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{
+							"__identifier": "startActive",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 517,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ false ]
+							}]
+						}
 					]
 				},
 				{
@@ -1767,7 +1800,7 @@
 					"__identifier": "FxEmitter",
 					"__grid": [68,52],
 					"__pivot": [0,0],
-					"__tile": { "tilesetUid": 26, "srcRect": [48,0,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [176,80,16,16] },
 					"width": 16,
 					"height": 48,
 					"defUid": 458,
@@ -1792,7 +1825,9 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [8027796] }]
 						},
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{

@@ -339,20 +339,20 @@ class Level extends dn.Process {
 		dn.Bresenham.iterateDisc(cx,cy, radius, (x,y)->revealFog(x,y));
 	}
 
-	public inline function revealFog(cx,cy, allowRecursion=true) {
+	public inline function revealFog(cx,cy, immediate=false, allowRecursion=true) {
 		if( !isFogRevealed(cx,cy) ) {
-			fogReveals.set( coordId(cx,cy), 0.33 );
+			fogReveals.set( coordId(cx,cy), immediate ? 1 : 0.33 );
 
 			if( allowRecursion ) {
 				// Wall edges
 				for(oy in -1...2)
 				for(ox in -1...2)
 					if( hasMark(WallEdge, cx+ox,cy+oy) && !isFogRevealed(cx+ox,cy+oy) )
-						revealFog(cx+ox,cy+oy, false);
+						revealFog(cx+ox,cy+oy, immediate, false);
 
 				// Doors
-				if( hasMark(DoorZone,cx+1,cy) ) revealFog(cx+1,cy, false);
-				if( hasMark(DoorZone,cx-1,cy) ) revealFog(cx-1,cy, false);
+				if( hasMark(DoorZone,cx+1,cy) ) revealFog(cx+1,cy, immediate, false);
+				if( hasMark(DoorZone,cx-1,cy) ) revealFog(cx-1,cy, immediate, false);
 			}
 		}
 	}

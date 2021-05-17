@@ -333,6 +333,29 @@ class Fx extends dn.Process {
 		p.delayS = rnd(0,0.4);
 	}
 
+	public inline function cloud(x:Float,y:Float, col:Int, dir:Int) {
+		var p = allocTopNormal( getTile(dict.fxSmoke), x+rnd(0,8,true), y-rnd(0,10) );
+		p.setFadeS( rnd(0.1, 0.2), rnd(0.8,1), rnd(1,2) );
+		p.colorize(col);
+		p.setScale(rnd(2,3,true));
+		p.rotation = rnd(0,M.PI2);
+		p.dx = dir * rnd(3,4);
+		p.gx = dir * 0.01;
+		// p.frict = R.aroundZTO(0.99, 5);
+		p.lifeS = rnd(2,3);
+		p.delayS = rnd(0,0.4);
+	}
+
+	public inline function speedLine(x:Float,y:Float, col:Int, dir:Int) {
+		var p = allocTopNormal( getTile(dict.fxLine), x+rnd(0,8,true), y-rnd(0,10) );
+		p.setFadeS( rnd(0.2, 0.6), rnd(0.5,0.7), R.around(1.5) );
+		p.colorize(col);
+		p.scaleX = rnd(2,4);
+		p.dx = dir * rnd(8,12);
+		p.lifeS = R.around(1);
+		p.delayS = rnd(0,0.4);
+	}
+
 
 	function _bubbleDistort(p:HParticle) {
 		if( Math.isNaN(p.data0) ) {

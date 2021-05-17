@@ -22,8 +22,11 @@ class FogPiercer extends Entity {
 
 	override function trigger() {
 		super.trigger();
-		for( y in cy...cy+M.round(hei/Const.GRID) )
-		for( x in cx...cx+M.round(wid/Const.GRID) )
-			level.revealFog(x,y);
+
+		for( y in cTop...cBottom )
+		for( x in cLeft...cRight )
+			level.revealFog(x,y, data.f_triggerId<0);
+
+		destroy();
 	}
 }

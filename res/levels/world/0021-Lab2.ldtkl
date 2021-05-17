@@ -104,7 +104,9 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [2908113] }]
 						},
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
@@ -130,14 +132,16 @@
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
 						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] },
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
 					"__identifier": "FxEmitter",
 					"__grid": [21,11],
 					"__pivot": [0,0],
-					"__tile": { "tilesetUid": 26, "srcRect": [48,0,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [176,80,16,16] },
 					"width": 192,
 					"height": 16,
 					"defUid": 458,
@@ -162,7 +166,9 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [6455177] }]
 						},
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
-						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
