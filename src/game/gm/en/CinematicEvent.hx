@@ -34,8 +34,15 @@ class CinematicEvent extends Entity {
 			case BumpAndLockHero:
 				hero.cancelVelocities();
 				hero.bump( data.f_x, data.f_y );
-				if( data.f_duration>0 )
+				if( data.f_duration>0 ) {
 					hero.lockControlsS(data.f_duration);
+					hero.cd.setS("dirLock", data.f_duration);
+				}
+
+			case LockHero:
+				hero.lockControlsS(data.f_duration);
+				hero.cd.setS("dirLock", data.f_duration);
+
 
 			case Explosion:
 				fx.explosion(data.pixelX, data.pixelY);
@@ -47,7 +54,7 @@ class CinematicEvent extends Entity {
 				camera.shakeS(data.f_duration, data.f_power);
 
 			case CamShoulder:
-				camera.shoulderModeS(data.f_duration);
+				camera.setShoulderIntensity(data.f_power);
 
 			case ForceFastFall:
 				hero.forceFastFall();

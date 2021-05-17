@@ -176,8 +176,9 @@ class Camera extends dn.Process {
 		shakePower = pow;
 	}
 
-	public function shoulderModeS(t:Float) {
-		cd.setS("shoulder", t, true);
+	var shoulderPower = 0.;
+	public function setShoulderIntensity(pow:Float) {
+		shoulderPower = pow;
 	}
 
 	public inline function bumpAng(a, dist) {
@@ -218,9 +219,9 @@ class Camera extends dn.Process {
 		}
 
 		// Shoulder effect
-		if( cd.has("shoulder") ) {
-			scroller.x += Math.cos(ftime*0.040) * 10 * cd.getRatio("shoulder");
-			scroller.y += Math.sin(ftime*0.031 + 1) * 8 * cd.getRatio("shoulder");
+		if( shoulderPower>0 ) {
+			scroller.x += Math.cos(ftime*0.026) * 7 * shoulderPower;
+			scroller.y += Math.sin(ftime*0.011 + 1) * 5 * shoulderPower;
 		}
 
 		// Scaling

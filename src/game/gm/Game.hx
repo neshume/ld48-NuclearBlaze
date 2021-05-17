@@ -102,10 +102,10 @@ class Game extends Process {
 	}
 
 
-	public function fadeFromBlack() {
+	public function fadeFromBlack(speed=1.0) {
 		fadeMask.visible = true;
 		tw.terminateWithoutCallbacks(fadeMask.alpha);
-		tw.createS(fadeMask.alpha, 1>0, 1.2).end( ()->fadeMask.visible = false );
+		tw.createS(fadeMask.alpha, 1>0, 1.2/speed).end( ()->fadeMask.visible = false );
 	}
 
 	public function fadeToBlack() {
@@ -187,6 +187,11 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_CheckPoint) new gm.en.CheckPoint(d);
 		for(d in level.data.l_Entities.all_CinematicEvent) new gm.en.CinematicEvent(d);
 
+		if( !level.data.f_fog )
+			for( cy in 0...level.cHei)
+			for( cx in 0...level.cWid)
+				level.revealFog(cx,cy, true);
+
 		for(d in level.data.l_Entities.all_Smoker)
 			dn.Bresenham.iterateDisc(d.cx, d.cy, d.f_radius, (x,y)->{
 				if( level.hasFireState(x,y) ) {
@@ -205,6 +210,10 @@ class Game extends Process {
 		}
 
 
+		if( level.data.f_showGameMenu )
+			new GameMenu();
+
+
 		// for(d in level.data.l_Entities.all_FireStarter)
 		// 	dn.Bresenham.iterateDisc( d.cx, d.cy, d.f_range, (x,y)->{
 		// 		level.ignite(x,y, d.f_startFireLevel);
@@ -216,7 +225,7 @@ class Game extends Process {
 		camera.centerOnTarget();
 		hud.onLevelStart();
 		Process.resizeAll();
-		fadeFromBlack();
+		fadeFromBlack(level.data.f_fadeInSpeed);
 	}
 
 

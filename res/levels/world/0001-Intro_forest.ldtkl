@@ -10,7 +10,7 @@
 	},
 	"identifier": "Intro_forest",
 	"uid": 97,
-	"worldX": 0,
+	"worldX": 832,
 	"worldY": 0,
 	"pxWid": 1520,
 	"pxHei": 1104,
@@ -44,7 +44,22 @@
 				"params": [ true ]
 			}]
 		},
-		{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
+		{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
+		{
+			"__identifier": "fadeInSpeed",
+			"__value": 1,
+			"__type": "Float",
+			"defUid": 520,
+			"realEditorValues": [null]
+		},
+		{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
+		{
+			"__identifier": "showGameMenu",
+			"__value": false,
+			"__type": "Bool",
+			"defUid": 523,
+			"realEditorValues": [null]
+		}
 	],
 	"layerInstances": [
 		{
@@ -2062,10 +2077,10 @@
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
 						{
 							"__identifier": "customColor",
-							"__value": "#FF3B00",
+							"__value": "#A92222",
 							"__type": "Color",
 							"defUid": 463,
-							"realEditorValues": [{ "id": "V_Int", "params": [16726784] }]
+							"realEditorValues": [{ "id": "V_Int", "params": [11084322] }]
 						},
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
 						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
@@ -2104,10 +2119,10 @@
 						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 490, "realEditorValues": [] },
 						{
 							"__identifier": "power",
-							"__value": 0,
+							"__value": 1,
 							"__type": "Float",
 							"defUid": 491,
-							"realEditorValues": [null]
+							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
 						},
 						{ "__identifier": "selfTriggerDist", "__value": 0, "__type": "Float", "defUid": 493, "realEditorValues": [] },
 						{
@@ -2119,10 +2134,10 @@
 						},
 						{
 							"__identifier": "duration",
-							"__value": 5,
+							"__value": 0,
 							"__type": "Float",
 							"defUid": 495,
-							"realEditorValues": [{ "id": "V_Float", "params": [5] }]
+							"realEditorValues": [null]
 						}
 					]
 				},
@@ -2449,6 +2464,65 @@
 							}]
 						},
 						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "CinematicEvent",
+					"__grid": [25,15],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,80,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 485,
+					"px": [408,248],
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 4,
+							"__type": "Int",
+							"defUid": 486,
+							"realEditorValues": [{ "id": "V_Int", "params": [4] }]
+						},
+						{
+							"__identifier": "eventType",
+							"__value": "CamShoulder",
+							"__type": "LocalEnum.CinematicEventType",
+							"defUid": 488,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["CamShoulder"]
+							}]
+						},
+						{
+							"__identifier": "x",
+							"__value": 0,
+							"__type": "Float",
+							"defUid": 489,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "y",
+							"__value": 0,
+							"__type": "Float",
+							"defUid": 490,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "power",
+							"__value": 0,
+							"__type": "Float",
+							"defUid": 491,
+							"realEditorValues": [{ "id": "V_Float", "params": [0] }]
+						},
+						{ "__identifier": "selfTriggerDist", "__value": 0, "__type": "Float", "defUid": 493, "realEditorValues": [] },
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 494, "realEditorValues": [] },
+						{
+							"__identifier": "duration",
+							"__value": 0,
+							"__type": "Float",
+							"defUid": 495,
+							"realEditorValues": [null]
+						}
 					]
 				}
 			]
@@ -14091,5 +14165,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [{ "levelUid": 499, "dir": "e" }]
+	"__neighbours": [ { "levelUid": 499, "dir": "e" }, { "levelUid": 521, "dir": "w" } ]
 }

@@ -335,9 +335,9 @@ class Fx extends dn.Process {
 
 	public inline function cloud(x:Float,y:Float, col:Int, dir:Int) {
 		var p = allocTopNormal( getTile(dict.fxSmoke), x+rnd(0,8,true), y-rnd(0,10) );
-		p.setFadeS( rnd(0.1, 0.2), rnd(0.8,1), rnd(1,2) );
+		p.setFadeS( rnd(0.04, 0.10), rnd(0.8,1), rnd(1,2) );
 		p.colorize(col);
-		p.setScale(rnd(2,3,true));
+		p.setScale(rnd(4,5,true));
 		p.rotation = rnd(0,M.PI2);
 		p.dx = dir * rnd(5,12);
 		p.gx = dir * 0.01;

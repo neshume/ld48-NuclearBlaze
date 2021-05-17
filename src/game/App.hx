@@ -62,9 +62,7 @@ class App extends dn.Process {
 	}
 
 	public function mainMenu() {
-		if( Game.exists() )
-			Game.ME.destroy();
-		new MainMenu();
+		startGame(false); // HACK
 	}
 
 	final function _createGameInstance(kidMode) {

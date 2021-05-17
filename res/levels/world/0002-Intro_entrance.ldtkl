@@ -10,7 +10,7 @@
 	},
 	"identifier": "Intro_entrance",
 	"uid": 499,
-	"worldX": 1552,
+	"worldX": 2384,
 	"worldY": 0,
 	"pxWid": 1504,
 	"pxHei": 544,
@@ -44,7 +44,10 @@
 				"params": [ true ]
 			}]
 		},
-		{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] }
+		{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
+		{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
+		{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
+		{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 	],
 	"layerInstances": [
 		{
@@ -673,20 +676,20 @@
 					"fieldInstances": [
 						{
 							"__identifier": "title",
-							"__value": "?",
+							"__value": "A",
 							"__type": "String",
 							"defUid": 140,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["?"]
+								"params": ["A"]
 							}]
 						},
 						{
 							"__identifier": "color",
-							"__value": "#FFCC00",
+							"__value": "#49AF0D",
 							"__type": "Color",
 							"defUid": 141,
-							"realEditorValues": [{ "id": "V_Int", "params": [16763904] }]
+							"realEditorValues": [{ "id": "V_Int", "params": [4828941] }]
 						},
 						{
 							"__identifier": "size",
