@@ -587,7 +587,8 @@
 							"defUid": 463,
 							"realEditorValues": [{ "id": "V_Int", "params": [54886] }]
 						},
-						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
 					]
 				},
 				{
@@ -618,7 +619,8 @@
 							"defUid": 463,
 							"realEditorValues": [{ "id": "V_Int", "params": [54886] }]
 						},
-						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
 					]
 				},
 				{
@@ -649,7 +651,8 @@
 							"defUid": 463,
 							"realEditorValues": [{ "id": "V_Int", "params": [54886] }]
 						},
-						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
 					]
 				},
 				{

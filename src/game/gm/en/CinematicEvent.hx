@@ -31,10 +31,11 @@ class CinematicEvent extends Entity {
 			case LockControlsUntilLand:
 				hero.cd.setS("fallLock", 99);
 
-			case BumpHero:
+			case BumpAndLockHero:
 				hero.cancelVelocities();
 				hero.bump( data.f_x, data.f_y );
-				hero.lockControlsS(data.f_duration);
+				if( data.f_duration>0 )
+					hero.lockControlsS(data.f_duration);
 
 			case Explosion:
 				fx.explosion(data.pixelX, data.pixelY);

@@ -317,7 +317,7 @@ class Fx extends dn.Process {
 	}
 
 
-	public inline function smoke(x:Float,y:Float, fromColor=0x4d4959, toColor=0x0) {
+	public inline function smoke(x:Float,y:Float, fromColor=0x4d4959, toColor=0x0, wind=true) {
 		var p = allocTopNormal( getTile(dict.fxSmoke), x+rnd(0,8,true), y-rnd(0,10) );
 		p.setFadeS( rnd(0.1, 0.2), rnd(0.6,1), rnd(1,2) );
 		p.colorAnimS(fromColor, toColor, rnd(0.8, 1.2));
@@ -325,7 +325,8 @@ class Fx extends dn.Process {
 		p.rotation = rnd(0,M.PI2);
 		p.dr = rnd(0,0.02,true);
 		p.ds = rnd(0.002, 0.004);
-		p.gx = windX*rnd(0.01,0.02);
+		if( wind )
+			p.gx = windX*rnd(0.01,0.02);
 		p.gy = -rnd(0.01, 0.02);
 		p.frict = rnd(0.97,0.98);
 		p.lifeS = rnd(1,2);

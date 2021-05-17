@@ -52,8 +52,8 @@ class FxEmitter extends Entity {
 						for(i in 0...n) {
 							x = rnd(left,right);
 							y = rnd(top,bottom);
-							if( camera.isOnScreen(x,y,32) )
-								fx.smoke(x, y, data.f_customColor_int);
+							if( camera.isOnScreen(x,y,128) )
+								fx.smoke(x, y, data.f_customColor_int, data.f_wind);
 						}
 					}
 
@@ -65,8 +65,8 @@ class FxEmitter extends Entity {
 						for(i in 0...n) {
 							x = rnd(left,right);
 							y = rnd(top,bottom);
-							if( camera.isOnScreen(x,y,32) )
-								fx.smoke(x, y, data.f_customColor_int, C.toBlack(data.f_customColor_int,0.5));
+							if( camera.isOnScreen(x,y,128) )
+								fx.smoke(x, y, data.f_customColor_int, C.toBlack(data.f_customColor_int,0.5), data.f_wind);
 						}
 					}
 

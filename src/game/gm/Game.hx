@@ -168,6 +168,7 @@ class Game extends Process {
 		camera.clampToLevelBounds = level.data.f_clampCameraToBounds;
 
 		for(d in level.data.l_Entities.all_Door) new gm.en.int.Door(d);
+		for(d in level.data.l_Entities.all_HorizontalDoor) new gm.en.int.HorizontalDoor(d);
 		for(d in level.data.l_Entities.all_Item) new gm.en.Item(d);
 		for(d in level.data.l_Entities.all_Dialog) new gm.en.Dialog(d);
 		for(d in level.data.l_Entities.all_Tutorial) new gm.en.Tutorial(d);

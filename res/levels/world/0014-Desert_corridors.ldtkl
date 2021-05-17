@@ -324,13 +324,13 @@
 				},
 				{
 					"__identifier": "Trigger",
-					"__grid": [32,27],
+					"__grid": [32,26],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [32,176,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 179,
-					"px": [520,440],
+					"px": [520,424],
 					"fieldInstances": [
 						{
 							"__identifier": "triggerId",
@@ -1829,7 +1829,8 @@
 							"defUid": 463,
 							"realEditorValues": [{ "id": "V_Int", "params": [1605858] }]
 						},
-						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1860,7 +1861,8 @@
 							"defUid": 463,
 							"realEditorValues": [{ "id": "V_Int", "params": [1630853] }]
 						},
-						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1891,7 +1893,8 @@
 							"defUid": 463,
 							"realEditorValues": [{ "id": "V_Int", "params": [1860349] }]
 						},
-						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1973,7 +1976,8 @@
 						},
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
 						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] },
-						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1998,7 +2002,8 @@
 						},
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
 						{ "__identifier": "customColor", "__value": "#FFFFFF", "__type": "Color", "defUid": 463, "realEditorValues": [] },
-						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] }
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] }
 					]
 				}
 			]
@@ -2633,8 +2638,7 @@
 				{ "px": [688,624], "src": [128,16], "f": 0, "t": 48, "d": [1876] },
 				{ "px": [688,640], "src": [80,32], "f": 0, "t": 85, "d": [1923] },
 				{ "px": [224,672], "src": [0,144], "f": 0, "t": 360, "d": [1988] },
-				{ "px": [224,688], "src": [80,144], "f": 0, "t": 365, "d": [2035] },
-				{ "px": [400,688], "src": [64,144], "f": 0, "t": 364, "d": [2046] }
+				{ "px": [224,688], "src": [80,144], "f": 0, "t": 365, "d": [2035] }
 			],
 			"entityInstances": []
 		},
