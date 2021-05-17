@@ -35,10 +35,11 @@ class GameMenu extends dn.Process {
 		} );
 
 		addItem( L.t._("Kid mode"), ()->{
-			Game.ME.fadeToBlack();
-			Game.ME.delayer.addS( Game.ME.nextLevel, 0.6 );
-			Game.ME.kidMode = true;
-			destroy();
+			Game.ME.fx.flashBangS(0xff0000, 0.5);
+			// Game.ME.fadeToBlack();
+			// Game.ME.delayer.addS( Game.ME.nextLevel, 0.6 );
+			// Game.ME.kidMode = true;
+			// destroy();
 		} );
 
 		var hasSave = false;
