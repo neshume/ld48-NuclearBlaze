@@ -177,6 +177,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_CameraOffset) new gm.en.CameraOffset(d);
 		for(d in level.data.l_Entities.all_FireSpray) new gm.en.FireSpray(d);
 		for(d in level.data.l_Entities.all_Trigger) new gm.en.Trigger(d);
+		for(d in level.data.l_Entities.all_Repeater) new gm.en.Repeater(d);
 		for(d in level.data.l_Entities.all_Light) new gm.en.Light(d);
 		for(d in level.data.l_Entities.all_Sprinkler) new gm.en.Sprinkler(d);
 		for(d in level.data.l_Entities.all_Explosive) new gm.en.Explosive(d);
@@ -508,10 +509,8 @@ class Game extends Process {
 			#end
 
 			// Restart
-			if( ca.isKeyboardPressed(K.R) && ca.isKeyboardDown(K.SHIFT) ) {
-				new ModeSelect();
-				destroy();
-			}
+			if( ca.isKeyboardPressed(K.R) && ca.isKeyboardDown(K.SHIFT) )
+				App.ME.mainMenu();
 			else if( ca.selectPressed() )
 				restartCurrentLevel();
 

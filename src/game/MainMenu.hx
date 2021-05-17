@@ -1,10 +1,10 @@
-class ModeSelect extends dn.Process {
+class MainMenu extends dn.Process {
 	var ca : ControllerAccess;
 	var f : h2d.Flow;
 
 	public function new() {
 		super(App.ME);
-		ca = App.ME.controller.createAccess("mode", true);
+		ca = App.ME.controller.createAccess("menu", true);
 		createRootInLayers( App.ME.root, Const.DP_UI );
 
 		f = new h2d.Flow(root);

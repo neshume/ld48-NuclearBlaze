@@ -35,10 +35,9 @@ class App extends dn.Process {
 		#if debug
 		startGame(false);
 		#else
-		new ModeSelect();
+		mainMenu();
 		#end
 	}
-
 
 
 	/** Start game process **/
@@ -60,6 +59,12 @@ class App extends dn.Process {
 				hxd.Timer.skip();
 			}, 1 );
 		}
+	}
+
+	public function mainMenu() {
+		if( Game.exists() )
+			Game.ME.destroy();
+		new MainMenu();
 	}
 
 	final function _createGameInstance(kidMode) {
