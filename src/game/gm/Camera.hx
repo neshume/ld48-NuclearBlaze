@@ -219,8 +219,8 @@ class Camera extends dn.Process {
 
 		// Shoulder effect
 		if( cd.has("shoulder") ) {
-			scroller.x += Math.cos(ftime*0.040) * 8 * cd.getRatio("shoulder");
-			scroller.y += Math.sin(ftime*0.031 + 1) * 6 * cd.getRatio("shoulder");
+			scroller.x += Math.cos(ftime*0.040) * 10 * cd.getRatio("shoulder");
+			scroller.y += Math.sin(ftime*0.031 + 1) * 8 * cd.getRatio("shoulder");
 		}
 
 		// Scaling

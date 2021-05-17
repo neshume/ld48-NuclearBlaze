@@ -22,11 +22,13 @@ class HorizontalDoor extends Entity {
 		pivotX = data.pivotX;
 		pivotY = data.pivotY;
 
-		leftDoor = new h2d.ScaleGrid(Assets.tiles.getTile(dict.doorHorizontalLeft), 5,8,3,8, spr);
+		var tid = data.f_thin ? dict.doorHorizontalThinLeft : dict.doorHorizontalLeft;
+		leftDoor = new h2d.ScaleGrid(Assets.tiles.getTile(tid), 5,8,3,8, spr);
 		leftDoor.tileBorders = true;
 		leftDoor.height = leftDoor.tile.height;
 
-		rightDoor = new h2d.ScaleGrid(Assets.tiles.getTile(dict.doorHorizontalRight), 3,8,5,8, spr);
+		var tid = data.f_thin ? dict.doorHorizontalThinRight : dict.doorHorizontalRight;
+		rightDoor = new h2d.ScaleGrid(Assets.tiles.getTile(tid), 3,8,5,8, spr);
 		rightDoor.tileBorders = true;
 		rightDoor.height = rightDoor.tile.height;
 

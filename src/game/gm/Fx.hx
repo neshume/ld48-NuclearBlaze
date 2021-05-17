@@ -347,7 +347,7 @@ class Fx extends dn.Process {
 	}
 
 	public inline function speedLine(x:Float,y:Float, col:Int, dir:Int) {
-		var p = allocTopNormal( getTile(dict.fxLine), x+rnd(0,8,true), y-rnd(0,10) );
+		var p = allocTopNormal( getTile(dict.fxLine), x, y);
 		p.setFadeS( rnd(0.2, 0.6), rnd(0.5,0.7), R.around(1.5) );
 		p.colorize(col);
 		p.scaleX = rnd(2,4);
@@ -356,27 +356,49 @@ class Fx extends dn.Process {
 		p.delayS = rnd(0,0.4);
 	}
 
+	public inline function starField(x:Float,y:Float, col:Int, dir:Int) {
+		var z = rnd(0,0.7);
+		var p = allocBgAdd( getTile(dict.pixel), x, y );
+		p.setFadeS( R.around(0.8)*(1-z), 0, R.around(0.2) );
+		p.colorize(col);
+		p.dx = dir * R.around(4, 5) * (1-z);
+		p.lifeS = R.around(1+z*3);
+		p.delayS = rnd(0,0.4);
+	}
+
 	public function helicopter(x:Float,y:Float, col:Int) {
 		// Tip
-		var p = allocTopNormal( getTile(dict.fxHelicopterTip), x+R.around(80,5), y );
-		p.colorize(C.toWhite(col,0.6));
-		p.setFadeS( R.around(0.6), 0.03, 0.1);
-		p.scaleX = rnd(0.8,1);
-		p.dx = -5;
-		// p.frict = 0.98;
-		p.scaleMul = 0.98;
-		p.lifeS = 0.3;
+		// var p = allocTopNormal( getTile(dict.fxHelicopterTip), x+R.around(80,5), y );
+		// p.colorize(C.toWhite(col,0.6));
+		// p.setFadeS( R.around(0.6), 0.03, 0.1);
+		// p.scaleX = rnd(0.8,1);
+		// p.dx = -5;
+		// // p.frict = 0.98;
+		// p.scaleMul = 0.98;
+		// p.lifeS = 0.3;
 
 		// Main
-		var p = allocTopNormal( getTile(dict.fxHelicopter), x+rnd(0,1,true), y+rnd(0,1,true) );
-		p.colorize(col);
-		p.setFadeS( R.around(0.4), 0.03, 0.1);
-		p.scaleX = rnd(0.1,0.2,true);
-		p.scaleY = rnd(1,2,true);
-		p.dsX = 1.3;
-		p.dsFrict = 0.8;
-		p.scaleMul = 0.9;
-		p.lifeS = 0.3;
+		// var n = 3;
+		// for(i in 0...n) {
+			var p = allocTopNormal( getTile(dict.fxHeliWings), x+rnd(0,1,true), y+rnd(0,1,true) );
+			// p.setFadeS( 0.5 - 0.4*i/(n-1), 0.2, 0.4 );
+			p.colorize(col);
+			p.alpha = 0.5;
+			p.playAnimLoop(Assets.tiles, dict.fxHeliWings, 0.4);
+			p.scaleX = 3.5;
+			p.scaleY = 0.22;
+			// p.delayS = 0.12 * i/(n-1);
+			p.lifeS = 0.5;
+		// }
+		// var p = allocTopNormal( getTile(dict.fxHelicopter), x+rnd(0,1,true), y+rnd(0,1,true) );
+		// p.colorize(col);
+		// p.setFadeS( R.around(0.4), 0.03, 0.1);
+		// p.scaleX = rnd(0.1,0.2,true);
+		// p.scaleY = rnd(1,2,true);
+		// p.dsX = 1.3;
+		// p.dsFrict = 0.8;
+		// p.scaleMul = 0.9;
+		// p.lifeS = 0.3;
 	}
 
 
