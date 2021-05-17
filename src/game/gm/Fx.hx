@@ -339,7 +339,7 @@ class Fx extends dn.Process {
 		p.colorize(col);
 		p.setScale(rnd(2,3,true));
 		p.rotation = rnd(0,M.PI2);
-		p.dx = dir * rnd(3,4);
+		p.dx = dir * rnd(5,12);
 		p.gx = dir * 0.01;
 		// p.frict = R.aroundZTO(0.99, 5);
 		p.lifeS = rnd(2,3);
@@ -351,9 +351,32 @@ class Fx extends dn.Process {
 		p.setFadeS( rnd(0.2, 0.6), rnd(0.5,0.7), R.around(1.5) );
 		p.colorize(col);
 		p.scaleX = rnd(2,4);
-		p.dx = dir * rnd(8,12);
+		p.dx = dir * rnd(10,16);
 		p.lifeS = R.around(1);
 		p.delayS = rnd(0,0.4);
+	}
+
+	public function helicopter(x:Float,y:Float, col:Int) {
+		// Tip
+		var p = allocTopNormal( getTile(dict.fxHelicopterTip), x+R.around(80,5), y );
+		p.colorize(C.toWhite(col,0.6));
+		p.setFadeS( R.around(0.6), 0.03, 0.1);
+		p.scaleX = rnd(0.8,1);
+		p.dx = -5;
+		// p.frict = 0.98;
+		p.scaleMul = 0.98;
+		p.lifeS = 0.3;
+
+		// Main
+		var p = allocTopNormal( getTile(dict.fxHelicopter), x+rnd(0,1,true), y+rnd(0,1,true) );
+		p.colorize(col);
+		p.setFadeS( R.around(0.4), 0.03, 0.1);
+		p.scaleX = rnd(0.1,0.2,true);
+		p.scaleY = rnd(1,2,true);
+		p.dsX = 1.3;
+		p.dsFrict = 0.8;
+		p.scaleMul = 0.9;
+		p.lifeS = 0.3;
 	}
 
 

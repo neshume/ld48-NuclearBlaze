@@ -172,10 +172,12 @@ class Camera extends dn.Process {
 
 	var shakePower = 0.;
 	public function shakeS(t:Float, ?pow=1.0) {
-		if( pow>=shakePower ) {
-			cd.setS("shaking", t, true);
-			shakePower = pow;
-		}
+		cd.setS("shaking", t, true);
+		shakePower = pow;
+	}
+
+	public function shoulderModeS(t:Float) {
+		cd.setS("shoulder", t, true);
 	}
 
 	public inline function bumpAng(a, dist) {
@@ -213,6 +215,12 @@ class Camera extends dn.Process {
 		if( cd.has("shaking") ) {
 			scroller.x += Math.cos(ftime*1.1)*2.5*shakePower * cd.getRatio("shaking");
 			scroller.y += Math.sin(0.3+ftime*1.7)*2.5*shakePower * cd.getRatio("shaking");
+		}
+
+		// Shoulder effect
+		if( cd.has("shoulder") ) {
+			scroller.x += Math.cos(ftime*0.040) * 8 * cd.getRatio("shoulder");
+			scroller.y += Math.sin(ftime*0.031 + 1) * 6 * cd.getRatio("shoulder");
 		}
 
 		// Scaling

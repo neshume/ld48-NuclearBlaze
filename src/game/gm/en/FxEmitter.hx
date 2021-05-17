@@ -77,6 +77,11 @@ class FxEmitter extends Entity {
 						for(i in 0...2)
 							fx.speedLine(rnd(left,right), rnd(top,bottom), data.f_customColor_int, data.f_dir);
 
+				case Helicopter:
+					if( !cd.hasSetS("fx",0.06/data.f_customIntensity) ) {
+						fx.helicopter(centerX, top, data.f_customColor_int);
+					}
+
 				case Water:
 					if( isOnScreenBounds() ) {
 						if( !cd.hasSetS("bubbles",0.2/data.f_customIntensity) ) {
