@@ -33,7 +33,7 @@ class App extends dn.Process {
 		#end
 
 		#if debug
-		startGame(false);
+		startGame();
 		#else
 		mainMenu();
 		#end
@@ -41,7 +41,7 @@ class App extends dn.Process {
 
 
 	/** Start game process **/
-	public function startGame(kidMode:Bool) {
+	public function startGame() {
 		if( Console.ME.stats!=null )
 			Console.ME.stats.removeAllComponents();
 
@@ -49,24 +49,24 @@ class App extends dn.Process {
 			// Kill previous game instance first
 			Game.ME.destroy();
 			dn.Process.updateAll(1); // ensure all garbage collection is done
-			_createGameInstance(kidMode);
+			_createGameInstance();
 			hxd.Timer.skip();
 		}
 		else {
 			// Fresh start
 			delayer.addF( ()->{
-				_createGameInstance(kidMode);
+				_createGameInstance();
 				hxd.Timer.skip();
 			}, 1 );
 		}
 	}
 
 	public function mainMenu() {
-		startGame(false); // HACK
+		startGame();
 	}
 
-	final function _createGameInstance(kidMode) {
-		new Game(kidMode);
+	final function _createGameInstance() {
+		new Game();
 	}
 
 

@@ -32,8 +32,9 @@ class Game extends Process {
 
 	public var hero : Hero;
 	public var curLevelIdx = 0;
-	public var kidMode : Bool;
-	public var polite = false;
+	public var kidMode = false;
+	public var polite(get,never) : Bool;
+		inline function get_polite() return kidMode;
 
 	public var heat : Float = 0.;
 	var fadeMask : h2d.Bitmap;
@@ -44,13 +45,10 @@ class Game extends Process {
 	var validatedCheckPoints : Array<LPoint> = [];
 
 
-	public function new(kidMode) {
+	public function new() {
 		super(App.ME);
 
 		ME = this;
-		this.kidMode = kidMode;
-		if( kidMode )
-			polite = true;
 		ca = App.ME.controller.createAccess("game");
 		ca.setLeftDeadZone(0.2);
 		ca.setRightDeadZone(0.2);

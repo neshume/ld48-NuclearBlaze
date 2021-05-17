@@ -72,7 +72,7 @@ class GameMenu extends dn.Process {
 		var f = new h2d.Flow(menu);
 		var tf = new h2d.Text(Assets.fontPixel, f);
 		tf.textColor = 0xffff77;
-		tf.text = label;
+		tf.text = label.toUpperCase();
 		tf.alpha = active ? 1 : 0.33;
 
 		items.push({
@@ -86,7 +86,7 @@ class GameMenu extends dn.Process {
 		super.onResize();
 		menu.setScale(Const.SCALE);
 		menu.x = Std.int( w()*0.5 - menu.outerWidth*0.5*menu.scaleX );
-		menu.y = Std.int( h()*0.8 - menu.outerHeight*menu.scaleY );
+		menu.y = Std.int( h() - 16*Const.SCALE - menu.outerHeight*menu.scaleY );
 	}
 
 	override function onDispose() {
