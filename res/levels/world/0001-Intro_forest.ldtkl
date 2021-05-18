@@ -2689,6 +2689,72 @@
 						},
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "WallText",
+					"__grid": [79,57],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 32,
+					"height": 16,
+					"defUid": 139,
+					"px": [1272,920],
+					"fieldInstances": [
+						{
+							"__identifier": "title",
+							"__value": "A",
+							"__type": "String",
+							"defUid": 140,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["A"]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#61CB23",
+							"__type": "Color",
+							"defUid": 141,
+							"realEditorValues": [{ "id": "V_Int", "params": [6408995] }]
+						},
+						{
+							"__identifier": "size",
+							"__value": "Pixel",
+							"__type": "LocalEnum.Font",
+							"defUid": 146,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Pixel"]
+							}]
+						},
+						{
+							"__identifier": "style",
+							"__value": "GamePad",
+							"__type": "LocalEnum.TextStyle",
+							"defUid": 149,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["GamePad"]
+							}]
+						},
+						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [74,63],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [1192,1024],
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
+						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
+						{ "__identifier": "fallCinematic", "__value": false, "__type": "Bool", "defUid": 396, "realEditorValues": [] }
+					]
 				}
 			]
 		},
@@ -4522,7 +4588,6 @@
 				{ "px": [896,912], "src": [496,80], "f": 0, "t": 231, "d": [5471] },
 				{ "px": [912,912], "src": [512,80], "f": 0, "t": 232, "d": [5472] },
 				{ "px": [928,912], "src": [528,80], "f": 0, "t": 233, "d": [5473] },
-				{ "px": [1264,912], "src": [144,384], "f": 0, "t": 969, "d": [5494] },
 				{ "px": [80,928], "src": [480,96], "f": 0, "t": 270, "d": [5515] },
 				{ "px": [96,928], "src": [496,96], "f": 0, "t": 271, "d": [5516] },
 				{ "px": [112,928], "src": [512,96], "f": 0, "t": 272, "d": [5517] },
