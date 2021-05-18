@@ -147,6 +147,7 @@ class Camera extends dn.Process {
 	public function reset() {
 		clearCinematicTrackings();
 		setShoulderIntensity(0);
+		cd.unset("shaking");
 	}
 
 	public function clearCinematicTrackings() {
