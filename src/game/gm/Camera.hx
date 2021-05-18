@@ -29,7 +29,7 @@ class Camera extends dn.Process {
 	public var deadZonePctX = 0.04;
 
 	/** Verticakl camera dead-zone in percentage of viewport height **/
-	public var deadZonePctY = 0.10;
+	public var deadZonePctY = 0.08;
 
 	var baseFrict = 0.86;
 	var dx : Float;
@@ -142,6 +142,11 @@ class Camera extends dn.Process {
 			y: y,
 			durationS: durationS,
 		});
+	}
+
+	public function reset() {
+		clearCinematicTrackings();
+		setShoulderIntensity(0);
 	}
 
 	public function clearCinematicTrackings() {
@@ -322,6 +327,13 @@ class Camera extends dn.Process {
 			ty = target.centerY;
 		}
 
+		// LDtk camera offsets
+		for(e in gm.en.CameraOffset.ALL)
+			if( e.isActive() ) {
+				tx+=e.data.f_offsetX;
+				ty+=e.data.f_offsetY;
+			}
+
 		// Follow target
 		if( tx>=0 ) {
 			var spdX = 0.015*getTrackingSpeedMul()*zoom;
@@ -329,15 +341,20 @@ class Camera extends dn.Process {
 			var tx = tx + trackingOffX;
 			var ty = ty + trackingOffY;
 
+			var dzMul = cd.has("hasOffset") ? 0.45 : 1;
+
 			var a = rawFocus.angTo(tx,ty);
 			var distX = M.fabs( tx - rawFocus.levelX );
-			if( distX>=deadZonePctX*pxWid )
-				dx += Math.cos(a) * (0.8*distX-deadZonePctX*pxWid) * spdX * tmod;
+			if( distX>=deadZonePctX*pxWid*dzMul )
+				dx += Math.cos(a) * (0.8*distX-deadZonePctX*pxWid*dzMul) * spdX * tmod;
 
 			var distY = M.fabs( ty - rawFocus.levelY );
-			if( distY>=deadZonePctY*pxHei)
-				dy += Math.sin(a) * (0.8*distY-deadZonePctY*pxHei) * spdY * tmod;
+			if( distY>=deadZonePctY*pxHei*dzMul )
+				dy += Math.sin(a) * (0.8*distY-deadZonePctY*pxHei*dzMul) * spdY * tmod;
 		}
+
+		if( Console.ME.hasFlag("cam") )
+			Game.ME.fx.markerFree(tx,ty, 0.03);
 
 		// Compute frictions
 		var frictX = baseFrict - getTrackingSpeedMul()*zoom*0.027*baseFrict;
@@ -370,17 +387,6 @@ class Camera extends dn.Process {
 		dx *= Math.pow(frictX,tmod);
 		rawFocus.levelY += dy*tmod;
 		dy *= Math.pow(frictY,tmod);
-
-		// LDtk camera offsets
-		var ox = 0.;
-		var oy = 0.;
-		for(e in gm.en.CameraOffset.ALL)
-			if( e.isActive() ) {
-				ox+=e.data.f_offsetX;
-				oy+=e.data.f_offsetY;
-			}
-		extraOffX += ( ox-extraOffX ) * M.fmin(1, 0.03*tmod);
-		extraOffY += ( oy-extraOffY ) * M.fmin(1, 0.03*tmod);
 
 		var rawOffsetedX = rawFocus.levelX + extraOffX;
 		var rawOffsetedY = rawFocus.levelY + extraOffY;

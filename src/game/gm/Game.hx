@@ -153,7 +153,7 @@ class Game extends Process {
 			e.destroy();
 		garbageCollectEntities();
 		hud.clear();
-		camera.clearCinematicTrackings();
+		camera.reset();
 
 		// Inits
 		heat = 0;
@@ -486,8 +486,13 @@ class Game extends Process {
 			if( ca.isKeyboardPressed(K.ESCAPE) )
 				if( !cd.hasSetS("exitWarn",3) )
 					hud.notify(Lang.t._("Press ESCAPE again to exit."));
-				else
+				else {
+					#if debug
 					App.ME.exit();
+					#else
+					App.ME.mainMenu();
+					#end
+				}
 			#end
 
 			// Attach debug drone (CTRL-SHIFT-D)

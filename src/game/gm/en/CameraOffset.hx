@@ -30,6 +30,7 @@ class CameraOffset extends Entity {
 		super.fixedUpdate();
 
 		if( hero.isAlive() && hero.attachX>=left && hero.attachY>=top && hero.attachX<=right && hero.attachY<=bottom ) {
+			camera.cd.setS("hasOffset", 0.2);
 			cd.setS("active", 0.2);
 		}
 	}
