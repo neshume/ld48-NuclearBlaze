@@ -1419,28 +1419,6 @@
 					]
 				},
 				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [20,9],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [328,160],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
-						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
-						{
-							"__identifier": "fallCinematic",
-							"__value": false,
-							"__type": "Bool",
-							"defUid": 396,
-							"realEditorValues": [null]
-						}
-					]
-				},
-				{
 					"__identifier": "Light",
 					"__grid": [16,10],
 					"__pivot": [0.5,0.5],
@@ -2066,12 +2044,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "type",
-							"__value": "Helicopter",
+							"__value": "RotorTop",
 							"__type": "LocalEnum.FxType",
 							"defUid": 459,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Helicopter"]
+								"params": ["RotorTop"]
 							}]
 						},
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
@@ -2523,6 +2501,46 @@
 							"defUid": 495,
 							"realEditorValues": [null]
 						}
+					]
+				},
+				{
+					"__identifier": "FxEmitter",
+					"__grid": [11,9],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [208,80,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 458,
+					"px": [187,145],
+					"fieldInstances": [
+						{
+							"__identifier": "type",
+							"__value": "RotorBack",
+							"__type": "LocalEnum.FxType",
+							"defUid": 459,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["RotorBack"]
+							}]
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
+						{
+							"__identifier": "customColor",
+							"__value": "#A92222",
+							"__type": "Color",
+							"defUid": 463,
+							"realEditorValues": [{ "id": "V_Int", "params": [11084322] }]
+						},
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{
+							"__identifier": "dir",
+							"__value": -1,
+							"__type": "Int",
+							"defUid": 516,
+							"realEditorValues": [{ "id": "V_Int", "params": [-1] }]
+						},
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				}
 			]
@@ -3934,16 +3952,18 @@
 			"overrideTilesetUid": null,
 			"gridTiles": [
 				{ "px": [272,128], "src": [496,256], "f": 0, "t": 671, "d": [777] },
+				{ "px": [288,128], "src": [544,256], "f": 0, "t": 674, "d": [778] },
 				{ "px": [288,128], "src": [512,256], "f": 0, "t": 672, "d": [778] },
-				{ "px": [304,128], "src": [544,256], "f": 0, "t": 674, "d": [779] },
+				{ "px": [304,128], "src": [560,256], "f": 0, "t": 675, "d": [779] },
+				{ "px": [304,128], "src": [528,256], "f": 0, "t": 673, "d": [779] },
 				{ "px": [304,128], "src": [416,256], "f": 0, "t": 666, "d": [779] },
-				{ "px": [320,128], "src": [560,256], "f": 0, "t": 675, "d": [780] },
+				{ "px": [320,128], "src": [576,256], "f": 0, "t": 676, "d": [780] },
 				{ "px": [320,128], "src": [432,256], "f": 0, "t": 667, "d": [780] },
-				{ "px": [336,128], "src": [576,256], "f": 0, "t": 676, "d": [781] },
 				{ "px": [240,144], "src": [464,272], "f": 0, "t": 709, "d": [870] },
 				{ "px": [256,144], "src": [480,272], "f": 0, "t": 710, "d": [871] },
 				{ "px": [272,144], "src": [496,272], "f": 0, "t": 711, "d": [872] },
 				{ "px": [288,144], "src": [512,272], "f": 0, "t": 712, "d": [873] },
+				{ "px": [304,144], "src": [528,272], "f": 0, "t": 713, "d": [874] },
 				{ "px": [224,160], "src": [416,272], "f": 2, "t": 706, "d": [964] },
 				{ "px": [240,160], "src": [432,272], "f": 2, "t": 707, "d": [965] },
 				{ "px": [256,160], "src": [384,272], "f": 0, "t": 704, "d": [966] },

@@ -267,28 +267,6 @@
 					]
 				},
 				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [24,17],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [392,288],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
-						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
-						{
-							"__identifier": "fallCinematic",
-							"__value": false,
-							"__type": "Bool",
-							"defUid": 396,
-							"realEditorValues": [null]
-						}
-					]
-				},
-				{
 					"__identifier": "Light",
 					"__grid": [20,18],
 					"__pivot": [0.5,0.5],
@@ -508,12 +486,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "type",
-							"__value": "Helicopter",
+							"__value": "RotorTop",
 							"__type": "LocalEnum.FxType",
 							"defUid": 459,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Helicopter"]
+								"params": ["RotorTop"]
 							}]
 						},
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
@@ -526,7 +504,13 @@
 						},
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
 						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
-						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{
+							"__identifier": "dir",
+							"__value": 1,
+							"__type": "Int",
+							"defUid": 516,
+							"realEditorValues": [null]
+						},
 						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
@@ -1059,6 +1043,62 @@
 						},
 						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "FxEmitter",
+					"__grid": [15,17],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [208,80,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 458,
+					"px": [251,274],
+					"fieldInstances": [
+						{
+							"__identifier": "type",
+							"__value": "RotorBack",
+							"__type": "LocalEnum.FxType",
+							"defUid": 459,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["RotorBack"]
+							}]
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
+						{
+							"__identifier": "customColor",
+							"__value": "#A92222",
+							"__type": "Color",
+							"defUid": 463,
+							"realEditorValues": [{ "id": "V_Int", "params": [11084322] }]
+						},
+						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
+						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
+						{
+							"__identifier": "dir",
+							"__value": -1,
+							"__type": "Int",
+							"defUid": 516,
+							"realEditorValues": [{ "id": "V_Int", "params": [-1] }]
+						},
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [23,18],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [376,304],
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
+						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
+						{ "__identifier": "fallCinematic", "__value": false, "__type": "Bool", "defUid": 396, "realEditorValues": [] }
+					]
 				}
 			]
 		},
@@ -1367,16 +1407,18 @@
 			"overrideTilesetUid": null,
 			"gridTiles": [
 				{ "px": [336,256], "src": [496,256], "f": 0, "t": 671, "d": [821] },
+				{ "px": [352,256], "src": [544,256], "f": 0, "t": 674, "d": [822] },
 				{ "px": [352,256], "src": [512,256], "f": 0, "t": 672, "d": [822] },
-				{ "px": [368,256], "src": [544,256], "f": 0, "t": 674, "d": [823] },
+				{ "px": [368,256], "src": [560,256], "f": 0, "t": 675, "d": [823] },
 				{ "px": [368,256], "src": [416,256], "f": 0, "t": 666, "d": [823] },
-				{ "px": [384,256], "src": [560,256], "f": 0, "t": 675, "d": [824] },
+				{ "px": [368,256], "src": [528,256], "f": 0, "t": 673, "d": [823] },
+				{ "px": [384,256], "src": [576,256], "f": 0, "t": 676, "d": [824] },
 				{ "px": [384,256], "src": [432,256], "f": 0, "t": 667, "d": [824] },
-				{ "px": [400,256], "src": [576,256], "f": 0, "t": 676, "d": [825] },
 				{ "px": [304,272], "src": [464,272], "f": 0, "t": 709, "d": [869] },
 				{ "px": [320,272], "src": [480,272], "f": 0, "t": 710, "d": [870] },
 				{ "px": [336,272], "src": [496,272], "f": 0, "t": 711, "d": [871] },
 				{ "px": [352,272], "src": [512,272], "f": 0, "t": 712, "d": [872] },
+				{ "px": [368,272], "src": [528,272], "f": 0, "t": 713, "d": [873] },
 				{ "px": [288,288], "src": [416,272], "f": 2, "t": 706, "d": [918] },
 				{ "px": [304,288], "src": [432,272], "f": 2, "t": 707, "d": [919] },
 				{ "px": [320,288], "src": [384,272], "f": 0, "t": 704, "d": [920] },

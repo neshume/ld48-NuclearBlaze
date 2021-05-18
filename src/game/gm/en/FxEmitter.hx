@@ -81,9 +81,13 @@ class FxEmitter extends Entity {
 					if( isOnScreenBounds(128) && !cd.hasSetS("fx",0.06/data.f_customIntensity) )
 						fx.starField(rnd(left,right), rnd(top,bottom), data.f_customColor_int, data.f_dir);
 
-				case Helicopter:
+				case RotorTop:
 					if( isOnScreenBounds() && !cd.hasSetS("fx",0.2/data.f_customIntensity) )
-						fx.helicopter(centerX, top, data.f_customColor_int);
+						fx.helicopterRotorTop(centerX, top, data.f_dir, data.f_customColor_int);
+
+				case RotorBack:
+					if( isOnScreenBounds() && !cd.hasSetS("fx",0.1/data.f_customIntensity) )
+						fx.helicopterRotorBack(centerX, centerY, data.f_dir, data.f_customColor_int);
 
 				case Water:
 					if( isOnScreenBounds() ) {

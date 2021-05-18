@@ -366,39 +366,25 @@ class Fx extends dn.Process {
 		p.delayS = rnd(0,0.4);
 	}
 
-	public function helicopter(x:Float,y:Float, col:Int) {
-		// Tip
-		// var p = allocTopNormal( getTile(dict.fxHelicopterTip), x+R.around(80,5), y );
-		// p.colorize(C.toWhite(col,0.6));
-		// p.setFadeS( R.around(0.6), 0.03, 0.1);
-		// p.scaleX = rnd(0.8,1);
-		// p.dx = -5;
-		// // p.frict = 0.98;
-		// p.scaleMul = 0.98;
-		// p.lifeS = 0.3;
+	public function helicopterRotorTop(x:Float,y:Float, dir:Int, col:Int) {
+		var p = allocTopNormal( getTile(dict.fxHeliWings), x+rnd(0,1,true), y+rnd(0,1,true) );
+		p.colorize(col);
+		p.alpha = 0.5;
+		p.playAnimLoop(Assets.tiles, dict.fxHeliWings, 0.4);
+		p.scaleX = 3.5;
+		p.scaleY = 0.22;
+		p.lifeS = 0.5;
+	}
 
-		// Main
-		// var n = 3;
-		// for(i in 0...n) {
-			var p = allocTopNormal( getTile(dict.fxHeliWings), x+rnd(0,1,true), y+rnd(0,1,true) );
-			// p.setFadeS( 0.5 - 0.4*i/(n-1), 0.2, 0.4 );
-			p.colorize(col);
-			p.alpha = 0.5;
-			p.playAnimLoop(Assets.tiles, dict.fxHeliWings, 0.4);
-			p.scaleX = 3.5;
-			p.scaleY = 0.22;
-			// p.delayS = 0.12 * i/(n-1);
-			p.lifeS = 0.5;
-		// }
-		// var p = allocTopNormal( getTile(dict.fxHelicopter), x+rnd(0,1,true), y+rnd(0,1,true) );
-		// p.colorize(col);
-		// p.setFadeS( R.around(0.4), 0.03, 0.1);
-		// p.scaleX = rnd(0.1,0.2,true);
-		// p.scaleY = rnd(1,2,true);
-		// p.dsX = 1.3;
-		// p.dsFrict = 0.8;
-		// p.scaleMul = 0.9;
-		// p.lifeS = 0.3;
+
+	public function helicopterRotorBack(x:Float,y:Float, dir:Int, col:Int) {
+		var p = allocTopNormal( getTile(dict.fxHeliWings), x+rnd(0,1,true), y+rnd(0,1,true) );
+		p.colorize(col);
+		p.alpha = 0.7;
+		p.playAnimLoop(Assets.tiles, dict.fxHeliWings, 0.8);
+		p.setScale(0.2);
+		p.scaleX*=dir;
+		p.lifeS = 0.5;
 	}
 
 
