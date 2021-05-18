@@ -47,6 +47,20 @@ class Console extends h2d.Console {
 		});
 		this.addAlias("+","set");
 		this.addAlias("-","unset");
+
+
+		this.addCommand("m", [{ name:"k", t:AString, opt:true } ], function(?k:String) {
+			if( !Game.exists() )
+				return;
+
+			if( k==null )
+				Game.ME.fx.clear();
+			else {
+				var e = try LevelMark.createByName(k) catch(_) null;
+				if( e!=null )
+					Game.ME.level.debugMark(e);
+			}
+		});
 		#end
 
 		// List all active dn.Process
