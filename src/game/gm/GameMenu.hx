@@ -20,7 +20,7 @@ class GameMenu extends dn.Process {
 		ME = this;
 		createRootInLayers(Game.ME.root, Const.DP_TOP);
 
-		ca = App.ME.controller.createAccess("menu", true);
+		ca = App.ME.controller.createAccess("menu");
 
 		menu = new h2d.Flow(root);
 		menu.layout = Vertical;
@@ -128,5 +128,10 @@ class GameMenu extends dn.Process {
 				curIdx++;
 			onCurChange();
 		}
+
+		#if !js
+		if( ca.isKeyboardPressed(K.ESCAPE) )
+			App.ME.exit();
+		#end
 	}
 }
