@@ -16,6 +16,7 @@ class GameMenu extends dn.Process {
 
 	public function new() {
 		super(Game.ME);
+
 		if( ME!=null )
 			ME.destroy();
 		ME = this;
@@ -111,6 +112,13 @@ class GameMenu extends dn.Process {
 		for(e in items)
 			e.tf.textColor = 0xffcc00;
 		cur.tf.textColor = 0xffffff;
+	}
+
+	override function preUpdate() {
+		super.preUpdate();
+
+		if( !Game.ME.level.data.f_showGameMenu )
+			destroy();
 	}
 
 	override function update() {
