@@ -172,7 +172,7 @@
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": [ "!>Spotted fire!", "R!>Continue and take action." ],
+							"__value": [ "!>Spotted fire!", "R!>Continue and check for survivors." ],
 							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [ {
@@ -180,7 +180,7 @@
 								"params": ["!>Spotted fire!"]
 							}, {
 								"id": "V_String",
-								"params": ["R!>Continue and take action."]
+								"params": ["R!>Continue and check for survivors."]
 							} ]
 						},
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
@@ -1607,13 +1607,13 @@
 				},
 				{
 					"__identifier": "FxEmitter",
-					"__grid": [63,10],
+					"__grid": [64,10],
 					"__pivot": [0,0],
 					"__tile": { "tilesetUid": 26, "srcRect": [176,80,16,16] },
 					"width": 16,
 					"height": 240,
 					"defUid": 458,
-					"px": [1008,160],
+					"px": [1024,160],
 					"fieldInstances": [
 						{
 							"__identifier": "type",
@@ -1656,13 +1656,13 @@
 				},
 				{
 					"__identifier": "FxEmitter",
-					"__grid": [62,11],
+					"__grid": [65,11],
 					"__pivot": [0,0],
 					"__tile": { "tilesetUid": 26, "srcRect": [176,80,16,16] },
-					"width": 48,
+					"width": 16,
 					"height": 240,
 					"defUid": 458,
-					"px": [992,176],
+					"px": [1040,176],
 					"fieldInstances": [
 						{
 							"__identifier": "type",
@@ -2144,7 +2144,11 @@
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": [ "!>Explosions in the building!", "R!>Received. Proceed with investigations." ],
+							"__value": [
+								"!>Explosions in the building!",
+								"R!>Received. Proceed with caution.",
+								"Thanks Captain Obvious..."
+							],
 							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [ {
@@ -2152,7 +2156,10 @@
 								"params": ["!>Explosions in the building!"]
 							}, {
 								"id": "V_String",
-								"params": ["R!>Received. Proceed with investigations."]
+								"params": ["R!>Received. Proceed with caution."]
+							}, {
+								"id": "V_String",
+								"params": ["Thanks Captain Obvious..."]
 							} ]
 						},
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
@@ -2270,25 +2277,25 @@
 						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 490, "realEditorValues": [] },
 						{
 							"__identifier": "power",
-							"__value": 0.4,
+							"__value": 0.2,
 							"__type": "Float",
 							"defUid": 491,
-							"realEditorValues": [{ "id": "V_Float", "params": [0.4] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [0.2] }]
 						},
 						{ "__identifier": "selfTriggerDist", "__value": 0, "__type": "Float", "defUid": 493, "realEditorValues": [] },
 						{
 							"__identifier": "triggerDelay",
-							"__value": 4,
+							"__value": 2,
 							"__type": "Float",
 							"defUid": 494,
-							"realEditorValues": [{ "id": "V_Float", "params": [4] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
 						},
 						{
 							"__identifier": "duration",
-							"__value": 4,
+							"__value": 10,
 							"__type": "Float",
 							"defUid": 495,
-							"realEditorValues": [{ "id": "V_Float", "params": [4] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [10] }]
 						}
 					]
 				},
@@ -2436,6 +2443,96 @@
 						{ "__identifier": "lookRight", "__value": true, "__type": "Bool", "defUid": 28, "realEditorValues": [] },
 						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 448, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "FxEmitter",
+					"__grid": [61,11],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [176,80,16,16] },
+					"width": 16,
+					"height": 240,
+					"defUid": 458,
+					"px": [976,176],
+					"fieldInstances": [
+						{
+							"__identifier": "type",
+							"__value": "ColorSmoke",
+							"__type": "LocalEnum.FxType",
+							"defUid": 459,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["ColorSmoke"]
+							}]
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
+						{
+							"__identifier": "customColor",
+							"__value": "#292040",
+							"__type": "Color",
+							"defUid": 463,
+							"realEditorValues": [{ "id": "V_Int", "params": [2695232] }]
+						},
+						{
+							"__identifier": "customIntensity",
+							"__value": 0.6,
+							"__type": "Float",
+							"defUid": 484,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
+						},
+						{
+							"__identifier": "wind",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 509,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ false ]
+							}]
+						},
+						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "CinematicEvent",
+					"__grid": [61,14],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,80,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 485,
+					"px": [984,232],
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 14,
+							"__type": "Int",
+							"defUid": 486,
+							"realEditorValues": [{ "id": "V_Int", "params": [14] }]
+						},
+						{
+							"__identifier": "eventType",
+							"__value": "Explosion",
+							"__type": "LocalEnum.CinematicEventType",
+							"defUid": 488,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Explosion"]
+							}]
+						},
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 489, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 490, "realEditorValues": [] },
+						{ "__identifier": "power", "__value": 0, "__type": "Float", "defUid": 491, "realEditorValues": [] },
+						{ "__identifier": "selfTriggerDist", "__value": 0, "__type": "Float", "defUid": 493, "realEditorValues": [] },
+						{
+							"__identifier": "triggerDelay",
+							"__value": 1,
+							"__type": "Float",
+							"defUid": 494,
+							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
+						},
+						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] }
+					]
 				}
 			]
 		},
@@ -2568,15 +2665,33 @@
 			"seed": 689040,
 			"overrideTilesetUid": null,
 			"gridTiles": [
+				{ "px": [736,64], "src": [368,32], "f": 1, "t": 103, "d": [346] },
+				{ "px": [752,64], "src": [432,32], "f": 0, "t": 107, "d": [347] },
+				{ "px": [768,64], "src": [336,0], "f": 0, "t": 21, "d": [348] },
+				{ "px": [768,80], "src": [176,128], "f": 0, "t": 331, "d": [423] },
+				{ "px": [784,80], "src": [176,128], "f": 0, "t": 331, "d": [424] },
+				{ "px": [800,96], "src": [336,0], "f": 0, "t": 21, "d": [500] },
+				{ "px": [816,96], "src": [208,96], "f": 0, "t": 253, "d": [501] },
+				{ "px": [832,96], "src": [208,96], "f": 0, "t": 253, "d": [502] },
+				{ "px": [864,96], "src": [352,0], "f": 0, "t": 22, "d": [504] },
+				{ "px": [880,96], "src": [160,96], "f": 0, "t": 250, "d": [505] },
+				{ "px": [912,96], "src": [160,96], "f": 0, "t": 250, "d": [507] },
+				{ "px": [928,96], "src": [176,96], "f": 0, "t": 251, "d": [508] },
 				{ "px": [944,96], "src": [224,16], "f": 0, "t": 54, "d": [509] },
 				{ "px": [1072,96], "src": [224,16], "f": 1, "t": 54, "d": [517] },
 				{ "px": [640,112], "src": [576,64], "f": 0, "t": 196, "d": [565] },
 				{ "px": [672,112], "src": [560,96], "f": 0, "t": 275, "d": [567] },
+				{ "px": [816,112], "src": [160,112], "f": 0, "t": 290, "d": [576] },
+				{ "px": [832,112], "src": [176,112], "f": 0, "t": 291, "d": [577] },
+				{ "px": [848,112], "src": [160,128], "f": 0, "t": 330, "d": [578] },
+				{ "px": [864,112], "src": [176,128], "f": 0, "t": 331, "d": [579] },
 				{ "px": [976,112], "src": [0,128], "f": 2, "t": 320, "d": [586] },
 				{ "px": [992,112], "src": [16,128], "f": 2, "t": 321, "d": [587] },
 				{ "px": [1008,112], "src": [0,128], "f": 2, "t": 320, "d": [588] },
 				{ "px": [1024,112], "src": [0,128], "f": 2, "t": 320, "d": [589] },
 				{ "px": [1040,112], "src": [16,128], "f": 2, "t": 321, "d": [590] },
+				{ "px": [1104,112], "src": [192,128], "f": 0, "t": 332, "d": [594] },
+				{ "px": [1120,112], "src": [176,128], "f": 0, "t": 331, "d": [595] },
 				{ "px": [624,128], "src": [560,48], "f": 0, "t": 155, "d": [639] },
 				{ "px": [640,128], "src": [576,80], "f": 0, "t": 236, "d": [640] },
 				{ "px": [672,128], "src": [560,64], "f": 0, "t": 195, "d": [642] },
