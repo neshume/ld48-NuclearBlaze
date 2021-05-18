@@ -32,6 +32,8 @@ class CinematicEvent extends Entity {
 				hero.cd.setS("fallLock", 99);
 
 			case BumpAndLockHero:
+				if( hero.climbing )
+					hero.stopClimbing();
 				hero.cancelVelocities();
 				hero.bump( data.f_x, data.f_y );
 				if( data.f_duration>0 ) {
