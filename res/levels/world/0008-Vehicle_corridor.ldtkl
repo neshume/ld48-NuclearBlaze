@@ -1243,7 +1243,13 @@
 							"defUid": 136,
 							"realEditorValues": [{ "id": "V_Float", "params": [-40] }]
 						},
-						{ "__identifier": "offsetY", "__value": 0, "__type": "Float", "defUid": 137, "realEditorValues": [] }
+						{
+							"__identifier": "offsetY",
+							"__value": -16,
+							"__type": "Float",
+							"defUid": 137,
+							"realEditorValues": [{ "id": "V_Float", "params": [-16] }]
+						}
 					]
 				},
 				{
