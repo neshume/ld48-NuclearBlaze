@@ -232,7 +232,7 @@ class Hero extends gm.Entity {
 	override function onLand(cHei:Float) {
 		super.onLand(cHei);
 
-		if( isAlive() )
+		if( isAlive() && cHei>1 )
 			spr.anim.play(anims.land);
 
 		if( getFastFallRatio()>0.5 ) {
@@ -745,6 +745,19 @@ class Hero extends gm.Entity {
 			dy = -0.55;
 		}
 
+		// Hop on cliff edges
+		if( isAlive() && !cd.has("hopLock") && !onGround && dy>0 && yr<0.3 &&( level.hasMark(EdgeGrabToLeft,cx,cy) || level.hasMark(EdgeGrabToRight,cx,cy) ) ) {
+			if( dir==1 && xr>=0.5 && level.hasMark(EdgeGrabToRight,cx,cy) || dir==-1 && xr<=0.5 && level.hasMark(EdgeGrabToLeft,cx,cy) ) {
+				xr = 0.5+dir*0.2;
+				yr = 0.3;
+				assist(dir*0.15, -0.3);
+				dx*=0.3;
+				dy*=0.1;
+				cd.setS("hopLock", 0.2);
+				onPosManuallyChanged();
+			}
+		}
+
 		// Lost ladder
 		if( climbing && !level.hasLadder(cx,cy) && !level.hasLadder(cx,cy+1) )
 			stopClimbing();
@@ -834,29 +847,27 @@ class Hero extends gm.Entity {
 
 		// Auto jump
 		if( onGround && ca.leftDist()>0 ) {
-			if( game.kidMode ) {
-				// Jump 1
-				if( level.hasMark(AutoJump1,cx,cy) && level.hasAnyCollision(cx+dir,cy) && ( dir>0 && xr>0.35 || dir<0 && xr<0.65 ) ) {
-					bump(0.1*dir, 0);
-					dx = 0;
-					dy = -0.51;
+			// Jump 1
+			if( level.hasMark(AutoJump1,cx,cy) && level.hasWallCollision(cx+dir,cy) && ( dir>0 && xr>0.45 || dir<0 && xr<0.55 ) )
+				if( dir==1 && level.hasMark(PlatformEndLeft,cx+1,cy-1) || dir==-1 && level.hasMark(PlatformEndRight,cx-1,cy-1) ) {
+					assist(0.1*dir, -0.5, 0.76);
+					lockControlsS(0.1);
+					// bump(0.1*dir, 0);
+					// dx = 0;
+					// dy = -0.51;
+					clearRecentlyOnGround();
+					cancelAction("jump");
 				}
 
-				// Jump 2
-				if( level.hasMark(AutoJump2,cx,cy) && level.hasAnyCollision(cx+dir,cy) && ( dir>0 && xr>0.35 || dir<0 && xr<0.65 ) ) {
+			// Jump 2
+			if( game.kidMode && level.hasMark(AutoJump2,cx,cy) && level.hasAnyCollision(cx+dir,cy) && ( dir>0 && xr>0.35 || dir<0 && xr<0.65 ) )
+				if( dir==1 && level.hasMark(PlatformEndLeft,cx+1,cy-2) || dir==-1 && level.hasMark(PlatformEndRight,cx-1,cy-2) ) {
 					bump(0.1*dir, 0);
 					dx = 0;
 					dy = -0.81;
+					clearRecentlyOnGround();
+					cancelAction("jump");
 				}
-			}
-			else {
-				// Jump 1 grass
-				if( level.hasMark(AutoJump1,cx,cy) && level.hasWallCollision(cx+dir,cy) && ( dir>0 && xr>0.35 || dir<0 && xr<0.65 ) ) {
-					bump(0.1*dir, 0);
-					dx = 0;
-					dy = -0.51;
-				}
-			}
 		}
 
 

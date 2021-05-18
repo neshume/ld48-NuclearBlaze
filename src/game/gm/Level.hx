@@ -57,8 +57,29 @@ class Level extends dn.Process {
 				if( !hc(cx+1,cy+1) || !hc(cx+1,cy-1) || !hc(cx-1,cy-1) || !hc(cx-1,cy+1) )
 					setMark(WallEdge, cx,cy);
 			}
+
+			if( !hc(cx,cy) && hc(cx+1,cy) )
+				setMark(WallToRight, cx, cy);
+
+			if( !hc(cx,cy) && hc(cx-1,cy) )
+				setMark(WallToLeft, cx, cy);
+
 			if( !hc(cx,cy) && ( hc(cx+1,cy) || hc(cx-1,cy) || hc(cx,cy+1) || hc(cx,cy-1) ) )
 				setMark(NearCollision, cx,cy);
+
+			if( !hc(cx,cy) && !hc(cx,cy-1) ) {
+				if( hc(cx+1,cy) && !hc(cx+1,cy-1) )
+					setMark(EdgeGrabToRight, cx,cy);
+				if( hc(cx-1,cy) && !hc(cx-1,cy-1) )
+					setMark(EdgeGrabToLeft, cx,cy);
+			}
+
+			if( !hc(cx,cy) && hc(cx,cy+1) ) {
+				if( !hc(cx+1,cy+1) || hc(cx+1,cy) )
+					setMark(PlatformEndRight, cx,cy);
+				if( !hc(cx-1,cy+1) || hc(cx-1,cy) )
+					setMark(PlatformEndLeft, cx,cy);
+			}
 
 			if( !hc(cx,cy) && hc(cx,cy+1) && !hc(cx,cy-1) )
 				for(d in dirs) {
@@ -170,6 +191,14 @@ class Level extends dn.Process {
 				marks.set(mark, new Map());
 			marks.get(mark).set( coordId(cx,cy), true );
 		}
+	}
+
+	/** Show a mark in level, for debug purpose **/
+	public function debugMark(m:LevelMark) {
+		for(cy in 0...cHei)
+		for(cx in 0...cWid)
+			if( hasMark(m, cx,cy) )
+				game.fx.markerCase(cx,cy, 99);
 	}
 
 	/** Remove mark at coordinates **/

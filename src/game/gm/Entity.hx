@@ -57,6 +57,11 @@ class Entity {
 	/** Uncontrollable bump Y velocity, usually applied by external factors (eg. a bumper in Sonic) **/
 	public var bdy = 0.;
 
+	/** X velocity created by some assist techniques **/
+    public var assistDx = 0.;
+	/** Y velocity created by some assist techniques **/
+    public var assistDy = 0.;
+
 	/** Last known X position of the attach point (in pixels), at the beginning of the latest fixedUpdate **/
 	var lastFixedUpdateX = 0.;
 	/** Last known Y position of the attach point (in pixels), at the beginning of the latest fixedUpdate **/
@@ -66,8 +71,8 @@ class Entity {
 	var interpolateSprPos = true;
 
 	// Velocities + bump velocities
-	public var dxTotal(get,never) : Float; inline function get_dxTotal() return dx+bdx;
-	public var dyTotal(get,never) : Float; inline function get_dyTotal() return dy+bdy;
+	public var dxTotal(get,never) : Float; inline function get_dxTotal() return dx+bdx+assistDx;
+	public var dyTotal(get,never) : Float; inline function get_dyTotal() return dy+bdy+assistDy;
 
 	/** Multiplier applied on each frame to normal X velocity **/
 	public var frictX = 0.82;
@@ -82,6 +87,9 @@ class Entity {
 	public var bumpFrictX = 0.93;
 	/** Multiplier applied on each frame to bump Y velocity **/
 	public var bumpFrictY = 0.93;
+
+	/** Multiplier applied on each frame to assist velocity **/
+	public var assistFrict = 1.0;
 
 	/** Pixel width of entity **/
 	public var wid(default,set) : Float = Const.GRID;
@@ -364,6 +372,12 @@ class Entity {
 	public function cancelVelocities() {
 		dx = bdx = 0;
 		dy = bdy = 0;
+	}
+
+	public function assist(adx:Float, ady:Float, frict=0.85) {
+		assistDx = adx;
+		assistDy = ady;
+		assistFrict = frict;
 	}
 
 	public function is<T:Entity>(c:Class<T>) return Std.isOfType(this, c);
@@ -783,6 +797,7 @@ class Entity {
 				if( isAlive() )
 					bdx*=0.8;
 				bdy = 0;
+				assistDx = assistDy = 0;
 				var cHei = M.fmax(0, cy+yr-fallStartCy);
 				onPosManuallyChanged();
 				onLand(cHei);
@@ -845,12 +860,14 @@ class Entity {
 		// X frictions
 		dx *= frictX;
 		bdx *= bumpFrictX;
+		assistDx *= assistFrict;
 		if( M.fabs(dx) <= 0.0005 ) dx = 0;
 		if( M.fabs(bdx) <= 0.0005 ) bdx = 0;
 
 		// Y frictions
 		dy *= frictY;
 		bdy *= bumpFrictY;
+		assistDy *= assistFrict;
 		if( M.fabs(dy) <= 0.0005 ) dy = 0;
 		if( M.fabs(bdy) <= 0.0005 ) bdy = 0;
 	}
