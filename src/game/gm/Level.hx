@@ -230,6 +230,12 @@ class Level extends dn.Process {
 	function render() {
 		root.removeChildren();
 
+		if( data.hasBgImage() ) {
+			var bg = data.getBgBitmap();
+			root.addChild(bg);
+		}
+
+
 		var tg = new h2d.TileGroup(tilesetSource, root);
 		data.l_BgWalls.render(tg);
 		data.l_Collisions.render(tg);

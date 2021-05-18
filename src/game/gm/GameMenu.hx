@@ -1,6 +1,6 @@
 package gm;
 
-typedef MenuItem ={ f:h2d.Flow, active:Bool, cb:Void->Void }
+typedef MenuItem ={ f:h2d.Flow, tf:h2d.Text, active:Bool, cb:Void->Void }
 
 class GameMenu extends dn.Process {
 	static var ME : GameMenu;
@@ -10,6 +10,7 @@ class GameMenu extends dn.Process {
 
 	var curIdx = 0;
 	var cur(get,never) : MenuItem;
+	var curBg : h2d.Bitmap;
 
 	var ca : ControllerAccess;
 
@@ -22,10 +23,12 @@ class GameMenu extends dn.Process {
 
 		ca = App.ME.controller.createAccess("menu");
 
+		curBg = new h2d.Bitmap( h2d.Tile.fromColor( C.hexToInt("#1f314f"), 0.66), root );
+
 		menu = new h2d.Flow(root);
 		menu.layout = Vertical;
 		menu.verticalSpacing = 2;
-		menu.horizontalAlign = Middle;
+		// menu.horizontalAlign = Middle;
 
 		addItem( L.t._("New game"), ()->{
 			Game.ME.fadeToBlack();
@@ -78,6 +81,7 @@ class GameMenu extends dn.Process {
 
 		items.push({
 			f: f,
+			tf: tf,
 			active: active,
 			cb: cb,
 		});
@@ -86,8 +90,12 @@ class GameMenu extends dn.Process {
 	override function onResize() {
 		super.onResize();
 		menu.setScale(Const.SCALE);
-		menu.x = Std.int( w()*0.5 - menu.outerWidth*0.5*menu.scaleX );
+		menu.x = Std.int( w()*0.7 + 8*Const.SCALE );
 		menu.y = Std.int( h() - 16*Const.SCALE - menu.outerHeight*menu.scaleY );
+
+		curBg.x = w()*0.7;
+		curBg.scaleX = w()*0.3;
+		curBg.scaleY = 16 * Const.SCALE;
 	}
 
 	override function onDispose() {
@@ -101,16 +109,15 @@ class GameMenu extends dn.Process {
 
 	function onCurChange() {
 		for(e in items)
-			e.f.filter = null;
-		cur.f.filter = new dn.heaps.filter.PixelOutline( C.hexToInt("#78a5ff") );
-		// cur.f.filter = new h2d.filter.Group([
-		// 	new dn.heaps.filter.PixelOutline(0x0),
-		// 	new dn.heaps.filter.PixelOutline(0xffcc00),
-		// ]);
+			e.tf.textColor = 0xffcc00;
+		cur.tf.textColor = 0xffffff;
 	}
 
 	override function update() {
 		super.update();
+
+		curBg.y += ( menu.y + cur.f.y*Const.SCALE - curBg.y ) * 0.4;
+		curBg.scaleY = (cur.f.outerHeight+3)*Const.SCALE;
 
 		if( ca.isKeyboardPressed(K.ENTER) )
 			cur.cb();
