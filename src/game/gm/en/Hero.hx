@@ -790,6 +790,10 @@ class Hero extends gm.Entity {
 		else if( !isChargingAction("jump") )
 			dx*=0.6;
 
+		if( walkSpeed!=0 && onGround && !climbing && ( spr.frame==0 || spr.frame==4 ) ) {
+			fx.walkDust(attachX, attachY, -dir);
+		}
+
 
 		if( ifQueuedRemove(UseTool) ) {
 			if( hasItem(WaterSpray) ) {

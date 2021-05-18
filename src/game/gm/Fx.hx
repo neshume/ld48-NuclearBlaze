@@ -388,6 +388,26 @@ class Fx extends dn.Process {
 	}
 
 
+	function _dustPhysics(p:HParticle) {
+		if( collides(p) )
+			p.dy *= Math.pow(0.9,tmod);
+		else if( collides(p,0,1) && p.dy>0 )
+			p.dy*=-1;
+	}
+
+	public function walkDust(x:Float, y:Float, dir:Int, col=0xcbb5a0) {
+		var p = allocBgNormal( getTile(dict.pixel), x, y );
+		p.setFadeS(rnd(0.1,0.7), 0.06, R.around(0.2));
+		p.colorize(col);
+		p.dx = dir*rnd(0,1);
+		p.dy = -rnd(0.5,1.5);
+		p.gy = rnd(0.05,0.10);
+		p.frict = rnd(0.8,0.92);
+		p.lifeS = rnd(0.1,0.5);
+		p.onUpdate = _dustPhysics;
+	}
+
+
 	function _bubbleDistort(p:HParticle) {
 		if( Math.isNaN(p.data0) ) {
 			p.data1 = rnd(0.07,0.10); // speed
