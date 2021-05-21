@@ -1,9 +1,13 @@
+# Dirs
 bin/
 dump/
 docs/
 backups/
 res/.tmp/
+
+# Files
 *.zip
+save.cfg
 
 # VScode
 .vscode/settings.json
