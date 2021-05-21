@@ -779,6 +779,15 @@ class Hero extends gm.Entity {
 		if( climbing  )
 			xr+= ( 0.5 - xr ) * 0.5;
 
+		// Hold triggers
+		if( isAlive() && onGround && verticalAiming==1 && !isWatering() ) {
+			var e = gm.en.Trigger.getCurrent(this);
+			if( e!=null ) {
+				e.hold();
+				walkSpeed = 0;
+			}
+		}
+
 		// Walk movement
 		if( walkSpeed!=0 ) {
 			if( climbing && climbSpeed==0 )
@@ -824,13 +833,6 @@ class Hero extends gm.Entity {
 
 		if( !onGround )
 			cd.setS("recentMove",0.6);
-
-		// Hold triggers
-		if( isAlive() && onGround && verticalAiming==1 && !isWatering() ) {
-			var e = gm.en.Trigger.getCurrent(this);
-			if( e!=null )
-				e.hold();
-		}
 
 		// Fire damage
 		if( isAlive() && level.getFireLevel(cx,cy)>=1 ) {
