@@ -20,8 +20,12 @@ class FallingWreck extends Entity {
 		fx.wreckExplosion(attachX, attachY);
 		dn.Bresenham.iterateDisc(cx,cy, 1, (x,y)->{
 			if( sightCheck(x,y) )
-				level.ignite(x,y, 2, true);
+				level.ignite(x,y, 2,1, true);
 		});
+
+		// if( distCase(hero)<=1 )
+		// 	hero.kill();
+
 		destroy();
 	}
 

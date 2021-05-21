@@ -25,7 +25,7 @@ class Door extends Entity {
 		closed = !d.f_opened;
 		updateCollisions();
 		for(y in cy-cHei+1...cy+1)
-			level.setMark(DoorZone, cx,y);
+			level.setMark(VDoorZone, cx,y);
 
 		for(i in 0...cHei) {
 			level.setMark(DoorToLeft, cx+1, cy-i);

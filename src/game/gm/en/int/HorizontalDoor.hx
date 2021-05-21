@@ -36,6 +36,10 @@ class HorizontalDoor extends Entity {
 		wid = cWid*Const.GRID;
 		closed = !d.f_startOpen;
 		updateCollisions();
+
+		for(x in cx...cx+cWid)
+			level.setMark(HDoorZone, x,cy);
+
 	}
 
 	override function trigger() {

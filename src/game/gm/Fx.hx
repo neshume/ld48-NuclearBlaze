@@ -396,11 +396,11 @@ class Fx extends dn.Process {
 		else if( p.dy>0 && collides(p,0,M.ceil(p.dy*2)) ) {
 			if( p.data0>0 ) {
 				p.dx = rnd(0.2,1,true) * p.data0;
-				p.dy*=-0.4;
+				p.dy*=-0.6;
 				p.data0 = 0;
 			}
 			else
-				p.dy*=-1;
+				p.dy*=-0.3;
 			p.gy *= Math.pow(0.8,tmod);
 		}
 	}
@@ -526,6 +526,94 @@ class Fx extends dn.Process {
 			p.dy = -rnd(0.5,1);
 			p.frict = R.aroundBO(0.95);
 			p.lifeS = R.around(0.2);
+		}
+	}
+
+
+
+
+	function _brickPhysics(p:HParticle) {
+		if( collides(p) ) {
+			p.rotation = 0;
+			if( p.data0!=1 ) {
+				// First ground contact
+				p.data0 = 1;
+				p.setCenterRatio(0.5,1);
+				p.dx = rnd(0.1,0.4,true);
+				p.dy *= -rnd(0.3,0.5);
+				p.gy *= 0.8;
+				p.y-=irnd(2,3);
+			}
+			else {
+				// Stuck to ground
+				p.dr = 0;
+				p.dx *= Math.pow(0.7,tmod);
+				p.dy = 0;
+				p.gy = 0;
+			}
+		}
+		else if( p.data0==1 ) {
+			// Restart falling
+			p.gy = 0.2;
+		}
+	}
+
+
+	public function groundExplosion(cx:Int,cy:Int, c1:UInt, c2:UInt) {
+		var x = cx*Const.GRID;
+		var y = cy*Const.GRID;
+		var centerX = (cx+0.5)*Const.GRID;
+		var centerX = (cx+0.5)*Const.GRID;
+
+		// Main bricks
+		var n = 10;
+		for(i in 0...n) {
+			var p = allocBgNormal(getTile(dict.fxBrick), x+rnd(0.1,.9)*Const.GRID, y+rnd(0.1,0.9)*Const.GRID);
+			p.setFadeS(1, 0.1, rnd(1,3));
+			p.colorizeRandom(c1,c2);
+			p.scaleX = rnd(0.7,1.2);
+			p.dx = rnd(0,1,true);
+			p.dy = -rnd(1,4);
+			p.dr = rnd(0.02,0.10,true);
+			p.rotation = rnd(0,0.3,true);
+			p.gy = rnd(0.12,0.20);
+			p.frict = R.aroundBO(0.96);
+			p.lifeS = rnd(4,7);
+
+			p.onUpdate = _brickPhysics;
+		}
+
+		// Delayed falling bricks
+		n = 20;
+		for(i in 0...n) {
+			var p = allocBgNormal(getTile(dict.fxBrick), x+rnd(0.1,.9)*Const.GRID, y+rnd(0.1,0.9)*Const.GRID);
+			p.setFadeS(1, 0.1, rnd(1,3));
+			p.colorizeRandom(c1,c2);
+			p.scaleX = rnd(0.7,1.2);
+			p.dx = rnd(0,1,true);
+			p.dr = rnd(0.02,0.10,true);
+			p.rotation = rnd(0,0.3,true);
+			p.gy = rnd(0.12,0.20);
+			p.frict = R.aroundBO(0.96);
+			p.lifeS = rnd(4,7);
+			p.delayS = rnd(0.2,0.6);
+
+			p.onUpdate = _brickPhysics;
+		}
+
+		// Dust
+		n = 40;
+		for(i in 0...n) {
+			var p = allocBgNormal(getTile(dict.pixel), x+rnd(0.1,.9)*Const.GRID, y+rnd(0.1,0.9)*Const.GRID);
+			p.setFadeS(1, 0, R.around(0.5));
+			p.colorizeRandom(c1,c2);
+			p.scaleX = rnd(0.7,1.2);
+			p.gy = rnd(0.06,0.15);
+			p.frict = R.aroundBO(0.92);
+			p.lifeS = rnd(1,3);
+			p.delayS = rnd(0.3, 2.5);
+
+			p.onUpdate = _dustPhysics;
 		}
 	}
 

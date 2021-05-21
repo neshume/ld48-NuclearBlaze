@@ -5,7 +5,10 @@ enum Affect {
 enum LevelMark {
 	NearCollision;
 	WallEdge;
-	DoorZone;
+
+	VDoorZone;
+	HDoorZone;
+	
 	EdgeGrabToLeft;
 	EdgeGrabToRight;
 

@@ -1,0 +1,90 @@
+package gm.en.int;
+
+class BreakableGround extends Entity {
+	public var data : Entity_BreakableGround;
+	var cWid = 0;
+	var fakes : Array<HSprite> = [];
+
+	public function new(d:Entity_BreakableGround) {
+		super(d.cx,d.cy);
+		data = d;
+
+		setPosPixel(data.pixelX, data.pixelY);
+		collides = false;
+		gravityMul = 0;
+		triggerId = data.f_triggerId;
+		Game.ME.scroller.add(spr, Const.DP_BG);
+		pivotX = data.pivotX;
+		pivotY = data.pivotY;
+
+		cWid = M.round(d.width / Const.GRID);
+		wid = cWid*Const.GRID;
+		setCollisions(true);
+
+		for(x in cx...cx+cWid) {
+			level.setMark(HDoorZone, x,cy);
+			var s = Assets.tiles.h_get(dict.fakeGround, spr);
+			s.x = (x-cx)*Const.GRID;
+		}
+
+		// Sides
+		var s = Assets.tiles.h_get(dict.fakeGroundLeft,0, 1,0, spr);
+		s.x = 0;
+		var s = Assets.tiles.h_get(dict.fakeGroundLeft, spr);
+		s.x = cWid*Const.GRID;
+
+	}
+
+	override function trigger() {
+		super.trigger();
+		breakGround();
+	}
+
+	override function dispose() {
+		super.dispose();
+		setCollisions(false);
+	}
+
+	function setCollisions(set:Bool) {
+		if( level==null || level.destroyed )
+			return;
+
+		for(i in 0...cWid)
+			level.setCollisionOverride(cx+i, cy, set);
+	}
+
+	public function breakGround() {
+		setCollisions(false);
+
+		// Fog
+		level.clearFogUpdateDelay();
+		for(y in cy-1...cy+1)
+		for(x in cx-2...cx+3)
+			level.revealFog(x,y);
+
+		// Fx
+		fx.explosion(centerX, centerY);
+		camera.shakeS(2.5, 0.6);
+		fx.flashBangS(0xffcc00, 0.2, 0.6);
+		for(x in cx...cx+cWid)
+			fx.groundExplosion(x, cy, 0xd62411, 0x002859);
+
+		// Bump
+		if( hero.isAlive() && distCase(hero)<=4 ) {
+			var pow = 0.5 + 0.5*(1-distCase(hero)/4);
+			hero.bump( (centerX>hero.centerX ? -1 : 1) * 0.4*pow, -0.2*pow );
+		}
+
+		// Fireballs
+		for(x in cx...cx+cWid) {
+			var e = new FallingWreck((x+0.5)*Const.GRID, top+rnd(0,Const.GRID));
+			e.gravityMul*=rnd(0.5,1);
+		}
+
+		destroy();
+	}
+
+	override function postUpdate() {
+		super.postUpdate();
+	}
+}

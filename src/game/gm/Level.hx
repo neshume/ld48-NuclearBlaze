@@ -386,8 +386,12 @@ class Level extends dn.Process {
 						revealFog(cx+ox,cy+oy, immediate, false);
 
 				// Doors
-				if( hasMark(DoorZone,cx+1,cy) ) revealFog(cx+1,cy, immediate, false);
-				if( hasMark(DoorZone,cx-1,cy) ) revealFog(cx-1,cy, immediate, false);
+				if( hasMark(VDoorZone,cx+1,cy) ) revealFog(cx+1,cy, immediate, false);
+				if( hasMark(VDoorZone,cx-1,cy) ) revealFog(cx-1,cy, immediate, false);
+
+				// Doors
+				if( hasMark(HDoorZone,cx,cy-1) ) revealFog(cx,cy-1, immediate, false);
+				if( hasMark(HDoorZone,cx,cy+1) ) revealFog(cx,cy+1, immediate, false);
 			}
 		}
 	}
