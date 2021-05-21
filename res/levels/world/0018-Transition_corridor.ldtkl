@@ -10,8 +10,8 @@
 	},
 	"identifier": "Transition_corridor",
 	"uid": 433,
-	"worldX": 16896,
-	"worldY": 0,
+	"worldX": 0,
+	"worldY": 11344,
 	"pxWid": 512,
 	"pxHei": 336,
 	"__bgColor": "#242D34",
@@ -47,7 +47,7 @@
 		{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 		{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 		{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-		{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+		{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 	],
 	"layerInstances": [
 		{
@@ -2902,5 +2902,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 465, "dir": "e" }, { "levelUid": 398, "dir": "w" } ]
+	"__neighbours": [ { "levelUid": 465, "dir": "s" }, { "levelUid": 398, "dir": "n" } ]
 }

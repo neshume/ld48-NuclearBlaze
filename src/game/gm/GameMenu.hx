@@ -5,6 +5,9 @@ typedef MenuItem ={ f:h2d.Flow, tf:h2d.Text, active:Bool, cb:Void->Void }
 class GameMenu extends dn.Process {
 	static var ME : GameMenu;
 
+	public var app(get,never) : App; inline function get_app() return App.ME;
+	public var game(get,never) : Game; inline function get_game() return Game.ME;
+
 	var items : Array<MenuItem> = [];
 	var menu : h2d.Flow;
 
@@ -15,14 +18,14 @@ class GameMenu extends dn.Process {
 	var ca : ControllerAccess;
 
 	public function new() {
-		super(Game.ME);
+		super(game);
 
 		if( ME!=null )
 			ME.destroy();
 		ME = this;
-		createRootInLayers(Game.ME.root, Const.DP_TOP);
+		createRootInLayers(game.root, Const.DP_TOP);
 
-		ca = App.ME.controller.createAccess("menu");
+		ca = app.controller.createAccess("menu");
 
 		curBg = new h2d.Bitmap( h2d.Tile.fromColor( C.hexToInt("#1f314f"), 0.66), root );
 
@@ -31,35 +34,64 @@ class GameMenu extends dn.Process {
 		menu.verticalSpacing = 2;
 		// menu.horizontalAlign = Middle;
 
+		if( !app.save.exists() )
+			curIdx = 1;
+
+		addItem( L.t._("Continue"), app.save.exists(), ()->{
+			if( !app.save.exists() ) {
+				// Error
+				game.fx.flashBangS(0xff0000, 0.5);
+				return;
+			}
+
+			if( !setLock() )
+				return;
+
+			var data = Assets.worldData.getLevel(app.save.state.levelId);
+			if( data==null ) {
+				game.hud.notify( L.t._("Error: level not found ::name::", { name:app.save.state.levelId}), 0xff00);
+				return;
+			}
+			// Upgrades
+			for(uk in app.save.state.upgrades) {
+				var u = try Enum_Items.createByName(uk) catch(_) null;
+				if( u!=null )
+					game.unlockUpgrade(u);
+			}
+			// Start level
+			game.fadeToBlack(()->{
+				game.kidMode = false;
+				game.startLevel(data);
+				destroy();
+			});
+		} );
+
 		addItem( L.t._("New game"), ()->{
-			Game.ME.fadeToBlack();
-			Game.ME.kidMode = false;
-			Game.ME.delayer.addS( Game.ME.nextLevel, 0.6 );
-			destroy();
+			if( app.save.exists() && !cd.hasSetS("newConfirm",8) ) {
+				game.hud.radio(L.t._("Warning, this will erase previous progression. Confirm again to proceed."), 0xff6600);
+				return;
+			}
+
+			if( !setLock() )
+				return;
+
+			game.fadeToBlack(()->{
+				game.kidMode = false;
+				game.delayer.addS( game.nextLevel, 0.6 );
+				destroy();
+			});
 		} );
 
 		addItem( L.t._("Kid mode"), ()->{
-			Game.ME.fx.flashBangS(0xff0000, 0.5);
-			// Game.ME.fadeToBlack();
-			// Game.ME.delayer.addS( Game.ME.nextLevel, 0.6 );
-			// Game.ME.kidMode = true;
-			// destroy();
-		} );
-
-		var hasSave = false;
-		addItem( L.t._("Continue"), hasSave, ()->{
-			if( !hasSave ) {
-				Game.ME.fx.flashBangS(0xff0000, 0.5);
+			if( !setLock() )
 				return;
-			}
-			// Game.ME.fadeToBlack();
-			// Game.ME.delayer.addS( Game.ME.nextLevel, 0.6 );
-			// destroy();
+
+			game.fx.flashBangS(0xff0000, 0.5); // TODO
 		} );
 
 		#if !js
 		addItem( L.t._("Exit"), ()->{
-			App.ME.exit();
+			app.exit();
 			destroy();
 		} );
 		#end
@@ -71,6 +103,15 @@ class GameMenu extends dn.Process {
 
 	inline function get_cur() {
 		return items[curIdx];
+	}
+
+	inline function setLock() {
+		if( cd.has("locked") )
+			return false;
+		else {
+			cd.setS("locked",Const.INFINITE);
+			return true;
+		}
 	}
 
 	function addItem(label:LocaleString, active=true, cb:Void->Void) {
@@ -117,7 +158,7 @@ class GameMenu extends dn.Process {
 	override function preUpdate() {
 		super.preUpdate();
 
-		if( !Game.ME.level.data.f_showGameMenu )
+		if( !game.level.data.f_isGameMenu )
 			destroy();
 	}
 
@@ -146,7 +187,7 @@ class GameMenu extends dn.Process {
 
 		#if !js
 		if( ca.isKeyboardPressed(K.ESCAPE) )
-			App.ME.exit();
+			app.exit();
 		#end
 	}
 }

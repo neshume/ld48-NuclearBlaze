@@ -10,8 +10,8 @@
 	},
 	"identifier": "Nuclear_1st_contact",
 	"uid": 70,
-	"worldX": 9248,
-	"worldY": 0,
+	"worldX": 0,
+	"worldY": 5344,
 	"pxWid": 640,
 	"pxHei": 496,
 	"__bgColor": "#242D34",
@@ -29,7 +29,7 @@
 		{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 		{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 		{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-		{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+		{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 	],
 	"layerInstances": [
 		{
@@ -400,7 +400,7 @@
 								"params": ["TouchPlate"]
 							}]
 						},
-						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{
 							"__identifier": "cinematicReveal",
 							"__value": true,
@@ -4517,5 +4517,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 453, "dir": "e" }, { "levelUid": 474, "dir": "w" } ]
+	"__neighbours": [ { "levelUid": 453, "dir": "s" }, { "levelUid": 474, "dir": "n" } ]
 }

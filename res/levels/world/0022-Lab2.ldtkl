@@ -10,8 +10,8 @@
 	},
 	"identifier": "Lab2",
 	"uid": 478,
-	"worldX": 19344,
-	"worldY": 0,
+	"worldX": 0,
+	"worldY": 14000,
 	"pxWid": 560,
 	"pxHei": 288,
 	"__bgColor": "#242D34",
@@ -59,7 +59,7 @@
 			"realEditorValues": [{ "id": "V_Float", "params": [3] }]
 		},
 		{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-		{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+		{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 	],
 	"layerInstances": [
 		{
@@ -246,7 +246,7 @@
 								"params": ["Invisible"]
 							}]
 						},
-						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{
@@ -316,7 +316,7 @@
 						},
 						{
 							"__identifier": "gateHoldTime",
-							"__value": 3.3,
+							"__value": 2,
 							"__type": "Float",
 							"defUid": 288,
 							"realEditorValues": [null]
@@ -1843,5 +1843,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [{ "levelUid": 450, "dir": "w" }]
+	"__neighbours": [{ "levelUid": 450, "dir": "n" }]
 }

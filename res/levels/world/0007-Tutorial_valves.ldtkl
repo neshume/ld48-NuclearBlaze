@@ -10,8 +10,8 @@
 	},
 	"identifier": "Tutorial_valves",
 	"uid": 498,
-	"worldX": 7200,
-	"worldY": 0,
+	"worldX": 0,
+	"worldY": 3952,
 	"pxWid": 640,
 	"pxHei": 400,
 	"__bgColor": "#242D34",
@@ -29,7 +29,7 @@
 		{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 		{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 		{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-		{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+		{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 	],
 	"layerInstances": [
 		{
@@ -141,10 +141,10 @@
 						},
 						{
 							"__identifier": "gateHoldTime",
-							"__value": 3,
+							"__value": 2,
 							"__type": "Float",
 							"defUid": 288,
-							"realEditorValues": [{ "id": "V_Float", "params": [3] }]
+							"realEditorValues": [null]
 						},
 						{
 							"__identifier": "cinematicReveal",
@@ -560,10 +560,10 @@
 						},
 						{
 							"__identifier": "gateHoldTime",
-							"__value": 1.5,
+							"__value": 1.2,
 							"__type": "Float",
 							"defUid": 288,
-							"realEditorValues": [{ "id": "V_Float", "params": [1.5] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [1.2] }]
 						},
 						{
 							"__identifier": "cinematicReveal",
@@ -3161,5 +3161,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 474, "dir": "e" }, { "levelUid": 57, "dir": "w" } ]
+	"__neighbours": [ { "levelUid": 474, "dir": "s" }, { "levelUid": 57, "dir": "n" } ]
 }

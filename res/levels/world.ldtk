@@ -10,7 +10,7 @@
 	},
 	"jsonVersion": "0.9.4",
 	"nextUid": 524,
-	"worldLayout": "LinearHorizontal",
+	"worldLayout": "LinearVertical",
 	"worldGridWidth": 256,
 	"worldGridHeight": 256,
 	"defaultPivotX": 0.5,
@@ -5279,7 +5279,7 @@
 					"max": null,
 					"regex": null,
 					"acceptFileTypes": null,
-					"defaultOverride": { "id": "V_Float", "params": [3.3] },
+					"defaultOverride": { "id": "V_Float", "params": [2] },
 					"textLanguageMode": null
 				},
 				{
@@ -5985,7 +5985,7 @@
 			"textLanguageMode": null
 		},
 		{
-			"identifier": "showGameMenu",
+			"identifier": "isGameMenu",
 			"__type": "Bool",
 			"uid": 523,
 			"type": "F_Bool",
@@ -6062,7 +6062,7 @@
 					}]
 				},
 				{
-					"__identifier": "showGameMenu",
+					"__identifier": "isGameMenu",
 					"__value": true,
 					"__type": "Bool",
 					"defUid": 523,
@@ -6073,13 +6073,13 @@
 				}
 			],
 			"layerInstances": null,
-			"__neighbours": [{ "levelUid": 97, "dir": "e" }]
+			"__neighbours": [{ "levelUid": 97, "dir": "s" }]
 		},
 		{
 			"identifier": "Intro_forest",
 			"uid": 97,
-			"worldX": 832,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 416,
 			"pxWid": 1520,
 			"pxHei": 1104,
 			"__bgColor": "#242D34",
@@ -6122,7 +6122,7 @@
 				},
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
 				{
-					"__identifier": "showGameMenu",
+					"__identifier": "isGameMenu",
 					"__value": false,
 					"__type": "Bool",
 					"defUid": 523,
@@ -6130,13 +6130,13 @@
 				}
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 499, "dir": "e" }, { "levelUid": 521, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 499, "dir": "s" }, { "levelUid": 521, "dir": "n" } ]
 		},
 		{
 			"identifier": "Intro_entrance",
 			"uid": 499,
-			"worldX": 2384,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 1552,
 			"pxWid": 1488,
 			"pxHei": 656,
 			"__bgColor": "#242D34",
@@ -6172,16 +6172,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 85, "dir": "e" }, { "levelUid": 97, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 85, "dir": "s" }, { "levelUid": 97, "dir": "n" } ]
 		},
 		{
 			"identifier": "Logo",
 			"uid": 85,
-			"worldX": 3904,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 2240,
 			"pxWid": 704,
 			"pxHei": 352,
 			"__bgColor": "#242D34",
@@ -6217,16 +6217,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 56, "dir": "e" }, { "levelUid": 499, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 56, "dir": "s" }, { "levelUid": 499, "dir": "n" } ]
 		},
 		{
 			"identifier": "Tutorial_basics",
 			"uid": 56,
-			"worldX": 4640,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 2624,
 			"pxWid": 1200,
 			"pxHei": 432,
 			"__bgColor": "#242D34",
@@ -6244,16 +6244,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 30, "dir": "e" }, { "levelUid": 85, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 30, "dir": "s" }, { "levelUid": 85, "dir": "n" } ]
 		},
 		{
 			"identifier": "Tutorial_vertical",
 			"uid": 30,
-			"worldX": 5872,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 3088,
 			"pxWid": 560,
 			"pxHei": 352,
 			"__bgColor": "#242D34",
@@ -6271,16 +6271,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 57, "dir": "e" }, { "levelUid": 56, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 57, "dir": "s" }, { "levelUid": 56, "dir": "n" } ]
 		},
 		{
 			"identifier": "Tutorial_defense",
 			"uid": 57,
-			"worldX": 6464,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 3472,
 			"pxWid": 704,
 			"pxHei": 448,
 			"__bgColor": "#242D34",
@@ -6307,16 +6307,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 498, "dir": "e" }, { "levelUid": 30, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 498, "dir": "s" }, { "levelUid": 30, "dir": "n" } ]
 		},
 		{
 			"identifier": "Tutorial_valves",
 			"uid": 498,
-			"worldX": 7200,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 3952,
 			"pxWid": 640,
 			"pxHei": 400,
 			"__bgColor": "#242D34",
@@ -6334,16 +6334,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 474, "dir": "e" }, { "levelUid": 57, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 474, "dir": "s" }, { "levelUid": 57, "dir": "n" } ]
 		},
 		{
 			"identifier": "Vehicle_corridor",
 			"uid": 474,
-			"worldX": 7872,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 4384,
 			"pxWid": 1344,
 			"pxHei": 928,
 			"__bgColor": "#242D34",
@@ -6367,16 +6367,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 70, "dir": "e" }, { "levelUid": 498, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 70, "dir": "s" }, { "levelUid": 498, "dir": "n" } ]
 		},
 		{
 			"identifier": "Nuclear_1st_contact",
 			"uid": 70,
-			"worldX": 9248,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 5344,
 			"pxWid": 640,
 			"pxHei": 496,
 			"__bgColor": "#242D34",
@@ -6394,16 +6394,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 453, "dir": "e" }, { "levelUid": 474, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 453, "dir": "s" }, { "levelUid": 474, "dir": "n" } ]
 		},
 		{
 			"identifier": "Level_10",
 			"uid": 453,
-			"worldX": 9920,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 5872,
 			"pxWid": 1120,
 			"pxHei": 320,
 			"__bgColor": "#242D34",
@@ -6439,16 +6439,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 133, "dir": "e" }, { "levelUid": 70, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 133, "dir": "s" }, { "levelUid": 70, "dir": "n" } ]
 		},
 		{
 			"identifier": "Core_One",
 			"uid": 133,
-			"worldX": 11072,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 6224,
 			"pxWid": 560,
 			"pxHei": 496,
 			"__bgColor": "#242D34",
@@ -6466,16 +6466,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 454, "dir": "e" }, { "levelUid": 453, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 454, "dir": "s" }, { "levelUid": 453, "dir": "n" } ]
 		},
 		{
 			"identifier": "Level_12",
 			"uid": 454,
-			"worldX": 11664,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 6752,
 			"pxWid": 816,
 			"pxHei": 560,
 			"__bgColor": "#242D34",
@@ -6511,16 +6511,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 0, "dir": "e" }, { "levelUid": 133, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 0, "dir": "s" }, { "levelUid": 133, "dir": "n" } ]
 		},
 		{
 			"identifier": "Sprinklers",
 			"uid": 0,
-			"worldX": 12512,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 7344,
 			"pxWid": 976,
 			"pxHei": 448,
 			"__bgColor": "#242D34",
@@ -6538,16 +6538,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 89, "dir": "e" }, { "levelUid": 454, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 89, "dir": "s" }, { "levelUid": 454, "dir": "n" } ]
 		},
 		{
 			"identifier": "Hydroponics",
 			"uid": 89,
-			"worldX": 13520,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 7824,
 			"pxWid": 1328,
 			"pxHei": 672,
 			"__bgColor": "#242D34",
@@ -6565,16 +6565,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 409, "dir": "e" }, { "levelUid": 0, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 409, "dir": "s" }, { "levelUid": 0, "dir": "n" } ]
 		},
 		{
 			"identifier": "Desert_corridors",
 			"uid": 409,
-			"worldX": 14880,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 8528,
 			"pxWid": 752,
 			"pxHei": 816,
 			"__bgColor": "#242D34",
@@ -6610,16 +6610,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 434, "dir": "e" }, { "levelUid": 89, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 434, "dir": "s" }, { "levelUid": 89, "dir": "n" } ]
 		},
 		{
 			"identifier": "Pit",
 			"uid": 434,
-			"worldX": 15664,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 9376,
 			"pxWid": 464,
 			"pxHei": 1408,
 			"__bgColor": "#242D34",
@@ -6655,16 +6655,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 398, "dir": "e" }, { "levelUid": 409, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 398, "dir": "s" }, { "levelUid": 409, "dir": "n" } ]
 		},
 		{
 			"identifier": "Explosives",
 			"uid": 398,
-			"worldX": 16160,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 10816,
 			"pxWid": 704,
 			"pxHei": 496,
 			"__bgColor": "#242D34",
@@ -6682,16 +6682,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 433, "dir": "e" }, { "levelUid": 434, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 433, "dir": "s" }, { "levelUid": 434, "dir": "n" } ]
 		},
 		{
 			"identifier": "Transition_corridor",
 			"uid": 433,
-			"worldX": 16896,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 11344,
 			"pxWid": 512,
 			"pxHei": 336,
 			"__bgColor": "#242D34",
@@ -6727,16 +6727,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 465, "dir": "e" }, { "levelUid": 398, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 465, "dir": "s" }, { "levelUid": 398, "dir": "n" } ]
 		},
 		{
 			"identifier": "Burning_pit",
 			"uid": 465,
-			"worldX": 17440,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 11712,
 			"pxWid": 784,
 			"pxHei": 1456,
 			"__bgColor": "#242D34",
@@ -6772,16 +6772,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 118, "dir": "e" }, { "levelUid": 433, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 118, "dir": "s" }, { "levelUid": 433, "dir": "n" } ]
 		},
 		{
 			"identifier": "Thank_you_for_playing",
 			"uid": 118,
-			"worldX": 18256,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 13200,
 			"pxWid": 576,
 			"pxHei": 400,
 			"__bgColor": "#242D34",
@@ -6808,16 +6808,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 450, "dir": "e" }, { "levelUid": 465, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 450, "dir": "s" }, { "levelUid": 465, "dir": "n" } ]
 		},
 		{
 			"identifier": "Lab",
 			"uid": 450,
-			"worldX": 18864,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 13632,
 			"pxWid": 448,
 			"pxHei": 336,
 			"__bgColor": "#242D34",
@@ -6853,16 +6853,16 @@
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 478, "dir": "e" }, { "levelUid": 118, "dir": "w" } ]
+			"__neighbours": [ { "levelUid": 478, "dir": "s" }, { "levelUid": 118, "dir": "n" } ]
 		},
 		{
 			"identifier": "Lab2",
 			"uid": 478,
-			"worldX": 19344,
-			"worldY": 0,
+			"worldX": 0,
+			"worldY": 14000,
 			"pxWid": 560,
 			"pxHei": 288,
 			"__bgColor": "#242D34",
@@ -6910,10 +6910,10 @@
 					"realEditorValues": [{ "id": "V_Float", "params": [3] }]
 				},
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [{ "levelUid": 450, "dir": "w" }]
+			"__neighbours": [{ "levelUid": 450, "dir": "n" }]
 		}
 	]
 }

@@ -106,10 +106,14 @@ class Game extends Process {
 		tw.createS(fadeMask.alpha, 1>0, 1.2/speed).end( ()->fadeMask.visible = false );
 	}
 
-	public function fadeToBlack() {
+	public function fadeToBlack( ?cb:Void->Void ) {
 		fadeMask.visible = true;
 		tw.terminateWithoutCallbacks(fadeMask.alpha);
 		tw.createS(fadeMask.alpha, 0>1, 0.5);
+
+		delayer.cancelById("fade");
+		if( cb!=null )
+			delayer.addS("fade", cb, 0.5);
 	}
 
 	public inline function unlockUpgrade(i:Enum_Items) {
@@ -144,7 +148,7 @@ class Game extends Process {
 
 
 	/** Load a level **/
-	function startLevel(l:World.World_Level) {
+	public function startLevel(l:World.World_Level) {
 		// Cleanup
 		if( level!=null )
 			level.destroy();
@@ -159,6 +163,19 @@ class Game extends Process {
 		heat = 0;
 		delayer.cancelById("deathMsg");
 		cd.unset("successMsg");
+
+		// Save
+		if( !l.f_isGameMenu ) {
+			app.save.state.levelId = l.identifier;
+			app.save.state.upgrades = {
+				var all = [];
+				for(u in upgrades.keys())
+					all.push( u.getName() );
+				all;
+			}
+			app.save.save();
+		}
+
 
 		// Start
 		level = new Level(l);
@@ -208,7 +225,7 @@ class Game extends Process {
 		}
 
 
-		if( level.data.f_showGameMenu )
+		if( level.data.f_isGameMenu )
 			new GameMenu();
 
 
@@ -507,6 +524,12 @@ class Game extends Process {
 			// Fog
 			if( ca.isKeyboardPressed(K.F) )
 				level.fogRender.visible = !level.fogRender.visible;
+
+			// Clear save
+			if( ca.isKeyboardDown(K.SHIFT) && ca.isKeyboardPressed(K.S) ) {
+				app.save.clear();
+				hud.notify("Cleared save");
+			}
 
 			// Clear all
 			if( ca.isKeyboardPressed(K.C) ) {

@@ -10,8 +10,8 @@
 	},
 	"identifier": "Burning_pit",
 	"uid": 465,
-	"worldX": 17440,
-	"worldY": 0,
+	"worldX": 0,
+	"worldY": 11712,
 	"pxWid": 784,
 	"pxHei": 1456,
 	"__bgColor": "#242D34",
@@ -47,7 +47,7 @@
 		{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 		{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 		{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-		{ "__identifier": "showGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+		{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 	],
 	"layerInstances": [
 		{
@@ -1356,7 +1356,7 @@
 								"params": ["Invisible"]
 							}]
 						},
-						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{
@@ -1429,7 +1429,7 @@
 								"params": ["Invisible"]
 							}]
 						},
-						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{
@@ -1525,7 +1525,7 @@
 								"params": ["Invisible"]
 							}]
 						},
-						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{
@@ -1780,7 +1780,7 @@
 								"params": ["Invisible"]
 							}]
 						},
-						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{
@@ -1853,7 +1853,7 @@
 								"params": ["Invisible"]
 							}]
 						},
-						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{
@@ -12462,5 +12462,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 118, "dir": "e" }, { "levelUid": 433, "dir": "w" } ]
+	"__neighbours": [ { "levelUid": 118, "dir": "s" }, { "levelUid": 433, "dir": "n" } ]
 }

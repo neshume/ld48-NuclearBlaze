@@ -14,11 +14,15 @@ class App extends dn.Process {
 	/** Controller Access created for Main & Boot **/
 	public var ca : dn.heaps.Controller.ControllerAccess;
 
+	public var save : Save;
+
 	public function new(s:h2d.Scene) {
 		super();
 		ME = this;
 		scene = s;
         createRoot(scene);
+
+		save = new Save();
 
 		initEngine();
 		initAssets();
@@ -38,6 +42,7 @@ class App extends dn.Process {
 		mainMenu();
 		#end
 	}
+
 
 
 	/** Start game process **/

@@ -63,7 +63,7 @@
 			}]
 		},
 		{
-			"__identifier": "showGameMenu",
+			"__identifier": "isGameMenu",
 			"__value": true,
 			"__type": "Bool",
 			"defUid": 523,
@@ -144,7 +144,7 @@
 								"params": ["Invisible"]
 							}]
 						},
-						{ "__identifier": "gateHoldTime", "__value": 3.3, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{
@@ -176,10 +176,10 @@
 						},
 						{
 							"__identifier": "offsetY",
-							"__value": 32,
+							"__value": 0,
 							"__type": "Float",
 							"defUid": 137,
-							"realEditorValues": [{ "id": "V_Float", "params": [32] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [0] }]
 						}
 					]
 				},
@@ -948,6 +948,31 @@
 						},
 						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [24,11],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [392,192],
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{
+							"__identifier": "unlockAllUpgrades",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 282,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ false ]
+							}]
+						},
+						{ "__identifier": "shieldDurationS", "__value": 3, "__type": "Int", "defUid": 380, "realEditorValues": [] },
+						{ "__identifier": "fallCinematic", "__value": false, "__type": "Bool", "defUid": 396, "realEditorValues": [] }
+					]
 				}
 			]
 		},
@@ -1453,5 +1478,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [{ "levelUid": 97, "dir": "e" }]
+	"__neighbours": [{ "levelUid": 97, "dir": "s" }]
 }
