@@ -17,6 +17,7 @@ class Save {
 			#end
 		#end
 
+		var def = getDefault();
 		load();
 	}
 
@@ -31,7 +32,7 @@ class Save {
 
 	public function load() {
 		if( checkSupport() ) {
-			state = dn.LocalStorage.readObject("save",true, getDefault());
+			state = dn.LocalStorage.readObject("save", true, getDefault());
 			save();
 		}
 	}
@@ -42,7 +43,7 @@ class Save {
 	}
 
 	public inline function exists() {
-		return state.levelId!=null;
+		return state.levelId != getDefault().levelId;
 	}
 
 	function getDefault() : SaveState {

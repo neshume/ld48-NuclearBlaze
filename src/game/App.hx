@@ -22,8 +22,6 @@ class App extends dn.Process {
 		scene = s;
         createRoot(scene);
 
-		save = new Save();
-
 		initEngine();
 		initAssets();
 		initController();
@@ -36,6 +34,11 @@ class App extends dn.Process {
 		new dn.heaps.GameFocusHelper(scene, Assets.fontLarge, hxd.Res.thumb.toTile());
 		#end
 
+
+		// Load save
+		save = new Save();
+
+		// Start
 		#if debug
 		startGame();
 		#else
