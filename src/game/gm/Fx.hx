@@ -389,10 +389,20 @@ class Fx extends dn.Process {
 
 
 	function _dustPhysics(p:HParticle) {
-		if( collides(p) )
+		if( collides(p) ) {
 			p.dy *= Math.pow(0.9,tmod);
-		else if( collides(p,0,1) && p.dy>0 )
-			p.dy*=-1;
+			p.gy *= Math.pow(0.8,tmod);
+		}
+		else if( p.dy>0 && collides(p,0,M.ceil(p.dy*2)) ) {
+			if( p.data0>0 ) {
+				p.dx = rnd(0.2,1,true) * p.data0;
+				p.dy*=-0.4;
+				p.data0 = 0;
+			}
+			else
+				p.dy*=-1;
+			p.gy *= Math.pow(0.8,tmod);
+		}
 	}
 
 	public function walkDust(x:Float, y:Float, dir:Int, col=0xcbb5a0) {
@@ -404,6 +414,192 @@ class Fx extends dn.Process {
 		p.gy = rnd(0.05,0.10);
 		p.frict = rnd(0.8,0.92);
 		p.lifeS = rnd(0.1,0.5);
+		p.onUpdate = _dustPhysics;
+	}
+
+	public function blackDust(x:Float, y:Float) {
+		// Lines
+		var p = allocBgNormal( getTile(dict.fxLineThinRight), x, y+rnd(0,2) );
+		p.setCenterRatio(0.1,0.5);
+		p.setFadeS(rnd(0.2,0.5), R.around(0.3), R.around(0.5));
+		p.colorize(0x0);
+		p.rotation = M.PIHALF;
+		p.dsX = rnd(0.02,0.04);
+		p.dsFrict = R.aroundZTO(0.995,5);
+		p.scaleXMul = 0.985;
+		p.scaleX = rnd(0.05,0.15);
+		p.lifeS = rnd(0.4,0.8);
+		p.delayS = R.around(0.2);
+
+		// Dots
+		for(i in 0...irnd(1,3)) {
+			var p = allocBgNormal( getTile(dict.pixel), x+rnd(0,1,true), y );
+			p.setFadeS(rnd(0.3,0.8), 0, R.around(0.2));
+			p.colorize(0x0);
+			p.gy = rnd(0.07,0.16);
+			p.frict = rnd(0.90,0.96);
+			p.lifeS = rnd(0.6,2);
+			p.delayS = rnd(0,0.3);
+			p.data0 = R.around(0.2);
+			p.onUpdate = _dustPhysics;
+		}
+	}
+
+	function _dirtPhysics(p:HParticle) {
+		// Hand slowly at start
+		if( p.data1>0 ) {
+			p.data1 -= 1/Const.FPS * tmod;
+			p.dy *= Math.pow(0.1,tmod);
+		}
+
+		if( collides(p) ) {
+			if( p.data0!=1 ) {
+				// First ground contact
+				p.data0 = 1;
+				p.setCenterRatio(0.5,1);
+				p.dx = rnd(0.1,0.4,true);
+				p.dy *= -0.3;
+				p.gy *= 0.6;
+				p.dr = 0;
+				p.rotation = 0;
+				p.scaleX *= 1.5;
+				p.scaleY *= 0.5;
+				p.scaleYMul = R.aroundZTO(0.99);
+				p.y--;
+
+				// Small particles when hitting ground
+				for(i in 0...irnd(2,4)) {
+					var d = allocBgNormal( getTile(dict.pixel), p.x+rnd(0,2,true), p.y-rnd(0,2) );
+					d.colorize(0x0);
+					d.setFadeS(rnd(0.7,1), 0, 0.1);
+					d.moveAwayFrom(p.x,p.y, rnd(0.3,0.8));
+					d.gy = R.around(0.03);
+					d.frict = R.around(0.93);
+					d.onUpdate = _dustPhysics;
+					d.lifeS = R.around(0.2);
+				}
+			}
+			else {
+				p.dy *= Math.pow(0.6,tmod);
+				p.gy *= Math.pow(0.6,tmod);
+			}
+		}
+	}
+
+	public function blackDirt(x:Float, y:Float) {
+		var p = allocBgNormal( getTile(dict.fxDirt), x+rnd(0,1,true), y );
+		p.setFadeS(rnd(0.8,1), 0.1, R.around(1));
+		p.colorize(0x0);
+		p.rotation = R.fullCircle();
+		p.dr = rnd(0,0.1,true);
+		p.randScale(0.4,1,true);
+		p.gy = rnd(0.15,0.24);
+		p.frict = rnd(0.92,0.96);
+		p.lifeS = rnd(0.6,2);
+		p.delayS = rnd(0,0.3);
+
+		p.data1 = rnd(0.2,0.5);
+		p.onUpdate = _dirtPhysics;
+	}
+
+	public function wreckTail(x:Float, y:Float) {
+		// Dirt
+		var p = allocBgNormal( getTile(dict.fxDirt), x+rnd(0,8,true), y+rnd(0,2,true) );
+		p.setFadeS(rnd(0.7,0.9), 0.03, R.around(0.3));
+		p.colorize(0x0);
+		p.rotation = R.fullCircle();
+		p.dr = rnd(0,0.1,true);
+		p.randScale(0.6,1,true);
+		p.gy = rnd(0.03,0.20);
+		p.frict = rnd(0.92,0.96);
+		p.lifeS = R.around(0.3);
+		p.onUpdate = _dirtPhysics;
+
+		// Fire
+		for(i in 0...3) {
+			var p = allocTopAdd( getTile(dict.fxFlame), x+rnd(0,4,true), y+rnd(-10,4) );
+			p.setFadeS( rnd(0.7,1), R.around(0.06), R.around(0.2) );
+			p.colorAnimS(R.colorMix(0xff0000,0xffcc00), 0x585881, rnd(0.2,0.4));
+			p.scaleX = rnd(0.3,0.6,true);
+			p.scaleY = rnd(0.5,1);
+			p.scaleMul = R.aroundBO(0.96);
+			p.dy = -rnd(0.5,1);
+			p.frict = R.aroundBO(0.95);
+			p.lifeS = R.around(0.2);
+		}
+	}
+
+
+	public function wreckExplosion(x:Float, y:Float) {
+		// Explosion anims
+		for(i in 0...irnd(3,5)) {
+			var d = i<=1 ? rnd(0,2) : rnd(3,8);
+			var a = R.fullCircle();
+			var p = allocBgAdd(getTile(dict.fxExplode), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.playAnimAndKill( Assets.tiles, dict.fxExplode, rnd(0.6,0.8) );
+			p.setScale(rnd(0.6,0.7));
+			p.rotation = R.fullCircle();
+			p.delayS = i*0.02 + rnd(0, 0.03, true);
+		}
+
+		// Small lines
+		var n = 30;
+		for(i in 0...n) {
+			var a = M.PI2*i/(n-1) + rnd(0,0.2,true);
+			var d = rnd(2,5);
+			var p = allocTopAdd(getTile(dict.fxLineThinLeft), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.colorizeRandom(0xff0000, 0xffcc00);
+			p.scaleX = R.around(0.3);
+			p.scaleXMul = R.aroundZTO(0.91);
+			p.moveAwayFrom(x,y, rnd(5,9));
+			p.frict = R.aroundZTO(0.75);
+			p.rotation = a;
+			p.lifeS = R.around(0.2);
+			p.delayS = rnd(0,0.1);
+		}
+
+		// Flames lines
+		var n = 20;
+		for(i in 0...n) {
+			var a = M.PI2*i/(n-1) + rnd(0,0.2,true);
+			var d = rnd(2,5);
+			var p = allocTopAdd(getTile(dict.fxFlame), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.colorizeRandom(0xff0000, 0xff8800);
+			p.scaleX = R.around(0.9,true);
+			p.scaleY = R.around(0.6);
+			p.scaleYMul = R.aroundZTO(0.95);
+			p.gy = rnd(0,0.1);
+			p.moveAwayFrom(x,y, rnd(3,5));
+			p.frict = R.aroundZTO(0.75);
+			p.rotation = a+M.PIHALF;
+			p.lifeS = R.around(0.2);
+			p.delayS = rnd(0,0.1);
+		}
+	}
+
+
+	public function wreckAnnounce(x:Float, y:Float) {
+		// Dirt
+		var p = allocBgNormal( getTile(dict.fxDirt), x+rnd(0,1,true), y );
+		p.setFadeS(rnd(0.8,1), 0.1, R.around(1));
+		p.colorize(0x0);
+		p.rotation = R.fullCircle();
+		p.dr = rnd(0,0.1,true);
+		p.randScale(0.4,1,true);
+		p.gy = rnd(0.2,0.3);
+		p.frict = rnd(0.92,0.96);
+		p.lifeS = rnd(0.6,2);
+		p.delayS = rnd(0,0.1);
+		p.onUpdate = _dirtPhysics;
+
+		// Dust
+		var p = allocBgNormal( getTile(dict.pixel), x+rnd(0,1,true), y );
+		p.setFadeS(rnd(0.7,1), 0, R.around(0.2));
+		p.colorize(0x0);
+		p.gy = rnd(0.2,0.3);
+		p.frict = rnd(0.90,0.96);
+		p.lifeS = rnd(0.6,2);
+		p.data0 = R.around(0.2);
 		p.onUpdate = _dustPhysics;
 	}
 
@@ -891,7 +1087,6 @@ class Fx extends dn.Process {
 			p.lifeS = R.around(0.2);
 			p.delayS = rnd(0,0.1);
 		}
-
 	}
 
 
@@ -1049,7 +1244,7 @@ class Fx extends dn.Process {
 
 
 
-	function _dirtPhysics(p:HParticle) {
+	function _woodPhysics(p:HParticle) {
 		if( collides(p) ) {
 			p.dx *= Math.pow(rnd(0.8,0.9),tmod);
 			p.dy = 0;
@@ -1076,7 +1271,7 @@ class Fx extends dn.Process {
 			p.rotation = rnd(0,M.PI2);
 			p.dr = rnd(0.1,0.4,true);
 			p.setFadeS(R.aroundZTO(0.9), 0, R.around(2));
-			p.onUpdate = _dirtPhysics;
+			p.onUpdate = _woodPhysics;
 		}
 	}
 
@@ -1262,7 +1457,7 @@ class Fx extends dn.Process {
 			p.gy = rnd(0.01,0.04);
 			p.frict = R.around(0.92,10);
 			p.lifeS = rnd(1,3);
-			p.onUpdate = _dirtPhysics;
+			p.onUpdate = _dustPhysics;
 			p.delayS = rnd(0,1);
 		}
 		// Ground smoke
@@ -1376,7 +1571,7 @@ class Fx extends dn.Process {
 			p.gy = rnd(0.01,0.04);
 			p.frict = R.around(0.92,10);
 			p.lifeS = rnd(1,3);
-			p.onUpdate = _dirtPhysics;
+			p.onUpdate = _dustPhysics;
 			p.delayS = rnd(0,1);
 		}
 		// Ground smoke

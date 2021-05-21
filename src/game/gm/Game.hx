@@ -216,6 +216,10 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_FireStarter) new gm.en.FireStarter(d);
 		for(d in level.data.l_Entities.all_CheckPoint) new gm.en.CheckPoint(d);
 		for(d in level.data.l_Entities.all_CinematicEvent) new gm.en.CinematicEvent(d);
+		for(d in level.data.l_Entities.all_RoofFire) {
+			for( cx in d.cx...d.cx+M.round(d.width/Const.GRID) )
+				new gm.en.RoofFire(d, cx);
+		}
 
 		if( !level.data.f_fog )
 			for( cy in 0...level.cHei)

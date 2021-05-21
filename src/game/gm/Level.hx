@@ -305,10 +305,10 @@ class Level extends dn.Process {
 			getFireState(cx,cy).decrease(ratio);
 	}
 
-	public inline function ignite(cx,cy, startLevel=0, startProgress=0.) : Bool {
+	public inline function ignite(cx,cy, startLevel=0, startProgress=0., ignoreControl=false) : Bool {
 		if( !hasFireState(cx,cy) )
 			return false;
-		else if( !hasAnyCollision(cx,cy) && !getFireState(cx,cy).isUnderControl() ) {
+		else if( !hasAnyCollision(cx,cy) && ( ignoreControl || !getFireState(cx,cy).isUnderControl() ) ) {
 			var fs = getFireState(cx,cy);
 			if( fs.isBurning() )
 				return true;
