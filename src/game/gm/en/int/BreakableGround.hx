@@ -76,10 +76,11 @@ class BreakableGround extends Entity {
 		}
 
 		// Fireballs
-		for(x in cx...cx+cWid) {
-			var e = new FallingWreck((x+0.5)*Const.GRID, top+rnd(0,Const.GRID));
-			e.gravityMul*=rnd(0.5,1);
-		}
+		if( data.f_fireballs )
+			for(x in cx...cx+cWid) {
+				var e = new FallingWreck((x+0.5)*Const.GRID, top+rnd(0,Const.GRID));
+				e.gravityMul*=rnd(0.5,1);
+			}
 
 		destroy();
 	}
