@@ -31,7 +31,9 @@ class Game extends Process {
 
 
 	public var hero : Hero;
-	public var curLevelIdx = 0;
+	public var curLevelId(get,never) : String;
+		inline function get_curLevelId() return level.data.identifier;
+
 	public var kidMode = false;
 	public var polite(get,never) : Bool;
 		inline function get_polite() return kidMode;
@@ -78,14 +80,16 @@ class Game extends Process {
 		coldMask.blendMode = Add;
 		coldMask.alpha = 0;
 
+		// Start level
+		var levelData = Assets.worldData.all_levels.Main_menu;
 		#if debug
 		for(l in Assets.worldData.levels)
 			if( l.l_Entities.all_DebugStartPoint.length>0 ) {
-				curLevelIdx = l.arrayIndex;
+				levelData = l;
 				break;
 			}
 		#end
-		restartCurrentLevel();
+		startLevel(levelData);
 
 
 		#if debug
@@ -121,24 +125,30 @@ class Game extends Process {
 		hud.setUpgrades(upgrades);
 	}
 
+	inline function relockUpgrade(i:Enum_Items) {
+		upgrades.remove(i);
+		hud.setUpgrades(upgrades);
+	}
+
 	public inline function hasUpgrade(i:Enum_Items) {
 		return upgrades.exists(i);
 	}
 
 	public function restartCurrentLevel() {
-		startLevel(Assets.worldData.levels[curLevelIdx]);
+		startLevel( level.data );
 	}
 
 	public function nextLevel() {
-		if( curLevelIdx >= Assets.worldData.levels.length-1 ) {
+		var idx = Lib.getArrayIndex(level.data, Assets.worldData.levels);
+		if( idx >= Assets.worldData.levels.length-1 ) {
 			hud.notify(L.t._("Looped back at the beginning"));
-			curLevelIdx = 0;
+			idx = 0;
 		}
 		else
-			curLevelIdx++;
+			idx++;
 		level.destroy();
 		validatedCheckPoints = [];
-		restartCurrentLevel();
+		startLevel( Assets.worldData.levels[idx] );
 	}
 
 
@@ -163,6 +173,11 @@ class Game extends Process {
 		heat = 0;
 		delayer.cancelById("deathMsg");
 		cd.unset("successMsg");
+
+		// Remove upgrades found in this level
+		for(e in l.l_Entities.all_Item)
+			if( gm.en.Item.isUpgradeItem(e.f_type) )
+				relockUpgrade(e.f_type);
 
 		// Save
 		if( !l.f_isGameMenu ) {
