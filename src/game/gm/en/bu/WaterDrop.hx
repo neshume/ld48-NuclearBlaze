@@ -71,6 +71,7 @@ class WaterDrop extends Bullet {
 
 		super.fixedUpdate();
 
+		// Distance limit
 		elapsedDist += M.dist(lastX, lastY, centerX, centerY);
 		if( getElapsedFactor()>=1 ) {
 			tailFxTo(sprX,sprY);
@@ -80,8 +81,17 @@ class WaterDrop extends Bullet {
 			return;
 		}
 
+		// Mobs
+		if( !cd.has("lock") )
+			for(e in gm.en.Mob.ALL)
+				if( e.inBounds(centerX, centerY) ) {
+					cd.setS("lock", 0.1);
+					cd.setS("touchedFire", Const.INFINITE);
+					e.hit(1,this);
+				}
 
-		// Reduce fire
+
+		// Reduce level fire
 		if( !cd.has("lock") ) {
 			var x = cx;
 			for(y in cy-1...cy+2) {

@@ -676,6 +676,77 @@ class Fx extends dn.Process {
 	}
 
 
+
+	public function mobDeath(x:Float, y:Float) {
+		flashBangS(0xffcc00, 0.2, 1);
+		// Small lines
+		var n = 40;
+		for(i in 0...n) {
+			var a = M.PI2*i/(n-1) + rnd(0,0.2,true);
+			var d = rnd(2,5);
+			var p = allocTopAdd(getTile(dict.fxLineThinLeft), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.colorizeRandom(0xff0000, 0xffcc00);
+			p.scaleX = R.around(0.3);
+			p.scaleXMul = R.aroundZTO(0.91);
+			p.moveAwayFrom(x,y, rnd(5,9));
+			p.frict = R.aroundZTO(0.75);
+			p.rotation = a;
+			p.lifeS = R.around(0.4);
+			p.delayS = rnd(0,0.1);
+		}
+
+		// Flames lines
+		var n = 20;
+		for(i in 0...n) {
+			var a = M.PI2*i/(n-1) + rnd(0,0.2,true);
+			var d = rnd(2,5);
+			var p = allocTopAdd(getTile(dict.fxFlame), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.colorizeRandom(0xff0000, 0xff8800);
+			p.scaleX = R.around(0.9,true);
+			p.scaleY = R.around(0.6);
+			p.scaleYMul = R.aroundZTO(0.95);
+			p.gy = rnd(0,0.1);
+			p.moveAwayFrom(x,y, rnd(3,5));
+			p.frict = R.aroundZTO(0.75);
+			p.rotation = a+M.PIHALF;
+			p.lifeS = R.around(0.4);
+			p.delayS = rnd(0,0.1);
+		}
+
+		// Gibs
+		var n = 30;
+		for(i in 0...n) {
+			var p = allocTopAdd(getTile(dict.fxDirt), x+rnd(0,5,true), y+rnd(0,8,true));
+			p.setFadeS(R.around(0.9), 0, rnd(2,3));
+			p.colorAnimS(0xff8800, 0x990000, rnd(0.6,2));
+			p.gy = rnd(0.02,0.05);
+			p.dr = rnd(0.01,0.03,true);
+			p.scaleX = rnd(0.8,1,true);
+			p.scaleY = rnd(0.8,1,true);
+			p.scaleMul = R.aroundBO(0.97);
+			p.rotation = R.fullCircle();
+			p.moveAwayFrom(x,y, rnd(0.4,1));
+			p.frict = R.aroundZTO(0.85);
+			p.lifeS = R.around(5);
+			p.onUpdate = _dirtPhysics;
+		}
+
+		// Dust
+		var n = 50;
+		for(i in 0...n) {
+			var p = allocTopAdd(getTile(dict.pixel), x+rnd(0,5,true), y+rnd(0,8,true));
+			p.setFadeS(R.around(0.9), 0, rnd(2,3));
+			p.colorizeRandom(0xff0000, 0xff8800);
+			p.alphaFlicker = 0.4;
+			p.gy = rnd(0.005,0.012);
+			p.moveAwayFrom(x,y, rnd(0.4,1));
+			p.frict = R.aroundZTO(0.85);
+			p.lifeS = R.around(2);
+			p.onUpdate = _dustPhysics;
+		}
+	}
+
+
 	public function wreckAnnounce(x:Float, y:Float) {
 		// Dirt
 		var p = allocBgNormal( getTile(dict.fxDirt), x+rnd(0,1,true), y );

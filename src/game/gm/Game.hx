@@ -255,6 +255,13 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_BreakableGround) new gm.en.int.BreakableGround(d);
 		for(d in level.data.l_Entities.all_WaterRefill) new gm.en.int.WaterRefill(d);
 
+		for(d in level.data.l_Entities.all_Mob) {
+			if( d.f_triggerId<0 )
+				gm.en.Mob.create(d);
+			else
+				new gm.en.MobSpawner(d);
+		}
+
 		for(d in level.data.l_Entities.all_RoofFire) {
 			for( cx in d.cx...d.cx+M.round(d.width/Const.GRID) )
 				new gm.en.RoofFire(d, cx);
@@ -353,7 +360,7 @@ class Game extends Process {
 	function onLdtkReload() {
 		hud.notify("LDtk reloaded");
 		if( level!=null )
-			startLevel( Assets.worldData.getLevel(level.data.uid) );
+			restartCurrentLevel();
 	}
 
 	/** Window/app resize event **/
