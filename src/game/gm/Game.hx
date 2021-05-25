@@ -55,10 +55,10 @@ class Game extends Process {
 		ca = App.ME.controller.createAccess("game");
 		ca.setLeftDeadZone(0.2);
 		ca.setRightDeadZone(0.2);
-		createRootInLayers(App.ME.root, Const.DP_BG);
+		createRootInLayers(App.ME.root, Const.DP_MAIN);
 
 		scroller = new h2d.Layers();
-		root.add(scroller, Const.DP_BG);
+		root.add(scroller, Const.DP_MAIN);
 
 		scroller.filter = new h2d.filter.Nothing(); // force rendering for pixel perfect
 

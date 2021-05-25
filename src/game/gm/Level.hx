@@ -38,6 +38,9 @@ class Level extends dn.Process {
 	var fogHei : Int;
 	public var fireCount(default,null) = Const.INFINITE;
 
+	var sky : Null<h2d.Bitmap>;
+
+
 	public function new(ldtkLevel:World.World_Level) {
 		super(Game.ME);
 
@@ -121,6 +124,11 @@ class Level extends dn.Process {
 	override function onResize() {
 		super.onResize();
 		buildFog();
+
+		if( sky!=null ) {
+			sky.setScale(Const.SCALE);
+			sky.y = h() - sky.tile.height*Const.SCALE;
+		}
 	}
 
 	public function hasProperty(cx:Int, cy:Int, prop:Prop) {
@@ -137,6 +145,11 @@ class Level extends dn.Process {
 		for(fs in fireStates)
 			fs.dispose();
 		fireStates = null;
+
+		if( sky!=null ) {
+			sky.remove();
+			sky = null;
+		}
 
 		data = null;
 		tilesetSource = null;
@@ -264,6 +277,15 @@ class Level extends dn.Process {
 			root.addChild(bg);
 		}
 
+		// Sky "box"
+		if( sky!=null ) {
+			sky.remove();
+			sky = null;
+		}
+		if( data.f_isGameMenu ) {
+			sky = new h2d.Bitmap( hxd.Res.atlas.skyBg.toAseprite().toTile() );
+			game.root.add(sky, Const.DP_BG);
+		}
 
 		var tg = new h2d.TileGroup(tilesetSource, root);
 		data.l_BgWalls.render(tg);
@@ -274,6 +296,8 @@ class Level extends dn.Process {
 		data.l_Pipes.render(tg);
 		data.l_Wires.render(tg);
 		data.l_FrontTiles.render(tg);
+
+		dn.Process.resizeAll();
 	}
 
 	public inline function hasFireState(cx,cy) {
