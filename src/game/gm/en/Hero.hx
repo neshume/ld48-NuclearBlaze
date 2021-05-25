@@ -532,7 +532,7 @@ class Hero extends gm.Entity {
 				tryToClimbUp = true;
 
 			// Down
-			if( level.hasLadder(cx,cy) && !level.hasAnyCollision(cx,cy+1) || level.hasLadder(cx,cy+1) || level.hasLadder(cx,cy+2) )
+			if( level.hasLadder(cx,cy) && !level.hasAnyCollision(cx,cy+1) || level.hasLadder(cx,cy+1) && onGround || level.hasLadder(cx,cy+2) && onGround )
 				if( verticalAiming==1 )
 					tryToClimbDown = true;
 		}
