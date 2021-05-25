@@ -417,6 +417,16 @@ class Fx extends dn.Process {
 		p.onUpdate = _dustPhysics;
 	}
 
+	public function ember(x:Float, y:Float) {
+		var p = allocBgAdd( getTile(dict.pixel), x, y );
+		p.colorAnimS(0xffcc00, 0x990000, rnd(0.4,1));
+		p.setFadeS(rnd(0.4,1), R.around(0.1), R.around(0.3));
+		p.gy = rnd(0.02, 0.05);
+		p.frict = R.around(0.90);
+		p.lifeS = rnd(0.1,0.5);
+		p.onUpdate = _dustPhysics;
+	}
+
 	public function blackDust(x:Float, y:Float) {
 		// Lines
 		var p = allocBgNormal( getTile(dict.fxLineThinRight), x, y+rnd(0,2) );

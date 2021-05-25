@@ -40,6 +40,9 @@ class RoofFire extends Entity {
 			if( !level.isBurning(cx,cy) && !cd.hasSetS("dustFx", rnd(1,2)) )
 				fx.blackDust( (cx+rnd(0,1))*Const.GRID, top);
 
+			if( !level.isBurning(cx,cy) && !cd.hasSetS("emberFx", rnd(1,2)) )
+				fx.ember( (cx+rnd(0,1))*Const.GRID, top+rnd(0,0.5)*Const.GRID );
+
 			if( !cd.hasSetS("dirtFx", rnd(1,5)) )
 				fx.blackDirt( (cx+rnd(0,1))*Const.GRID, top);
 		}
