@@ -140,7 +140,7 @@ class Trigger extends Entity {
 					delayer.addS( fx.triggerTarget.bind(e.centerX,e.centerY), t + eachDurationS*0.6 );
 
 				// Fog
-				if( !e.is(gm.en.FogPiercer) )
+				if( !e.is(gm.en.FogPiercer) && !e.is(gm.en.CinematicEvent) )
 					delayer.addS( level.revealFogArea.bind(e.cx, e.cy, 3), t + eachDurationS*0.2 );
 
 				t+=eachDurationS;
