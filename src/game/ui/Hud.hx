@@ -104,6 +104,10 @@ class Hud extends dn.Process {
 			case UpShield:
 				name = L.t._("SHOWERING!");
 				desc = L.t._("Hold [DOWN] while watering to protect yourself.");
+
+			case UpWaterTank:
+				name = L.t._("WATER TANK");
+				desc = L.t._("More water!");
 		}
 
 		if( name!=null ) {
@@ -347,13 +351,12 @@ class Hud extends dn.Process {
 			inventory.y += Math.cos(uftime*0.4) * 3 * cd.getRatio("shakeInv");
 
 		upgrades.setPosition( w()/Const.UI_SCALE - upgrades.outerWidth-3, 3 );
-		// if( cd.has("shakeUps") )
-		// 	upgrades.y += Math.cos(uftime*0.4) * 3 * cd.getRatio("shakeUps");
 
 		water.setPosition( w()/Const.UI_SCALE-16, h()/Const.UI_SCALE-waterBg.tile.height );
 		if( cd.has("shakeWater") )
 			water.y += Math.cos(uftime*1.2) * 1 * cd.getRatio("shakeWater");
 	}
+
 
 	override function postUpdate() {
 		super.postUpdate();

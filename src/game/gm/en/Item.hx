@@ -29,6 +29,7 @@ class Item extends Entity {
 			case UpWaterLadder: true;
 			case UpWaterUp: true;
 			case UpShield: true;
+			case UpWaterTank: true;
 		}
 	}
 
