@@ -6499,42 +6499,15 @@
 				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 498, "dir": "s" }, { "levelUid": 30, "dir": "n" } ]
-		},
-		{
-			"identifier": "Tutorial_valves",
-			"uid": 498,
-			"worldX": 0,
-			"worldY": 4096,
-			"pxWid": 640,
-			"pxHei": 400,
-			"__bgColor": "#242D34",
-			"bgColor": null,
-			"useAutoIdentifier": false,
-			"bgRelPath": null,
-			"bgPos": null,
-			"bgPivotX": 0.5,
-			"bgPivotY": 0.5,
-			"__bgPos": null,
-			"externalRelPath": "world/0007-Tutorial_valves.ldtkl",
-			"fieldInstances": [
-				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
-				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
-				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
-				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
-				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
-			],
-			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 474, "dir": "s" }, { "levelUid": 57, "dir": "n" } ]
+			"__neighbours": [ { "levelUid": 474, "dir": "s" }, { "levelUid": 30, "dir": "n" } ]
 		},
 		{
 			"identifier": "Vehicle_corridor",
 			"uid": 474,
 			"worldX": 0,
-			"worldY": 4528,
+			"worldY": 4096,
 			"pxWid": 1552,
-			"pxHei": 928,
+			"pxHei": 960,
 			"__bgColor": "#242D34",
 			"bgColor": null,
 			"useAutoIdentifier": false,
@@ -6543,7 +6516,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0008-Vehicle_corridor.ldtkl",
+			"externalRelPath": "world/0007-Vehicle_corridor.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -6559,13 +6532,13 @@
 				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 70, "dir": "s" }, { "levelUid": 498, "dir": "n" } ]
+			"__neighbours": [ { "levelUid": 70, "dir": "s" }, { "levelUid": 57, "dir": "n" } ]
 		},
 		{
 			"identifier": "Nuclear_1st_contact",
 			"uid": 70,
 			"worldX": 0,
-			"worldY": 5488,
+			"worldY": 5088,
 			"pxWid": 640,
 			"pxHei": 496,
 			"__bgColor": "#242D34",
@@ -6576,7 +6549,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0009-Nuclear_1st_contact.ldtkl",
+			"externalRelPath": "world/0008-Nuclear_1st_contact.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
@@ -6589,10 +6562,10 @@
 			"__neighbours": [ { "levelUid": 453, "dir": "s" }, { "levelUid": 474, "dir": "n" } ]
 		},
 		{
-			"identifier": "Level_10",
+			"identifier": "Level_9",
 			"uid": 453,
 			"worldX": 0,
-			"worldY": 6016,
+			"worldY": 5616,
 			"pxWid": 1120,
 			"pxHei": 320,
 			"__bgColor": "#242D34",
@@ -6603,7 +6576,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0010-Level_10.ldtkl",
+			"externalRelPath": "world/0009-Level_9.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -6637,7 +6610,7 @@
 			"identifier": "Core_One",
 			"uid": 133,
 			"worldX": 0,
-			"worldY": 6368,
+			"worldY": 5968,
 			"pxWid": 560,
 			"pxHei": 496,
 			"__bgColor": "#242D34",
@@ -6648,7 +6621,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0011-Core_One.ldtkl",
+			"externalRelPath": "world/0010-Core_One.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
@@ -6661,10 +6634,10 @@
 			"__neighbours": [ { "levelUid": 454, "dir": "s" }, { "levelUid": 453, "dir": "n" } ]
 		},
 		{
-			"identifier": "Level_12",
+			"identifier": "Level_11",
 			"uid": 454,
 			"worldX": 0,
-			"worldY": 6896,
+			"worldY": 6496,
 			"pxWid": 816,
 			"pxHei": 560,
 			"__bgColor": "#242D34",
@@ -6675,7 +6648,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0012-Level_12.ldtkl",
+			"externalRelPath": "world/0011-Level_11.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -6709,7 +6682,7 @@
 			"identifier": "Sprinklers",
 			"uid": 0,
 			"worldX": 0,
-			"worldY": 7488,
+			"worldY": 7088,
 			"pxWid": 976,
 			"pxHei": 448,
 			"__bgColor": "#242D34",
@@ -6720,7 +6693,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0013-Sprinklers.ldtkl",
+			"externalRelPath": "world/0012-Sprinklers.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
@@ -6736,7 +6709,7 @@
 			"identifier": "Hydroponics",
 			"uid": 89,
 			"worldX": 0,
-			"worldY": 7968,
+			"worldY": 7568,
 			"pxWid": 1328,
 			"pxHei": 672,
 			"__bgColor": "#242D34",
@@ -6747,7 +6720,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0014-Hydroponics.ldtkl",
+			"externalRelPath": "world/0013-Hydroponics.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
@@ -6763,7 +6736,7 @@
 			"identifier": "Desert_corridors",
 			"uid": 409,
 			"worldX": 0,
-			"worldY": 8672,
+			"worldY": 8272,
 			"pxWid": 752,
 			"pxHei": 816,
 			"__bgColor": "#242D34",
@@ -6774,7 +6747,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0015-Desert_corridors.ldtkl",
+			"externalRelPath": "world/0014-Desert_corridors.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -6808,7 +6781,7 @@
 			"identifier": "Pit",
 			"uid": 434,
 			"worldX": 0,
-			"worldY": 9520,
+			"worldY": 9120,
 			"pxWid": 464,
 			"pxHei": 1408,
 			"__bgColor": "#242D34",
@@ -6819,7 +6792,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0016-Pit.ldtkl",
+			"externalRelPath": "world/0015-Pit.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -6853,7 +6826,7 @@
 			"identifier": "Explosives",
 			"uid": 398,
 			"worldX": 0,
-			"worldY": 10960,
+			"worldY": 10560,
 			"pxWid": 704,
 			"pxHei": 496,
 			"__bgColor": "#242D34",
@@ -6864,7 +6837,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0017-Explosives.ldtkl",
+			"externalRelPath": "world/0016-Explosives.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
 				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
@@ -6880,7 +6853,7 @@
 			"identifier": "Transition_corridor",
 			"uid": 433,
 			"worldX": 0,
-			"worldY": 11488,
+			"worldY": 11088,
 			"pxWid": 512,
 			"pxHei": 336,
 			"__bgColor": "#242D34",
@@ -6891,7 +6864,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0018-Transition_corridor.ldtkl",
+			"externalRelPath": "world/0017-Transition_corridor.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -6925,7 +6898,7 @@
 			"identifier": "Burning_pit",
 			"uid": 465,
 			"worldX": 0,
-			"worldY": 11856,
+			"worldY": 11456,
 			"pxWid": 784,
 			"pxHei": 1456,
 			"__bgColor": "#242D34",
@@ -6936,7 +6909,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0019-Burning_pit.ldtkl",
+			"externalRelPath": "world/0018-Burning_pit.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -6970,7 +6943,7 @@
 			"identifier": "Thank_you_for_playing",
 			"uid": 118,
 			"worldX": 0,
-			"worldY": 13344,
+			"worldY": 12944,
 			"pxWid": 576,
 			"pxHei": 400,
 			"__bgColor": "#242D34",
@@ -6981,7 +6954,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0020-Thank_you_for_playing.ldtkl",
+			"externalRelPath": "world/0019-Thank_you_for_playing.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -7006,7 +6979,7 @@
 			"identifier": "Lab",
 			"uid": 450,
 			"worldX": 0,
-			"worldY": 13776,
+			"worldY": 13376,
 			"pxWid": 448,
 			"pxHei": 336,
 			"__bgColor": "#242D34",
@@ -7017,7 +6990,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0021-Lab.ldtkl",
+			"externalRelPath": "world/0020-Lab.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -7051,7 +7024,7 @@
 			"identifier": "Lab2",
 			"uid": 478,
 			"worldX": 0,
-			"worldY": 14144,
+			"worldY": 13744,
 			"pxWid": 560,
 			"pxHei": 288,
 			"__bgColor": "#242D34",
@@ -7062,7 +7035,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0022-Lab2.ldtkl",
+			"externalRelPath": "world/0021-Lab2.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",

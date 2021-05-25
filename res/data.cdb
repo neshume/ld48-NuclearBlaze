@@ -66,7 +66,7 @@
 				},
 				{
 					"constId": "WaterConsumption",
-					"value": 0.003,
+					"value": 0.0042,
 					"doc": "% per frame"
 				},
 				{
