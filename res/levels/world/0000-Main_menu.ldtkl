@@ -17,11 +17,11 @@
 	"__bgColor": "#242D34",
 	"bgColor": null,
 	"useAutoIdentifier": false,
-	"bgRelPath": "../atlas/skyBg.aseprite",
-	"bgPos": "Unscaled",
+	"bgRelPath": null,
+	"bgPos": null,
 	"bgPivotX": 0.5,
 	"bgPivotY": 1,
-	"__bgPos": { "topLeftPx": [144,0], "scale": [1,1], "cropRect": [0,128,512,384] },
+	"__bgPos": null,
 	"externalRelPath": null,
 	"fieldInstances": [
 		{
@@ -176,10 +176,10 @@
 						},
 						{
 							"__identifier": "offsetY",
-							"__value": 0,
+							"__value": 16,
 							"__type": "Float",
 							"defUid": 137,
-							"realEditorValues": [{ "id": "V_Float", "params": [0] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [16] }]
 						}
 					]
 				},

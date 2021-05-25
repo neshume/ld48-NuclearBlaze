@@ -2598,13 +2598,13 @@
 				},
 				{
 					"__identifier": "WallText",
-					"__grid": [80,57],
+					"__grid": [77,61],
 					"__pivot": [0.5,0.5],
 					"__tile": null,
 					"width": 32,
 					"height": 16,
 					"defUid": 139,
-					"px": [1288,920],
+					"px": [1240,984],
 					"fieldInstances": [
 						{
 							"__identifier": "title",
@@ -2648,13 +2648,13 @@
 				},
 				{
 					"__identifier": "WallText",
-					"__grid": [81,57],
+					"__grid": [78,61],
 					"__pivot": [0.5,0.5],
 					"__tile": null,
 					"width": 32,
 					"height": 16,
 					"defUid": 139,
-					"px": [1304,920],
+					"px": [1256,984],
 					"fieldInstances": [
 						{
 							"__identifier": "title",
@@ -2698,13 +2698,13 @@
 				},
 				{
 					"__identifier": "WallText",
-					"__grid": [79,57],
+					"__grid": [76,61],
 					"__pivot": [0.5,0.5],
 					"__tile": null,
 					"width": 32,
 					"height": 16,
 					"defUid": 139,
-					"px": [1272,920],
+					"px": [1224,984],
 					"fieldInstances": [
 						{
 							"__identifier": "title",
@@ -2744,63 +2744,6 @@
 							}]
 						},
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "Item",
-					"__grid": [57,63],
-					"__pivot": [0.5,1],
-					"__tile": { "tilesetUid": 26, "srcRect": [80,160,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 23,
-					"px": [920,1024],
-					"fieldInstances": [{
-						"__identifier": "type",
-						"__value": "UpWaterTank",
-						"__type": "LocalEnum.Items",
-						"defUid": 24,
-						"realEditorValues": [{
-							"id": "V_String",
-							"params": ["UpWaterTank"]
-						}]
-					}]
-				},
-				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [72,63],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [1160,1024],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{
-							"__identifier": "unlockAllUpgrades",
-							"__value": false,
-							"__type": "Bool",
-							"defUid": 282,
-							"realEditorValues": [{
-								"id": "V_Bool",
-								"params": [ false ]
-							}]
-						},
-						{
-							"__identifier": "shieldDurationS",
-							"__value": 3,
-							"__type": "Int",
-							"defUid": 380,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "fallCinematic",
-							"__value": false,
-							"__type": "Bool",
-							"defUid": 396,
-							"realEditorValues": [null]
-						}
 					]
 				}
 			]
