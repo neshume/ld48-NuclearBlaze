@@ -12,6 +12,7 @@ class FireSpray extends Entity {
 		ALL.push(this);
 		data = d;
 		triggerId = data.f_id;
+		revealFogOnTrigger = true;
 		setPosPixel(data.pixelX, data.pixelY);
 		gravityMul = 0;
 		collides = false;

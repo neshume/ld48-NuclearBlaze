@@ -44,6 +44,7 @@ class Game extends Process {
 	var coldMask : h2d.Bitmap;
 
 	var upgrades : Map<Enum_Items, Bool> = [];
+	public var water = 0.;
 	var validatedCheckPoints : Array<LPoint> = [];
 
 
@@ -89,6 +90,7 @@ class Game extends Process {
 				break;
 			}
 		#end
+		refillWater();
 		startLevel(levelData);
 
 
@@ -120,6 +122,39 @@ class Game extends Process {
 			delayer.addS("fade", cb, 0.5);
 	}
 
+	public inline function hasWater() {
+		return water>0;
+	}
+
+	public inline function waterMaxed() {
+		return water>=getMaxWater();
+	}
+
+	public inline function getMaxWater() {
+		return 1.0;
+	}
+
+	public inline function useWater(v:Float) {
+		if( !hasWater() )
+			return false;
+		else {
+			water = M.fmax(water-v, 0);
+			trace(water);
+			hud.setWater(water,1);
+			hud.shakeWater();
+			return true;
+		}
+	}
+
+	public inline function refillWater(v=9999.) {
+		water = M.fmin(water+v, getMaxWater());
+		hud.setWater(water,1);
+		if( water<1 ) {
+			hud.blinkWater(0x2ad5ff);
+			hud.shakeWater();
+		}
+	}
+
 	public inline function unlockUpgrade(i:Enum_Items) {
 		upgrades.set(i,true);
 		hud.setUpgrades(upgrades);
@@ -135,6 +170,7 @@ class Game extends Process {
 	}
 
 	public function restartCurrentLevel() {
+		refillWater();
 		startLevel( level.data );
 	}
 
@@ -217,6 +253,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_CheckPoint) new gm.en.CheckPoint(d);
 		for(d in level.data.l_Entities.all_CinematicEvent) new gm.en.CinematicEvent(d);
 		for(d in level.data.l_Entities.all_BreakableGround) new gm.en.int.BreakableGround(d);
+		for(d in level.data.l_Entities.all_WaterRefill) new gm.en.int.WaterRefill(d);
 
 		for(d in level.data.l_Entities.all_RoofFire) {
 			for( cx in d.cx...d.cx+M.round(d.width/Const.GRID) )
@@ -514,6 +551,12 @@ class Game extends Process {
 		}
 		else
 			successTimerS = 0;
+
+		if( water<=0.33 && !cd.hasSetS("waterBlink",0.5) )
+			if( water<=0 )
+				hud.blinkWater(0xff0000,0.1);
+			else
+				hud.blinkWater(0x328acd);
 
 
 		// Global key shortcuts

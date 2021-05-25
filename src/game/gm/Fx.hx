@@ -1702,6 +1702,52 @@ class Fx extends dn.Process {
 		}
 	}
 
+	function _waterRefillerPhysics(p:HParticle) {
+		if( p.y<=p.data0 ) {
+			p.gy = p.dy = 0;
+			p.scaleY = 1;
+		}
+	}
+
+	public function waterRefiller(x:Float, y:Float) {
+		var p = allocBgAdd(getTile(dict.pixel), x+rnd(0,2,true), y-rnd(0,4));
+		p.colorize(0x7cfffa);
+		p.setFadeS(rnd(0.2,1), R.around(0.1), R.around(0.5));
+		p.gy = -rnd(0.01,0.05);
+		p.frict = R.around(0.87);
+		p.data0 = y-18;
+		p.onUpdate = _waterRefillerPhysics;
+		p.lifeS = R.around(0.3);
+	}
+
+	public function waterRefillerUsed(x:Float, y:Float, tx:Float, ty:Float) {
+		// Bubbles
+		var p = allocBgAdd(getTile(dict.pixel), x+rnd(0,2,true), y-rnd(1,4));
+		p.colorize(0x7cfffa);
+		p.scaleY = rnd(2,3);
+		p.setFadeS(rnd(0.6,1), 0, R.around(0.2));
+		p.gy = -rnd(0.05,0.07);
+		p.frict = R.around(0.92);
+		p.data0 = y-16;
+		p.onUpdate = _waterRefillerPhysics;
+		p.lifeS = R.around(0.2);
+
+		// Link
+		var p = allocTopAdd(getTile(dict.fxLightning), x+rnd(0,2,true), y-rnd(1,4));
+		p.setCenterRatio(0,0.5);
+		p.colorize(0x7cfffa);
+		p.rotation = M.angTo(x,y,tx,ty);
+		p.scaleX = M.dist(x,y,tx,ty)/p.t.width;
+		p.setFadeS(rnd(0.7,0.8), 0.03, R.around(0.1));
+		p.lifeS = R.around(0.06);
+	}
+
+	public function waterRefillerPhong(x:Float, y:Float) {
+		var p = allocBgAdd(getTile(dict.fxWaterPhong), x, y);
+		p.alpha = 0.85;
+		p.playAnimAndKill(Assets.tiles, dict.fxWaterPhong, 0.5);
+	}
+
 	public function fireSprayOffSparks(x:Float,y:Float, ang:Float, dist:Float) {
 		// Core
 		for(i in 0...3) {

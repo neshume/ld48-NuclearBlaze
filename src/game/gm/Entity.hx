@@ -222,6 +222,7 @@ class Entity {
 	var collides = true;
 	public var climbing = false;
 	public var triggerId(default,null) = -1;
+	public var revealFogOnTrigger = false;
 
 
     public function new(x:Int, y:Int) {

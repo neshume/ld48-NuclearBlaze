@@ -13,6 +13,7 @@ class Door extends Entity {
 		super(d.cx,d.cy);
 		data = d;
 		triggerId = data.f_triggerId;
+		revealFogOnTrigger = true;
 		ALL.push(this);
 		Game.ME.scroller.add(spr, Const.DP_BG);
 		requiredItem = d.f_requiredItem;

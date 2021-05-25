@@ -635,8 +635,11 @@ class Hero extends gm.Entity {
 		return dh.getBest();
 	}
 
+
+
 	function updateWatering() {
 		dx*=0.5;
+		game.useWater(Const.db.WaterConsumption);
 
 		if( ca.xDown() )
 			cd.setS("watering",0.2);
@@ -687,16 +690,16 @@ class Hero extends gm.Entity {
 				var ang = dirToAng() - dir*M.PIHALF*0.85;
 				var shootX = getShootX(ang, 1.5)+dir*3;
 				var shootY = getShootY(ang, 1.5);
-				var n = 5;
+				var n = game.hasWater() ? 5 : 2;
 				for(i in 0...n) {
-					var b = new gm.en.bu.WaterDrop(shootX, shootY, ang + i/(n-1)*dir*0.6  + rnd(0, 0.05, true));
+					var b = new gm.en.bu.WaterDrop(shootX, shootY, ang + (i+1)/n*dir*0.6  + rnd(0, 0.05, true));
 					b.gravityMul*=0.8;
 				}
 
 				var b = new gm.en.bu.WaterDrop(shootX, shootY, -M.PIHALF + dir*0.03 + rnd(0, 0.05, true));
 				b.gravityMul*=0.8;
 
-				cd.setS("bullet",0.15);
+				cd.setS("bullet", 0.15 * (game.hasWater()?1:2));
 				fx.waterShoot(shootX, shootY+2, ang);
 			}
 			else if( verticalAiming>0 && game.hasUpgrade(UpShield) ) {
@@ -711,7 +714,7 @@ class Hero extends gm.Entity {
 					b.power = 2;
 				}
 				game.cd.setS("reducingHeat", 0.2);
-				cd.setS("bullet",0.08);
+				cd.setS("bullet",0.08 * (game.hasWater()?1:4));
 			}
 			else {
 				// Horizontal
@@ -722,7 +725,7 @@ class Hero extends gm.Entity {
 				var b = new gm.en.bu.WaterDrop(shootX, shootY, ang-dir*0.1 + rnd(0, 0.05, true));
 				b.dx*=0.8;
 				b.cd.setS("lock",0.03);
-				cd.setS("bullet",0.02);
+				cd.setS("bullet", game.hasWater() ? 0.02: 0.20);
 				fx.waterShoot(shootX, shootY, ang);
 			}
 		}

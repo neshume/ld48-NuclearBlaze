@@ -13,6 +13,7 @@ class Sprinkler extends Entity {
 		ALL.push(this);
 		data = d;
 		triggerId = data.f_triggerId;
+		revealFogOnTrigger = true;
 		setPosPixel(data.pixelX, data.pixelY);
 		ang = switch data.f_dir {
 			case null,South: M.PIHALF;

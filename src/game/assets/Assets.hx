@@ -44,6 +44,8 @@ class Assets {
 		tiles.defineAnim("fxExplode","0(2),1-6");
 		tiles.defineAnim("upHalo", "0-4, 5(10)");
 		tiles.defineAnim("fxHeliWings", "0-7");
+		tiles.defineAnim("fxWaterPhong", "0-5");
+		tiles.defineAnim("waterAmmoSurface", "0-7");
 		hero = dn.heaps.assets.Aseprite.convertToSLib(Const.FPS, hxd.Res.atlas.hero.toAseprite());
 
 		// CastleDB file hot reloading

@@ -85,11 +85,6 @@ class HorizontalDoor extends Entity {
 
 		if( cd.has("shaking") )
 			spr.y += Math.cos(ftime*2)*1 * cd.getRatio("shaking");
-		// if( closed && !cd.hasSetS("blink",1) ) {
-		// 	blink(0x996600);
-		// 	cd.setS("keepBlink",0.1);
-		// 	blinkFrict = 0.8;
-		// }
 	}
 
 	final animSpeed = 0.04;
@@ -110,6 +105,5 @@ class HorizontalDoor extends Entity {
 		leftDoor.width = w;
 		rightDoor.width = w;
 		rightDoor.x = wid-w;
-
 	}
 }

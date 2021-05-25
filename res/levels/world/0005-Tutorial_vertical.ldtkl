@@ -671,6 +671,72 @@
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
 						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "WaterRefill",
+					"__grid": [20,17],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 16,
+					"height": 16,
+					"defUid": 533,
+					"px": [328,280],
+					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [20,18],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [128,80,16,16] },
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [328,296],
+					"fieldInstances": [
+						{
+							"__identifier": "spotDir",
+							"__value": "North",
+							"__type": "LocalEnum.Direction",
+							"defUid": 208,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["North"]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#0064FF",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [25855] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.6,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{
+							"__identifier": "gyro",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+					]
 				}
 			]
 		},

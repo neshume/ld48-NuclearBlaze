@@ -5,13 +5,18 @@ class Hud extends dn.Process {
 	public var fx(get,never) : Fx; inline function get_fx() return Game.ME.fx;
 	public var level(get,never) : Level; inline function get_level() return Game.ME.level;
 
-	var flow : h2d.Flow;
+	// var flow : h2d.Flow;
 	var invalidated = true;
 	var notifications : Array<h2d.Flow> = [];
 	var notifTw : dn.Tweenie;
 	var inventory : h2d.Flow;
 	var upgrades: h2d.Flow;
 	var curUp: Null<h2d.Flow>;
+	var water: h2d.Object;
+	var waterBg: h2d.Bitmap;
+	var waterBar: h2d.ScaleGrid;
+	var waterSurface: HSprite;
+	var waterBlink: h3d.Vector;
 
 	var debugText : h2d.Text;
 	var permanentTf : Null<h2d.Text>;
@@ -26,19 +31,26 @@ class Hud extends dn.Process {
 		notifications = [];
 		notifTw = new Tweenie(Const.FPS);
 
-		flow = new h2d.Flow(root);
-
-		inventory = new h2d.Flow(flow);
+		inventory = new h2d.Flow(root);
 		inventory.filter = new dn.heaps.filter.PixelOutline();
 		inventory.verticalAlign = Middle;
 		inventory.minHeight = 16;
 		inventory.horizontalSpacing = 2;
 
-		upgrades = new h2d.Flow(flow);
+		upgrades = new h2d.Flow(root);
 		upgrades.filter = new dn.heaps.filter.PixelOutline();
 		upgrades.verticalAlign = Middle;
 		upgrades.minHeight = 16;
 		upgrades.horizontalSpacing = 2;
+
+		water = new h2d.Object(root);
+		waterBg = Assets.tiles.getBitmap(dict.waterAmmoBg, water);
+		waterBar = new h2d.ScaleGrid(Assets.tiles.getTile(dict.waterAmmoBar), 3,1, 3,2, water );
+		waterSurface = Assets.tiles.h_getAndPlay(dict.waterAmmoSurface, water);
+		waterSurface.anim.setSpeed(0.15);
+		waterSurface.setCenterRatio(0,1);
+		waterBg.colorAdd = waterBlink = new h3d.Vector();
+		setWater(0);
 
 		debugText = new h2d.Text(Assets.fontSmall, root);
 		clearDebug();
@@ -288,7 +300,7 @@ class Hud extends dn.Process {
 		cd.setS("shakeInv",1);
 		for(i in items)
 			new h2d.Bitmap( Assets.getItem(i), inventory );
-		flow.reflow();
+		inventory.reflow();
 		updatePos();
 	}
 
@@ -299,6 +311,23 @@ class Hud extends dn.Process {
 		// 	new h2d.Bitmap( Assets.getItem(i), upgrades );
 		// flow.reflow();
 		// updatePos();
+	}
+
+	public function setWater(cur:Float, bottles=1) {
+		waterBar.height = M.fmax(0, (waterBg.tile.height-9)  * cur );
+		waterBar.x = 2;
+		waterBar.y = waterBg.tile.height-2 - waterBar.height;
+		waterSurface.x = waterBar.x;
+		waterSurface.y = cur<=0 ? waterBar.y : waterBar.y+1;
+	}
+
+	public inline function shakeWater() {
+		cd.setS("shakeWater",0.1);
+	}
+
+	public inline function blinkWater(c:UInt, ?keep=0.03) {
+		waterBlink.setColor(c);
+		cd.setS("keepWaterBlink",keep);
 	}
 
 	public inline function invalidate() invalidated = true;
@@ -320,6 +349,10 @@ class Hud extends dn.Process {
 		upgrades.setPosition( w()/Const.UI_SCALE - upgrades.outerWidth-3, 3 );
 		// if( cd.has("shakeUps") )
 		// 	upgrades.y += Math.cos(uftime*0.4) * 3 * cd.getRatio("shakeUps");
+
+		water.setPosition( w()/Const.UI_SCALE-16, h()/Const.UI_SCALE-waterBg.tile.height );
+		if( cd.has("shakeWater") )
+			water.y += Math.cos(uftime*1.2) * 1 * cd.getRatio("shakeWater");
 	}
 
 	override function postUpdate() {
@@ -328,6 +361,12 @@ class Hud extends dn.Process {
 		if( invalidated ) {
 			invalidated = false;
 			render();
+		}
+
+		if( !cd.has("keepWaterBlink") ) {
+			waterBlink.r *= Math.pow(0.5,tmod);
+			waterBlink.g *= Math.pow(0.55,tmod);
+			waterBlink.b *= Math.pow(0.8,tmod);
 		}
 
 		updatePos();

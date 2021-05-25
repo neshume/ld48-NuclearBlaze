@@ -65,6 +65,24 @@
 					"value": 1.2
 				},
 				{
+					"constId": "WaterConsumption",
+					"value": 0.003,
+					"doc": "% per frame"
+				},
+				{
+					"constId": "WaterRefillRate",
+					"value": 0.025,
+					"doc": "% per frame"
+				},
+				{
+					"constId": "WaterRefillRangeX",
+					"value": 3.5
+				},
+				{
+					"constId": "WaterRefillRangeY",
+					"value": 1
+				},
+				{
 					"constId": "FireTick",
 					"doc": "fire update frequency (sec)",
 					"value": 0.5
