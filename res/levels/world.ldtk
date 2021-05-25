@@ -6179,7 +6179,7 @@
 			{ "id": "TouchPlate", "tileId": 579, "color": 7116686, "__tileSrcRect": [48,192,16,16] },
 			{ "id": "Invisible", "tileId": 676, "color": 14979668, "__tileSrcRect": [64,224,16,16] }
 		], "iconTilesetUid": 26, "externalRelPath": null, "externalFileChecksum": null },
-		{ "identifier": "MobType", "uid": 536, "values": [{ "id": "Test", "tileId": null, "color": 0, "__tileSrcRect": null }], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null }
+		{ "identifier": "MobType", "uid": 536, "values": [{ "id": "Jumper", "tileId": null, "color": 0, "__tileSrcRect": null }], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null }
 	], "externalEnums": [], "levelFields": [
 		{
 			"identifier": "disableCompleteAnnounce",

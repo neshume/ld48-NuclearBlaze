@@ -1,12 +1,12 @@
 package gm.en.mob;
 
-class Test extends gm.en.Mob {
+class Jumper extends gm.en.Mob {
 	public function new(d:Entity_Mob) {
 		super(d);
 		frictX = 0.98;
 		frictY = 0.92;
 		gravityMul*=0.5;
-		initLife(1);
+		initLife( Std.int(Const.db.JumperHP) );
 		spr.set(dict.testMob);
 	}
 

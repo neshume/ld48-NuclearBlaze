@@ -322,12 +322,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "type",
-							"__value": "Test",
+							"__value": "Jumper",
 							"__type": "LocalEnum.MobType",
 							"defUid": 537,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Test"]
+								"params": ["Jumper"]
 							}]
 						},
 						{ "__identifier": "dir", "__value": -1, "__type": "Int", "defUid": 540, "realEditorValues": [] },
@@ -347,12 +347,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "type",
-							"__value": "Test",
+							"__value": "Jumper",
 							"__type": "LocalEnum.MobType",
 							"defUid": 537,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Test"]
+								"params": ["Jumper"]
 							}]
 						},
 						{ "__identifier": "dir", "__value": -1, "__type": "Int", "defUid": 540, "realEditorValues": [] },
@@ -378,12 +378,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "type",
-							"__value": "Test",
+							"__value": "Jumper",
 							"__type": "LocalEnum.MobType",
 							"defUid": 537,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Test"]
+								"params": ["Jumper"]
 							}]
 						},
 						{ "__identifier": "dir", "__value": -1, "__type": "Int", "defUid": 540, "realEditorValues": [] },

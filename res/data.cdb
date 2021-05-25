@@ -141,6 +141,10 @@
 					"constId": "ExplosiveKillRadius",
 					"value": 10,
 					"doc": "Distance that kills the player"
+				},
+				{
+					"constId": "JumperHP",
+					"value": 5
 				}
 			],
 			"props": {
@@ -148,14 +152,16 @@
 					"General",
 					"Hero",
 					"Fire",
-					"Explosives"
+					"Explosives",
+					"Mobs"
 				]
 			},
 			"separatorIds": [
 				"MaxCameraZoom",
 				"HeroWalkSpeed",
 				"FireTick",
-				"ExplosiveTimer"
+				"ExplosiveTimer",
+				"JumperHP"
 			]
 		}
 	],

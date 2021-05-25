@@ -20,7 +20,7 @@ class Mob extends Entity {
 
 	public static function create(d:Entity_Mob) {
 		return switch d.f_type {
-			case Test: new gm.en.mob.Test(d);
+			case Jumper: new gm.en.mob.Jumper(d);
 		}
 	}
 
