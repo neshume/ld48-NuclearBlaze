@@ -23,8 +23,8 @@ class FallingWreck extends Entity {
 				level.ignite(x,y, 2,1, true);
 		});
 
-		// if( distCase(hero)<=1 )
-		// 	hero.kill();
+		if( distCase(hero)<=0.8 )
+			hero.hit(99,this);
 
 		destroy();
 	}
