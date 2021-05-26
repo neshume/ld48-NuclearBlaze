@@ -11,7 +11,6 @@ class Trigger extends Entity {
 	public var done = false;
 	var started = false;
 	var delayer : dn.Delayer;
-	var requiredTriggerId : Null<Int>;
 
 	public function new(d:Entity_Trigger) {
 		data = d;
@@ -22,8 +21,6 @@ class Trigger extends Entity {
 
 		ALL.push(this);
 		triggerId = data.f_triggerId;
-		requiredTriggerId = data.f_requiredTriggerId;
-		trace(requiredTriggerId);
 
 		spr.set(dict.empty);
 		gravityMul = 0;
@@ -141,7 +138,7 @@ class Trigger extends Entity {
 		for(e in Entity.ALL) {
 
 			// Trigger targets
-			if( e.isAlive() && e.triggerId==triggerId && ( !e.is(gm.en.Trigger) || e.as(gm.en.Trigger).requiredTriggerId==null ) ) {
+			if( e.isAlive() && e.triggerId==triggerId && !e.is(gm.en.Trigger) ) {
 				// Camera track
 				if( data.f_cinematicReveal )
 					delayer.addS( ()->{
@@ -166,13 +163,6 @@ class Trigger extends Entity {
 
 				t+=eachDurationS;
 			}
-
-			// Unlock other triggers
-			if( e.isAlive() && e.is(gm.en.Trigger) && e.as(gm.en.Trigger).requiredTriggerId==triggerId ) {
-				e.as(gm.en.Trigger).requiredTriggerId = null;
-				hud.notify("Unlocked");
-			}
-
 		}
 		delayer.addS( camera.clearCinematicTrackings, t );
 

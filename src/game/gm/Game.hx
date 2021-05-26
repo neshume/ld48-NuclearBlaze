@@ -139,7 +139,6 @@ class Game extends Process {
 			return false;
 		else {
 			water = M.fmax(water-v, 0);
-			trace(water);
 			hud.setWater(water,1);
 			hud.shakeWater();
 			return true;
