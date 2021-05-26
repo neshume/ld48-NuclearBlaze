@@ -41,8 +41,8 @@ class Jumper extends gm.en.Mob {
 
 	override function postUpdate() {
 		super.postUpdate();
-		// if( !cd.hasSetS("fxTail",0.03) )
-			// fx.tail(this, 0xffcc00);
+		if( !cd.hasSetS("fxTail",0.03) )
+			fx.tail(this, 0xff0000);
 	}
 
 	override function fixedUpdate() {
