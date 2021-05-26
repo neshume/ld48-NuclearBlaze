@@ -870,7 +870,13 @@
 							"defUid": 166,
 							"realEditorValues": [{ "id": "V_Int", "params": [1] }]
 						},
-						{ "__identifier": "distance", "__value": 3, "__type": "Float", "defUid": 167, "realEditorValues": [] },
+						{
+							"__identifier": "distance",
+							"__value": 4,
+							"__type": "Float",
+							"defUid": 167,
+							"realEditorValues": [{ "id": "V_Float", "params": [4] }]
+						},
 						{
 							"__identifier": "startActive",
 							"__value": true,
@@ -966,7 +972,8 @@
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] },
-						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
+						{ "__identifier": "requiredTriggerId", "__value": -1, "__type": "Int", "defUid": 544, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1206,6 +1213,77 @@
 							"defUid": 373,
 							"realEditorValues": [null]
 						}
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [41,11],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [664,192],
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{
+							"__identifier": "unlockAllUpgrades",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 282,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "shieldDurationS",
+							"__value": 0,
+							"__type": "Int",
+							"defUid": 380,
+							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
+						},
+						{
+							"__identifier": "fallCinematic",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 396,
+							"realEditorValues": [null]
+						}
+					]
+				},
+				{
+					"__identifier": "FireSpray",
+					"__grid": [49,9],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [144,96,16,16] },
+					"width": 12,
+					"height": 12,
+					"defUid": 164,
+					"px": [792,152],
+					"fieldInstances": [
+						{
+							"__identifier": "dir",
+							"__value": "East",
+							"__type": "LocalEnum.Direction",
+							"defUid": 165,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["East"]
+							}]
+						},
+						{
+							"__identifier": "id",
+							"__value": 1,
+							"__type": "Int",
+							"defUid": 166,
+							"realEditorValues": [{ "id": "V_Int", "params": [1] }]
+						},
+						{
+							"__identifier": "distance",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 167,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 168, "realEditorValues": [] }
 					]
 				}
 			]

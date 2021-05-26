@@ -534,7 +534,7 @@ class Hero extends gm.Entity {
 				clearCommandQueue(StartJump);
 		}
 		if( ca.bPressed() && !game.kidMode && game.hasUpgrade(UpDodge) )
-			queueCommand(StartDodge,0.3);
+			queueCommand(StartDodge,0.45);
 
 
 		// Dir control

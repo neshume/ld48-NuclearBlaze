@@ -11,6 +11,7 @@ class Trigger extends Entity {
 	public var done = false;
 	var started = false;
 	var delayer : dn.Delayer;
+	var requiredTriggerId : Null<Int>;
 
 	public function new(d:Entity_Trigger) {
 		data = d;
@@ -21,6 +22,8 @@ class Trigger extends Entity {
 
 		ALL.push(this);
 		triggerId = data.f_triggerId;
+		requiredTriggerId = data.f_requiredTriggerId;
+		trace(requiredTriggerId);
 
 		spr.set(dict.empty);
 		gravityMul = 0;
@@ -38,7 +41,16 @@ class Trigger extends Entity {
 				pivotY = 0.5;
 
 			case InvisibleGate:
-				setPosCase(data.cx, data.cy);
+				var top = data.cy;
+				while( !level.hasAnyCollision(data.cx, top-1) )
+					top--;
+				var bottom = data.cy;
+				while( !level.hasAnyCollision(data.cx, bottom+1) )
+					bottom++;
+				setPosCase(data.cx, top);
+				xr = yr = 0;
+				setPivots(0,0);
+				hei = Const.GRID * (bottom-top+1);
 
 			case TouchPlate:
 				setPosCase(data.cx, data.cy);
@@ -126,8 +138,10 @@ class Trigger extends Entity {
 
 		var eachDurationS = data.f_cinematicReveal ? 1.25  : !isVisibleTrigger() ? 0 : 0.5;
 		var t = 0.;
-		for(e in Entity.ALL)
-			if( e.isAlive() && e.triggerId==triggerId && !e.is(gm.en.Trigger) ) {
+		for(e in Entity.ALL) {
+
+			// Trigger targets
+			if( e.isAlive() && e.triggerId==triggerId && ( !e.is(gm.en.Trigger) || e.as(gm.en.Trigger).requiredTriggerId==null ) ) {
 				// Camera track
 				if( data.f_cinematicReveal )
 					delayer.addS( ()->{
@@ -152,6 +166,14 @@ class Trigger extends Entity {
 
 				t+=eachDurationS;
 			}
+
+			// Unlock other triggers
+			if( e.isAlive() && e.is(gm.en.Trigger) && e.as(gm.en.Trigger).requiredTriggerId==triggerId ) {
+				e.as(gm.en.Trigger).requiredTriggerId = null;
+				hud.notify("Unlocked");
+			}
+
+		}
 		delayer.addS( camera.clearCinematicTrackings, t );
 
 		switch data.f_type {
@@ -208,9 +230,8 @@ class Trigger extends Entity {
 			if( data.f_type==InvisibleArea && distCase(hero)<=data.f_invisibleRadius )
 				start();
 
-			if( data.f_type==InvisibleGate && hero.cx==cx && hero.cy<=cy )
-				if( dn.Bresenham.checkThinLine(cx,cy, hero.cx,hero.cy, (x,y)->!level.hasAnyCollision(x,y)) )
-					start();
+			if( data.f_type==InvisibleGate && hero.cx==cx && hero.cy>=cTop && hero.cy<=cBottom && sightCheck(hero) )
+				start();
 		}
 
 		if( started && !done && !cd.has("executeLock") )

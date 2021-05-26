@@ -227,7 +227,8 @@
 							"defUid": 528,
 							"realEditorValues": [{ "id": "V_Int", "params": [1] }]
 						},
-						{ "__identifier": "fireballs", "__value": true, "__type": "Bool", "defUid": 532, "realEditorValues": [] }
+						{ "__identifier": "fireballs", "__value": true, "__type": "Bool", "defUid": 532, "realEditorValues": [] },
+						{ "__identifier": "bumpPlayer", "__value": true, "__type": "Bool", "defUid": 543, "realEditorValues": [] }
 					]
 				},
 				{
@@ -267,7 +268,8 @@
 							"defUid": 435,
 							"realEditorValues": [null]
 						},
-						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
+						{ "__identifier": "requiredTriggerId", "__value": -1, "__type": "Int", "defUid": 544, "realEditorValues": [] }
 					]
 				},
 				{
@@ -354,41 +356,8 @@
 							"defUid": 435,
 							"realEditorValues": [null]
 						},
-						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [22,13],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [360,224],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{
-							"__identifier": "unlockAllUpgrades",
-							"__value": true,
-							"__type": "Bool",
-							"defUid": 282,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "shieldDurationS",
-							"__value": 0,
-							"__type": "Int",
-							"defUid": 380,
-							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
-						},
-						{
-							"__identifier": "fallCinematic",
-							"__value": false,
-							"__type": "Bool",
-							"defUid": 396,
-							"realEditorValues": [null]
-						}
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
+						{ "__identifier": "requiredTriggerId", "__value": -1, "__type": "Int", "defUid": 544, "realEditorValues": [] }
 					]
 				},
 				{
@@ -408,7 +377,8 @@
 							"defUid": 528,
 							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
 						},
-						{ "__identifier": "fireballs", "__value": true, "__type": "Bool", "defUid": 532, "realEditorValues": [] }
+						{ "__identifier": "fireballs", "__value": true, "__type": "Bool", "defUid": 532, "realEditorValues": [] },
+						{ "__identifier": "bumpPlayer", "__value": true, "__type": "Bool", "defUid": 543, "realEditorValues": [] }
 					]
 				},
 				{
@@ -442,7 +412,8 @@
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] },
-						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
+						{ "__identifier": "requiredTriggerId", "__value": -1, "__type": "Int", "defUid": 544, "realEditorValues": [] }
 					]
 				},
 				{
@@ -516,26 +487,6 @@
 						{ "__identifier": "distance", "__value": 3, "__type": "Float", "defUid": 167, "realEditorValues": [] },
 						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 168, "realEditorValues": [] }
 					]
-				},
-				{
-					"__identifier": "Item",
-					"__grid": [20,13],
-					"__pivot": [0.5,1],
-					"__tile": { "tilesetUid": 26, "srcRect": [96,160,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 23,
-					"px": [328,224],
-					"fieldInstances": [{
-						"__identifier": "type",
-						"__value": "UpDodge",
-						"__type": "LocalEnum.Items",
-						"defUid": 24,
-						"realEditorValues": [{
-							"id": "V_String",
-							"params": ["UpDodge"]
-						}]
-					}]
 				}
 			]
 		},

@@ -27,11 +27,16 @@ class BreakableGround extends Entity {
 			s.x = (x-cx)*Const.GRID;
 		}
 
-		// Sides
-		var s = Assets.tiles.h_get(dict.fakeGroundLeft,0, 1,0, spr);
-		s.x = 0;
-		var s = Assets.tiles.h_get(dict.fakeGroundLeft, spr);
-		s.x = cWid*Const.GRID;
+		// Left side
+		if( !level.hasWallCollision(cLeft-1,cTop) ) {
+			var s = Assets.tiles.h_get(dict.fakeGroundEnd,0, 1,0, spr);
+			s.scaleX = -1;
+		}
+		else
+			Assets.tiles.h_get(dict.fakeGroundLeft,0, 1,0, spr);
+
+		// var s = Assets.tiles.h_get(dict.fakeGroundLeft, spr);
+		// s.x = cWid*Const.GRID;
 
 	}
 
@@ -70,7 +75,7 @@ class BreakableGround extends Entity {
 			fx.groundExplosion(x, cy, 0xd62411, 0x002859);
 
 		// Bump
-		if( hero.isAlive() && distCase(hero)<=4 ) {
+		if( data.f_bumpPlayer && hero.isAlive() && distCase(hero)<=4 ) {
 			var pow = 0.5 + 0.5*(1-distCase(hero)/4);
 			hero.bump( (centerX>hero.centerX ? -1 : 1) * 0.4*pow, -0.2*pow );
 		}
