@@ -181,8 +181,22 @@
 					"doc": "Distance that kills the player"
 				},
 				{
+					"constId": "DefaultAggroDuration",
+					"value": 3,
+					"doc": "In seconds"
+				},
+				{
 					"constId": "JumperHP",
-					"value": 5
+					"value": 4
+				},
+				{
+					"constId": "RunnerHP",
+					"value": 8
+				},
+				{
+					"constId": "ShieldOnHit",
+					"value": 0.1,
+					"doc": "Shield duration when hit"
 				}
 			],
 			"props": {
@@ -199,7 +213,7 @@
 				"HeroWalkSpeed",
 				"FireTick",
 				"ExplosiveTimer",
-				"JumperHP"
+				"DefaultAggroDuration"
 			]
 		}
 	],

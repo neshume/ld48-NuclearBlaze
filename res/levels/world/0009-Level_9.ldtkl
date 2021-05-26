@@ -1216,40 +1216,6 @@
 					]
 				},
 				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [41,11],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [664,192],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{
-							"__identifier": "unlockAllUpgrades",
-							"__value": true,
-							"__type": "Bool",
-							"defUid": 282,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "shieldDurationS",
-							"__value": 0,
-							"__type": "Int",
-							"defUid": 380,
-							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
-						},
-						{
-							"__identifier": "fallCinematic",
-							"__value": false,
-							"__type": "Bool",
-							"defUid": 396,
-							"realEditorValues": [null]
-						}
-					]
-				},
-				{
 					"__identifier": "FireSpray",
 					"__grid": [49,9],
 					"__pivot": [0.5,0.5],

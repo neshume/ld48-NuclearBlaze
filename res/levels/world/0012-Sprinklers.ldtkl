@@ -1246,13 +1246,13 @@
 				},
 				{
 					"__identifier": "CheckPoint",
-					"__grid": [9,14],
+					"__grid": [10,14],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [256,144,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 470,
-					"px": [152,232],
+					"px": [168,232],
 					"fieldInstances": [
 						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 471, "realEditorValues": [] },
 						{ "__identifier": "radius", "__value": 4, "__type": "Float", "defUid": 472, "realEditorValues": [] },
@@ -1505,6 +1505,40 @@
 							}]
 						},
 						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [3,14],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [56,240],
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{
+							"__identifier": "unlockAllUpgrades",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 282,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "shieldDurationS",
+							"__value": 0,
+							"__type": "Int",
+							"defUid": 380,
+							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
+						},
+						{
+							"__identifier": "fallCinematic",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 396,
+							"realEditorValues": [null]
+						}
 					]
 				}
 			]

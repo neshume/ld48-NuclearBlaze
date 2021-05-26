@@ -946,5 +946,7 @@ class Hero extends gm.Entity {
 
 		if( ui.Console.ME.hasFlag("ff") )
 			debugFloat( getFastFallRatio() );
+
+		debugFloat(getDistToPlatformEnd(dir));
 	}
 }

@@ -439,6 +439,31 @@ class Fx extends dn.Process {
 		p.onUpdate = _dustPhysics;
 	}
 
+	public function aggro(e:Entity, c=0xffcc00) {
+		// Exclamation
+		var p = allocTopAdd( getTile(dict.fxExclamation), e.centerX, e.top - 4);
+		p.colorize(c);
+		p.setFadeS(1, 0, 0.2);
+		p.lifeS = 0.7;
+		p.dy = -2;
+		p.frict = 0.8;
+
+		// Lines
+		var n = 8;
+		var d = 4;
+		for(i in 0...n) {
+			var a = ( -0.15 - 0.7*i/(n-1) ) * M.PI;
+			var p = allocTopAdd( getTile(dict.fxLineThinRight), e.centerX+Math.cos(a)*d, e.top+Math.sin(a)*d );
+			p.colorize(c);
+			p.scaleX = 0.5;
+			p.alpha = 0.7;
+			p.moveAng(a,3);
+			p.frict = 0.7;
+			p.rotation = a;
+			p.scaleXMul = 0.9;
+			p.lifeS = 0.2;
+		}
+	}
 	public function dodgeLand(x:Float, y:Float, dir:Int, col=0xcbb5a0) {
 		for(i in 0...10) {
 			var p = allocTopNormal( getTile(dict.pixel), x, y );
@@ -1840,7 +1865,7 @@ class Fx extends dn.Process {
 		final n = Std.int(pow*10);
 		for(i in 0...n) {
 			var p = allocTopNormal( getTile(dict.fxSmoke), x+rnd(0,10,true), y-rnd(0,3) );
-			p.setFadeS( R.around(0.2), 0, R.around(3,30));
+			p.setFadeS( R.around(0.2), 0, R.around(1,30));
 			p.colorize( C.toBlack(col, rnd(0,0.5)) );
 			p.randScale(0.3,0.4,true);
 			p.frict = R.around(0.88,4);
@@ -1850,9 +1875,25 @@ class Fx extends dn.Process {
 			p.gy = -rnd(0,0.02);
 			p.rotation = R.fullCircle();
 			p.dr = R.around(0.008, true);
-			p.lifeS = rnd(1,3);
+			p.lifeS = rnd(0.8,1);
 		}
 	}
+
+
+	public function lightLand(x:Float, y:Float) {
+		for(i in 0...8) {
+			var p = allocBgNormal( getTile(dict.pixel), x, y );
+			p.setFadeS(rnd(0.4,0.7), 0.06, R.around(0.2));
+			p.colorize(0xcbb5a0);
+			p.dx = rnd(0.5,2,true);
+			p.dy = -rnd(0.5,1.5);
+			p.gy = rnd(0.05,0.10);
+			p.frict = rnd(0.8,0.92);
+			p.lifeS = rnd(0.1,0.5);
+			p.onUpdate = _dustPhysics;
+		}
+	}
+
 
 	public function fireSprayOffSmoke(x:Float,y:Float, ang:Float, dist:Float) {
 		// Smoke
@@ -1922,6 +1963,24 @@ class Fx extends dn.Process {
 		p.playAnimAndKill(Assets.tiles, dict.fxWaterPhong, 0.5);
 	}
 
+
+	public function mobHit(x:Float, y:Float, dir:Int) {
+		var n = 20;
+		for(i in 0...n) {
+			var d = rnd(3,6);
+			var p = allocTopAdd(getTile(dict.fxLineThinLeft), x+rnd(0,5,true), y+rnd(0,7,true));
+			p.colorize(0x50ccff);
+			p.scaleX = R.around(0.2);
+			p.moveAwayFrom(x,y, rnd(2,3));
+			p.rotation = p.getMoveAng();
+			p.autoRotateSpeed = 0.9;
+			p.gy = R.around(0.07);
+			p.frict = R.aroundBO(0.9);
+			p.scaleXMul = R.aroundBO(0.92);
+			p.lifeS = R.around(0.3);
+			// p.onUpdate = _waterPhysics;
+		}
+	}
 
 	public function waterRefillerComplete(x:Float, y:Float) {
 		// Lines

@@ -1,18 +1,24 @@
 package gm.en.mob;
 
-class Jumper extends gm.en.Mob {
+class Runner extends gm.en.Mob {
 	public function new(d:Entity_Mob) {
 		super(d);
 		frictX = 0.98;
 		frictY = 0.92;
 		gravityMul*=0.5;
-		initLife( Std.int(Const.db.JumperHP) );
+		initLife( Std.int(Const.db.RunnerHP) );
 		spr.set(dict.testMob);
 	}
 
 	override function onDamage(dmg:Int, from:Entity) {
 		super.onDamage(dmg, from);
-		bump(-dirTo(hero)*0.05, -0.1);
+
+		fx.mobHit(centerX, centerY, lastHitDirFromSource);
+
+		if( !cd.hasSetS("repel",0.3) ) {
+			dx*=0.5;
+			bump(-dirTo(hero)*0.2, 0);
+		}
 	}
 
 	override function onDie() {
@@ -34,9 +40,8 @@ class Jumper extends gm.en.Mob {
 	override function onLand(cHei:Float) {
 		super.onLand(cHei);
 		dx*=0.4;
-		fx.mediumLand(attachX, attachY, 0.5);
-		if( cHei>=1 )
-			setSquashY(0.5);
+		fx.lightLand(attachX, attachY);
+		setSquashY(0.5);
 	}
 
 	override function postUpdate() {
@@ -52,33 +57,34 @@ class Jumper extends gm.en.Mob {
 			dx*=0.7;
 
 		if( !aiLocked() ) {
-			// Turn around
-			if( onGround && getDistToPlatformEnd(dir)<=2 )
-				dir*=-1;
-
-			// Aggro
+			// Take aggro
 			if( distCase(hero)<=7 && M.iabs(cy-hero.cy)<=2 && sightCheck(hero) ) {
-				if( !hasAggro() )
-					fx.aggro(this);
 				aggro();
 			}
 
-			// Big jump
-			if( onGround && !isChargingAction() && hasAggro() ) {
-				dir = dirTo(hero);
-				chargeAction("jump", 0.5, ()->{
-					cancelVelocities();
+			// Aggro fast hops
+			if( hasAggro() && onGround ) {
+				if( dir!=dirTo(hero) ) {
+					// Turn to target
+					dir = dirTo(hero);
+					setSquashX(0.4);
+					lockAiS(0.8);
+				}
+				else {
 					dx = dir*0.2;
-					dy = -0.4;
-					setSquashX(0.5);
-					lockAiS(0.5);
-				});
+					dy = -0.17;
+					setSquashY(0.5);
+					lockAiS(0.3);
+				}
 			}
-			// Small hops
-			if( onGround && !isChargingAction() ) {
-				cancelVelocities();
-				dx = dir*0.2;
-				dy = -0.17;
+
+			// Wandering small hops
+			if( !hasAggro() && onGround ) {
+				if( getDistToPlatformEnd(dir)<=1 )
+					dir*=-1;
+
+				dx = dir*0.12;
+				dy = -0.1;
 				setSquashX(0.7);
 				lockAiS(0.9);
 			}

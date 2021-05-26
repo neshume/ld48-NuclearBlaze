@@ -21,6 +21,7 @@ class Mob extends Entity {
 	public static function create(d:Entity_Mob) {
 		return switch d.f_type {
 			case Jumper: new gm.en.mob.Jumper(d);
+			case Runner: new gm.en.mob.Runner(d);
 		}
 	}
 
@@ -31,7 +32,7 @@ class Mob extends Entity {
 
 		super.hit(dmg, from);
 
-		setShieldS(0.3);
+		setShieldS(Const.db.ShieldOnHit);
 		blink(0xffcc00);
 	}
 
@@ -41,6 +42,17 @@ class Mob extends Entity {
 
 	function setShieldS(t:Float) {
 		cd.setS("shield",t,false);
+	}
+
+	function aggro() {
+		if( !hasAggro() )
+			fx.aggro(this);
+
+		cd.setS("aggro", Const.db.DefaultAggroDuration, false);
+	}
+
+	inline function hasAggro() {
+		return cd.has("aggro");
 	}
 
 	function lockAiS(t:Float) {
@@ -53,7 +65,7 @@ class Mob extends Entity {
 
 	override function onDamage(dmg:Int, from:Entity) {
 		super.onDamage(dmg, from);
-
+		aggro();
 	}
 
 	override function dispose() {

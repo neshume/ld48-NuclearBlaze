@@ -418,6 +418,17 @@ class Entity {
 			return return M.dist(attachX, attachY, x, y);
 	}
 
+	function getDistToPlatformEnd(checkDir:Int) {
+		if( !onGround )
+			return 0;
+
+		var x = cx;
+		while( checkDir==-1 && !level.hasMark(PlatformEndLeft,x,cy)  ||  checkDir==1 && !level.hasMark(PlatformEndRight,x,cy) )
+			x+=checkDir;
+
+		return M.iabs(cx-x);
+	}
+
 	function canSeeThrough(cx:Int, cy:Int) {
 		return level.canSeeThrough(cx,cy) || this.cx==cx && this.cy==cy;
 	}

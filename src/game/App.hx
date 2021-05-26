@@ -130,7 +130,7 @@ class App extends dn.Process {
 		controller.bind(AXIS_LEFT_X_POS, K.RIGHT, K.D);
 		controller.bind(X, K.SPACE, K.F, K.E);
 		controller.bind(A, K.UP, K.Z, K.W);
-		controller.bind(B, K.ENTER, K.NUMPAD_ENTER);
+		controller.bind(B, K.CTRL, K.SHIFT);
 		controller.bind(SELECT, K.R);
 		controller.bind(START, K.N);
 	}

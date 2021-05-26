@@ -1503,6 +1503,81 @@
 						},
 						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "Mob",
+					"__grid": [13,15],
+					"__pivot": [0.5,1],
+					"__tile": { "tilesetUid": 26, "srcRect": [64,160,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 535,
+					"px": [216,256],
+					"fieldInstances": [
+						{
+							"__identifier": "type",
+							"__value": "Runner",
+							"__type": "LocalEnum.MobType",
+							"defUid": 537,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Runner"]
+							}]
+						},
+						{ "__identifier": "dir", "__value": -1, "__type": "Int", "defUid": 540, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 541, "realEditorValues": [] },
+						{ "__identifier": "lockAiOnCreate", "__value": true, "__type": "Bool", "defUid": 542, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Mob",
+					"__grid": [16,11],
+					"__pivot": [0.5,1],
+					"__tile": { "tilesetUid": 26, "srcRect": [64,160,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 535,
+					"px": [264,192],
+					"fieldInstances": [
+						{
+							"__identifier": "type",
+							"__value": "Runner",
+							"__type": "LocalEnum.MobType",
+							"defUid": 537,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Runner"]
+							}]
+						},
+						{ "__identifier": "dir", "__value": -1, "__type": "Int", "defUid": 540, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 541, "realEditorValues": [] },
+						{ "__identifier": "lockAiOnCreate", "__value": true, "__type": "Bool", "defUid": 542, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Mob",
+					"__grid": [13,29],
+					"__pivot": [0.5,1],
+					"__tile": { "tilesetUid": 26, "srcRect": [64,160,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 535,
+					"px": [216,480],
+					"fieldInstances": [
+						{
+							"__identifier": "type",
+							"__value": "Runner",
+							"__type": "LocalEnum.MobType",
+							"defUid": 537,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Runner"]
+							}]
+						},
+						{ "__identifier": "dir", "__value": -1, "__type": "Int", "defUid": 540, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 541, "realEditorValues": [] },
+						{ "__identifier": "lockAiOnCreate", "__value": true, "__type": "Bool", "defUid": 542, "realEditorValues": [] }
+					]
 				}
 			]
 		},
