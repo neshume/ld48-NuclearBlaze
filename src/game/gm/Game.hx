@@ -360,7 +360,7 @@ class Game extends Process {
 	function onLdtkReload() {
 		hud.notify("LDtk reloaded");
 		if( level!=null )
-			restartCurrentLevel();
+			startLevel( Assets.worldData.getLevel(level.data.uid) );
 	}
 
 	/** Window/app resize event **/
