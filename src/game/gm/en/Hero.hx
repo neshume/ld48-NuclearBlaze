@@ -464,7 +464,7 @@ class Hero extends gm.Entity {
 			fx.fastFalling(attachX, attachY, getFastFallRatio());
 
 		if( !cd.hasSetS("fxTail",0.03) )
-			fx.tail(this, 0xffcc00);
+			fx.tail(this, 0xff6246);
 	}
 
 	function isChargingDirLockAction() {

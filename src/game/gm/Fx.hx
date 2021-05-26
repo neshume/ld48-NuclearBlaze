@@ -1056,11 +1056,11 @@ class Fx extends dn.Process {
 
 			var p = allocBgAdd(getTile(dict.fxTail), e.centerX, e.centerY);
 			p.setCenterRatio(0.1,0.5);
-			p.setFadeS(0.4, 0.1, 0.3);
+			p.setFadeS(0.3, 0.1, 0.5);
 			p.rotation = a;
 			p.scaleX = (d+2)/p.t.width;
 			p.colorize(c);
-			p.lifeS = 0.3;
+			p.lifeS = 0.2;
 		}
 
 		if( d>=2 ) {
