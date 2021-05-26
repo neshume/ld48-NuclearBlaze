@@ -67,6 +67,9 @@ class Entity {
 	/** Last known Y position of the attach point (in pixels), at the beginning of the latest fixedUpdate **/
 	var lastFixedUpdateY = 0.;
 
+	public var lastTailX = -1.;
+	public var lastTailY = -1.;
+
 	/** If TRUE, the sprite display coordinates will be an interpolation between the last known position and the current one. This is useful if the gameplay happens in the `fixedUpdate()` (so at 30 FPS), but you still want the sprite position to move smoothly at 60 FPS or more. **/
 	var interpolateSprPos = true;
 
@@ -219,7 +222,10 @@ class Entity {
 	public var fireState : FireState;
 	var fallStartCy = 999999.;
 	var gravityMul = 1.0;
-	var collides = true;
+	var collides(never,set) : Bool;
+		inline function set_collides(v) return collidesX = collidesY = v;
+	var collidesX = true;
+	var collidesY = true;
 	public var climbing = false;
 	public var triggerId(default,null) = -1;
 	public var revealFogOnTrigger = false;
@@ -773,7 +779,7 @@ class Entity {
 
 	/** Called at the beginning of each X movement step **/
 	function onPreStepX() {
-		if( collides ) {
+		if( collidesX ) {
 			// Right collision
 			if( xr>0.8 && level.hasWallCollision(cx+1,cy) ) {
 				onTouchWall(1);
@@ -790,7 +796,7 @@ class Entity {
 
 	/** Called at the beginning of each Y movement step **/
 	function onPreStepY() {
-		if( collides ) {
+		if( collidesY ) {
 			// Land on ground
 			if( yr>1 && level.hasAnyCollision(cx,cy+1) ) {
 				dy = 0;

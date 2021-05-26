@@ -48,6 +48,10 @@ class Exit extends Entity {
 			hero.lockControlsS(99);
 			hero.cd.setS("dirLock", 99);
 			game.fadeToBlack();
+			switch data.f_ExitDir {
+				case North, South:
+				case East, West: hero.collidesX = false;
+			}
 			cd.setS("nextLock",0.5);
 		}
 
@@ -76,6 +80,7 @@ class Exit extends Entity {
 		// Next level
 		if( triggered && !cd.has("nextLock") ) {
 			game.nextLevel();
+			hero.collidesX = true;
 			destroy();
 		}
 	}

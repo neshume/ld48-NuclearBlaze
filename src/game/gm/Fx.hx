@@ -229,7 +229,7 @@ class Fx extends dn.Process {
 
 	inline function compressUp(ratio:Float, range:Float) return (1-range) + range*ratio;
 
-	public inline function fireVanish(cx:Int, cy:Int, strong=false) {
+	public inline function fireExtinguishedByWater(cx:Int, cy:Int, strong=false) {
 		// Halo
 		for(i in 0...3) {
 			var p = allocTopAdd( getTile(dict.fxSmokeHalo), (cx+0.5)*Const.GRID+rnd(0,1,true), (cy+0.2)*Const.GRID+rnd(0,1,true) );
@@ -241,6 +241,26 @@ class Fx extends dn.Process {
 			p.rotation = rnd(0,M.PI2);
 			p.dr = rnd(0.02,0.03,true);
 			p.lifeS = R.around(0.1);
+		}
+
+		// Splash
+		var n = 9;
+		var a = 0.;
+		var d = 0.;
+		var x = (cx+0.5)*Const.GRID;
+		var y = (cy+0.5)*Const.GRID;
+		for(i in 0...n) {
+			a = (i+1)/n * M.PI2;
+			d = rnd(3,6);
+			var p = allocTopAdd(getTile(dict.fxFlame), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.setFadeS(R.around(0.4), 0, 0.1);
+			p.colorize(0x50ccff);
+			p.moveAng(a, rnd(3,4));
+			p.rotation = a+M.PIHALF;
+			p.frict = 0.77;
+			p.scaleY = R.around(1.2);
+			p.scaleYMul = R.aroundBO(0.96);
+			p.lifeS = R.around(0.4);
 		}
 
 		// Lines
@@ -262,7 +282,7 @@ class Fx extends dn.Process {
 		// Long smoke
 		for(i in 0...8) {
 			var p = allocTopNormal( getTile(dict.fxSmoke), getFlameX(cx,cy), getFlameY(cx,cy) );
-			p.setFadeS(R.around(0.25), R.around(0.04), rnd(2,3));
+			p.setFadeS(R.around(0.10), R.around(0.04), rnd(2,3));
 			p.colorAnimS(0xc34029, 0xc3b9a0, rnd(0.1,0.5));
 			p.setScale( R.around(0.75) );
 			p.rotation = rnd(0,M.PI2);
@@ -1028,13 +1048,35 @@ class Fx extends dn.Process {
 		}
 	}
 
+
+	public function tail(e:Entity, c:Int) {
+		var d = M.dist(e.centerX, e.centerY, e.lastTailX, e.lastTailY);
+		if( e.lastTailX>=0 && d>=2 ) {
+			var a = Math.atan2(e.lastTailY-e.centerY, e.lastTailX-e.centerX);
+
+			var p = allocBgAdd(getTile(dict.fxTail), e.centerX, e.centerY);
+			p.setCenterRatio(0.1,0.5);
+			p.setFadeS(0.4, 0.1, 0.3);
+			p.rotation = a;
+			p.scaleX = (d+2)/p.t.width;
+			p.colorize(c);
+			p.lifeS = 0.3;
+		}
+
+		if( d>=2 ) {
+			e.lastTailX = e.centerX;
+			e.lastTailY = e.centerY;
+		}
+	}
+
+
 	public function waterTail(lastX:Float, lastY:Float, curX:Float, curY:Float, elapsed:Float, col:UInt) {
 		var alpha = compressUp( 1 - elapsed, 0.8 );
 		var d = M.dist(curX, curY, lastX, lastY);
 		var a = Math.atan2(curY-lastY, curX-lastX);
 
 		// Tail core
-		var p = allocTopAdd( getTile(dict.fxTail), lastX, lastY);
+		var p = allocTopAdd( getTile(dict.fxWaterTail), lastX, lastY);
 		p.setFadeS(R.aroundZTO(0.4)*alpha, 0, 0.1);
 		p.colorize(col);
 		p.setCenterRatio(0.2,0.5);
@@ -1364,7 +1406,26 @@ class Fx extends dn.Process {
 		p.lifeS = 0.1;
 	}
 
-	public inline function fireExtinguished(fireX:Float,fireY:Float, sourceX:Float, sourceY:Float) {
+	public inline function fireExtinguishedByExplosion(fireX:Float,fireY:Float, sourceX:Float, sourceY:Float) {
+		// Splash
+		var n = 9;
+		var a = 0.;
+		var d = 0.;
+		for(i in 0...n) {
+			a = (i+1)/n * M.PI2;
+			d = rnd(3,6);
+			var p = allocBgAdd(getTile(dict.fxFlame), fireX+Math.cos(a)*d, fireY+Math.sin(a)*d);
+			p.setFadeS(R.around(0.9), 0, 0.1);
+			p.colorize(0x50ccff);
+			p.moveAng(a, rnd(3,4));
+			p.rotation = a+M.PIHALF;
+			p.frict = 0.77;
+			p.scaleY = R.around(1.2);
+			p.scaleYMul = R.aroundBO(0.96);
+			p.lifeS = R.around(0.4);
+		}
+
+		// Smoke
 		for(i in 0...2) {
 			var p = allocTopNormal( getTile(dict.fxSmoke), fireX+R.zeroTo(4,true), fireY+R.zeroTo(4,true) );
 			p.setFadeS(R.around(0.5), rnd(0.3,0.5), rnd(0.4,1));
@@ -1827,6 +1888,41 @@ class Fx extends dn.Process {
 		var p = allocBgAdd(getTile(dict.fxWaterPhong), x, y);
 		p.alpha = 0.85;
 		p.playAnimAndKill(Assets.tiles, dict.fxWaterPhong, 0.5);
+	}
+
+
+	public function waterRefillerComplete(x:Float, y:Float) {
+		// Lines
+		var n = 40;
+		for(i in 0...n) {
+			var a = (i+1)/n * M.PI2;
+			var d = rnd(3,6);
+			var p = allocTopAdd(getTile(dict.fxLineThinLeft), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.colorize(0x50ccff);
+			p.scaleX = R.around(0.2);
+			p.moveAng(a, rnd(3,4));
+			p.rotation = a;
+			p.autoRotateSpeed = 0.9;
+			p.gy = R.around(0.07);
+			p.frict = R.aroundBO(0.82);
+			p.scaleXMul = R.aroundBO(0.92);
+			p.lifeS = R.around(0.3);
+		}
+
+		// Inner
+		var n = 11;
+		for(i in 0...n) {
+			var a = (i+1)/n * M.PI2;
+			var d = rnd(3,6);
+			var p = allocTopAdd(getTile(dict.fxWaterSurface), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.colorize(0x50ccff);
+			p.moveAng(a, rnd(3,4));
+			p.rotation = a+M.PIHALF;
+			p.frict = 0.68;
+			p.scaleY = R.around(1.2);
+			p.scaleYMul = R.aroundBO(0.96);
+			p.lifeS = R.around(0.2);
+		}
 	}
 
 	public function fireSprayOffSparks(x:Float,y:Float, ang:Float, dist:Float) {

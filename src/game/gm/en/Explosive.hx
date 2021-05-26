@@ -200,7 +200,7 @@ class Explosive extends Entity {
 						}
 					}
 					if( !fs.isBurning() )
-						fx.fireExtinguished( (x+0.5)*Const.GRID, (y+0.5)*Const.GRID, centerX, centerY );
+						fx.fireExtinguishedByExplosion( (x+0.5)*Const.GRID, (y+0.5)*Const.GRID, centerX, centerY );
 					fs.extinguished = true;
 				});
 

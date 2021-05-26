@@ -462,6 +462,9 @@ class Hero extends gm.Entity {
 		camera.setTrackingSpeed(1 + getFastFallRatio()*0.5);
 		if( getFastFallRatio()>0 )
 			fx.fastFalling(attachX, attachY, getFastFallRatio());
+
+		if( !cd.hasSetS("fxTail",0.03) )
+			fx.tail(this, 0xffcc00);
 	}
 
 	function isChargingDirLockAction() {
@@ -469,7 +472,7 @@ class Hero extends gm.Entity {
 			isChargingAction("openDoor");
 	}
 
-	inline function isWatering() return cd.has("watering");
+	public inline function isWatering() return cd.has("watering");
 
 	var climbInsistS = 0.;
 	override function preUpdate() {

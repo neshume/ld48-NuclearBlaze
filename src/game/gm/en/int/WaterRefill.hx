@@ -45,6 +45,8 @@ class WaterRefill extends Entity {
 		if( !game.waterMaxed() && hero.isAlive() )
 			if( M.iabs(hero.cx-cx)<=Const.db.WaterRefillRangeX && M.iabs(hero.cy-cy)<=Const.db.WaterRefillRangeY && sightCheck(hero) ) {
 				game.refillWater(Const.db.WaterRefillRate);
+				if( game.waterMaxed() && !hero.isWatering() && !cd.hasSetS("complete",0.8) )
+					fx.waterRefillerComplete(hero.centerX, hero.centerY);
 				cd.setS("used",0.1);
 			}
 	}

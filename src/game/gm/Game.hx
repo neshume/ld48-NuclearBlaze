@@ -602,6 +602,11 @@ class Game extends Process {
 				hud.notify("Cleared save");
 			}
 
+			// Kill all mobs
+			if( ca.isKeyboardPressed(K.K) ) {
+				for(e in gm.en.Mob.ALL) e.hit(9999,hero);
+			}
+
 			// Clear all
 			if( ca.isKeyboardPressed(K.C) ) {
 				for(e in gm.en.FireSpray.ALL) e.stop();

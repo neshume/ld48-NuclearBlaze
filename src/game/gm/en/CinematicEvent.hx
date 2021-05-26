@@ -55,6 +55,9 @@ class CinematicEvent extends Entity {
 			case CamShake:
 				camera.shakeS(data.f_duration, data.f_power);
 
+			case SlowMo:
+				game.addSlowMo("event", data.f_duration, data.f_power);
+
 			case CamShoulder:
 				camera.setShoulderIntensity(data.f_power);
 

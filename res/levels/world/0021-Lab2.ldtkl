@@ -336,76 +336,61 @@
 					]
 				},
 				{
-					"__identifier": "Mob",
-					"__grid": [7,4],
-					"__pivot": [0.5,1],
-					"__tile": null,
+					"__identifier": "CinematicEvent",
+					"__grid": [5,12],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,80,16,16] },
 					"width": 16,
 					"height": 16,
-					"defUid": 535,
-					"px": [120,80],
+					"defUid": 485,
+					"px": [88,200],
 					"fieldInstances": [
-						{
-							"__identifier": "type",
-							"__value": "Jumper",
-							"__type": "LocalEnum.MobType",
-							"defUid": 537,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Jumper"]
-							}]
-						},
-						{ "__identifier": "dir", "__value": -1, "__type": "Int", "defUid": 540, "realEditorValues": [] },
 						{
 							"__identifier": "triggerId",
 							"__value": 1,
 							"__type": "Int",
-							"defUid": 541,
+							"defUid": 486,
 							"realEditorValues": [{ "id": "V_Int", "params": [1] }]
 						},
-						{ "__identifier": "lockAiOnCreate", "__value": true, "__type": "Bool", "defUid": 542, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "Mob",
-					"__grid": [9,4],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 16,
-					"defUid": 535,
-					"px": [152,80],
-					"fieldInstances": [
 						{
-							"__identifier": "type",
-							"__value": "Jumper",
-							"__type": "LocalEnum.MobType",
-							"defUid": 537,
+							"__identifier": "eventType",
+							"__value": "SlowMo",
+							"__type": "LocalEnum.CinematicEventType",
+							"defUid": 488,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Jumper"]
+								"params": ["SlowMo"]
 							}]
 						},
-						{ "__identifier": "dir", "__value": -1, "__type": "Int", "defUid": 540, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 489, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 490, "realEditorValues": [] },
 						{
-							"__identifier": "triggerId",
-							"__value": 1,
-							"__type": "Int",
-							"defUid": 541,
-							"realEditorValues": [{ "id": "V_Int", "params": [1] }]
+							"__identifier": "power",
+							"__value": 0.4,
+							"__type": "Float",
+							"defUid": 491,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.4] }]
 						},
-						{ "__identifier": "lockAiOnCreate", "__value": true, "__type": "Bool", "defUid": 542, "realEditorValues": [] }
+						{ "__identifier": "selfTriggerDist", "__value": 0, "__type": "Float", "defUid": 493, "realEditorValues": [] },
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 494, "realEditorValues": [] },
+						{
+							"__identifier": "duration",
+							"__value": 1,
+							"__type": "Float",
+							"defUid": 495,
+							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
+						}
 					]
 				},
 				{
 					"__identifier": "DebugStartPoint",
-					"__grid": [2,10],
+					"__grid": [16,10],
 					"__pivot": [0.5,1],
 					"__tile": null,
 					"width": 16,
 					"height": 12,
 					"defUid": 143,
-					"px": [40,176],
+					"px": [264,176],
 					"fieldInstances": [
 						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
 						{

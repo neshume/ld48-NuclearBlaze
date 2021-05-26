@@ -1,8 +1,8 @@
 package gm.en.bu;
 
 class WaterDrop extends Bullet {
-	var lastTailX = 0.;
-	var lastTailY = 0.;
+	var lastDropTailX = 0.;
+	var lastDropTailY = 0.;
 	var elapsedDist = 0.;
 	public var power = 1.0;
 	public var ignoreResist = false;
@@ -16,8 +16,8 @@ class WaterDrop extends Bullet {
 		frictY = 0.93;
 		collides = false;
 
-		lastTailX = sprX;
-		lastTailY = sprY;
+		lastDropTailX = sprX;
+		lastDropTailY = sprY;
 
 		final spd = 0.7 * rnd(0.9,1.1);
 		dx = Math.cos(ang)*spd;
@@ -37,8 +37,8 @@ class WaterDrop extends Bullet {
 			if( elapsedDist>16 )
 				tailFxTo(sprX,sprY);
 			else {
-				lastTailX = sprX;
-				lastTailY = sprY;
+				lastDropTailX = sprX;
+				lastDropTailY = sprY;
 			}
 		}
 	}
@@ -52,9 +52,9 @@ class WaterDrop extends Bullet {
 
 	inline function tailFxTo(x:Float,y:Float) {
 		if( isOnScreenCenter() )
-			fx.waterTail(lastTailX, lastTailY, x,y, getElapsedFactor(), cd.has("touchedFire") ? Const.WATER_COLOR_OFF : Const.WATER_COLOR);
-		lastTailX = x;
-		lastTailY = y;
+			fx.waterTail(lastDropTailX, lastDropTailY, x,y, getElapsedFactor(), cd.has("touchedFire") ? Const.WATER_COLOR_OFF : Const.WATER_COLOR);
+		lastDropTailX = x;
+		lastDropTailY = y;
 	}
 
 	override function checkCollision() {
@@ -106,7 +106,7 @@ class WaterDrop extends Bullet {
 						fs.clear();
 						fs.extinguished = true;
 						if( before>0 && isOnScreenCenter() )
-							fx.fireVanish(x,y, fs.strongFx);
+							fx.fireExtinguishedByWater(x,y, fs.strongFx);
 					}
 
 					if( fs.level>=1 ) {
