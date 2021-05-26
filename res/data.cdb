@@ -83,6 +83,44 @@
 					"value": 1
 				},
 				{
+					"constId": "DodgeCharge",
+					"value": 0.15
+				},
+				{
+					"constId": "DodgeDuration",
+					"value": 0.6
+				},
+				{
+					"constId": "DodgeCD",
+					"value": 0.8
+				},
+				{
+					"constId": "DodgeStartBumpX",
+					"value": 0.35
+				},
+				{
+					"constId": "DodgeStartBumpY",
+					"value": -0.16
+				},
+				{
+					"constId": "DodgePowerX",
+					"value": 0.015,
+					"doc": "Speed on every frames"
+				},
+				{
+					"constId": "DodgeEndRatio",
+					"value": 0.7,
+					"doc": "Start braking after this ratio"
+				},
+				{
+					"constId": "DodgeSlowMoPower",
+					"value": 0.6
+				},
+				{
+					"constId": "DodgeSlowMoDuration",
+					"value": 0.5
+				},
+				{
 					"constId": "FireTick",
 					"doc": "fire update frequency (sec)",
 					"value": 0.5

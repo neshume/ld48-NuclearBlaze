@@ -412,11 +412,13 @@ class Fx extends dn.Process {
 		if( collides(p) ) {
 			p.dy *= Math.pow(0.9,tmod);
 			p.gy *= Math.pow(0.8,tmod);
+			p.scaleX = 1;
 		}
 		else if( p.dy>0 && collides(p,0,M.ceil(p.dy*2)) ) {
 			if( p.data0>0 ) {
 				p.dx = rnd(0.2,1,true) * p.data0;
 				p.dy*=-0.6;
+				p.scaleX = 1;
 				p.data0 = 0;
 			}
 			else
@@ -435,6 +437,36 @@ class Fx extends dn.Process {
 		p.frict = rnd(0.8,0.92);
 		p.lifeS = rnd(0.1,0.5);
 		p.onUpdate = _dustPhysics;
+	}
+
+	public function dodgeLand(x:Float, y:Float, dir:Int, col=0xcbb5a0) {
+		for(i in 0...10) {
+			var p = allocTopNormal( getTile(dict.pixel), x, y );
+			p.setFadeS(rnd(0.4,0.7), 0.06, R.around(0.2));
+			p.colorize(col);
+			p.scaleX = irnd(2,3);
+			p.autoRotateSpeed = 1;
+			p.dx = dir*rnd(3,4);
+			p.dy = -rnd(1.5, 2);
+			p.gy = rnd(0.05,0.10);
+			p.frict = R.around(0.85);
+			p.lifeS = rnd(0.1,0.5);
+			p.onUpdate = _dustPhysics;
+		}
+	}
+
+	public function dodgeBrake(x:Float, y:Float, dir:Int, col=0xcbb5a0) {
+		for(i in 0...2) {
+			var p = allocTopNormal( getTile(dict.pixel), x, y );
+			p.setFadeS(rnd(0.4,0.7), 0.06, R.around(0.2));
+			p.colorize(col);
+			p.dx = dir*rnd(3,4);
+			p.dy = -rnd(0.7, 1);
+			p.gy = rnd(0.05,0.10);
+			p.frict = R.around(0.85);
+			p.lifeS = rnd(0.1,0.5);
+			p.onUpdate = _dustPhysics;
+		}
 	}
 
 	public function ember(x:Float, y:Float) {

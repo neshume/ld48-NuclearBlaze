@@ -100,7 +100,7 @@ class FireSpray extends Entity {
 
 	function applyEffect(cDist:Int, fcx:Int, fcy:Int) {
 		// Hero damage
-		if( hero.cx==fcx && hero.cy==fcy && !hero.hasShield() && !cd.hasSetS("hit",0.5) )
+		if( hero.cx==fcx && hero.cy==fcy && hero.canBeHit() && !cd.hasSetS("hit",0.5) )
 			hero.hit(1,this);
 
 		// Ignition

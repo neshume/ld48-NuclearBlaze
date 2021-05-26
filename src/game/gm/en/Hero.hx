@@ -2,6 +2,7 @@ package gm.en;
 
 enum CtrlCommand {
 	StartJump;
+	StartDodge;
 	UseWater;
 	UseTool;
 }
@@ -42,6 +43,11 @@ class Hero extends gm.Entity {
 		spr.anim.registerStateAnim(anims.cineFall, 99, ()->getFastFallRatio()>0.6 && !onGround );
 		spr.anim.registerStateAnim(anims.deathJump, 99, ()->life<=0 && !onGround );
 		spr.anim.registerStateAnim(anims.deathLand, 99, ()->life<=0 && onGround);
+		spr.anim.registerStateAnim(anims.dodgeCharge, 9, ()->isChargingAction("dodge") );
+		spr.anim.registerStateAnim(anims.dodgeFly, 9, ()->isDodging() && !onGround && getDodgeRatio()<=0.4 && !cd.has("dodgedFromAir") );
+		spr.anim.registerStateAnim(anims.dodgeGround, 9, ()->isDodging() && ( onGround || cd.has("dodgedFromAir") ) && getDodgeRatio()<Const.db.DodgeEndRatio );
+		spr.anim.registerStateAnim(anims.dodgeEnd, 9, ()->isDodging() && onGround && getDodgeRatio()>=Const.db.DodgeEndRatio );
+
 		spr.anim.registerStateAnim(anims.kickCharge, 8, ()->isChargingAction("kickDoor") );
 
 		spr.anim.registerStateAnim(anims.climbMove, 8, ()->climbing && climbSpeed!=0 );
@@ -164,13 +170,13 @@ class Hero extends gm.Entity {
 	}
 
 	override function hit(dmg:Int, ?from:Entity) {
-		if( !hasShield() )
+		if( canBeHit() )
 			super.hit(dmg, from);
 	}
 
 	override function kill(by:Null<Entity>) {
-		if( hasShield() )
-			cd.unset("shield");
+		cd.unset("dodging");
+		cd.unset("shield");
 		super.kill(by);
 	}
 
@@ -180,12 +186,27 @@ class Hero extends gm.Entity {
 		setShield(Const.db.HeroHitShield);
 	}
 
-	public inline function hasShield() return isAlive() && cd.has("shield");
+	public inline function canBeHit() return isAlive() && !cd.has("shield") && !isDodging();
 	public inline function setShield(t:Float, blink=true) {
 		if( isAlive() ) {
 			cd.setS("shield", t, false);
 			if( blink )
 				cd.setS("blinking",t);
+		}
+	}
+
+	public inline function isDodging() return isAlive() && cd.has("dodging");
+	public inline function getDodgeRatio() return isDodging() ? 1-cd.getRatio("dodging") : 0;
+	public function dodge() {
+		cd.setS("dodging", Const.db.DodgeDuration);
+		cd.setS("dodgeLock", Const.db.DodgeCD);
+		game.addSlowMo("dodge", Const.db.DodgeSlowMoDuration, Const.db.DodgeSlowMoPower);
+		if( onGround )
+			bump(dir*Const.db.DodgeStartBumpX, Const.db.DodgeStartBumpY);
+		else {
+			cd.setS("dodgedFromAir",Const.db.DodgeDuration);
+			dy*=0.7;
+			bump(dir*Const.db.DodgeStartBumpX*0.5, 0);
 		}
 	}
 
@@ -221,7 +242,7 @@ class Hero extends gm.Entity {
 
 	public function controlsLocked() {
 		return life<=0 || ca.locked() || Console.ME.isActive() || isChargingAction()
-			|| cd.has("fallLock") || cd.has("lockControls") || camera.hasCinematicTracking();
+			|| cd.has("fallLock") || cd.has("lockControls") || camera.hasCinematicTracking() || isDodging();
 	}
 
 	public function lockControlsS(t) {
@@ -230,9 +251,17 @@ class Hero extends gm.Entity {
 
 
 	override function onLand(cHei:Float) {
+		if( isDodging() )
+			cHei*=0.5;
 		super.onLand(cHei);
 
-		if( isAlive() && cHei>1 )
+		if( isDodging() ) {
+			camera.bump(dir*2, 2);
+			camera.shakeS(0.5, 0.2);
+			fx.dodgeLand(attachX, attachY, dir);
+		}
+
+		if( isAlive() && cHei>1 && !isDodging() )
 			spr.anim.play(anims.land);
 
 		if( getFastFallRatio()>0.5 ) {
@@ -432,6 +461,7 @@ class Hero extends gm.Entity {
 		if( !isAlive() && !onGround && !cd.hasSetS("deathBlink",0.15) )
 			blink(0xffaa00);
 
+		// Emote bubble tracking
 		if( bubble!=null ) {
 			bubble.x = sprX;
 			bubble.y = top-3;
@@ -445,6 +475,8 @@ class Hero extends gm.Entity {
 					clearBubble();
 			}
 		}
+
+		// Say bubble tracking
 		if( saying!=null ) {
 			saying.scaleX += (1-saying.scaleX) * M.fmin(1, 0.3*tmod);
 			saying.scaleY += (1-saying.scaleY) * M.fmin(1, 0.3*tmod);
@@ -459,17 +491,31 @@ class Hero extends gm.Entity {
 			}
 		}
 
+		// Fast fall
 		camera.setTrackingSpeed(1 + getFastFallRatio()*0.5);
 		if( getFastFallRatio()>0 )
 			fx.fastFalling(attachX, attachY, getFastFallRatio());
 
+		// Tail
 		if( !cd.hasSetS("fxTail",0.03) )
 			fx.tail(this, 0xff6246);
+
+		// Dodge alpha
+		if( isDodging() )
+			spr.alpha = 0.66;
+		else
+			spr.alpha = 1;
+
+		// Dodge braking fx
+		if( isDodging() && onGround && getDodgeRatio()>=Const.db.DodgeEndRatio && !cd.hasSetS("dodgeDustFx",0.03) ) {
+			fx.dodgeBrake(attachX, attachY, dir);
+		}
+
 	}
 
 	function isChargingDirLockAction() {
 		return isChargingAction("kickDoor") ||
-			isChargingAction("openDoor");
+			isChargingAction("openDoor") || isDodging();
 	}
 
 	public inline function isWatering() return cd.has("watering");
@@ -503,6 +549,9 @@ class Hero extends gm.Entity {
 			// On keyboards, "jump" key is the same as "going up"
 			if( climbing && ( ca.isKeyboardDown(K.UP) || ca.isKeyboardDown(K.Z) || ca.isKeyboardDown(K.W) ) )
 				clearCommandQueue(StartJump);
+		}
+		if( ca.bPressed() && !game.kidMode ) {
+			queueCommand(StartDodge);
 		}
 
 
@@ -545,6 +594,13 @@ class Hero extends gm.Entity {
 		if( climbing )
 			climbInsistS = 0;
 
+		if( !controlsLocked() && !cd.has("dodgeLock") && ifQueuedRemove(StartDodge) ) {
+			clearCommandQueue();
+			cancelAction();
+			chargeAction("dodge", onGround ? Const.db.DodgeCharge : 0, ()->{
+				dodge();
+			});
+		}
 
 		if( !controlsLocked() && !isWatering() ) {
 			// Start climbing up/down
@@ -802,11 +858,20 @@ class Hero extends gm.Entity {
 				dx += walkSpeed*Const.db.HeroWalkSpeed * ( 1 - getFastFallRatio() );
 			cd.setS("recentMove",0.3);
 		}
-		else if( !isChargingAction("jump") )
+		else if( !isChargingAction("jump") && !isDodging() )
 			dx*=0.6;
 
-		if( walkSpeed!=0 && onGround && !climbing && ( spr.frame==0 || spr.frame==4 ) ) {
+		// Walk dust fx
+		if( walkSpeed!=0 && onGround && !climbing && ( spr.frame==0 || spr.frame==4 ) )
 			fx.walkDust(attachX, attachY, -dir);
+
+
+		// Dodge movement
+		if( isDodging() ) {
+			if( getDodgeRatio()>=Const.db.DodgeEndRatio )
+				dx*=0.8;
+			else
+				dx += dir * Const.db.DodgePowerX;
 		}
 
 
@@ -843,7 +908,7 @@ class Hero extends gm.Entity {
 		// Fire damage
 		if( isAlive() && level.getFireLevel(cx,cy)>=1 ) {
 			cd.setS("burning",2);
-			if( level.getFireLevel(cx,cy)>=2 && !hasShield() ) {
+			if( level.getFireLevel(cx,cy)>=2 && canBeHit() ) {
 				if( game.kidMode && !cd.hasSetS("fireBumpLimit", 1) ) {
 					cancelVelocities();
 					var d = xr<0.5 ? -1 : 1;
