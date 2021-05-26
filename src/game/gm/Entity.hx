@@ -419,11 +419,11 @@ class Entity {
 	}
 
 	function getDistToPlatformEnd(checkDir:Int) {
-		if( !onGround )
+		if( !onGround || !level.isValid(cx,cy) )
 			return 0;
 
 		var x = cx;
-		while( checkDir==-1 && !level.hasMark(PlatformEndLeft,x,cy)  ||  checkDir==1 && !level.hasMark(PlatformEndRight,x,cy) )
+		while( level.isValid(x,cy) && ( checkDir==-1 && !level.hasMark(PlatformEndLeft,x,cy)  ||  checkDir==1 && !level.hasMark(PlatformEndRight,x,cy) ) )
 			x+=checkDir;
 
 		return M.iabs(cx-x);
