@@ -108,6 +108,10 @@ class Hud extends dn.Process {
 			case UpWaterTank:
 				name = L.t._("WATER TANK");
 				desc = L.t._("More water!");
+
+			case UpDodge:
+				name = L.t._("DODGING");
+				desc = L.t._("Tactical hazard escape!");
 		}
 
 		if( name!=null ) {

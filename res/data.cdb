@@ -104,7 +104,7 @@
 				},
 				{
 					"constId": "DodgePowerX",
-					"value": 0.015,
+					"value": 0.02,
 					"doc": "Speed on every frames"
 				},
 				{

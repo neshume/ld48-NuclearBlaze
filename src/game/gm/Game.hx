@@ -210,11 +210,6 @@ class Game extends Process {
 		delayer.cancelById("deathMsg");
 		cd.unset("successMsg");
 
-		// Remove upgrades found in this level
-		for(e in l.l_Entities.all_Item)
-			if( gm.en.Item.isUpgradeItem(e.f_type) )
-				relockUpgrade(e.f_type);
-
 		// Save
 		if( !l.f_isGameMenu ) {
 			app.save.state.levelId = l.identifier;
@@ -232,6 +227,30 @@ class Game extends Process {
 		level = new Level(l);
 		hero = new gm.en.Hero();
 		camera.clampToLevelBounds = level.data.f_clampCameraToBounds;
+
+		// Debug start equipment & settings
+		#if debug
+		if( level.data.l_Entities.all_DebugStartPoint.length>0 ) {
+			var d = level.data.l_Entities.all_DebugStartPoint[0];
+			hero.setShield(d.f_shieldDurationS);
+			for(i in d.f_startInv)
+				if( gm.en.Item.isUpgradeItem(i) )
+					unlockUpgrade(i);
+				else
+					hero.addItem(i);
+			if( d.f_unlockAllUpgrades )
+				for(k in Enum_Items.getConstructors()) {
+					var i = Enum_Items.createByName(k);
+					if( gm.en.Item.isUpgradeItem(i) )
+						unlockUpgrade(i);
+				}
+		}
+		#end
+
+		// Remove upgrades found in this level
+		for(e in l.l_Entities.all_Item)
+			if( gm.en.Item.isUpgradeItem(e.f_type) )
+				relockUpgrade(e.f_type);
 
 		for(d in level.data.l_Entities.all_Door) new gm.en.int.Door(d);
 		for(d in level.data.l_Entities.all_HorizontalDoor) new gm.en.int.HorizontalDoor(d);

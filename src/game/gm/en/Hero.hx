@@ -76,25 +76,6 @@ class Hero extends gm.Entity {
 
 		clearInventory();
 
-		// Debug start equipment & settings
-		#if debug
-		if( level.data.l_Entities.all_DebugStartPoint.length>0 ) {
-			var d = level.data.l_Entities.all_DebugStartPoint[0];
-			setShield(d.f_shieldDurationS);
-			for(i in d.f_startInv)
-				if( gm.en.Item.isUpgradeItem(i) )
-					game.unlockUpgrade(i);
-				else
-					addItem(i);
-			if( d.f_unlockAllUpgrades )
-				for(k in Enum_Items.getConstructors()) {
-					var i = Enum_Items.createByName(k);
-					if( gm.en.Item.isUpgradeItem(i) )
-						game.unlockUpgrade(i);
-				}
-		}
-		#end
-
 		// Start position
 		var pos = game.getHeroStartPosition();
 		setPosCase(pos.pt.cx, pos.pt.cy);
@@ -201,8 +182,10 @@ class Hero extends gm.Entity {
 		cd.setS("dodging", Const.db.DodgeDuration);
 		cd.setS("dodgeLock", Const.db.DodgeCD);
 		game.addSlowMo("dodge", Const.db.DodgeSlowMoDuration, Const.db.DodgeSlowMoPower);
-		if( onGround )
+		if( onGround ) {
+			cancelVelocities();
 			bump(dir*Const.db.DodgeStartBumpX, Const.db.DodgeStartBumpY);
+		}
 		else {
 			cd.setS("dodgedFromAir",Const.db.DodgeDuration);
 			dy*=0.7;
@@ -550,9 +533,8 @@ class Hero extends gm.Entity {
 			if( climbing && ( ca.isKeyboardDown(K.UP) || ca.isKeyboardDown(K.Z) || ca.isKeyboardDown(K.W) ) )
 				clearCommandQueue(StartJump);
 		}
-		if( ca.bPressed() && !game.kidMode ) {
-			queueCommand(StartDodge);
-		}
+		if( ca.bPressed() && !game.kidMode && game.hasUpgrade(UpDodge) )
+			queueCommand(StartDodge,0.3);
 
 
 		// Dir control

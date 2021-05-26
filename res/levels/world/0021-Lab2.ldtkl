@@ -491,6 +491,51 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
 						}
 					]
+				},
+				{
+					"__identifier": "FireSpray",
+					"__grid": [24,10],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [144,80,16,16] },
+					"width": 12,
+					"height": 12,
+					"defUid": 164,
+					"px": [392,168],
+					"fieldInstances": [
+						{
+							"__identifier": "dir",
+							"__value": "South",
+							"__type": "LocalEnum.Direction",
+							"defUid": 165,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["South"]
+							}]
+						},
+						{ "__identifier": "id", "__value": 0, "__type": "Int", "defUid": 166, "realEditorValues": [] },
+						{ "__identifier": "distance", "__value": 3, "__type": "Float", "defUid": 167, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 168, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Item",
+					"__grid": [20,13],
+					"__pivot": [0.5,1],
+					"__tile": { "tilesetUid": 26, "srcRect": [96,160,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 23,
+					"px": [328,224],
+					"fieldInstances": [{
+						"__identifier": "type",
+						"__value": "UpDodge",
+						"__type": "LocalEnum.Items",
+						"defUid": 24,
+						"realEditorValues": [{
+							"id": "V_String",
+							"params": ["UpDodge"]
+						}]
+					}]
 				}
 			]
 		},
