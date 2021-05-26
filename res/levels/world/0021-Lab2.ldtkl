@@ -232,13 +232,13 @@
 				},
 				{
 					"__identifier": "Trigger",
-					"__grid": [5,9],
+					"__grid": [4,10],
 					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [64,224,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [0,240,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 179,
-					"px": [88,152],
+					"px": [72,168],
 					"fieldInstances": [
 						{
 							"__identifier": "triggerId",
@@ -249,12 +249,12 @@
 						},
 						{
 							"__identifier": "type",
-							"__value": "Invisible",
+							"__value": "InvisibleGate",
 							"__type": "LocalEnum.TriggerType",
 							"defUid": 182,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Invisible"]
+								"params": ["InvisibleGate"]
 							}]
 						},
 						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
@@ -262,50 +262,10 @@
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{
 							"__identifier": "invisibleRadius",
-							"__value": 2,
+							"__value": 0,
 							"__type": "Float",
 							"defUid": 435,
-							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
-						},
-						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "Trigger",
-					"__grid": [12,5],
-					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [64,224,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 179,
-					"px": [200,88],
-					"fieldInstances": [
-						{
-							"__identifier": "triggerId",
-							"__value": 1,
-							"__type": "Int",
-							"defUid": 180,
-							"realEditorValues": [{ "id": "V_Int", "params": [1] }]
-						},
-						{
-							"__identifier": "type",
-							"__value": "Invisible",
-							"__type": "LocalEnum.TriggerType",
-							"defUid": 182,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Invisible"]
-							}]
-						},
-						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
-						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
-						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
-						{
-							"__identifier": "invisibleRadius",
-							"__value": 2,
-							"__type": "Float",
-							"defUid": 435,
-							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+							"realEditorValues": [null]
 						},
 						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
 					]
@@ -414,6 +374,46 @@
 							"defUid": 396,
 							"realEditorValues": [null]
 						}
+					]
+				},
+				{
+					"__identifier": "Trigger",
+					"__grid": [12,6],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [0,240,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 179,
+					"px": [200,104],
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 1,
+							"__type": "Int",
+							"defUid": 180,
+							"realEditorValues": [{ "id": "V_Int", "params": [1] }]
+						},
+						{
+							"__identifier": "type",
+							"__value": "InvisibleGate",
+							"__type": "LocalEnum.TriggerType",
+							"defUid": 182,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["InvisibleGate"]
+							}]
+						},
+						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
+						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
+						{
+							"__identifier": "invisibleRadius",
+							"__value": 0,
+							"__type": "Float",
+							"defUid": 435,
+							"realEditorValues": [null]
+						},
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
 					]
 				}
 			]

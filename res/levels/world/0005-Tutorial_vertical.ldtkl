@@ -153,13 +153,13 @@
 				},
 				{
 					"__identifier": "Dialog",
-					"__grid": [27,14],
+					"__grid": [26,14],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 58,
-					"px": [440,232],
+					"px": [424,232],
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
@@ -173,10 +173,10 @@
 						},
 						{
 							"__identifier": "selfTriggerDist",
-							"__value": 1,
+							"__value": 1.6,
 							"__type": "Float",
 							"defUid": 62,
-							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [1.6] }]
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },

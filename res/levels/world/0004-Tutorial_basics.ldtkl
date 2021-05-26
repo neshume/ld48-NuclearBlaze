@@ -611,7 +611,7 @@
 					"__identifier": "Trigger",
 					"__grid": [23,11],
 					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [64,224,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [0,240,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 179,
@@ -626,12 +626,12 @@
 						},
 						{
 							"__identifier": "type",
-							"__value": "Invisible",
+							"__value": "InvisibleGate",
 							"__type": "LocalEnum.TriggerType",
 							"defUid": 182,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Invisible"]
+								"params": ["InvisibleGate"]
 							}]
 						},
 						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
@@ -639,10 +639,10 @@
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{
 							"__identifier": "invisibleRadius",
-							"__value": 2,
+							"__value": 0,
 							"__type": "Float",
 							"defUid": 435,
-							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+							"realEditorValues": [null]
 						},
 						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
 					]
@@ -1171,12 +1171,12 @@
 						},
 						{
 							"__identifier": "type",
-							"__value": "Invisible",
+							"__value": "InvisibleArea",
 							"__type": "LocalEnum.TriggerType",
 							"defUid": 182,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Invisible"]
+								"params": ["InvisibleArea"]
 							}]
 						},
 						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
@@ -1679,12 +1679,12 @@
 						},
 						{
 							"__identifier": "type",
-							"__value": "Invisible",
+							"__value": "InvisibleArea",
 							"__type": "LocalEnum.TriggerType",
 							"defUid": 182,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Invisible"]
+								"params": ["InvisibleArea"]
 							}]
 						},
 						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
@@ -1777,12 +1777,12 @@
 						},
 						{
 							"__identifier": "type",
-							"__value": "Invisible",
+							"__value": "InvisibleArea",
 							"__type": "LocalEnum.TriggerType",
 							"defUid": 182,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Invisible"]
+								"params": ["InvisibleArea"]
 							}]
 						},
 						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },

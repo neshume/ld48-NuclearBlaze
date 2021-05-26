@@ -33,9 +33,12 @@ class Trigger extends Entity {
 				spr.set(dict.pipeGate);
 				pivotY = 0.5;
 
-			case Invisible:
+			case InvisibleArea:
 				setPosPixel(data.pixelX, data.pixelY);
 				pivotY = 0.5;
+
+			case InvisibleGate:
+				setPosCase(data.cx, data.cy);
 
 			case TouchPlate:
 				setPosCase(data.cx, data.cy);
@@ -103,6 +106,10 @@ class Trigger extends Entity {
 			cd.setS("executeLock", data.f_triggerDelay);
 	}
 
+	public inline function isVisibleTrigger() {
+		return data.f_type!=InvisibleGate && data.f_type!=InvisibleArea;
+	}
+
 	function execute() {
 		done = true;
 		g.visible = false;
@@ -110,14 +117,14 @@ class Trigger extends Entity {
 		// Visual effect
 		switch data.f_type {
 			case Gate:
-			case Invisible:
+			case InvisibleGate, InvisibleArea:
 			case TouchPlate:
 				spr.set( dict.touchPlateOn );
 				blink(0xffffff);
 				setSquashY(0.5);
 		}
 
-		var eachDurationS = data.f_cinematicReveal ? 1.25  :  data.f_type==Invisible ? 0 : 0.5;
+		var eachDurationS = data.f_cinematicReveal ? 1.25  : !isVisibleTrigger() ? 0 : 0.5;
 		var t = 0.;
 		for(e in Entity.ALL)
 			if( e.isAlive() && e.triggerId==triggerId && !e.is(gm.en.Trigger) ) {
@@ -129,14 +136,14 @@ class Trigger extends Entity {
 					}, t);
 
 				// Wire fx
-				if( data.f_type!=Invisible )
+				if( isVisibleTrigger() )
 					delayer.addS( fx.triggerWire.bind(centerX, centerY, e.centerX, e.centerY, eachDurationS*0.2), t + eachDurationS*0.4 );
 
 				// Trigger
 				delayer.addS( e.trigger, t + eachDurationS*0.6 );
 
 				// Trigger fx
-				if( data.f_type!=Invisible )
+				if( isVisibleTrigger() )
 					delayer.addS( fx.triggerTarget.bind(e.centerX,e.centerY), t + eachDurationS*0.6 );
 
 				// Fog
@@ -154,7 +161,8 @@ class Trigger extends Entity {
 			case TouchPlate:
 				fx.touchPlate(centerX, bottom);
 
-			case Invisible:
+			case InvisibleArea:
+			case InvisibleGate:
 		}
 	}
 
@@ -175,7 +183,7 @@ class Trigger extends Entity {
 
 		g.setPosition(attachX, attachY);
 
-		if( !started && !done && data.f_type!=Invisible && holdS<=0  && !cd.hasSetS("blink",0.5) )
+		if( !started && !done && isVisibleTrigger() && holdS<=0  && !cd.hasSetS("blink",0.5) )
 			blink(data.f_fxColor_int);
 
 		if( data.f_type==Gate )
@@ -197,8 +205,12 @@ class Trigger extends Entity {
 			if( data.f_type==TouchPlate && hero.cx==cx && hero.cy==cy && hero.onGround)
 				start();
 
-			if( data.f_type==Invisible && distCase(hero)<=data.f_invisibleRadius )
+			if( data.f_type==InvisibleArea && distCase(hero)<=data.f_invisibleRadius )
 				start();
+
+			if( data.f_type==InvisibleGate && hero.cx==cx && hero.cy<=cy )
+				if( dn.Bresenham.checkThinLine(cx,cy, hero.cx,hero.cy, (x,y)->!level.hasAnyCollision(x,y)) )
+					start();
 		}
 
 		if( started && !done && !cd.has("executeLock") )
