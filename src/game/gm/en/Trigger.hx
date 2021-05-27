@@ -28,7 +28,7 @@ class Trigger extends Entity {
 
 		game.scroller.add(spr, Const.DP_BG);
 		switch data.f_type {
-			case Gate:
+			case Valve:
 				setPosPixel(data.pixelX, data.pixelY);
 				spr.set(dict.pipeGate);
 				pivotY = 0.5;
@@ -131,7 +131,7 @@ class Trigger extends Entity {
 
 		// Visual effect
 		switch data.f_type {
-			case Gate:
+			case Valve:
 			case IRGate:
 			case InvisibleGate, InvisibleArea:
 			case TouchPlate:
@@ -174,7 +174,7 @@ class Trigger extends Entity {
 		delayer.addS( camera.clearCinematicTrackings, t );
 
 		switch data.f_type {
-			case Gate:
+			case Valve:
 				fx.dotsExplosion(centerX, centerY, data.f_fxColor_int);
 
 			case IRGate:
@@ -211,7 +211,7 @@ class Trigger extends Entity {
 			blink(data.f_fxColor_int);
 
 		switch data.f_type {
-			case Gate:
+			case Valve:
 				spr.setFrame( M.round( 9*holdS/data.f_gateHoldTime* spr.totalFrames() ) % (spr.totalFrames()) );
 
 			case TouchPlate:

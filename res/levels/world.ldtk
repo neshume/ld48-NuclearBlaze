@@ -6268,7 +6268,7 @@
 			{ "id": "GamePad", "tileId": null, "color": 0, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null },
 		{ "identifier": "TriggerType", "uid": 181, "values": [
-			{ "id": "Gate", "tileId": 530, "color": 9581871, "__tileSrcRect": [32,176,16,16] },
+			{ "id": "Valve", "tileId": 530, "color": 9581871, "__tileSrcRect": [32,176,16,16] },
 			{ "id": "TouchPlate", "tileId": 579, "color": 7116686, "__tileSrcRect": [48,192,16,16] },
 			{ "id": "InvisibleArea", "tileId": 676, "color": 14979668, "__tileSrcRect": [64,224,16,16] },
 			{ "id": "InvisibleGate", "tileId": 720, "color": 15893539, "__tileSrcRect": [0,240,16,16] },

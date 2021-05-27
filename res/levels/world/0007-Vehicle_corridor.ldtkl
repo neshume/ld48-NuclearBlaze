@@ -1889,12 +1889,12 @@
 						},
 						{
 							"__identifier": "type",
-							"__value": "Gate",
+							"__value": "Valve",
 							"__type": "LocalEnum.TriggerType",
 							"defUid": 182,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Gate"]
+								"params": ["Valve"]
 							}]
 						},
 						{
@@ -2765,12 +2765,12 @@
 						},
 						{
 							"__identifier": "type",
-							"__value": "Gate",
+							"__value": "Valve",
 							"__type": "LocalEnum.TriggerType",
 							"defUid": 182,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Gate"]
+								"params": ["Valve"]
 							}]
 						},
 						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },

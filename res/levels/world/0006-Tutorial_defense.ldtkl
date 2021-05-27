@@ -1357,12 +1357,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "title",
-							"__value": "ONLY LEVELS 3/4 BEYOND THIS POINT",
+							"__value": "ONLY LEVELS 3+ BEYOND THIS POINT",
 							"__type": "String",
 							"defUid": 140,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["ONLY LEVELS 3/4 BEYOND THIS POINT"]
+								"params": ["ONLY LEVELS 3+ BEYOND THIS POINT"]
 							}]
 						},
 						{

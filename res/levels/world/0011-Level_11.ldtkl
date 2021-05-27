@@ -173,12 +173,12 @@
 						{ "__identifier": "triggerId", "__value": 0, "__type": "Int", "defUid": 180, "realEditorValues": [] },
 						{
 							"__identifier": "type",
-							"__value": "Gate",
+							"__value": "Valve",
 							"__type": "LocalEnum.TriggerType",
 							"defUid": 182,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["Gate"]
+								"params": ["Valve"]
 							}]
 						},
 						{
