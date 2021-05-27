@@ -5476,7 +5476,7 @@
 					"editorDisplayPos": "Above",
 					"editorAlwaysShow": false,
 					"editorCutLongValues": true,
-					"min": 1,
+					"min": 0.3,
 					"max": null,
 					"regex": null,
 					"acceptFileTypes": null,

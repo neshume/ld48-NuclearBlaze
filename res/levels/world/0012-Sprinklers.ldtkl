@@ -2023,10 +2023,10 @@
 						},
 						{
 							"__identifier": "gateHoldTime",
-							"__value": 1,
+							"__value": 0.7,
 							"__type": "Float",
 							"defUid": 288,
-							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [0.7] }]
 						},
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
@@ -2526,10 +2526,10 @@
 						},
 						{
 							"__identifier": "gateHoldTime",
-							"__value": 1,
+							"__value": 0.7,
 							"__type": "Float",
 							"defUid": 288,
-							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [0.7] }]
 						},
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
@@ -3179,47 +3179,6 @@
 					]
 				},
 				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [40,14],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [648,240],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{
-							"__identifier": "unlockAllUpgrades",
-							"__value": true,
-							"__type": "Bool",
-							"defUid": 282,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "shieldDurationS",
-							"__value": 3,
-							"__type": "Int",
-							"defUid": 380,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "fallCinematic",
-							"__value": false,
-							"__type": "Bool",
-							"defUid": 396,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "water",
-							"__value": 0.7,
-							"__type": "Float",
-							"defUid": 545,
-							"realEditorValues": [{ "id": "V_Float", "params": [0.7] }]
-						}
-					]
-				},
-				{
 					"__identifier": "Trigger",
 					"__grid": [63,18],
 					"__pivot": [0.5,0.5],
@@ -3305,6 +3264,47 @@
 					"defUid": 533,
 					"px": [1144,120],
 					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [58,12],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [936,208],
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{
+							"__identifier": "unlockAllUpgrades",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 282,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "shieldDurationS",
+							"__value": 3,
+							"__type": "Int",
+							"defUid": 380,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "fallCinematic",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 396,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "water",
+							"__value": 0.7,
+							"__type": "Float",
+							"defUid": 545,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.7] }]
+						}
+					]
 				}
 			]
 		},
