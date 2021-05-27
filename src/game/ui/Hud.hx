@@ -362,7 +362,7 @@ class Hud extends dn.Process {
 		water.setPosition( w()/Const.UI_SCALE-16, h()/Const.UI_SCALE-waterBg.tile.height );
 		water.visible = game.level!=null && !game.level.data.f_isGameMenu;
 		if( cd.has("shakeWaterNormal") )
-			water.y += Math.cos(uftime*1.2) * 1 * cd.getRatio("shakeWaterNormal");
+			water.y += Math.cos(uftime*0.6) * 1 * cd.getRatio("shakeWaterNormal");
 		if( cd.has("shakeWaterDepleted") )
 			water.x += Math.cos(uftime*1.3) * 4 * cd.getRatio("shakeWaterDepleted");
 	}
