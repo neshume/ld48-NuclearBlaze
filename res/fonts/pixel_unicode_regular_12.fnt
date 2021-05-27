@@ -10,7 +10,7 @@
  <Char width="2" offset="0 4" rect="43 2 2 3" code="'"/>
  <Char width="3" offset="0 4" rect="46 2 3 10" code="("/>
  <Char width="3" offset="0 4" rect="50 2 3 10" code=")"/>
- <Char width="4" offset="0 4" rect="54 2 4 4" code="*"/>
+ <Char width="5" offset="0 4" rect="53 2 5 11" code="*"/>
  <Char width="6" offset="0 5" rect="59 3 6 6" code="+"/>
  <Char width="3" offset="0 10" rect="66 8 3 4" code=","/>
  <Char width="5" offset="0 7" rect="70 5 5 2" code="-"/>
