@@ -37,7 +37,7 @@
 				},
 				{
 					"constId": "DocumentHoldTimeS",
-					"value": 0.25
+					"value": 0.45
 				},
 				{
 					"constId": "HeroWalkSpeed",

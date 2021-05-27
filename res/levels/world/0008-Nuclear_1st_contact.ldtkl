@@ -2043,13 +2043,13 @@
 					"fieldInstances": [
 						{
 							"__identifier": "text",
-							"__value": "Item #: SCP-%%\n\nSCP-%% is a wooden ****** 120cm tall and 60cm wide, model *********. It was first located in 19** inside an ***** shop in Sweden.",
+							"__value": "Item#: SCP-%%\n\nSCP-%% is a wooden ******, model ********, 120cm tall and 60cm wide. It was first located in 19** inside an ***** store in Älmhult, Sweden.\n\nSCP-%% is permanently burning and cannot be extinguished by any known mean.",
 							"__type": "String",
 							"defUid": 549,
 							"realEditorValues": [{
 								"id": "V_String",
 								"params": [
-									"Item #: SCP-%%\n\nSCP-%% is a wooden ****** 120cm tall and 60cm wide, model *********. It was first located in 19** inside an ***** shop in Sweden."
+									"Item#: SCP-%%\n\nSCP-%% is a wooden ******, model ********, 120cm tall and 60cm wide. It was first located in 19** inside an ***** store in Älmhult, Sweden.\n\nSCP-%% is permanently burning and cannot be extinguished by any known mean."
 								]
 							}]
 						},
@@ -2487,104 +2487,6 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [-24] }]
 						},
 						{ "__identifier": "zoom", "__value": 0, "__type": "Float", "defUid": 556, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "FxEmitter",
-					"__grid": [35,7],
-					"__pivot": [0,0],
-					"__tile": { "tilesetUid": 26, "srcRect": [176,80,16,16] },
-					"width": 192,
-					"height": 16,
-					"defUid": 458,
-					"px": [560,112],
-					"fieldInstances": [
-						{
-							"__identifier": "type",
-							"__value": "ColorSmoke",
-							"__type": "LocalEnum.FxType",
-							"defUid": 459,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["ColorSmoke"]
-							}]
-						},
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
-						{
-							"__identifier": "customColor",
-							"__value": "#635B47",
-							"__type": "Color",
-							"defUid": 463,
-							"realEditorValues": [{ "id": "V_Int", "params": [6511431] }]
-						},
-						{
-							"__identifier": "customIntensity",
-							"__value": 0.66,
-							"__type": "Float",
-							"defUid": 484,
-							"realEditorValues": [{ "id": "V_Float", "params": [0.66] }]
-						},
-						{
-							"__identifier": "wind",
-							"__value": true,
-							"__type": "Bool",
-							"defUid": 509,
-							"realEditorValues": [{
-								"id": "V_Bool",
-								"params": [ true ]
-							}]
-						},
-						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "FxEmitter",
-					"__grid": [59,7],
-					"__pivot": [0,0],
-					"__tile": { "tilesetUid": 26, "srcRect": [176,80,16,16] },
-					"width": 128,
-					"height": 16,
-					"defUid": 458,
-					"px": [944,112],
-					"fieldInstances": [
-						{
-							"__identifier": "type",
-							"__value": "ColorSmoke",
-							"__type": "LocalEnum.FxType",
-							"defUid": 459,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["ColorSmoke"]
-							}]
-						},
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 460, "realEditorValues": [] },
-						{
-							"__identifier": "customColor",
-							"__value": "#635B47",
-							"__type": "Color",
-							"defUid": 463,
-							"realEditorValues": [{ "id": "V_Int", "params": [6511431] }]
-						},
-						{
-							"__identifier": "customIntensity",
-							"__value": 0.5,
-							"__type": "Float",
-							"defUid": 484,
-							"realEditorValues": [{ "id": "V_Float", "params": [0.5] }]
-						},
-						{
-							"__identifier": "wind",
-							"__value": false,
-							"__type": "Bool",
-							"defUid": 509,
-							"realEditorValues": [{
-								"id": "V_Bool",
-								"params": [ false ]
-							}]
-						},
-						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
 					]
 				},
 				{
