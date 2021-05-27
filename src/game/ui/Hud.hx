@@ -329,8 +329,11 @@ class Hud extends dn.Process {
 		waterSurface.y = cur<=0 ? waterBar.y : waterBar.y+1;
 	}
 
-	public inline function shakeWater() {
-		cd.setS("shakeWater",0.1);
+	public inline function shakeWater(depleted=false) {
+		if( depleted )
+			cd.setS("shakeWaterDepleted",0.1);
+		else
+			cd.setS("shakeWaterNormal",0.1);
 	}
 
 	public inline function blinkWater(c:UInt, ?keep=0.03) {
@@ -358,8 +361,10 @@ class Hud extends dn.Process {
 
 		water.setPosition( w()/Const.UI_SCALE-16, h()/Const.UI_SCALE-waterBg.tile.height );
 		water.visible = game.level!=null && !game.level.data.f_isGameMenu;
-		if( cd.has("shakeWater") )
-			water.y += Math.cos(uftime*1.2) * 1 * cd.getRatio("shakeWater");
+		if( cd.has("shakeWaterNormal") )
+			water.y += Math.cos(uftime*1.2) * 1 * cd.getRatio("shakeWaterNormal");
+		if( cd.has("shakeWaterDepleted") )
+			water.x += Math.cos(uftime*1.3) * 4 * cd.getRatio("shakeWaterDepleted");
 	}
 
 

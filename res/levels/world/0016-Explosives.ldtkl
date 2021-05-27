@@ -631,27 +631,36 @@
 						},
 						{
 							"__identifier": "color",
-							"__value": "#00FF9D",
+							"__value": "#0096FF",
 							"__type": "Color",
 							"defUid": 209,
-							"realEditorValues": [{ "id": "V_Int", "params": [65437] }]
+							"realEditorValues": [{ "id": "V_Int", "params": [38655] }]
 						},
 						{
 							"__identifier": "intensity",
-							"__value": 0.4,
+							"__value": 0.5,
 							"__type": "Float",
 							"defUid": 210,
-							"realEditorValues": [{ "id": "V_Float", "params": [0.4] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [0.5] }]
 						},
 						{
 							"__identifier": "radius",
-							"__value": 1,
+							"__value": 3,
 							"__type": "Float",
 							"defUid": 278,
-							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [3] }]
 						},
 						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
-						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
+						{
+							"__identifier": "gyro",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						},
 						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
 					]
 				},
@@ -1554,6 +1563,58 @@
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
 						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] },
 						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "WaterRefill",
+					"__grid": [16,18],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 16,
+					"height": 16,
+					"defUid": 533,
+					"px": [264,296],
+					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [13,19],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [216,320],
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{
+							"__identifier": "unlockAllUpgrades",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 282,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "shieldDurationS",
+							"__value": 3,
+							"__type": "Int",
+							"defUid": 380,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "fallCinematic",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 396,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "water",
+							"__value": 0,
+							"__type": "Float",
+							"defUid": 545,
+							"realEditorValues": [{ "id": "V_Float", "params": [0] }]
+						}
 					]
 				}
 			]

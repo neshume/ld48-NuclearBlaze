@@ -135,14 +135,22 @@ class Game extends Process {
 	}
 
 	public inline function useWater(v:Float) {
-		if( !hasWater() )
+		if( !hasWater() ) {
+			if( !cd.hasSetS("shakeDepleted",0.25) )
+				hud.shakeWater(true);
 			return false;
+		}
 		else {
 			water = M.fmax(water-v, 0);
 			hud.setWater(water,1);
 			hud.shakeWater();
 			return true;
 		}
+	}
+
+	public inline function setWater(v:Float) {
+		water = M.fclamp(v, 0, getMaxWater());
+		hud.setWater(water,1);
 	}
 
 	public inline function refillWater(v=9999.) {
@@ -232,6 +240,7 @@ class Game extends Process {
 		if( level.data.l_Entities.all_DebugStartPoint.length>0 ) {
 			var d = level.data.l_Entities.all_DebugStartPoint[0];
 			hero.setShield(d.f_shieldDurationS);
+			setWater(d.f_water);
 			for(i in d.f_startInv)
 				if( gm.en.Item.isUpgradeItem(i) )
 					unlockUpgrade(i);
@@ -577,11 +586,15 @@ class Game extends Process {
 		else
 			successTimerS = 0;
 
-		if( water<=0.33 && !cd.hasSetS("waterBlink",0.5) )
-			if( water<=0 )
-				hud.blinkWater(0xff0000,0.1);
-			else
-				hud.blinkWater(0x328acd);
+		// Water warning
+		if( !hasWater() && !cd.hasSetS("waterBlink",0.5) )
+			hud.blinkWater(0xff0000,0.1);
+
+		// if( water<=0.33 && !cd.hasSetS("waterBlink",0.5) )
+		// 	if( !hasWater() )
+		// 		hud.blinkWater(0xff0000,0.1);
+		// 	else
+		// 		hud.blinkWater(0x328acd);
 
 
 		// Global key shortcuts
