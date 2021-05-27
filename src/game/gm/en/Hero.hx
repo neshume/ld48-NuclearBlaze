@@ -291,7 +291,8 @@ class Hero extends gm.Entity {
 		saying.horizontalAlign = Middle;
 		saying.verticalSpacing = 3;
 
-		var tf = new h2d.Text(Assets.fontPixelOutline, saying);
+		var tf = new h2d.Text(Assets.fontPixel, saying);
+		tf.filter = new dn.heaps.filter.PixelOutline();
 		tf.maxWidth = 160;
 		tf.text = str;
 		tf.textColor = c;
@@ -825,7 +826,12 @@ class Hero extends gm.Entity {
 
 		// Hold triggers
 		if( isAlive() && onGround && verticalAiming==1 && !isWatering() ) {
-			var e = gm.en.Trigger.getCurrent(this);
+			var e = gm.en.Trigger.getBest(this);
+			if( e!=null ) {
+				e.hold();
+				walkSpeed = 0;
+			}
+			var e = gm.en.int.DocumentItem.getBest(this);
 			if( e!=null ) {
 				e.hold();
 				walkSpeed = 0;

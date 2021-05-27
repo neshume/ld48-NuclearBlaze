@@ -9,7 +9,7 @@ class Dialog extends Entity {
 	public function new(d:Entity_Dialog) {
 		super(0,0);
 		data = d;
-		lines = data.f_lines.copy();
+		lines = data.f_lines.map( raw->Assets.parseText(raw) );
 		triggerId = data.f_triggerId;
 		setPosPixel(d.pixelX, d.pixelY);
 		gravityMul = 0;

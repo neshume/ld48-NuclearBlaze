@@ -91,7 +91,7 @@ class Trigger extends Entity {
 		return false;
 	}
 
-	public static function getCurrent(by:Entity) : Null<Trigger> {
+	public static function getBest(by:Entity) : Null<Trigger> {
 		if( !anyAvailable(by) )
 			return null;
 

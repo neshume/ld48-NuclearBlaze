@@ -130,10 +130,12 @@ class Hud extends dn.Process {
 			var f = new h2d.Flow(curUp);
 			f.layout = Vertical;
 
-			var tf = new h2d.Text(Assets.fontPixelOutline, f);
+			var tf = new h2d.Text(Assets.fontPixel, f);
+			tf.filter = new dn.heaps.filter.PixelOutline();
 			tf.text = name;
 
-			var tf = new h2d.Text(Assets.fontPixelOutline, f);
+			var tf = new h2d.Text(Assets.fontPixel, f);
+			tf.filter = new dn.heaps.filter.PixelOutline();
 			tf.textColor = 0xffcc00;
 			tf.text = desc;
 
@@ -171,7 +173,8 @@ class Hud extends dn.Process {
 	}
 	public function setPermanentText(str:LocaleString, color=0xffcc00) {
 		clearPermanentText();
-		permanentTf = new h2d.Text(Assets.fontPixelOutline, root);
+		permanentTf = new h2d.Text(Assets.fontPixel, root);
+		permanentTf.filter = new dn.heaps.filter.PixelOutline();
 		permanentTf.text = str;
 		permanentTf.textColor = color;
 		onResize();

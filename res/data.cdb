@@ -20,6 +20,10 @@
 			],
 			"lines": [
 				{
+					"constId": "SCP_ID",
+					"value": 1866
+				},
+				{
 					"constId": "MaxCameraZoom",
 					"value": 10
 				},
@@ -30,6 +34,10 @@
 				{
 					"constId": "Gravity",
 					"value": 0.05
+				},
+				{
+					"constId": "DocumentHoldTimeS",
+					"value": 0.25
 				},
 				{
 					"constId": "HeroWalkSpeed",
@@ -209,7 +217,7 @@
 				]
 			},
 			"separatorIds": [
-				"MaxCameraZoom",
+				"SCP_ID",
 				"HeroWalkSpeed",
 				"FireTick",
 				"ExplosiveTimer",

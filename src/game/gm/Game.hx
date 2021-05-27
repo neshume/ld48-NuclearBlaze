@@ -281,6 +281,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_CinematicEvent) new gm.en.CinematicEvent(d);
 		for(d in level.data.l_Entities.all_BreakableGround) new gm.en.int.BreakableGround(d);
 		for(d in level.data.l_Entities.all_WaterRefill) new gm.en.int.WaterRefill(d);
+		for(d in level.data.l_Entities.all_Document) new gm.en.int.DocumentItem(d);
 
 		for(d in level.data.l_Entities.all_Mob) {
 			if( d.f_triggerId<0 )

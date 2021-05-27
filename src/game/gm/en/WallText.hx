@@ -16,7 +16,7 @@ class WallText extends Entity {
 			case Medium:  Assets.fontMedium;
 			case Large: Assets.fontLarge;
 		}, spr);
-		tf.text = data.f_title;
+		tf.text = Assets.parseText( data.f_title );
 		tf.textColor = data.f_color_int;
 		tf.x = Std.int(-tf.textWidth*0.5);
 		tf.y = Std.int(-tf.textHeight*0.5);
@@ -34,7 +34,8 @@ class WallText extends Entity {
 				tf.filter = new dn.heaps.filter.PixelOutline();
 
 			case Keyboard:
-				tf.font = Assets.fontPixelOutline;
+				tf.font = Assets.fontPixel;
+				tf.filter = new dn.heaps.filter.PixelOutline();
 				var bg = new h2d.ScaleGrid( Assets.tiles.getTile(dict.keyboard), 3, 4 );
 				spr.addChildAt(bg,0);
 				bg.width = tf.textWidth + 8;
@@ -43,7 +44,8 @@ class WallText extends Entity {
 				bg.y = -Std.int(bg.height*0.5) + 2;
 
 			case GamePad:
-				tf.font = Assets.fontPixelOutline;
+				tf.font = Assets.fontPixel;
+				tf.filter = new dn.heaps.filter.PixelOutline();
 				var bg = new h2d.ScaleGrid( Assets.tiles.getTile(dict.padButton), 8, 8 );
 				spr.addChildAt(bg,0);
 				bg.width = M.fmax( 16, tf.textWidth+8 );
