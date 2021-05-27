@@ -16,7 +16,7 @@ class FogPiercer extends Entity {
 		collides = false;
 		spr.set("empty");
 
-		if( triggerId<0 )
+		if( triggerId<0 && !data.f_selfTriggerOnTouch )
 			trigger();
 	}
 
@@ -28,5 +28,11 @@ class FogPiercer extends Entity {
 			level.revealFog(x,y, data.f_triggerId<0);
 
 		destroy();
+	}
+
+	override function fixedUpdate() {
+		super.fixedUpdate();
+		if( data.f_selfTriggerOnTouch && hero.cx>=cLeft && hero.cx<=cRight && hero.cy>=cTop && hero.cy<=cBottom )
+			trigger();
 	}
 }

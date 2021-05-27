@@ -1321,13 +1321,16 @@
 					"height": 48,
 					"defUid": 374,
 					"px": [608,1040],
-					"fieldInstances": [{
-						"__identifier": "triggerId",
-						"__value": 50,
-						"__type": "Int",
-						"defUid": 446,
-						"realEditorValues": [{ "id": "V_Int", "params": [50] }]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 50,
+							"__type": "Int",
+							"defUid": 446,
+							"realEditorValues": [{ "id": "V_Int", "params": [50] }]
+						},
+						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Trigger",
@@ -1451,13 +1454,16 @@
 					"height": 240,
 					"defUid": 374,
 					"px": [384,112],
-					"fieldInstances": [{
-						"__identifier": "triggerId",
-						"__value": 51,
-						"__type": "Int",
-						"defUid": 446,
-						"realEditorValues": [{ "id": "V_Int", "params": [51] }]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 51,
+							"__type": "Int",
+							"defUid": 446,
+							"realEditorValues": [{ "id": "V_Int", "params": [51] }]
+						},
+						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "FireStarter",
@@ -1979,13 +1985,16 @@
 					"height": 128,
 					"defUid": 374,
 					"px": [528,944],
-					"fieldInstances": [{
-						"__identifier": "triggerId",
-						"__value": 50,
-						"__type": "Int",
-						"defUid": 446,
-						"realEditorValues": [{ "id": "V_Int", "params": [50] }]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 50,
+							"__type": "Int",
+							"defUid": 446,
+							"realEditorValues": [{ "id": "V_Int", "params": [50] }]
+						},
+						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Light",

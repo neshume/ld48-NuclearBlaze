@@ -1385,13 +1385,16 @@
 					"height": 112,
 					"defUid": 374,
 					"px": [752,288],
-					"fieldInstances": [{
-						"__identifier": "triggerId",
-						"__value": 2,
-						"__type": "Int",
-						"defUid": 446,
-						"realEditorValues": [{ "id": "V_Int", "params": [2] }]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 2,
+							"__type": "Int",
+							"defUid": 446,
+							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
+						},
+						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Trigger",
@@ -1442,13 +1445,16 @@
 					"height": 224,
 					"defUid": 374,
 					"px": [1184,240],
-					"fieldInstances": [{
-						"__identifier": "triggerId",
-						"__value": 3,
-						"__type": "Int",
-						"defUid": 446,
-						"realEditorValues": [{ "id": "V_Int", "params": [3] }]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 3,
+							"__type": "Int",
+							"defUid": 446,
+							"realEditorValues": [{ "id": "V_Int", "params": [3] }]
+						},
+						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "FogPiercer",
@@ -1459,13 +1465,16 @@
 					"height": 80,
 					"defUid": 374,
 					"px": [1296,320],
-					"fieldInstances": [{
-						"__identifier": "triggerId",
-						"__value": 4,
-						"__type": "Int",
-						"defUid": 446,
-						"realEditorValues": [{ "id": "V_Int", "params": [4] }]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 4,
+							"__type": "Int",
+							"defUid": 446,
+							"realEditorValues": [{ "id": "V_Int", "params": [4] }]
+						},
+						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Trigger",
@@ -1568,13 +1577,16 @@
 					"height": 192,
 					"defUid": 374,
 					"px": [512,272],
-					"fieldInstances": [{
-						"__identifier": "triggerId",
-						"__value": 5,
-						"__type": "Int",
-						"defUid": 446,
-						"realEditorValues": [{ "id": "V_Int", "params": [5] }]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 5,
+							"__type": "Int",
+							"defUid": 446,
+							"realEditorValues": [{ "id": "V_Int", "params": [5] }]
+						},
+						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Trigger",
@@ -1625,13 +1637,16 @@
 					"height": 64,
 					"defUid": 374,
 					"px": [1296,240],
-					"fieldInstances": [{
-						"__identifier": "triggerId",
-						"__value": 3,
-						"__type": "Int",
-						"defUid": 446,
-						"realEditorValues": [{ "id": "V_Int", "params": [3] }]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 3,
+							"__type": "Int",
+							"defUid": 446,
+							"realEditorValues": [{ "id": "V_Int", "params": [3] }]
+						},
+						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "WallText",
@@ -1788,13 +1803,16 @@
 					"height": 80,
 					"defUid": 374,
 					"px": [336,464],
-					"fieldInstances": [{
-						"__identifier": "triggerId",
-						"__value": 26,
-						"__type": "Int",
-						"defUid": 446,
-						"realEditorValues": [{ "id": "V_Int", "params": [26] }]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 26,
+							"__type": "Int",
+							"defUid": 446,
+							"realEditorValues": [{ "id": "V_Int", "params": [26] }]
+						},
+						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Trigger",

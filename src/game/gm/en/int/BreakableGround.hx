@@ -68,9 +68,11 @@ class BreakableGround extends Entity {
 			level.revealFog(x,y);
 
 		// Fx
-		fx.explosion(centerX, centerY);
-		camera.shakeS(2.5, 0.6);
-		fx.flashBangS(0xffcc00, 0.2, 0.6);
+		if( data.f_explosion ) {
+			fx.explosion(centerX, centerY);
+			fx.flashBangS(0xffcc00, 0.2, 0.6);
+			camera.shakeS(2.5, 0.6);
+		}
 		for(x in cx...cx+cWid)
 			fx.groundExplosion(x, cy, 0xd62411, 0x002859);
 

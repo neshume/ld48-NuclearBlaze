@@ -724,13 +724,16 @@
 					"height": 240,
 					"defUid": 374,
 					"px": [960,864],
-					"fieldInstances": [{
-						"__identifier": "triggerId",
-						"__value": 0,
-						"__type": "Int",
-						"defUid": 446,
-						"realEditorValues": [{ "id": "V_Int", "params": [0] }]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 0,
+							"__type": "Int",
+							"defUid": 446,
+							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
+						},
+						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "FogPiercer",
@@ -741,7 +744,10 @@
 					"height": 240,
 					"defUid": 374,
 					"px": [0,800],
-					"fieldInstances": [{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 446, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 446, "realEditorValues": [] },
+						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Dialog",
@@ -1695,7 +1701,10 @@
 					"height": 1040,
 					"defUid": 374,
 					"px": [16,0],
-					"fieldInstances": [{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 446, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 446, "realEditorValues": [] },
+						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "CinematicEvent",

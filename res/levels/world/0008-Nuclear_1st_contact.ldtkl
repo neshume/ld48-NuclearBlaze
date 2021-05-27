@@ -1499,7 +1499,8 @@
 								"id": "V_Bool",
 								"params": [ false ]
 							}]
-						}
+						},
+						{ "__identifier": "explosion", "__value": true, "__type": "Bool", "defUid": 546, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1829,13 +1830,16 @@
 					"height": 48,
 					"defUid": 374,
 					"px": [112,304],
-					"fieldInstances": [{
-						"__identifier": "triggerId",
-						"__value": 4,
-						"__type": "Int",
-						"defUid": 446,
-						"realEditorValues": [{ "id": "V_Int", "params": [4] }]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 4,
+							"__type": "Int",
+							"defUid": 446,
+							"realEditorValues": [{ "id": "V_Int", "params": [4] }]
+						},
+						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Trigger",

@@ -1358,6 +1358,62 @@ class Fx extends dn.Process {
 	}
 
 
+	public function irGate(fx:Float, fy:Float, tx:Float, ty:Float, c:Int) {
+		var a = Math.atan2(ty-fy, tx-fx);
+		var d = M.dist(fx,fy,tx,ty);
+		for(i in 0...3) {
+			var d = rnd(0.1,0.9) * d;
+			var p = allocTopAdd( getTile(dict.fxLine), fx+Math.cos(a)*d, fy+Math.sin(a)*d );
+			p.setFadeS(rnd(0.1,0.5), 0.1, 0.2);
+			p.colorize(c);
+			p.scaleX = R.around(0.1,true);
+			p.moveAng(a, rnd(0,0.1,true));
+			p.frict = R.around(0.85);
+			p.rotation = a;
+			p.lifeS = R.around(0.2);
+		}
+	}
+
+
+	public function irGateTrigger(fx:Float, fy:Float, tx:Float, ty:Float, c:Int) {
+		var a = Math.atan2(ty-fy, tx-fx);
+		var d = M.dist(fx,fy,tx,ty);
+
+		// Dots
+		for(i in 0...40) {
+			var dr = rnd(0,1);
+			var p = allocTopAdd( getTile(dict.pixel), fx+Math.cos(a)*dr*d, fy+Math.sin(a)*dr*d );
+			p.alphaFlicker = 0.3;
+			p.setFadeS(rnd(0.5,0.8) * (0.2+0.8*Math.sin(dr*M.PI)), 0, 0.5);
+			p.colorize(c);
+			// p.scaleX = R.around(0.1,true);
+			// p.moveAng(a, rnd(0,0.1,true));
+			p.dx = rnd(0.2,0.4,true);
+			// p.gx = rnd(0,0.02,true);
+			p.gy = rnd(0,0.02,true);
+			p.frict = R.around(0.85);
+			// p.rotation = a;
+			p.lifeS = rnd(0.5,2);
+		}
+
+		// Lines
+		var n = 8;
+		for(i in 0...n) {
+			a = ( 0.1 + 0.8*i/(n-1)) * M.PI;
+			var dr = rnd(0,1);
+			var p = allocTopAdd( getTile(dict.fxLineThinRight), fx+Math.cos(a)*3, fy+Math.sin(a)*3 );
+			p.setFadeS(0.9, 0, 0.5);
+			p.colorize(c);
+			p.scaleX = R.around(0.2,true);
+			p.scaleXMul = 0.97;
+			p.frict = R.around(0.85);
+			p.moveAng(a, 1.5);
+			p.rotation = a;
+			p.lifeS = R.around(0.1);
+		}
+	}
+
+
 	public function largeExplosion(x:Float,y:Float, radiusPx:Float) {
 		var a = 0.;
 		var d = 0.;

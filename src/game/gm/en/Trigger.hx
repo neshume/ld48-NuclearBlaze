@@ -37,7 +37,7 @@ class Trigger extends Entity {
 				setPosPixel(data.pixelX, data.pixelY);
 				pivotY = 0.5;
 
-			case InvisibleGate:
+			case InvisibleGate, IRGate:
 				var top = data.cy;
 				while( !level.hasAnyCollision(data.cx, top-1) )
 					top--;
@@ -45,9 +45,15 @@ class Trigger extends Entity {
 				while( !level.hasAnyCollision(data.cx, bottom+1) )
 					bottom++;
 				setPosCase(data.cx, top);
+				hei = Const.GRID * (bottom-top+1);
 				xr = yr = 0;
 				setPivots(0,0);
-				hei = Const.GRID * (bottom-top+1);
+
+				if( data.f_type==IRGate ) {
+					spr.setCenterRatio(0.5,0);
+					spr.set( dict.irGate );
+				}
+
 
 			case TouchPlate:
 				setPosCase(data.cx, data.cy);
@@ -126,6 +132,7 @@ class Trigger extends Entity {
 		// Visual effect
 		switch data.f_type {
 			case Gate:
+			case IRGate:
 			case InvisibleGate, InvisibleArea:
 			case TouchPlate:
 				spr.set( dict.touchPlateOn );
@@ -170,6 +177,10 @@ class Trigger extends Entity {
 			case Gate:
 				fx.dotsExplosion(centerX, centerY, data.f_fxColor_int);
 
+			case IRGate:
+				fx.irGateTrigger( Std.int(centerX)+1, top+3, Std.int(centerX)+1, bottom, 0xffdd00);
+				fx.flashBangS(0xffcc00, 0.2, 0.8);
+
 			case TouchPlate:
 				fx.touchPlate(centerX, bottom);
 
@@ -195,11 +206,23 @@ class Trigger extends Entity {
 
 		g.setPosition(attachX, attachY);
 
-		if( !started && !done && isVisibleTrigger() && holdS<=0  && !cd.hasSetS("blink",0.5) )
+		// Blink
+		if( !started && !done && isVisibleTrigger() && data.f_type!=IRGate && holdS<=0  && !cd.hasSetS("blink",0.5) )
 			blink(data.f_fxColor_int);
 
-		if( data.f_type==Gate )
-			spr.setFrame( M.round( 9*holdS/data.f_gateHoldTime* spr.totalFrames() ) % (spr.totalFrames()) );
+		switch data.f_type {
+			case Gate:
+				spr.setFrame( M.round( 9*holdS/data.f_gateHoldTime* spr.totalFrames() ) % (spr.totalFrames()) );
+
+			case TouchPlate:
+			case InvisibleArea:
+			case InvisibleGate:
+
+			case IRGate:
+				spr.setPosition(centerX, top);
+				if( !done && !cd.hasSetS("irFx",0.03) )
+					fx.irGate( Std.int(centerX)+1, top+3, Std.int(centerX)+1, bottom, 0xff0000 );
+		}
 	}
 
 
@@ -221,6 +244,9 @@ class Trigger extends Entity {
 				start();
 
 			if( data.f_type==InvisibleGate && hero.cx==cx && hero.cy>=cTop && hero.cy<=cBottom && sightCheck(hero) )
+				start();
+
+			if( data.f_type==IRGate && hero.cx==cx && hero.cy>=cTop && hero.cy<=cBottom && sightCheck(hero) )
 				start();
 		}
 

@@ -103,7 +103,7 @@ class Explosive extends Entity {
 		else {
 			tfX = centerX;
 			tfY = centerY;
-			tfS = 2;
+			// tfS = 2;
 			pointer.visible = false;
 			pointer.alpha = 0;
 		}
@@ -112,6 +112,8 @@ class Explosive extends Entity {
 		tfY -= tf.textHeight*tf.scaleY * 0.5;
 		tf.x += ( tfX-tf.x ) * M.fmin(1, 0.2*tmod);
 		tf.y += ( tfY-tf.y ) * M.fmin(1, 0.2*tmod);
+		tf.x = Std.int(tf.x);
+		tf.y = Std.int(tf.y);
 		tf.setScale( tf.scaleX + ( tfS-tf.scaleX ) * M.fmin(1, 0.2*tmod) );
 		tf.visible = true;
 
@@ -150,7 +152,7 @@ class Explosive extends Entity {
 
 		// Countdown
 		if( active ) {
-			var r = Std.int( Const.db.ExplosiveRadius );
+			final r = Std.int( Const.db.ExplosiveRadius );
 
 			var fs = level.getFireState(cx,cy);
 			timerS -= 1/Const.FIXED_UPDATE_FPS * ( fs.isUnderControl() ? 0.9 : 1 );
@@ -174,7 +176,7 @@ class Explosive extends Entity {
 			else if( timerS<=0 ) {
 				// BOOM
 				fx.largeExplosion(centerX, centerY, r*Const.GRID);
-				camera.shakeS(4, 0.7);
+				camera.shakeS(6, 0.9);
 				if( distCase(hero)<=r )
 					fx.flashBangS(0xffdd77, 0.8, 0.3);
 				fx.flashBangS(0xffcc00, 0.2, 3);
@@ -184,39 +186,42 @@ class Explosive extends Entity {
 
 				// Wipe fire
 				dn.Bresenham.iterateDisc( cx,cy, r, (x,y)->{
-					if( !level.isBurning(x,y) )
-						return;
+					level.ignite(x,y);
+					// if( !level.isBurning(x,y) )
+					// 	return;
 
-					var fs = level.getFireState(x,y);
-					if( distCase(x,y)<=Const.db.ExplosiveFullFireRadius )
-						fs.clear();
-					else {
-						if( Std.random(100)<=66 )
-							fs.clear();
-						else {
-							fs.level = M.imin(fs.level, 1);
-							fs.lr = 0;
-							fs.control();
-						}
-					}
-					if( !fs.isBurning() )
-						fx.fireExtinguishedByExplosion( (x+0.5)*Const.GRID, (y+0.5)*Const.GRID, centerX, centerY );
-					fs.extinguished = true;
+					// var fs = level.getFireState(x,y);
+					// if( distCase(x,y)<=Const.db.ExplosiveFullFireRadius )
+					// 	fs.clear();
+					// else {
+					// 	if( Std.random(100)<=66 )
+					// 		fs.clear();
+					// 	else {
+					// 		fs.level = M.imin(fs.level, 1);
+					// 		fs.lr = 0;
+					// 		fs.control();
+					// 	}
+					// }
+					// if( !fs.isBurning() )
+					// 	fx.fireExtinguishedByExplosion( (x+0.5)*Const.GRID, (y+0.5)*Const.GRID, centerX, centerY );
+					// fs.extinguished = true;
 				});
 
-				if( distCase(hero)<=r ) {
-					var dr = 0.3 + 0.7*(1-distCase(hero)/r);
-					if( distCase(hero)<=Const.db.ExplosiveKillRadius ) {
-						hero.kill(this);
-						hero.dir = hero.dirTo(this);
-					}
+				hero.kill(this);
 
-					var a = Math.atan2(hero.centerY-centerY, hero.centerX-centerX);
-					hero.cancelVelocities();
-					hero.bdx = Math.cos(a)*0.9 * dr;
-					hero.bdy = -R.around(0.3) * dr;
-					hero.lockControlsS(1);
-				}
+				// if( distCase(hero)<=r ) {
+				// 	var dr = 0.3 + 0.7*(1-distCase(hero)/r);
+				// 	if( distCase(hero)<=Const.db.ExplosiveKillRadius ) {
+				// 		hero.kill(this);
+				// 		hero.dir = hero.dirTo(this);
+				// 	}
+
+				// 	var a = Math.atan2(hero.centerY-centerY, hero.centerX-centerX);
+				// 	hero.cancelVelocities();
+				// 	hero.bdx = Math.cos(a)*0.9 * dr;
+				// 	hero.bdy = -R.around(0.3) * dr;
+				// 	hero.lockControlsS(1);
+				// }
 			}
 		}
 	}
