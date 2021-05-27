@@ -43,13 +43,22 @@ class DocumentItem extends Entity {
 
 	public static function getBest(by:Entity) : Null<DocumentItem> {
 		var dh = new dn.DecisionHelper(ALL);
+		dh.keepOnly( e->by.distCase(e)<=2 );
 		dh.score( (e)->-e.distCase(by) );
 		dh.score( (e)->e.cx==by.cx && e.cy==by.cy ? 3 : 0 );
 		dh.score( (e)->by.dirTo(e)==by.dir ? 1 : 0 );
-		trace(dh.getBest());
 		return dh.getBest();
 	}
 
+
+	function read() {
+		new ui.Document(data);
+
+		if( data.f_triggerIdAfterRead>=0 )
+			for(e in Entity.ALL)
+				if( e.triggerId==data.f_triggerIdAfterRead && e.isAlive() )
+					e.trigger();
+	}
 
 
 	public function hold() {
@@ -57,7 +66,7 @@ class DocumentItem extends Entity {
 		cd.setS("maintain",0.1);
 		if( holdS>=Const.db.DocumentHoldTimeS) {
 			holdS = Const.db.DocumentHoldTimeS;
-			new ui.Document(data);
+			read();
 		}
 		updateProgress();
 	}

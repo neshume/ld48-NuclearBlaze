@@ -1267,7 +1267,8 @@
 							"__type": "Float",
 							"defUid": 137,
 							"realEditorValues": [null]
-						}
+						},
+						{ "__identifier": "zoom", "__value": 0, "__type": "Float", "defUid": 556, "realEditorValues": [] }
 					]
 				},
 				{

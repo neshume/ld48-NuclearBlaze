@@ -1202,7 +1202,8 @@
 							"__type": "Float",
 							"defUid": 137,
 							"realEditorValues": [{ "id": "V_Float", "params": [-32] }]
-						}
+						},
+						{ "__identifier": "zoom", "__value": 0, "__type": "Float", "defUid": 556, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1222,7 +1223,8 @@
 							"__type": "Float",
 							"defUid": 137,
 							"realEditorValues": [{ "id": "V_Float", "params": [-24] }]
-						}
+						},
+						{ "__identifier": "zoom", "__value": 0, "__type": "Float", "defUid": 556, "realEditorValues": [] }
 					]
 				},
 				{
