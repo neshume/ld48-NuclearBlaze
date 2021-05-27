@@ -36,17 +36,25 @@ class Document extends dn.Process {
 		var header = new h2d.Flow(flow);
 		header.horizontalAlign = Left;
 		header.verticalAlign= Middle;
-		header.minWidth = docWid-px*2;
+		header.maxWidth = header.minWidth = docWid-px*2;
 
 		// Header text
+		var htf = new h2d.Text(Assets.fontPixel, header);
 		if( data.f_header!=null ) {
-			var htf = new h2d.Text(Assets.fontPixel, header);
 			htf.lineSpacing = -6;
 			htf.text = Assets.parseText( data.f_header );
 			htf.maxWidth = docWid-px*2;
 			htf.textColor = data.f_headerColor_int;
-			flow.addSpacing(8);
+
+			flow.addSpacing(4);
+			var line = Assets.tiles.h_get(dict.pixel, flow);
+			line.colorize(data.f_headerColor_int);
+			line.scaleX = docWid-px*2;
+			line.alpha = 0.3;
+			flow.addSpacing(4);
 		}
+		else
+			htf.visible = false;
 
 		// Main text
 		var tf = new h2d.Text(Assets.fontPixel, flow);
@@ -61,13 +69,10 @@ class Document extends dn.Process {
 			case SCP_report:
 				var logo = Assets.tiles.getBitmap(dict.docScp, header);
 				header.getProperties(logo).horizontalAlign = Right;
+				htf.maxWidth-=logo.tile.width;
 		}
 
 		flow.reflow();
-
-		var g = new h2d.Graphics(root);
-		g.beginFill(0xff00ff);
-		g.drawCircle(0,0,10);
 
 		tw.createS(root.x, root.x+30*Const.SCALE > root.x, 0.3);
 		tw.createS(root.y, root.y+50*Const.SCALE > root.y, 0.3);

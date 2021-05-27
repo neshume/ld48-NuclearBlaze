@@ -159,10 +159,9 @@ class Level extends dn.Process {
 	function buildFog() {
 		fogElements = new Map();
 		fogRender.clear();
-		fogWid = M.ceil( game.camera.pxWid/Const.GRID ) + 3;
-		fogHei = M.ceil( game.camera.pxHei/Const.GRID ) + 3;
+		fogWid = M.ceil( game.camera.getRawPxWid()/Const.GRID ) + 3;
+		fogHei = M.ceil( game.camera.getRawPxHei()/Const.GRID ) + 3;
 		var t = Assets.tiles.getTile( Assets.tilesDict.fxFog );
-		// var t = Assets.tiles.getTile( Assets.tilesDict.fxCircle7);
 		t.setCenterRatio();
 		for(cy in 0...fogHei)
 		for(cx in 0...fogWid) {

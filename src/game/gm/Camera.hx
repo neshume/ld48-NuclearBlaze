@@ -113,6 +113,9 @@ class Camera extends dn.Process {
 		return M.ceil( Game.ME.h() / Const.SCALE / zoom );
 	}
 
+	public inline function getRawPxWid() return M.ceil( Game.ME.w() / Const.SCALE );
+	public inline function getRawPxHei() return M.ceil( Game.ME.h() / Const.SCALE );
+
 	public inline function isOnScreen(levelX:Float, levelY: Float, padding=0.) {
 		return levelX>=left-padding && levelX<=right+padding && levelY>=top-padding && levelY<=bottom+padding;
 	}
@@ -307,9 +310,8 @@ class Camera extends dn.Process {
 
 		final level = Game.ME.level;
 
-		// Zoom interpolation
-		curZoom += ( targetZoom - curZoom ) * M.fmin(1, tmod*0.2);
-		bumpZoomFactor *= Math.pow(0.9, tmod);
+		var tz = targetZoom;
+
 
 		// Get tracking coord
 		var tx = -1.;
@@ -333,7 +335,13 @@ class Camera extends dn.Process {
 			if( e.isActive() ) {
 				tx+=e.data.f_offsetX;
 				ty+=e.data.f_offsetY;
+				if( e.data.f_zoom!=null )
+					tz = e.data.f_zoom;
 			}
+
+		// Zoom interpolation
+		curZoom += ( tz - curZoom ) * M.fmin(1, tmod*0.03);
+		bumpZoomFactor *= Math.pow(0.9, tmod);
 
 		// Follow target
 		if( tx>=0 ) {
