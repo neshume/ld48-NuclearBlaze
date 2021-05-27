@@ -140,7 +140,7 @@ class Trigger extends Entity {
 				setSquashY(0.5);
 		}
 
-		var eachDurationS = data.f_cinematicReveal ? 1.25  : !isVisibleTrigger() ? 0 : 0.5;
+		var eachDurationS = data.f_cinematicReveal ? 1.25  : !isVisibleTrigger() || data.f_type==IRGate ? 0 : 0.5;
 		var t = 0.;
 		for(e in Entity.ALL) {
 
