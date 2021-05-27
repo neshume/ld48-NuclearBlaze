@@ -68,7 +68,7 @@
 					"__identifier": "Door",
 					"__grid": [21,10],
 					"__pivot": [0.5,1],
-					"__tile": { "tilesetUid": 26, "srcRect": [16,272,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [16,368,16,16] },
 					"width": 12,
 					"height": 32,
 					"defUid": 5,
@@ -392,7 +392,7 @@
 					"__identifier": "Door",
 					"__grid": [11,10],
 					"__pivot": [0.5,1],
-					"__tile": { "tilesetUid": 26, "srcRect": [16,272,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [16,368,16,16] },
 					"width": 12,
 					"height": 32,
 					"defUid": 5,
@@ -1144,7 +1144,7 @@
 					"__identifier": "Door",
 					"__grid": [26,30],
 					"__pivot": [0.5,1],
-					"__tile": { "tilesetUid": 26, "srcRect": [16,272,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [16,368,16,16] },
 					"width": 12,
 					"height": 32,
 					"defUid": 5,
@@ -1171,7 +1171,7 @@
 					"__identifier": "Door",
 					"__grid": [31,34],
 					"__pivot": [0.5,1],
-					"__tile": { "tilesetUid": 26, "srcRect": [16,272,16,16] },
+					"__tile": { "tilesetUid": 26, "srcRect": [16,368,16,16] },
 					"width": 12,
 					"height": 32,
 					"defUid": 5,
@@ -1343,47 +1343,6 @@
 						},
 						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.TextStyle", "defUid": 149, "realEditorValues": [] },
 						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [24,34],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [392,560],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{
-							"__identifier": "unlockAllUpgrades",
-							"__value": true,
-							"__type": "Bool",
-							"defUid": 282,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "shieldDurationS",
-							"__value": 3,
-							"__type": "Int",
-							"defUid": 380,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "fallCinematic",
-							"__value": false,
-							"__type": "Bool",
-							"defUid": 396,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "water",
-							"__value": 1,
-							"__type": "Float",
-							"defUid": 545,
-							"realEditorValues": [null]
-						}
 					]
 				},
 				{
