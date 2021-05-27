@@ -25,7 +25,7 @@ class FogPiercer extends Entity {
 
 		for( y in cTop...cBottom )
 		for( x in cLeft...cRight )
-			level.revealFog(x,y, data.f_triggerId<0);
+			level.revealFog(x,y, data.f_triggerId<0 && !data.f_selfTriggerOnTouch);
 
 		destroy();
 	}
