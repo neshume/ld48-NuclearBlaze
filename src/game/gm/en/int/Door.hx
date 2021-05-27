@@ -63,6 +63,8 @@ class Door extends Entity {
 				spr.set( closed ? dict.greenDoorClosed: dict.greenDoorOpened );
 			else if( data.f_requiredItem==BlueCard)
 				spr.set( closed ? dict.blueDoorClosed: dict.blueDoorOpened );
+			else if( data.f_triggerId>=0 || data.f_requiredItem!=null )
+				spr.set( closed ? dict.triggerDoorClosed : dict.triggerDoorOpened );
 			else
 				spr.set( closed ? dict.doorClosed : dict.doorOpened );
 			spr.setCenterRatio(closed ? 0.5 : 0, 1);
