@@ -822,8 +822,8 @@ class Entity {
 			}
 
 			// Ceiling collision
-			if( yr<0.4 && !climbing && level.hasWallCollision(cx,cy-1) )
-				yr = 0.4;
+			if( yr<0.8 && !climbing && level.hasWallCollision(cx,cy-1) )
+				yr = 0.8;
 		}
 	}
 
