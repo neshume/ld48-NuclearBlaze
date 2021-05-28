@@ -7,6 +7,7 @@ class DocumentItem extends Entity {
 	var g : h2d.Graphics;
 	var holdS = 0.;
 	var callbackDone = false;
+	var unread = true;
 
 	public function new(d:Entity_Document) {
 		super(0,0);
@@ -36,7 +37,7 @@ class DocumentItem extends Entity {
 		g.setPosition(centerX, centerY);
 
 		if( isOnScreenCenter() ) {
-			if( !cd.has("read") && !cd.hasSetS("blink",1) )
+			if( !cd.hasSetS("blink", unread ? 0.33 : 1) )
 				blink(0xa8d9ff);
 		}
 	}
@@ -53,6 +54,7 @@ class DocumentItem extends Entity {
 
 
 	function read() {
+		unread = false;
 		var d = new ui.Document(data);
 		if( !callbackDone && data.f_triggerIdAfterRead>=0 ) {
 			callbackDone = true;
@@ -84,6 +86,9 @@ class DocumentItem extends Entity {
 
 	override function fixedUpdate() {
 		super.fixedUpdate();
+
+		if( unread && distCase(hero)<=1 )
+			read();
 
 		if( !cd.has("maintain") ) {
 			holdS *= 0.7;

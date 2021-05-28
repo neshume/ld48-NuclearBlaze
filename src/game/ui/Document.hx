@@ -115,7 +115,7 @@ class Document extends dn.Process {
 		flow.reflow();
 
 		tw.createS(root.x, root.x+30*Const.SCALE > root.x, 0.3);
-		tw.createS(root.y, root.y+50*Const.SCALE > root.y, 0.3);
+		tw.createS(root.y, root.y+50*Const.SCALE > root.y+1, 0.3);
 		tw.createS(root.alpha, 0>1, TEaseIn, 0.1);
 		tw.createS(root.rotation, 0.4>0, TEaseOut, 0.3);
 		tw.createS(root.scaleY, 0>root.scaleY, TEaseOut, 0.3);

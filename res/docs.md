@@ -12,5 +12,6 @@ SCP-%% is permanently burning and cannot be extinguished by any known mean.
 SCP-%% instructions
 SECURE. CONTAIN. PROTECT.
 ---
-In case of confinment breach, units CU1 and CU2 should be deployed near Containment West Gate (CWG). Refer to **** in case of **********.
+In case of containment breach, units CU-1 and CU-2 should be deployed near CONTAINMENT WEST GATE (CWG). Immediately refer to **** in case of **********.
 
+DIRECT CONTACTS WITH SCP-%% ARE PROHIBITED.
