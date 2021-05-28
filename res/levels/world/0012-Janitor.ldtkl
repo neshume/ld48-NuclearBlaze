@@ -8,7 +8,7 @@
 		"appVersion": "0.9.4",
 		"url": "https://ldtk.io"
 	},
-	"identifier": "Level_12",
+	"identifier": "Janitor",
 	"uid": 566,
 	"worldX": 0,
 	"worldY": 6976,
@@ -16,7 +16,7 @@
 	"pxHei": 384,
 	"__bgColor": "#242D34",
 	"bgColor": null,
-	"useAutoIdentifier": true,
+	"useAutoIdentifier": false,
 	"bgRelPath": null,
 	"bgPos": null,
 	"bgPivotX": 0.5,

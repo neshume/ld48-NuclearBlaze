@@ -7300,7 +7300,7 @@
 			"__neighbours": [ { "levelUid": 566, "dir": "s" }, { "levelUid": 133, "dir": "n" } ]
 		},
 		{
-			"identifier": "Level_12",
+			"identifier": "Janitor",
 			"uid": 566,
 			"worldX": 0,
 			"worldY": 6976,
@@ -7308,13 +7308,13 @@
 			"pxHei": 384,
 			"__bgColor": "#242D34",
 			"bgColor": null,
-			"useAutoIdentifier": true,
+			"useAutoIdentifier": false,
 			"bgRelPath": null,
 			"bgPos": null,
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0012-Level_12.ldtkl",
+			"externalRelPath": "world/0012-Janitor.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
