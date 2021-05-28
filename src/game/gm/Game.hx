@@ -211,6 +211,7 @@ class Game extends Process {
 		garbageCollectEntities();
 		hud.clear();
 		camera.reset();
+		ui.Document.closeAny();
 
 		// Inits
 		heat = 0;

@@ -2263,10 +2263,10 @@
 						},
 						{
 							"__identifier": "color",
-							"__value": "#477973",
+							"__value": "#FFCC00",
 							"__type": "Color",
 							"defUid": 141,
-							"realEditorValues": [{ "id": "V_Int", "params": [4684147] }]
+							"realEditorValues": [{ "id": "V_Int", "params": [16763904] }]
 						},
 						{
 							"__identifier": "size",
@@ -3277,72 +3277,6 @@
 				},
 				{
 					"__identifier": "WaterRefill",
-					"__grid": [58,40],
-					"__pivot": [0.5,0.5],
-					"__tile": null,
-					"width": 16,
-					"height": 16,
-					"defUid": 533,
-					"px": [936,648],
-					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
-				},
-				{
-					"__identifier": "Light",
-					"__grid": [58,41],
-					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [128,80,16,16] },
-					"width": 9,
-					"height": 9,
-					"defUid": 207,
-					"px": [936,664],
-					"fieldInstances": [
-						{
-							"__identifier": "spotDir",
-							"__value": "North",
-							"__type": "LocalEnum.Direction",
-							"defUid": 208,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["North"]
-							}]
-						},
-						{
-							"__identifier": "color",
-							"__value": "#006EFF",
-							"__type": "Color",
-							"defUid": 209,
-							"realEditorValues": [{ "id": "V_Int", "params": [28415] }]
-						},
-						{
-							"__identifier": "intensity",
-							"__value": 0.6,
-							"__type": "Float",
-							"defUid": 210,
-							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
-						},
-						{
-							"__identifier": "radius",
-							"__value": 2,
-							"__type": "Float",
-							"defUid": 278,
-							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
-						},
-						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
-						{
-							"__identifier": "gyro",
-							"__value": true,
-							"__type": "Bool",
-							"defUid": 280,
-							"realEditorValues": [{
-								"id": "V_Bool",
-								"params": [ true ]
-							}]
-						},
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "WaterRefill",
 					"__grid": [10,5],
 					"__pivot": [0.5,0.5],
 					"__tile": null,
@@ -3784,6 +3718,325 @@
 					"height": 96,
 					"defUid": 374,
 					"px": [736,592],
+					"fieldInstances": [
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 446, "realEditorValues": [] },
+						{
+							"__identifier": "selfTriggerOnTouch",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 547,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						}
+					]
+				},
+				{
+					"__identifier": "Document",
+					"__grid": [57,41],
+					"__pivot": [0.5,1],
+					"__tile": { "tilesetUid": 26, "srcRect": [176,192,16,16] },
+					"width": 12,
+					"height": 12,
+					"defUid": 548,
+					"px": [920,672],
+					"fieldInstances": [
+						{ "__identifier": "text", "__value": "", "__type": "String", "defUid": 549, "realEditorValues": [] },
+						{
+							"__identifier": "style",
+							"__value": "DarkPaper",
+							"__type": "LocalEnum.DocumentStyle",
+							"defUid": 551,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["DarkPaper"]
+							}]
+						},
+						{
+							"__identifier": "header",
+							"__value": null,
+							"__type": "String",
+							"defUid": 552,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "textColor",
+							"__value": "#5D718F",
+							"__type": "Color",
+							"defUid": 553,
+							"realEditorValues": [{ "id": "V_Int", "params": [6123919] }]
+						},
+						{
+							"__identifier": "headerColor",
+							"__value": "#FFCC00",
+							"__type": "Color",
+							"defUid": 554,
+							"realEditorValues": [{ "id": "V_Int", "params": [16763904] }]
+						},
+						{ "__identifier": "triggerIdAfterRead", "__value": -1, "__type": "Int", "defUid": 555, "realEditorValues": [] },
+						{ "__identifier": "closeCallbackDelay", "__value": 0.6, "__type": "Float", "defUid": 558, "realEditorValues": [] },
+						{
+							"__identifier": "sourceFile",
+							"__value": "../docs.md",
+							"__type": "FilePath",
+							"defUid": 559,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["../docs.md"]
+							}]
+						},
+						{
+							"__identifier": "sourceId",
+							"__value": "vehicles",
+							"__type": "String",
+							"defUid": 560,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["vehicles"]
+							}]
+						}
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [60,41],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [968,672],
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
+						{
+							"__identifier": "shieldDurationS",
+							"__value": 0,
+							"__type": "Int",
+							"defUid": 380,
+							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
+						},
+						{ "__identifier": "fallCinematic", "__value": false, "__type": "Bool", "defUid": 396, "realEditorValues": [] },
+						{ "__identifier": "water", "__value": 1, "__type": "Float", "defUid": 545, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "WaterRefill",
+					"__grid": [53,39],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 16,
+					"height": 16,
+					"defUid": 533,
+					"px": [862,630],
+					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+				},
+				{
+					"__identifier": "Light",
+					"__grid": [53,38],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 9,
+					"height": 9,
+					"defUid": 207,
+					"px": [861,616],
+					"fieldInstances": [
+						{ "__identifier": "spotDir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 208, "realEditorValues": [] },
+						{
+							"__identifier": "color",
+							"__value": "#006EFF",
+							"__type": "Color",
+							"defUid": 209,
+							"realEditorValues": [{ "id": "V_Int", "params": [28415] }]
+						},
+						{
+							"__identifier": "intensity",
+							"__value": 0.7,
+							"__type": "Float",
+							"defUid": 210,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.7] }]
+						},
+						{
+							"__identifier": "radius",
+							"__value": 2,
+							"__type": "Float",
+							"defUid": 278,
+							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+						},
+						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
+						{
+							"__identifier": "gyro",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 280,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						},
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "WallText",
+					"__grid": [55,43],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 32,
+					"height": 16,
+					"defUid": 139,
+					"px": [888,696],
+					"fieldInstances": [
+						{
+							"__identifier": "title",
+							"__value": "HOLD",
+							"__type": "String",
+							"defUid": 140,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["HOLD"]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#3E6390",
+							"__type": "Color",
+							"defUid": 141,
+							"realEditorValues": [{ "id": "V_Int", "params": [4088720] }]
+						},
+						{
+							"__identifier": "size",
+							"__value": "Pixel",
+							"__type": "LocalEnum.Font",
+							"defUid": 146,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Pixel"]
+							}]
+						},
+						{
+							"__identifier": "style",
+							"__value": "Outline",
+							"__type": "LocalEnum.TextStyle",
+							"defUid": 149,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Outline"]
+							}]
+						},
+						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "WallText",
+					"__grid": [57,43],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 32,
+					"height": 16,
+					"defUid": 139,
+					"px": [920,696],
+					"fieldInstances": [
+						{
+							"__identifier": "title",
+							"__value": "S",
+							"__type": "String",
+							"defUid": 140,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["S"]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#FFCC00",
+							"__type": "Color",
+							"defUid": 141,
+							"realEditorValues": [{ "id": "V_Int", "params": [16763904] }]
+						},
+						{
+							"__identifier": "size",
+							"__value": "Pixel",
+							"__type": "LocalEnum.Font",
+							"defUid": 146,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Pixel"]
+							}]
+						},
+						{
+							"__identifier": "style",
+							"__value": "Keyboard",
+							"__type": "LocalEnum.TextStyle",
+							"defUid": 149,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Keyboard"]
+							}]
+						},
+						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "WallText",
+					"__grid": [58,43],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 32,
+					"height": 16,
+					"defUid": 139,
+					"px": [936,696],
+					"fieldInstances": [
+						{
+							"__identifier": "title",
+							"__value": "or",
+							"__type": "String",
+							"defUid": 140,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["or"]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#3E6390",
+							"__type": "Color",
+							"defUid": 141,
+							"realEditorValues": [{ "id": "V_Int", "params": [4088720] }]
+						},
+						{
+							"__identifier": "size",
+							"__value": "Pixel",
+							"__type": "LocalEnum.Font",
+							"defUid": 146,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Pixel"]
+							}]
+						},
+						{
+							"__identifier": "style",
+							"__value": "Outline",
+							"__type": "LocalEnum.TextStyle",
+							"defUid": 149,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Outline"]
+							}]
+						},
+						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "FogPiercer",
+					"__grid": [54,41],
+					"__pivot": [0,0],
+					"__tile": null,
+					"width": 112,
+					"height": 64,
+					"defUid": 374,
+					"px": [864,656],
 					"fieldInstances": [
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 446, "realEditorValues": [] },
 						{
@@ -4489,8 +4742,6 @@
 				{ "px": [880,656], "src": [144,368], "f": 0, "t": 929, "d": [4032] },
 				{ "px": [880,656], "src": [272,256], "f": 3, "t": 657, "d": [4032] },
 				{ "px": [880,656], "src": [208,368], "f": 0, "t": 933, "d": [4032] },
-				{ "px": [896,656], "src": [208,352], "f": 0, "t": 893, "d": [4033] },
-				{ "px": [912,656], "src": [224,352], "f": 0, "t": 894, "d": [4034] },
 				{ "px": [1200,656], "src": [208,336], "f": 0, "t": 853, "d": [4052] },
 				{ "px": [1200,656], "src": [96,336], "f": 0, "t": 846, "d": [4052] },
 				{ "px": [1216,656], "src": [176,336], "f": 0, "t": 851, "d": [4053] },
@@ -4518,6 +4769,7 @@
 				{ "px": [944,672], "src": [208,0], "f": 0, "t": 13, "d": [4133] },
 				{ "px": [1120,672], "src": [208,0], "f": 0, "t": 13, "d": [4144] },
 				{ "px": [1248,672], "src": [272,16], "f": 0, "t": 57, "d": [4152] },
+				{ "px": [944,688], "src": [144,384], "f": 2, "t": 969, "d": [4230] },
 				{ "px": [1248,704], "src": [272,16], "f": 2, "t": 57, "d": [4346] },
 				{ "px": [1248,736], "src": [272,16], "f": 0, "t": 57, "d": [4540] },
 				{ "px": [1376,784], "src": [256,16], "f": 1, "t": 56, "d": [4839] },
@@ -6077,7 +6329,7 @@
 				0,0,0,0,0,0,0,0,3,5,5,5,1,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				3,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,5,5,5,
 				5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-				3,5,5,5,1,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,5,5,5,5,0,0,0,
+				3,5,5,5,1,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,5,5,5,5,0,0,0,
 				0,0,0,0,0,0,0,0,0,5,5,5,5,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 				1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 				1,1,1,2,1,1,1,1,1,1,1,1,1,1,2,1,2,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,
@@ -9585,7 +9837,6 @@
 				{ "px": [848,656], "src": [64,128], "f": 0, "t": 324, "d": [476,4030] },
 				{ "px": [864,656], "src": [64,128], "f": 0, "t": 324, "d": [476,4031] },
 				{ "px": [880,656], "src": [64,128], "f": 0, "t": 324, "d": [476,4032] },
-				{ "px": [896,656], "src": [64,128], "f": 0, "t": 324, "d": [476,4033] },
 				{ "px": [1216,656], "src": [64,128], "f": 0, "t": 324, "d": [476,4053] },
 				{ "px": [1232,656], "src": [64,128], "f": 0, "t": 324, "d": [476,4054] },
 				{ "px": [1248,656], "src": [64,128], "f": 0, "t": 324, "d": [476,4055] },

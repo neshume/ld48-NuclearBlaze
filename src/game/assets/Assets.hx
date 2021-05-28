@@ -94,11 +94,6 @@ class Assets {
 		#end
 	}
 
-
-	public static function parseText(str:String) : String {
-		return StringTools.replace(str, "%%", Std.string(Const.db.SCP_ID));
-	}
-
 	public static function getItem(e:Enum_Items) : h2d.Tile {
 		if( !tiles.exists("item"+e.getName()) )
 			return h2d.Tile.fromColor(0xff0000,16,16); // error

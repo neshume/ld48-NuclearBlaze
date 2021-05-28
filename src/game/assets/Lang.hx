@@ -23,4 +23,13 @@ class Lang {
         init();
         return t.untranslated(str);
     }
+
+
+
+	public static function parseText(str:String) : String {
+        str = Lib.trimEmptyLines(str);
+		str = StringTools.replace(str, "%%", Std.string(Const.db.SCP_ID));
+		str = StringTools.replace(str, "%n", Std.string(Const.db.SCP_Report_Pages));
+        return str;
+	}
 }

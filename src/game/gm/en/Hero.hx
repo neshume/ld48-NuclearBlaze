@@ -293,6 +293,7 @@ class Hero extends gm.Entity {
 
 		var tf = new h2d.Text(Assets.fontPixel, saying);
 		tf.filter = new dn.heaps.filter.PixelOutline();
+		tf.lineSpacing = Const.db.PixelFontLineSpacing;
 		tf.maxWidth = 160;
 		tf.text = str;
 		tf.textColor = c;

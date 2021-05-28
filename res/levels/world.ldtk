@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.4",
-	"nextUid": 558,
+	"nextUid": 562,
 	"worldLayout": "LinearVertical",
 	"worldGridWidth": 256,
 	"worldGridHeight": 256,
@@ -1183,7 +1183,7 @@
 						"perlinOctaves": 2
 					}
 				] },
-				{ "uid": 475, "name": "Invisible", "active": true, "collapsed": false, "isOptional": false, "rules": [
+				{ "uid": 475, "name": "Invisible", "active": true, "collapsed": true, "isOptional": false, "rules": [
 					{
 						"uid": 476,
 						"active": true,
@@ -6167,6 +6167,66 @@
 					"acceptFileTypes": null,
 					"defaultOverride": { "id": "V_Int", "params": [-1] },
 					"textLanguageMode": null
+				},
+				{
+					"identifier": "closeCallbackDelay",
+					"__type": "Float",
+					"uid": 558,
+					"type": "F_Float",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": 0,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Float", "params": [0.6] },
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "sourceFile",
+					"__type": "FilePath",
+					"uid": 559,
+					"type": "F_Path",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": [".md"],
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "sourceId",
+					"__type": "String",
+					"uid": 560,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": "/[a-z0-9_]+/gi",
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
 				}
 			]
 		}
@@ -6352,7 +6412,9 @@
 				{ "ids": [376,416,456,377,417,457,378,418,458], "mode": "Stamp" },
 				{ "ids": [262,302,342], "mode": "Random" },
 				{ "ids": [379,419,459,380,420,460,381,421,461], "mode": "Stamp" },
-				{ "ids": [382,422,383,423], "mode": "Stamp" }
+				{ "ids": [382,422,383,423], "mode": "Stamp" },
+				{ "ids": [161,162], "mode": "Random" },
+				{ "ids": [40,80,120], "mode": "Random" }
 			],
 			"cachedPixelData": {
 				"opaqueTiles": "11100000000000000011100000000000000000001110000000000000001100000000000000000000111100000000000000110000000000000000000010000000000000000011000000000000000000001110000000000011000000000000000000000000111111111111100000000000000000011000000000011111100000001000000000000000100000000000111111000000000000000000000000000000000000011100000000000000000000000000000000000001110000000000000000000000000000000000000100000000000000000000000000000000000000001000000000000000000000000000000000000000111110000000000000000000000000000000100011100000000000000000000000000000000000001111000000000000000000000000000000000000111000000000000000000000000000000000000010000011000000000000000000000000000000001000011100000000000000000000000000000000001111110000000000000000000000000000000000111111100000000000101000000000000000000001100011000000001111111000000000000000000000001000000000000011000000000000000000000100100000000000000000000000000000000000000000000000000000000000000000000000001110000000000000000000000000000000000000111100100000000000000000000000000000000011111010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
@@ -6383,13 +6445,14 @@
 		{ "identifier": "CinematicEventType", "uid": 487, "values": [
 			{ "id": "BumpAndLockHero", "tileId": null, "color": 13906175, "__tileSrcRect": null },
 			{ "id": "LockHero", "tileId": null, "color": 16711680, "__tileSrcRect": null },
+			{ "id": "LockControlsUntilLand", "tileId": null, "color": 10319675, "__tileSrcRect": null },
 			{ "id": "ShieldHero", "tileId": null, "color": 65516, "__tileSrcRect": null },
+			{ "id": "ForceFastFall", "tileId": null, "color": 8079836, "__tileSrcRect": null },
 			{ "id": "Explosion", "tileId": null, "color": 16711680, "__tileSrcRect": null },
 			{ "id": "CamShake", "tileId": null, "color": 11117176, "__tileSrcRect": null },
 			{ "id": "CamShoulder", "tileId": null, "color": 5280333, "__tileSrcRect": null },
-			{ "id": "LockControlsUntilLand", "tileId": null, "color": 6897664, "__tileSrcRect": null },
-			{ "id": "ForceFastFall", "tileId": null, "color": 8079836, "__tileSrcRect": null },
-			{ "id": "SlowMo", "tileId": null, "color": 9997966, "__tileSrcRect": null }
+			{ "id": "SlowMo", "tileId": null, "color": 9997966, "__tileSrcRect": null },
+			{ "id": "ClearPermanentTexts", "tileId": null, "color": 16775680, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null },
 		{ "identifier": "Font", "uid": 145, "values": [
 			{ "id": "Pixel", "tileId": null, "color": 11387845, "__tileSrcRect": null },
@@ -6441,7 +6504,11 @@
 			{ "id": "IRGate", "tileId": 721, "color": 10166826, "__tileSrcRect": [16,240,16,16] }
 		], "iconTilesetUid": 26, "externalRelPath": null, "externalFileChecksum": null },
 		{ "identifier": "MobType", "uid": 536, "values": [ { "id": "Jumper", "tileId": 248, "color": 16777215, "__tileSrcRect": [128,80,16,16] }, { "id": "Runner", "tileId": 484, "color": 12821337, "__tileSrcRect": [64,160,16,16] } ], "iconTilesetUid": 26, "externalRelPath": null, "externalFileChecksum": null },
-		{ "identifier": "DocumentStyle", "uid": 550, "values": [ { "id": "WhitePaper", "tileId": null, "color": 16777215, "__tileSrcRect": null }, { "id": "SCP_report", "tileId": null, "color": 16390425, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null }
+		{ "identifier": "DocumentStyle", "uid": 550, "values": [
+			{ "id": "WhitePaper", "tileId": null, "color": 16777215, "__tileSrcRect": null },
+			{ "id": "SCP_report", "tileId": null, "color": 16390425, "__tileSrcRect": null },
+			{ "id": "DarkPaper", "tileId": null, "color": 3495843, "__tileSrcRect": null }
+		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null }
 	], "externalEnums": [], "levelFields": [
 		{
 			"identifier": "disableCompleteAnnounce",
@@ -7349,13 +7416,73 @@
 				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 450, "dir": "s" }, { "levelUid": 465, "dir": "n" } ]
+			"__neighbours": [ { "levelUid": 561, "dir": "s" }, { "levelUid": 465, "dir": "n" } ]
+		},
+		{
+			"identifier": "SCP_screenshot",
+			"uid": 561,
+			"worldX": 0,
+			"worldY": 13376,
+			"pxWid": 752,
+			"pxHei": 272,
+			"__bgColor": "#242D34",
+			"bgColor": null,
+			"useAutoIdentifier": false,
+			"bgRelPath": null,
+			"bgPos": null,
+			"bgPivotX": 0.5,
+			"bgPivotY": 0.5,
+			"__bgPos": null,
+			"externalRelPath": "world/0020-SCP_screenshot.ldtkl",
+			"fieldInstances": [
+				{
+					"__identifier": "disableCompleteAnnounce",
+					"__value": true,
+					"__type": "Bool",
+					"defUid": 114,
+					"realEditorValues": [{
+						"id": "V_Bool",
+						"params": [ true ]
+					}]
+				},
+				{
+					"__identifier": "ignoreFires",
+					"__value": true,
+					"__type": "Bool",
+					"defUid": 115,
+					"realEditorValues": [{
+						"id": "V_Bool",
+						"params": [ true ]
+					}]
+				},
+				{
+					"__identifier": "clampCameraToBounds",
+					"__value": true,
+					"__type": "Bool",
+					"defUid": 406,
+					"realEditorValues": [{
+						"id": "V_Bool",
+						"params": [ true ]
+					}]
+				},
+				{
+					"__identifier": "fadeInSpeed",
+					"__value": 3,
+					"__type": "Float",
+					"defUid": 520,
+					"realEditorValues": [{ "id": "V_Float", "params": [3] }]
+				},
+				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+			],
+			"layerInstances": null,
+			"__neighbours": [ { "levelUid": 450, "dir": "s" }, { "levelUid": 118, "dir": "n" } ]
 		},
 		{
 			"identifier": "Lab",
 			"uid": 450,
 			"worldX": 0,
-			"worldY": 13376,
+			"worldY": 13680,
 			"pxWid": 448,
 			"pxHei": 336,
 			"__bgColor": "#242D34",
@@ -7366,7 +7493,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0020-Lab.ldtkl",
+			"externalRelPath": "world/0021-Lab.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -7394,13 +7521,13 @@
 				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 478, "dir": "s" }, { "levelUid": 118, "dir": "n" } ]
+			"__neighbours": [ { "levelUid": 478, "dir": "s" }, { "levelUid": 561, "dir": "n" } ]
 		},
 		{
 			"identifier": "Lab2",
 			"uid": 478,
 			"worldX": 0,
-			"worldY": 13744,
+			"worldY": 14048,
 			"pxWid": 560,
 			"pxHei": 288,
 			"__bgColor": "#242D34",
@@ -7411,7 +7538,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0021-Lab2.ldtkl",
+			"externalRelPath": "world/0022-Lab2.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",

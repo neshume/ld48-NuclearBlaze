@@ -50,6 +50,7 @@ class DebugDrone extends Entity {
 		setColor(DEFAULT_COLOR);
 
 		help = new h2d.Text(Assets.fontPixel);
+		help.lineSpacing = Const.db.PixelFontLineSpacing;
 		help.filter = new dn.heaps.filter.PixelOutline();
 		game.root.add(help, Const.DP_UI);
 		help.textColor = DEFAULT_COLOR;

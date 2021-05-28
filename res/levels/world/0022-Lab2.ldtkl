@@ -11,7 +11,7 @@
 	"identifier": "Lab2",
 	"uid": 478,
 	"worldX": 0,
-	"worldY": 13744,
+	"worldY": 14048,
 	"pxWid": 560,
 	"pxHei": 288,
 	"__bgColor": "#242D34",
@@ -409,7 +409,10 @@
 							"defUid": 554,
 							"realEditorValues": [{ "id": "V_Int", "params": [11998228] }]
 						},
-						{ "__identifier": "triggerIdAfterRead", "__value": -1, "__type": "Int", "defUid": 555, "realEditorValues": [] }
+						{ "__identifier": "triggerIdAfterRead", "__value": -1, "__type": "Int", "defUid": 555, "realEditorValues": [] },
+						{ "__identifier": "closeCallbackDelay", "__value": 0.6, "__type": "Float", "defUid": 558, "realEditorValues": [] },
+						{ "__identifier": "sourceFile", "__value": null, "__type": "FilePath", "defUid": 559, "realEditorValues": [] },
+						{ "__identifier": "sourceId", "__value": "", "__type": "String", "defUid": 560, "realEditorValues": [] }
 					]
 				},
 				{
@@ -456,7 +459,10 @@
 						},
 						{ "__identifier": "textColor", "__value": "#143464", "__type": "Color", "defUid": 553, "realEditorValues": [] },
 						{ "__identifier": "headerColor", "__value": "#59739A", "__type": "Color", "defUid": 554, "realEditorValues": [] },
-						{ "__identifier": "triggerIdAfterRead", "__value": -1, "__type": "Int", "defUid": 555, "realEditorValues": [] }
+						{ "__identifier": "triggerIdAfterRead", "__value": -1, "__type": "Int", "defUid": 555, "realEditorValues": [] },
+						{ "__identifier": "closeCallbackDelay", "__value": 0.6, "__type": "Float", "defUid": 558, "realEditorValues": [] },
+						{ "__identifier": "sourceFile", "__value": null, "__type": "FilePath", "defUid": 559, "realEditorValues": [] },
+						{ "__identifier": "sourceId", "__value": "", "__type": "String", "defUid": 560, "realEditorValues": [] }
 					]
 				},
 				{

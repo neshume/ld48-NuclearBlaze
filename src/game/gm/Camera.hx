@@ -34,6 +34,7 @@ class Camera extends dn.Process {
 	var baseFrict = 0.86;
 	var dx : Float;
 	var dy : Float;
+	var dz = 0.;
 	var bumpOffX = 0.;
 	var bumpOffY = 0.;
 	var bumpFrict = 0.96;
@@ -85,7 +86,7 @@ class Camera extends dn.Process {
 		rawFocus = LPoint.fromCase(0,0);
 		clampedFocus = LPoint.fromCase(0,0);
 		clampToLevelBounds = true;
-		dx = dy = 0;
+		dx = dy = dz = 0;
 	}
 
 	@:keep
@@ -340,7 +341,21 @@ class Camera extends dn.Process {
 			}
 
 		// Zoom interpolation
-		curZoom += ( tz - curZoom ) * M.fmin(1, tmod*0.03);
+		if( M.fabs(tz-curZoom)<=0.01*tmod ) {
+			dz = 0;
+			curZoom = tz;
+		}
+		else {
+			if( tz>curZoom)
+				dz+=Const.db.CameraZoomSpeed;
+			else
+				dz-=Const.db.CameraZoomSpeed;
+		}
+		curZoom+=dz*tmod;
+		dz*=Math.pow(Const.db.CameraZoomFriction,tmod);
+		if( M.fabs(tz-curZoom)<=0.05*tmod )
+			dz*=Math.pow(0.8,tmod);
+		// curZoom += ( tz - curZoom ) * M.fmin(1, tmod*0.03);
 		bumpZoomFactor *= Math.pow(0.9, tmod);
 
 		// Follow target

@@ -6,6 +6,7 @@ class DocumentItem extends Entity {
 	var data : Entity_Document;
 	var g : h2d.Graphics;
 	var holdS = 0.;
+	var callbackDone = false;
 
 	public function new(d:Entity_Document) {
 		super(0,0);
@@ -52,12 +53,15 @@ class DocumentItem extends Entity {
 
 
 	function read() {
-		new ui.Document(data);
-
-		if( data.f_triggerIdAfterRead>=0 )
-			for(e in Entity.ALL)
-				if( e.triggerId==data.f_triggerIdAfterRead && e.isAlive() )
-					e.trigger();
+		var d = new ui.Document(data);
+		if( !callbackDone && data.f_triggerIdAfterRead>=0 ) {
+			callbackDone = true;
+			d.onClose = ()->{
+				for(e in Entity.ALL)
+					if( e.triggerId==data.f_triggerIdAfterRead && e.isAlive() )
+						e.trigger();
+			}
+		}
 	}
 
 

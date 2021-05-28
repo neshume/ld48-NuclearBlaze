@@ -63,6 +63,10 @@ class CinematicEvent extends Entity {
 
 			case ForceFastFall:
 				hero.forceFastFall();
+
+			case ClearPermanentTexts:
+				hud.clearUpgradeMessage();
+				hud.clearPermanentText();
 		}
 
 		destroy();

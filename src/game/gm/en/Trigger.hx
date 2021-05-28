@@ -96,6 +96,10 @@ class Trigger extends Entity {
 			return null;
 
 		var dh = new dn.DecisionHelper( ALL.filter( e->e.canBeManuallyTriggered(by) ) );
+		dh.keepOnly( e->switch e.data.f_type {
+			case Valve: true;
+			case _: false;
+		} );
 		dh.score( (e)->-e.distCase(by) );
 		dh.score( (e)->by.dirTo(e)==by.dir ? 2 : 0 );
 		return dh.getBest();

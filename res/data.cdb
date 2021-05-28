@@ -24,8 +24,20 @@
 					"value": 1866
 				},
 				{
+					"constId": "SCP_Report_Pages",
+					"value": 2
+				},
+				{
 					"constId": "MaxCameraZoom",
 					"value": 10
+				},
+				{
+					"constId": "CameraZoomSpeed",
+					"value": 0.001
+				},
+				{
+					"constId": "CameraZoomFriction",
+					"value": 0.8
 				},
 				{
 					"constId": "FogRevealAnimSpeed",
@@ -38,6 +50,11 @@
 				{
 					"constId": "DocumentHoldTimeS",
 					"value": 0.45
+				},
+				{
+					"constId": "PixelFontLineSpacing",
+					"value": -6,
+					"doc": "Line spacing value for all Texts using Pixel font"
 				},
 				{
 					"constId": "HeroWalkSpeed",
@@ -209,6 +226,7 @@
 			],
 			"props": {
 				"separatorTitles": [
+					"Lore",
 					"General",
 					"Hero",
 					"Fire",
@@ -218,6 +236,7 @@
 			},
 			"separatorIds": [
 				"SCP_ID",
+				"MaxCameraZoom",
 				"HeroWalkSpeed",
 				"FireTick",
 				"ExplosiveTimer",

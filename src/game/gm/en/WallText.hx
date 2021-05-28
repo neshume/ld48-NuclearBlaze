@@ -16,7 +16,7 @@ class WallText extends Entity {
 			case Medium:  Assets.fontMedium;
 			case Large: Assets.fontLarge;
 		}, spr);
-		tf.text = Assets.parseText( data.f_title );
+		tf.text = Lang.parseText( data.f_title );
 		tf.textColor = data.f_color_int;
 		tf.x = Std.int(-tf.textWidth*0.5);
 		tf.y = Std.int(-tf.textHeight*0.5);
