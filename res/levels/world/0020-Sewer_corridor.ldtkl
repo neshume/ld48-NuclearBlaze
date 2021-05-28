@@ -8,15 +8,15 @@
 		"appVersion": "0.9.4",
 		"url": "https://ldtk.io"
 	},
-	"identifier": "Level_11",
+	"identifier": "Sewer_corridor",
 	"uid": 454,
 	"worldX": 0,
-	"worldY": 6496,
+	"worldY": 13088,
 	"pxWid": 816,
 	"pxHei": 560,
 	"__bgColor": "#242D34",
 	"bgColor": null,
-	"useAutoIdentifier": true,
+	"useAutoIdentifier": false,
 	"bgRelPath": null,
 	"bgPos": null,
 	"bgPivotX": 0.5,
@@ -5217,5 +5217,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 0, "dir": "s" }, { "levelUid": 133, "dir": "n" } ]
+	"__neighbours": [ { "levelUid": 450, "dir": "s" }, { "levelUid": 561, "dir": "n" } ]
 }
