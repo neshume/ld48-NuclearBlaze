@@ -40,7 +40,10 @@ class Sprinkler extends Entity {
 
 	override function trigger() {
 		super.trigger();
-		start();
+		if( active )
+			stop();
+		else
+			start();
 	}
 
 	override function dispose() {

@@ -328,7 +328,8 @@
 						},
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] },
-						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
+						{ "__identifier": "silent", "__value": false, "__type": "Bool", "defUid": 567, "realEditorValues": [] }
 					]
 				},
 				{
@@ -433,7 +434,9 @@
 								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -479,7 +482,9 @@
 						},
 						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -525,7 +530,9 @@
 						},
 						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -571,7 +578,9 @@
 						},
 						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -617,7 +626,9 @@
 						},
 						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -669,7 +680,9 @@
 							"defUid": 280,
 							"realEditorValues": [null]
 						},
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -724,7 +737,9 @@
 								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -776,7 +791,9 @@
 							"defUid": 280,
 							"realEditorValues": [null]
 						},
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -823,7 +840,9 @@
 							"__type": "Float",
 							"defUid": 445,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
-						}
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 562, "realEditorValues": [] },
+						{ "__identifier": "startVisible", "__value": true, "__type": "Bool", "defUid": 563, "realEditorValues": [] }
 					]
 				},
 				{
@@ -870,7 +889,9 @@
 							"__type": "Float",
 							"defUid": 445,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
-						}
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 562, "realEditorValues": [] },
+						{ "__identifier": "startVisible", "__value": true, "__type": "Bool", "defUid": 563, "realEditorValues": [] }
 					]
 				},
 				{
@@ -981,7 +1002,9 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1027,7 +1050,9 @@
 							}]
 						},
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1082,7 +1107,9 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1137,7 +1164,9 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1201,7 +1230,9 @@
 								"id": "V_Bool",
 								"params": [ false ]
 							}]
-						}
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1247,7 +1278,9 @@
 						},
 						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1335,7 +1368,9 @@
 						},
 						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1439,7 +1474,8 @@
 							"defUid": 435,
 							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
 						},
-						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
+						{ "__identifier": "silent", "__value": false, "__type": "Bool", "defUid": 567, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1583,7 +1619,9 @@
 								"params": ["GamePad"]
 							}]
 						},
-						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
+						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 562, "realEditorValues": [] },
+						{ "__identifier": "startVisible", "__value": true, "__type": "Bool", "defUid": 563, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1633,7 +1671,9 @@
 								"params": ["Keyboard"]
 							}]
 						},
-						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
+						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 562, "realEditorValues": [] },
+						{ "__identifier": "startVisible", "__value": true, "__type": "Bool", "defUid": 563, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1683,7 +1723,9 @@
 								"params": ["Outline"]
 							}]
 						},
-						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
+						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 562, "realEditorValues": [] },
+						{ "__identifier": "startVisible", "__value": true, "__type": "Bool", "defUid": 563, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1717,7 +1759,8 @@
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] },
-						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
+						{ "__identifier": "silent", "__value": false, "__type": "Bool", "defUid": 567, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1771,7 +1814,8 @@
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] },
-						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
+						{ "__identifier": "silent", "__value": false, "__type": "Bool", "defUid": 567, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1842,7 +1886,8 @@
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] },
-						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
+						{ "__identifier": "silent", "__value": false, "__type": "Bool", "defUid": 567, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1892,7 +1937,9 @@
 								"params": ["GamePad"]
 							}]
 						},
-						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
+						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 562, "realEditorValues": [] },
+						{ "__identifier": "startVisible", "__value": true, "__type": "Bool", "defUid": 563, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1942,7 +1989,9 @@
 								"params": ["Outline"]
 							}]
 						},
-						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
+						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 562, "realEditorValues": [] },
+						{ "__identifier": "startVisible", "__value": true, "__type": "Bool", "defUid": 563, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1992,7 +2041,9 @@
 								"params": ["Keyboard"]
 							}]
 						},
-						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
+						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 562, "realEditorValues": [] },
+						{ "__identifier": "startVisible", "__value": true, "__type": "Bool", "defUid": 563, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2080,156 +2131,6 @@
 					]
 				},
 				{
-					"__identifier": "WallText",
-					"__grid": [51,9],
-					"__pivot": [0.5,0.5],
-					"__tile": null,
-					"width": 32,
-					"height": 16,
-					"defUid": 139,
-					"px": [824,152],
-					"fieldInstances": [
-						{
-							"__identifier": "title",
-							"__value": "S",
-							"__type": "String",
-							"defUid": 140,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["S"]
-							}]
-						},
-						{
-							"__identifier": "color",
-							"__value": "#FFCC00",
-							"__type": "Color",
-							"defUid": 141,
-							"realEditorValues": [{ "id": "V_Int", "params": [16763904] }]
-						},
-						{
-							"__identifier": "size",
-							"__value": "Pixel",
-							"__type": "LocalEnum.Font",
-							"defUid": 146,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Pixel"]
-							}]
-						},
-						{
-							"__identifier": "style",
-							"__value": "Keyboard",
-							"__type": "LocalEnum.TextStyle",
-							"defUid": 149,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Keyboard"]
-							}]
-						},
-						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "WallText",
-					"__grid": [52,9],
-					"__pivot": [0.5,0.5],
-					"__tile": null,
-					"width": 32,
-					"height": 16,
-					"defUid": 139,
-					"px": [840,152],
-					"fieldInstances": [
-						{
-							"__identifier": "title",
-							"__value": "or",
-							"__type": "String",
-							"defUid": 140,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["or"]
-							}]
-						},
-						{
-							"__identifier": "color",
-							"__value": "#406B9D",
-							"__type": "Color",
-							"defUid": 141,
-							"realEditorValues": [{ "id": "V_Int", "params": [4221853] }]
-						},
-						{
-							"__identifier": "size",
-							"__value": "Pixel",
-							"__type": "LocalEnum.Font",
-							"defUid": 146,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Pixel"]
-							}]
-						},
-						{
-							"__identifier": "style",
-							"__value": "Outline",
-							"__type": "LocalEnum.TextStyle",
-							"defUid": 149,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Outline"]
-							}]
-						},
-						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "WallText",
-					"__grid": [52,8],
-					"__pivot": [0.5,0.5],
-					"__tile": null,
-					"width": 32,
-					"height": 16,
-					"defUid": 139,
-					"px": [840,136],
-					"fieldInstances": [
-						{
-							"__identifier": "title",
-							"__value": "HOLD",
-							"__type": "String",
-							"defUid": 140,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["HOLD"]
-							}]
-						},
-						{
-							"__identifier": "color",
-							"__value": "#4673A9",
-							"__type": "Color",
-							"defUid": 141,
-							"realEditorValues": [{ "id": "V_Int", "params": [4617129] }]
-						},
-						{
-							"__identifier": "size",
-							"__value": "Pixel",
-							"__type": "LocalEnum.Font",
-							"defUid": 146,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Pixel"]
-							}]
-						},
-						{
-							"__identifier": "style",
-							"__value": "Outline",
-							"__type": "LocalEnum.TextStyle",
-							"defUid": 149,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Outline"]
-							}]
-						},
-						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] }
-					]
-				},
-				{
 					"__identifier": "FxEmitter",
 					"__grid": [30,3],
 					"__pivot": [0,0],
@@ -2309,7 +2210,9 @@
 							}]
 						},
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2421,7 +2324,9 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2473,29 +2378,6 @@
 					]
 				},
 				{
-					"__identifier": "FogPiercer",
-					"__grid": [50,2],
-					"__pivot": [0,0],
-					"__tile": null,
-					"width": 80,
-					"height": 144,
-					"defUid": 374,
-					"px": [800,32],
-					"fieldInstances": [
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 446, "realEditorValues": [] },
-						{
-							"__identifier": "selfTriggerOnTouch",
-							"__value": true,
-							"__type": "Bool",
-							"defUid": 547,
-							"realEditorValues": [{
-								"id": "V_Bool",
-								"params": [ true ]
-							}]
-						}
-					]
-				},
-				{
 					"__identifier": "Light",
 					"__grid": [25,7],
 					"__pivot": [0.5,0.5],
@@ -2538,7 +2420,9 @@
 						},
 						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2584,7 +2468,9 @@
 						},
 						{ "__identifier": "flicker", "__value": false, "__type": "Bool", "defUid": 279, "realEditorValues": [] },
 						{ "__identifier": "gyro", "__value": false, "__type": "Bool", "defUid": 280, "realEditorValues": [] },
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2708,7 +2594,8 @@
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] },
-						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
+						{ "__identifier": "silent", "__value": false, "__type": "Bool", "defUid": 567, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2763,7 +2650,9 @@
 								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] }
+						{ "__identifier": "hideSprite", "__value": false, "__type": "Bool", "defUid": 373, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2797,7 +2686,8 @@
 						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] },
-						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] }
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
+						{ "__identifier": "silent", "__value": false, "__type": "Bool", "defUid": 567, "realEditorValues": [] }
 					]
 				}
 			]
@@ -2962,7 +2852,6 @@
 				{ "px": [480,144], "src": [256,0], "f": 0, "t": 16, "d": [795] },
 				{ "px": [496,144], "src": [256,0], "f": 0, "t": 16, "d": [796] },
 				{ "px": [512,144], "src": [256,0], "f": 0, "t": 16, "d": [797] },
-				{ "px": [848,144], "src": [144,384], "f": 2, "t": 969, "d": [818] },
 				{ "px": [400,272], "src": [192,256], "f": 3, "t": 652, "d": [1470] },
 				{ "px": [416,272], "src": [160,256], "f": 0, "t": 650, "d": [1471] },
 				{ "px": [432,272], "src": [160,256], "f": 0, "t": 650, "d": [1472] },

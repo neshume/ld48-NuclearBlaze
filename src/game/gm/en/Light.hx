@@ -15,6 +15,8 @@ class Light extends Entity {
 		setPosPixel(data.pixelX, data.pixelY);
 		gravityMul = 0;
 		collides = false;
+		triggerId = data.f_triggerId;
+		entityVisible = data.f_startActive;
 
 		wid = data.width;
 		hei = data.height;
@@ -104,6 +106,11 @@ class Light extends Entity {
 		largeHalo.smooth = true;
 	}
 
+	override function trigger() {
+		super.trigger();
+		entityVisible = !entityVisible;
+	}
+
 	override function dispose() {
 		super.dispose();
 		if( white!=null )
@@ -128,17 +135,24 @@ class Light extends Entity {
 	override function postUpdate() {
 		super.postUpdate();
 
-		bulb.visible = !data.f_hideSprite;
+		bulb.visible = !data.f_hideSprite && entityVisible;
 		bulb.setPosition(attachX, attachY);
 
 		core.setPosition(attachX, attachY);
 		if( white!=null )
 			white.setPosition(attachX, attachY);
-		core.visible = !data.f_hideSprite;
-		mainHalo.setPosition(attachX, attachY);
-		largeHalo.setPosition(attachX, attachY);
+		core.visible = !data.f_hideSprite && entityVisible;
 
-		if( isOnScreenCenter() ) {
+		mainHalo.setPosition(attachX, attachY);
+		mainHalo.visible = entityVisible;
+
+		largeHalo.setPosition(attachX, attachY);
+		largeHalo.visible = entityVisible;
+
+		if( white!=null )
+			white.visible = entityVisible;
+
+		if( isOnScreenCenter() && entityVisible ) {
 			if( !data.f_hideSprite && !cd.hasSetS("smoke",0.1) && power>=0.5 )
 				fx.lightSmoke(centerX, centerY, data.f_color_int);
 

@@ -129,6 +129,16 @@ class Trigger extends Entity {
 		return data.f_type!=InvisibleGate && data.f_type!=InvisibleArea;
 	}
 
+	function isVisibleTriggerTarget(e:Entity) {
+		if( data.f_silent )
+			return false;
+
+		if( e.is(gm.en.Repeater) || e.is(gm.en.CinematicEvent) )
+			return false;
+
+		return true;
+	}
+
 	function execute() {
 		done = true;
 		g.visible = false;
@@ -144,7 +154,11 @@ class Trigger extends Entity {
 				setSquashY(0.5);
 		}
 
-		var eachDurationS = data.f_cinematicReveal ? 1.25  : !isVisibleTrigger() || data.f_type==IRGate ? 0 : 0.5;
+		var eachDurationS =
+			data.f_silent ? 0.5 :
+			data.f_cinematicReveal ? 1.25  :
+			!isVisibleTrigger() || data.f_type==IRGate ? 0
+			: 0.5;
 		var t = 0.;
 		for(e in Entity.ALL) {
 
@@ -158,18 +172,18 @@ class Trigger extends Entity {
 					}, t);
 
 				// Wire fx
-				if( isVisibleTrigger() )
+				if( isVisibleTrigger() && isVisibleTriggerTarget(e) )
 					delayer.addS( fx.triggerWire.bind(centerX, centerY, e.centerX, e.centerY, eachDurationS*0.2), t + eachDurationS*0.4 );
 
 				// Trigger
 				delayer.addS( e.trigger, t + eachDurationS*0.6 );
 
 				// Trigger fx
-				if( isVisibleTrigger() )
+				if( isVisibleTrigger() && isVisibleTriggerTarget(e) )
 					delayer.addS( fx.triggerTarget.bind(e.centerX,e.centerY), t + eachDurationS*0.6 );
 
 				// Fog
-				if( e.revealFogOnTrigger )
+				if( e.revealFogOnTrigger && isVisibleTriggerTarget(e) )
 					delayer.addS( level.revealFogArea.bind(e.cx, e.cy, 3), t + eachDurationS*0.2 );
 
 				t+=eachDurationS;
