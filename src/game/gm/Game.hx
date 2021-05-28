@@ -272,6 +272,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_FireSpray) new gm.en.FireSpray(d);
 		for(d in level.data.l_Entities.all_Trigger) new gm.en.Trigger(d);
 		for(d in level.data.l_Entities.all_Repeater) new gm.en.Repeater(d);
+		for(d in level.data.l_Entities.all_LogicAND) new gm.en.LogicAND(d);
 		for(d in level.data.l_Entities.all_Light) new gm.en.Light(d);
 		for(d in level.data.l_Entities.all_Sprinkler) new gm.en.Sprinkler(d);
 		for(d in level.data.l_Entities.all_Explosive) new gm.en.Explosive(d);

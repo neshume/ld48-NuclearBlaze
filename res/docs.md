@@ -23,3 +23,14 @@ SECURE. CONTAIN. PROTECT.
 In case of containment breach, units CU-1 and CU-2 should be deployed near CONTAINMENT WEST GATE (CWG). Immediately refer to **** in case of **********.
 
 DIRECT CONTACTS WITH SCP-%% ARE PROHIBITED.
+
+# pumps
+
+PROTOCOL REMINDER
+---
+Water pump system MUST be kept online permanently to avoid any new containment incident with SCP-%% (NOTE 1).
+
+See general protocol manual and appendix B-2 for detailed instructions.
+
+--
+NOTE 1: see Incidents #****, #***, #***, #***, #****, #*** and #****.

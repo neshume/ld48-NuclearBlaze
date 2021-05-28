@@ -133,7 +133,7 @@ class Trigger extends Entity {
 		if( data.f_silent )
 			return false;
 
-		if( e.is(gm.en.Repeater) || e.is(gm.en.CinematicEvent) )
+		if( e.is(gm.en.Repeater) || e.is(gm.en.CinematicEvent) || e.is(gm.en.LogicAND) )
 			return false;
 
 		return true;
@@ -155,7 +155,7 @@ class Trigger extends Entity {
 		}
 
 		var eachDurationS =
-			data.f_silent ? 0.5 :
+			data.f_silent ? 0 :
 			data.f_cinematicReveal ? 1.25  :
 			!isVisibleTrigger() || data.f_type==IRGate ? 0
 			: 0.5;
@@ -165,7 +165,7 @@ class Trigger extends Entity {
 			// Trigger targets
 			if( e.isAlive() && e.triggerId==triggerId && !e.is(gm.en.Trigger) ) {
 				// Camera track
-				if( data.f_cinematicReveal )
+				if( data.f_cinematicReveal && isVisibleTriggerTarget(e) )
 					delayer.addS( ()->{
 						camera.clearCinematicTrackings();
 						camera.cinematicTrack(e.centerX, e.centerY, eachDurationS);
