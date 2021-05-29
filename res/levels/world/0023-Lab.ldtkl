@@ -11,7 +11,7 @@
 	"identifier": "Lab",
 	"uid": 450,
 	"worldX": 0,
-	"worldY": 14096,
+	"worldY": 14592,
 	"pxWid": 448,
 	"pxHei": 336,
 	"__bgColor": "#242D34",
@@ -2628,5 +2628,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 478, "dir": "s" }, { "levelUid": 454, "dir": "n" } ]
+	"__neighbours": [ { "levelUid": 478, "dir": "s" }, { "levelUid": 581, "dir": "n" } ]
 }

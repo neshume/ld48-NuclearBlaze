@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.4",
-	"nextUid": 576,
+	"nextUid": 582,
 	"worldLayout": "LinearVertical",
 	"worldGridWidth": 256,
 	"worldGridHeight": 256,
@@ -6217,6 +6217,72 @@
 			]
 		},
 		{
+			"identifier": "Ally",
+			"uid": 576,
+			"tags": [],
+			"width": 16,
+			"height": 16,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#00FF36",
+			"renderMode": "Ellipse",
+			"showName": true,
+			"tilesetId": null,
+			"tileId": null,
+			"tileRenderMode": "Stretch",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": [
+				{
+					"identifier": "dir",
+					"__type": "Int",
+					"uid": 578,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": true,
+					"editorCutLongValues": true,
+					"min": -1,
+					"max": 1,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [1] },
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "triggerId",
+					"__type": "Int",
+					"uid": 579,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": -1,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [-1] },
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
 			"identifier": "Document",
 			"uid": 548,
 			"tags": ["narration"],
@@ -7708,13 +7774,40 @@
 				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 450, "dir": "s" }, { "levelUid": 561, "dir": "n" } ]
+			"__neighbours": [ { "levelUid": 581, "dir": "s" }, { "levelUid": 561, "dir": "n" } ]
+		},
+		{
+			"identifier": "Gabriel",
+			"uid": 581,
+			"worldX": 0,
+			"worldY": 14096,
+			"pxWid": 1296,
+			"pxHei": 464,
+			"__bgColor": "#242D34",
+			"bgColor": null,
+			"useAutoIdentifier": false,
+			"bgRelPath": null,
+			"bgPos": null,
+			"bgPivotX": 0.5,
+			"bgPivotY": 0.5,
+			"__bgPos": null,
+			"externalRelPath": "world/0022-Gabriel.ldtkl",
+			"fieldInstances": [
+				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
+				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
+				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
+				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
+				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
+			],
+			"layerInstances": null,
+			"__neighbours": [ { "levelUid": 450, "dir": "s" }, { "levelUid": 454, "dir": "n" } ]
 		},
 		{
 			"identifier": "Lab",
 			"uid": 450,
 			"worldX": 0,
-			"worldY": 14096,
+			"worldY": 14592,
 			"pxWid": 448,
 			"pxHei": 336,
 			"__bgColor": "#242D34",
@@ -7725,7 +7818,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0022-Lab.ldtkl",
+			"externalRelPath": "world/0023-Lab.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",
@@ -7753,13 +7846,13 @@
 				{ "__identifier": "isGameMenu", "__value": false, "__type": "Bool", "defUid": 523, "realEditorValues": [] }
 			],
 			"layerInstances": null,
-			"__neighbours": [ { "levelUid": 478, "dir": "s" }, { "levelUid": 454, "dir": "n" } ]
+			"__neighbours": [ { "levelUid": 478, "dir": "s" }, { "levelUid": 581, "dir": "n" } ]
 		},
 		{
 			"identifier": "Lab2",
 			"uid": 478,
 			"worldX": 0,
-			"worldY": 14464,
+			"worldY": 14960,
 			"pxWid": 560,
 			"pxHei": 288,
 			"__bgColor": "#242D34",
@@ -7770,7 +7863,7 @@
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "world/0023-Lab2.ldtkl",
+			"externalRelPath": "world/0024-Lab2.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "disableCompleteAnnounce",

@@ -87,7 +87,7 @@
 				},
 				{
 					"constId": "HeroFastFallGravityBoost",
-					"value": 1.2
+					"value": 1.5
 				},
 				{
 					"constId": "WaterConsumption",

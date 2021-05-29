@@ -464,6 +464,28 @@ class Fx extends dn.Process {
 			p.lifeS = 0.2;
 		}
 	}
+
+
+	public function panic(e:Entity, c=0x5dcbf5) {
+		var n = irnd(3,6);
+		for(i in 0...n) {
+			var d = irnd(1,3);
+			var a = ( -0.15 - 0.7*i/(n-1) ) * M.PI - e.dir*0.3 + rnd(0,0.1,true);
+			var p = allocTopAdd( getTile(dict.pixel), e.centerX+Math.cos(a)*d, e.top+Math.sin(a)*d );
+			p.colorize(c);
+			p.scaleX = irnd(1,3);
+			p.alpha = 0.7;
+			p.autoRotateSpeed = 1;
+			p.moveAng(a,rnd(0.8,1.4));
+			p.rotation = a;
+			p.gy = rnd(0.02,0.06);
+			p.frict = 0.9;
+			// p.scaleXMul = 0.93;
+			p.lifeS = 0.2;
+		}
+	}
+
+
 	public function dodgeLand(x:Float, y:Float, dir:Int, col=0xcbb5a0) {
 		for(i in 0...10) {
 			var p = allocTopNormal( getTile(dict.pixel), x, y );

@@ -131,6 +131,7 @@ class Hud extends dn.Process {
 			f.layout = Vertical;
 
 			var tf = new h2d.Text(Assets.fontPixel, f);
+			tf.lineSpacing = Const.db.PixelFontLineSpacing;
 			tf.filter = new dn.heaps.filter.PixelOutline();
 			tf.text = name;
 
@@ -174,6 +175,7 @@ class Hud extends dn.Process {
 	public function setPermanentText(str:LocaleString, color=0xffcc00) {
 		clearPermanentText();
 		permanentTf = new h2d.Text(Assets.fontPixel, root);
+		permanentTf.lineSpacing = Const.db.PixelFontLineSpacing;
 		permanentTf.filter = new dn.heaps.filter.PixelOutline();
 		permanentTf.text = str;
 		permanentTf.textColor = color;
@@ -213,7 +215,8 @@ class Hud extends dn.Process {
 		var tf = new h2d.Text(Assets.fontPixel, wrapper);
 		tf.setPosition(pad+left,pad);
 		tf.text = msg;
-		tf.maxWidth = w()/Const.UI_SCALE - 32;
+		tf.lineSpacing = Const.db.PixelFontLineSpacing;
+		tf.maxWidth = w()/Const.UI_SCALE - 32*Const.UI_SCALE;
 
 		bubble.x = left;
 		bubble.width = pad*2 + tf.textWidth;
@@ -269,6 +272,7 @@ class Hud extends dn.Process {
 
 		// Text
 		var tf = new h2d.Text(Assets.fontPixel, f);
+		tf.lineSpacing = Const.db.PixelFontLineSpacing;
 		tf.text = str;
 		tf.maxWidth = 0.6 * w()/Const.UI_SCALE;
 		tf.textColor = 0xffffff;

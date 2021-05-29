@@ -58,6 +58,12 @@ class Const {
 			return SCALE;
 		}
 
+	/** Specific scaling for document elements **/
+	public static var DOC_SCALE(get,never) : Int;
+		static inline function get_DOC_SCALE() {
+			return dn.heaps.Scaler.bestFit_i(300,300);
+		}
+
 	/** Game layers indexes **/
 	static var _inc = 0;
 	public static var DP_BG = _inc++;
