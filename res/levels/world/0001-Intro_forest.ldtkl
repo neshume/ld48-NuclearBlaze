@@ -720,10 +720,10 @@
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
 						{
 							"__identifier": "startDelay",
-							"__value": 0,
+							"__value": 1.3,
 							"__type": "Float",
 							"defUid": 462,
-							"realEditorValues": [null]
+							"realEditorValues": [{ "id": "V_Float", "params": [1.3] }]
 						},
 						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
 					]
@@ -2890,13 +2890,13 @@
 				},
 				{
 					"__identifier": "CheckPoint",
-					"__grid": [12,63],
+					"__grid": [12,62],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [256,144,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 470,
-					"px": [200,1016],
+					"px": [200,1000],
 					"fieldInstances": [
 						{ "__identifier": "initialFastFall", "__value": 0, "__type": "Float", "defUid": 471, "realEditorValues": [] },
 						{ "__identifier": "radius", "__value": 4, "__type": "Float", "defUid": 472, "realEditorValues": [] },
@@ -3152,13 +3152,13 @@
 				},
 				{
 					"__identifier": "DebugStartPoint",
-					"__grid": [54,63],
+					"__grid": [20,9],
 					"__pivot": [0.5,1],
 					"__tile": null,
 					"width": 16,
 					"height": 12,
 					"defUid": 143,
-					"px": [872,1024],
+					"px": [328,160],
 					"fieldInstances": [
 						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
 						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
@@ -3180,6 +3180,96 @@
 							}]
 						},
 						{ "__identifier": "water", "__value": 1, "__type": "Float", "defUid": 545, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "Trigger",
+					"__grid": [12,61],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [64,224,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 179,
+					"px": [200,984],
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 17,
+							"__type": "Int",
+							"defUid": 180,
+							"realEditorValues": [{ "id": "V_Int", "params": [17] }]
+						},
+						{
+							"__identifier": "type",
+							"__value": "InvisibleArea",
+							"__type": "LocalEnum.TriggerType",
+							"defUid": 182,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["InvisibleArea"]
+							}]
+						},
+						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
+						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
+						{
+							"__identifier": "invisibleRadius",
+							"__value": 3,
+							"__type": "Float",
+							"defUid": 435,
+							"realEditorValues": [{ "id": "V_Float", "params": [3] }]
+						},
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
+						{ "__identifier": "silent", "__value": false, "__type": "Bool", "defUid": 567, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "BreakableGround",
+					"__grid": [11,62],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [224,80,16,16] },
+					"width": 48,
+					"height": 16,
+					"defUid": 527,
+					"px": [176,992],
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 17,
+							"__type": "Int",
+							"defUid": 528,
+							"realEditorValues": [{ "id": "V_Int", "params": [17] }]
+						},
+						{
+							"__identifier": "fireballs",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 532,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ false ]
+							}]
+						},
+						{
+							"__identifier": "bumpPlayer",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 543,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ false ]
+							}]
+						},
+						{
+							"__identifier": "explosion",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 546,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ false ]
+							}]
+						}
 					]
 				}
 			]
