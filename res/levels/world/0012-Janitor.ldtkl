@@ -2284,6 +2284,26 @@
 						},
 						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "Exit",
+					"__grid": [52,12],
+					"__pivot": [0,0],
+					"__tile": { "tilesetUid": 26, "srcRect": [144,96,16,16] },
+					"width": 16,
+					"height": 64,
+					"defUid": 84,
+					"px": [832,192],
+					"fieldInstances": [{
+						"__identifier": "ExitDir",
+						"__value": "East",
+						"__type": "LocalEnum.Direction",
+						"defUid": 87,
+						"realEditorValues": [{
+							"id": "V_String",
+							"params": ["East"]
+						}]
+					}]
 				}
 			]
 		},
