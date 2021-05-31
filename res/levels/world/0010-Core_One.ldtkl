@@ -11,7 +11,7 @@
 	"identifier": "Core_One",
 	"uid": 133,
 	"worldX": 0,
-	"worldY": 5968,
+	"worldY": 6000,
 	"pxWid": 608,
 	"pxHei": 496,
 	"__bgColor": "#242D34",
@@ -1387,7 +1387,10 @@
 					"height": 16,
 					"defUid": 533,
 					"px": [152,264],
-					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] },
+						{ "__identifier": "range", "__value": 1, "__type": "Float", "defUid": 585, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Light",
@@ -1461,7 +1464,10 @@
 					"height": 16,
 					"defUid": 533,
 					"px": [472,424],
-					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] },
+						{ "__identifier": "range", "__value": 1, "__type": "Float", "defUid": 585, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Light",

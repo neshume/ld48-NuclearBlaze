@@ -241,6 +241,7 @@ class Game extends Process {
 		if( level.data.l_Entities.all_DebugStartPoint.length>0 ) {
 			var d = level.data.l_Entities.all_DebugStartPoint[0];
 			hero.setShield(d.f_shieldDurationS);
+			hero.forceFastFall(d.f_initialFastFall);
 			setWater(d.f_water);
 			for(i in d.f_startInv)
 				if( gm.en.Item.isUpgradeItem(i) )

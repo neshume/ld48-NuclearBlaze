@@ -67,6 +67,9 @@ class CinematicEvent extends Entity {
 			case ClearPermanentTexts:
 				hud.clearUpgradeMessage();
 				hud.clearPermanentText();
+
+			case DustExplosion:
+				fx.heavyLand(data.pixelX, data.pixelY, data.f_power);
 		}
 
 		destroy();

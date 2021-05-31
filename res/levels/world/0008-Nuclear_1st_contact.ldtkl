@@ -11,7 +11,7 @@
 	"identifier": "Nuclear_1st_contact",
 	"uid": 70,
 	"worldX": 0,
-	"worldY": 5088,
+	"worldY": 5120,
 	"pxWid": 1360,
 	"pxHei": 496,
 	"__bgColor": "#242D34",
@@ -318,13 +318,10 @@
 						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
 						{
 							"__identifier": "cinematicReveal",
-							"__value": true,
+							"__value": false,
 							"__type": "Bool",
 							"defUid": 290,
-							"realEditorValues": [{
-								"id": "V_Bool",
-								"params": [ true ]
-							}]
+							"realEditorValues": [null]
 						},
 						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
 						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] },
@@ -1292,7 +1289,10 @@
 					"height": 16,
 					"defUid": 533,
 					"px": [376,312],
-					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] },
+						{ "__identifier": "range", "__value": 1, "__type": "Float", "defUid": 585, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "WaterRefill",
@@ -1303,7 +1303,10 @@
 					"height": 16,
 					"defUid": 533,
 					"px": [1176,104],
-					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] },
+						{ "__identifier": "range", "__value": 1, "__type": "Float", "defUid": 585, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Item",
@@ -1434,7 +1437,8 @@
 								"params": [ false ]
 							}]
 						},
-						{ "__identifier": "explosion", "__value": true, "__type": "Bool", "defUid": 546, "realEditorValues": [] }
+						{ "__identifier": "explosion", "__value": true, "__type": "Bool", "defUid": 546, "realEditorValues": [] },
+						{ "__identifier": "grassTexture", "__value": false, "__type": "Bool", "defUid": 582, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1781,41 +1785,6 @@
 							"realEditorValues": [{ "id": "V_Int", "params": [4] }]
 						},
 						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "Trigger",
-					"__grid": [21,21],
-					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [0,240,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 179,
-					"px": [344,344],
-					"fieldInstances": [
-						{
-							"__identifier": "triggerId",
-							"__value": 4,
-							"__type": "Int",
-							"defUid": 180,
-							"realEditorValues": [{ "id": "V_Int", "params": [4] }]
-						},
-						{
-							"__identifier": "type",
-							"__value": "InvisibleGate",
-							"__type": "LocalEnum.TriggerType",
-							"defUid": 182,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["InvisibleGate"]
-							}]
-						},
-						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
-						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
-						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
-						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] },
-						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
-						{ "__identifier": "silent", "__value": false, "__type": "Bool", "defUid": 567, "realEditorValues": [] }
 					]
 				},
 				{

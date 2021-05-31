@@ -11,7 +11,7 @@
 	"identifier": "Tutorial_defense",
 	"uid": 57,
 	"worldX": 0,
-	"worldY": 3472,
+	"worldY": 3504,
 	"pxWid": 752,
 	"pxHei": 592,
 	"__bgColor": "#242D34",
@@ -1028,7 +1028,10 @@
 					"height": 16,
 					"defUid": 533,
 					"px": [680,120],
-					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] },
+						{ "__identifier": "range", "__value": 1, "__type": "Float", "defUid": 585, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Light",
@@ -1096,7 +1099,10 @@
 					"height": 16,
 					"defUid": 533,
 					"px": [248,216],
-					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] },
+						{ "__identifier": "range", "__value": 1, "__type": "Float", "defUid": 585, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Light",
@@ -1585,7 +1591,7 @@
 				2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,2,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,
-				0,0,0,0,2,2,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,2,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,2,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,

@@ -11,7 +11,7 @@
 	"identifier": "Water_pumps",
 	"uid": 89,
 	"worldX": 0,
-	"worldY": 7392,
+	"worldY": 7424,
 	"pxWid": 1328,
 	"pxHei": 672,
 	"__bgColor": "#242D34",
@@ -3446,7 +3446,10 @@
 					"height": 16,
 					"defUid": 533,
 					"px": [680,152],
-					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] },
+						{ "__identifier": "range", "__value": 1, "__type": "Float", "defUid": 585, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "BreakableGround",
@@ -3476,7 +3479,8 @@
 								"params": [ false ]
 							}]
 						},
-						{ "__identifier": "explosion", "__value": true, "__type": "Bool", "defUid": 546, "realEditorValues": [] }
+						{ "__identifier": "explosion", "__value": true, "__type": "Bool", "defUid": 546, "realEditorValues": [] },
+						{ "__identifier": "grassTexture", "__value": false, "__type": "Bool", "defUid": 582, "realEditorValues": [] }
 					]
 				},
 				{
@@ -3570,7 +3574,10 @@
 					"height": 16,
 					"defUid": 533,
 					"px": [1256,264],
-					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] },
+						{ "__identifier": "range", "__value": 1, "__type": "Float", "defUid": 585, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Light",
@@ -3638,7 +3645,10 @@
 					"height": 16,
 					"defUid": 533,
 					"px": [1048,56],
-					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] },
+						{ "__identifier": "range", "__value": 1, "__type": "Float", "defUid": 585, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "FireStarter",
@@ -3667,7 +3677,10 @@
 					"height": 16,
 					"defUid": 533,
 					"px": [1268,384],
-					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] },
+						{ "__identifier": "range", "__value": 1, "__type": "Float", "defUid": 585, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Light",

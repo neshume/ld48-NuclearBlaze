@@ -11,7 +11,7 @@
 	"identifier": "Lab2",
 	"uid": 478,
 	"worldX": 0,
-	"worldY": 14960,
+	"worldY": 14992,
 	"pxWid": 560,
 	"pxHei": 288,
 	"__bgColor": "#242D34",
@@ -192,7 +192,10 @@
 					"height": 16,
 					"defUid": 533,
 					"px": [248,152],
-					"fieldInstances": [{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] }]
+					"fieldInstances": [
+						{ "__identifier": "speed", "__value": 1, "__type": "Float", "defUid": 534, "realEditorValues": [] },
+						{ "__identifier": "range", "__value": 1, "__type": "Float", "defUid": 585, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "RoofFire",
@@ -233,7 +236,8 @@
 						},
 						{ "__identifier": "fireballs", "__value": true, "__type": "Bool", "defUid": 532, "realEditorValues": [] },
 						{ "__identifier": "bumpPlayer", "__value": true, "__type": "Bool", "defUid": 543, "realEditorValues": [] },
-						{ "__identifier": "explosion", "__value": true, "__type": "Bool", "defUid": 546, "realEditorValues": [] }
+						{ "__identifier": "explosion", "__value": true, "__type": "Bool", "defUid": 546, "realEditorValues": [] },
+						{ "__identifier": "grassTexture", "__value": false, "__type": "Bool", "defUid": 582, "realEditorValues": [] }
 					]
 				},
 				{

@@ -23,20 +23,27 @@ class BreakableGround extends Entity {
 
 		for(x in cx...cx+cWid) {
 			level.setMark(HDoorZone, x,cy);
-			var s = Assets.tiles.h_get(dict.fakeGround, spr);
+			var s = Assets.tiles.h_get(data.f_grassTexture ? dict.fakeGrass : dict.fakeGround, spr);
 			s.x = (x-cx)*Const.GRID;
 		}
 
 		// Left side
 		if( !level.hasWallCollision(cLeft-1,cTop) ) {
-			var s = Assets.tiles.h_get(dict.fakeGroundEnd,0, 1,0, spr);
+			var s = Assets.tiles.h_get(data.f_grassTexture ? dict.fakeGrassEnd : dict.fakeGroundEnd,0, 1,0, spr);
 			s.scaleX = -1;
 		}
 		else
-			Assets.tiles.h_get(dict.fakeGroundLeft,0, 1,0, spr);
+			Assets.tiles.h_get(data.f_grassTexture ? dict.fakeGrassLeft : dict.fakeGroundLeft,0, 1,0, spr);
 
-		// var s = Assets.tiles.h_get(dict.fakeGroundLeft, spr);
-		// s.x = cWid*Const.GRID;
+		// Right side
+		if( !level.hasWallCollision(cRight+1,cTop) ) {
+			var s = Assets.tiles.h_get(data.f_grassTexture ? dict.fakeGrassEnd : dict.fakeGroundEnd,0, 0,0, spr);
+			s.x = right-left;
+		}
+		else {
+			var s = Assets.tiles.h_get(data.f_grassTexture ? dict.fakeGrassRight : dict.fakeGroundRight,0, 0,0, spr);
+			s.x = right-left;
+		}
 
 	}
 
@@ -74,7 +81,10 @@ class BreakableGround extends Entity {
 			camera.shakeS(2.5, 0.6);
 		}
 		for(x in cx...cx+cWid)
-			fx.groundExplosion(x, cy, 0xd62411, 0x002859);
+			if( data.f_grassTexture )
+				fx.grassExplosion(x, cy, 0x10d275, 0x007899);
+			else
+				fx.groundExplosion(x, cy, 0xd62411, 0x002859);
 
 		// Bump
 		if( data.f_bumpPlayer && hero.isAlive() && distCase(hero)<=4 ) {

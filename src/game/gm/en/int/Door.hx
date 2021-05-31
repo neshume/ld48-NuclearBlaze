@@ -6,6 +6,7 @@ class Door extends Entity {
 	var cHei = 0;
 
 	public var kicks = 0;
+	public var broken = false;
 	public var requiredItem : Null<Enum_Items>;
 	public var data : Entity_Door;
 
@@ -66,7 +67,7 @@ class Door extends Entity {
 			else if( data.f_triggerId>=0 || data.f_requiredItem!=null )
 				spr.set( closed ? dict.triggerDoorClosed : dict.triggerDoorOpened );
 			else
-				spr.set( closed ? dict.doorClosed : dict.doorOpened );
+				spr.set( closed ? dict.doorClosed : broken ? dict.doorBroken : dict.doorOpened );
 			spr.setCenterRatio(closed ? 0.5 : 0, 1);
 		}
 

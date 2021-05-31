@@ -87,8 +87,8 @@ class Hero extends gm.Entity {
 			dy = getGravity()*4;
 	}
 
-	public function forceFastFall() {
-		fallTimerS = Const.INFINITE;
+	public inline function forceFastFall(ratio=1.0) {
+		fallTimerS = ratio * ( Const.db.HeroFastFallMaxTimer - Const.db.HeroFastFallMinTimer );
 	}
 
 	public inline function getFastFallRatio() {
@@ -414,6 +414,7 @@ class Hero extends gm.Entity {
 					chargeAction("kickDoor", 0.25, ()->{
 						spr.anim.play(anims.kick);
 						if( --d.kicks<=0 ) {
+							d.broken = true;
 							camera.bump(wallDir, 10);
 							camera.shakeS(1, 0.3);
 							lockControlsS(0.5);
