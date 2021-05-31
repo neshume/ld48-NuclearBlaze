@@ -1829,7 +1829,7 @@ class Fx extends dn.Process {
 		for(i in 0...n) {
 			var p = allocTopAdd( getTile(dict.fxFlame), x+rnd(0,2,true), y+rnd(0,2,true) );
 			p.setFadeS(R.around(0.8), R.around(0.03), R.around(0.2));
-			p.colorAnimS( C.interpolateInt(0xffcc00, 0xff0000, rnd(0,1)), 0x5f0808, R.around(0.3) );
+			p.colorAnimS( C.interpolateInt(0xff8800, 0xff0000, rnd(0,1)), 0x1b1b5f, R.around(0.4) );
 			p.rotation = -rnd(0.1,0.2);
 
 			p.scaleX = R.around(0.3) * rndSign();
