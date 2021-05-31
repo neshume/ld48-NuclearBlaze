@@ -3346,7 +3346,7 @@
 								"params": ["X"]
 							}]
 						},
-						{ "__identifier": "color", "__value": "#003575", "__type": "Color", "defUid": 141, "realEditorValues": [] },
+						{ "__identifier": "color", "__value": "#1152A1", "__type": "Color", "defUid": 141, "realEditorValues": [] },
 						{
 							"__identifier": "size",
 							"__value": "Pixel",
@@ -3446,7 +3446,7 @@
 						},
 						{
 							"__identifier": "color",
-							"__value": "#003575",
+							"__value": "#1152A1",
 							"__type": "Color",
 							"defUid": 141,
 							"realEditorValues": [null]
@@ -3802,6 +3802,29 @@
 					"height": 96,
 					"defUid": 374,
 					"px": [1152,864],
+					"fieldInstances": [
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 446, "realEditorValues": [] },
+						{
+							"__identifier": "selfTriggerOnTouch",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 547,
+							"realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}]
+						}
+					]
+				},
+				{
+					"__identifier": "FogPiercer",
+					"__grid": [0,0],
+					"__pivot": [0,0],
+					"__tile": null,
+					"width": 528,
+					"height": 960,
+					"defUid": 374,
+					"px": [0,0],
 					"fieldInstances": [
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 446, "realEditorValues": [] },
 						{

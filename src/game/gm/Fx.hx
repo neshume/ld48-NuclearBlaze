@@ -466,7 +466,7 @@ class Fx extends dn.Process {
 	}
 
 
-	public function panic(e:Entity, c=0x5dcbf5) {
+	public function sweat(e:Entity, c=0x5dcbf5) {
 		var n = irnd(3,6);
 		for(i in 0...n) {
 			var d = irnd(1,3);
@@ -1797,6 +1797,46 @@ class Fx extends dn.Process {
 			p.scaleY = R.around(1);
 			p.scaleYMul = rnd(0.96,0.98);
 			// p.scaleYMul = rnd(1,1.03);
+
+			p.moveAng(ang+R.zeroTo(0.05,true), 2.3*(dist/Const.GRID)+rnd(0,0.2,true));
+			p.rotation = ang + M.PIHALF;
+			p.frict = 0.85 + rnd(0,0.02);
+
+			p.lifeS = R.around(0.2);
+			p.delayS = i==0 ? 0 : R.around(0.06);
+		}
+	}
+
+
+
+	public function flyFireSpray(x:Float,y:Float, ang:Float, dist:Float) {
+		// Core dots
+		for(i in 0...2) {
+			var p = allocTopAdd( getTile(dict.fxLine), x,y);
+			p.colorAnimS( 0xffcc00, 0x9e62f1, R.around(0.3) );
+			p.scaleX = R.around(0.1);
+			p.setFadeS(R.around(0.9), 0.03, R.around(0.1));
+			p.frict = R.aroundZTO(0.9);
+			p.moveAng(ang, R.around(2));
+			p.rotation = p.getMoveAng();
+			p.lifeS = R.around(0.1);
+			p.delayS = R.around(0.1);
+		}
+
+
+		// Flames
+		var n = dist<=Const.GRID*1.5 ? 2 : 3;
+		for(i in 0...n) {
+			var p = allocTopAdd( getTile(dict.fxFlame), x+rnd(0,2,true), y+rnd(0,2,true) );
+			p.setFadeS(R.around(0.8), R.around(0.03), R.around(0.2));
+			p.colorAnimS( C.interpolateInt(0xffcc00, 0xff0000, rnd(0,1)), 0x5f0808, R.around(0.3) );
+			p.rotation = -rnd(0.1,0.2);
+
+			p.scaleX = R.around(0.3) * rndSign();
+			p.scaleY = R.around(1);
+			p.scaleYMul = rnd(0.96,0.98);
+			p.dsX = R.around(0.2);
+			p.dsFrict = 0.91;
 
 			p.moveAng(ang+R.zeroTo(0.05,true), 2.3*(dist/Const.GRID)+rnd(0,0.2,true));
 			p.rotation = ang + M.PIHALF;

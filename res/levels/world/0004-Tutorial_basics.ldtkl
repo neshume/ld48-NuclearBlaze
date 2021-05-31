@@ -742,7 +742,7 @@
 								"params": ["or"]
 							}]
 						},
-						{ "__identifier": "color", "__value": "#003575", "__type": "Color", "defUid": 141, "realEditorValues": [] },
+						{ "__identifier": "color", "__value": "#1152A1", "__type": "Color", "defUid": 141, "realEditorValues": [] },
 						{
 							"__identifier": "size",
 							"__value": "Pixel",

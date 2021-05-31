@@ -127,7 +127,7 @@ class Ally extends Entity {
 				cd.setS("recentMove", 0.2);
 				// Panic fx
 				if( cd.has("panic") && !cd.hasSetS("panicFx",0.3) )
-					fx.panic(this);
+					fx.sweat(this);
 			}
 
 

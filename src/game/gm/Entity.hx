@@ -429,6 +429,17 @@ class Entity {
 		return M.iabs(cx-x);
 	}
 
+	function getDistToGround() : Float {
+		if( onGround )
+			return 0;
+		else {
+			var d = 1-yr;
+			while( !level.hasAnyCollision(cx,cy+Std.int(d)+1) )
+				d++;
+			return d;
+		}
+	}
+
 	function canSeeThrough(cx:Int, cy:Int) {
 		return level.canSeeThrough(cx,cy) || this.cx==cx && this.cy==cy;
 	}
@@ -822,8 +833,10 @@ class Entity {
 			}
 
 			// Ceiling collision
-			if( yr<0.8 && !climbing && level.hasWallCollision(cx,cy-1) )
+			if( yr<0.8 && !climbing && level.hasWallCollision(cx,cy-1) ) {
 				yr = 0.8;
+				onTouchCeiling();
+			}
 		}
 	}
 

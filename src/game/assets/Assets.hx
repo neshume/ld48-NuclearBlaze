@@ -16,6 +16,7 @@ class Assets {
 	/** Main atlas **/
 	public static var tiles : SpriteLib;
 	public static var hero : SpriteLib;
+	public static var mobs : SpriteLib;
 
 	/** Fully typed access to slice names present in Aseprite file (eg. `trace(tilesDict.myStoneTexture)` )**/
 	public static var tilesDict = dn.heaps.assets.Aseprite.getDict(hxd.Res.atlas.tiles);
@@ -45,6 +46,7 @@ class Assets {
 		tiles.defineAnim("fxWaterPhong", "0-5");
 		tiles.defineAnim("waterAmmoSurface", "0-7");
 		hero = dn.heaps.assets.Aseprite.convertToSLib(Const.FPS, hxd.Res.atlas.hero.toAseprite());
+		mobs = dn.heaps.assets.Aseprite.convertToSLib(Const.FPS, hxd.Res.atlas.mobs.toAseprite());
 
 		// CastleDB file hot reloading
 		#if debug

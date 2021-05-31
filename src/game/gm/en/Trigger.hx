@@ -133,7 +133,7 @@ class Trigger extends Entity {
 		if( data.f_silent )
 			return false;
 
-		if( e.is(gm.en.Repeater) || e.is(gm.en.CinematicEvent) || e.is(gm.en.LogicAND) )
+		if( e.is(gm.en.Repeater) || e.is(gm.en.CinematicEvent) || e.is(gm.en.LogicAND) || e.is(gm.en.WallText) )
 			return false;
 
 		return true;

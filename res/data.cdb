@@ -211,12 +211,42 @@
 					"doc": "In seconds"
 				},
 				{
-					"constId": "JumperHP",
+					"constId": "RunnerHP",
+					"value": 8
+				},
+				{
+					"constId": "FlyHP",
+					"value": 10
+				},
+				{
+					"constId": "FlyCharge",
+					"value": 0.9
+				},
+				{
+					"constId": "FlyFrict",
+					"value": 0.95
+				},
+				{
+					"constId": "FlyMoveSpeed",
+					"value": 0.017
+				},
+				{
+					"constId": "FlySpeedMulWhileSpraying",
+					"value": 0.7
+				},
+				{
+					"constId": "FlyAngSpeed",
+					"value": 0.4,
+					"doc": "Percent"
+				},
+				{
+					"constId": "FlySprayRange",
 					"value": 4
 				},
 				{
-					"constId": "RunnerHP",
-					"value": 8
+					"constId": "FlySprayAng",
+					"value": 0.8,
+					"doc": "radians"
 				},
 				{
 					"constId": "ShieldOnHit",

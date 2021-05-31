@@ -45,7 +45,7 @@ class Hero extends gm.Entity {
 		spr.anim.registerStateAnim(anims.deathLand, 99, ()->life<=0 && onGround);
 		spr.anim.registerStateAnim(anims.dodgeCharge, 9, ()->isChargingAction("dodge") );
 		spr.anim.registerStateAnim(anims.dodgeFly, 9, ()->isDodging() && !onGround && getDodgeRatio()<=0.4 && !cd.has("dodgedFromAir") );
-		spr.anim.registerStateAnim(anims.dodgeGround, 9, ()->isDodging() && ( onGround || cd.has("dodgedFromAir") ) && getDodgeRatio()<Const.db.DodgeEndRatio );
+		spr.anim.registerStateAnim(anims.dodgeGround, 9, ()->isDodging() && ( onGround || cd.has("dodgedFromAir") || getDistToGround()>=0.5 ) && getDodgeRatio()<Const.db.DodgeEndRatio );
 		spr.anim.registerStateAnim(anims.dodgeEnd, 9, ()->isDodging() && onGround && getDodgeRatio()>=Const.db.DodgeEndRatio );
 
 		spr.anim.registerStateAnim(anims.kickCharge, 8, ()->isChargingAction("kickDoor") );
@@ -179,6 +179,7 @@ class Hero extends gm.Entity {
 	public inline function isDodging() return isAlive() && cd.has("dodging");
 	public inline function getDodgeRatio() return isDodging() ? 1-cd.getRatio("dodging") : 0;
 	public function dodge() {
+		stopClimbing();
 		cd.setS("dodging", Const.db.DodgeDuration);
 		cd.setS("dodgeLock", Const.db.DodgeCD);
 		game.addSlowMo("dodge", Const.db.DodgeSlowMoDuration, Const.db.DodgeSlowMoPower);
@@ -438,7 +439,7 @@ class Hero extends gm.Entity {
 
 	override function postUpdate() {
 		super.postUpdate();
-		if( cd.has("burning") && !cd.hasSetS("flame",0.2) )
+		if( cd.has("burning") && !cd.hasSetS("flame",0.16) )
 			fx.flame(centerX, centerY);
 
 		if( isAlive() && cd.has("blinking") && !cd.hasSetS("blinkTick",0.2) )
@@ -954,5 +955,6 @@ class Hero extends gm.Entity {
 
 		if( ui.Console.ME.hasFlag("ff") )
 			debugFloat( getFastFallRatio() );
+		debugFloat( getDistToGround() );
 	}
 }
