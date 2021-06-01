@@ -341,15 +341,18 @@ class Camera extends dn.Process {
 			}
 
 		// Zoom interpolation
-		if( M.fabs(tz-curZoom)<=0.01*tmod ) {
-			dz = 0;
-			curZoom = tz;
-		}
-		else {
+		if( tz!=curZoom ) {
+			var prevSign = M.sign(tz-curZoom);
 			if( tz>curZoom)
 				dz+=Const.db.CameraZoomSpeed;
 			else
 				dz-=Const.db.CameraZoomSpeed;
+
+			// Reached target zoom
+			if( M.sign(tz-curZoom)!=prevSign ) {
+				dz = 0;
+				curZoom = tz;
+			}
 		}
 		curZoom+=dz*tmod;
 		dz*=Math.pow(Const.db.CameraZoomFriction,tmod);
@@ -360,8 +363,8 @@ class Camera extends dn.Process {
 
 		// Follow target
 		if( tx>=0 ) {
-			var spdX = 0.015*getTrackingSpeedMul()*zoom;
-			var spdY = 0.023*getTrackingSpeedMul()*zoom;
+			var spdX = Const.db.CameraSpeedX*getTrackingSpeedMul()*zoom;
+			var spdY = Const.db.CameraSpeedY*getTrackingSpeedMul()*zoom;
 			var tx = tx + trackingOffX;
 			var ty = ty + trackingOffY;
 

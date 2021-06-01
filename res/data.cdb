@@ -32,6 +32,14 @@
 					"value": 10
 				},
 				{
+					"constId": "CameraSpeedX",
+					"value": 0.015
+				},
+				{
+					"constId": "CameraSpeedY",
+					"value": 0.023
+				},
+				{
 					"constId": "CameraZoomSpeed",
 					"value": 0.001
 				},
