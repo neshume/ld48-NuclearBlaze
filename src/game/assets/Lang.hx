@@ -30,6 +30,7 @@ class Lang {
         str = Lib.trimEmptyLines(str);
 		str = StringTools.replace(str, "%%", Std.string(Const.db.SCP_ID));
 		str = StringTools.replace(str, "%n", Std.string(Const.db.SCP_Report_Pages));
+		str = StringTools.replace(str, "%site", Std.string(Const.db.SCP_Site));
         return str;
 	}
 }

@@ -24,6 +24,11 @@
 					"value": 1866
 				},
 				{
+					"constId": "SCP_Site",
+					"value": 64,
+					"doc": "http://scp-wiki.wikidot.com/secure-facility-dossier-site-64"
+				},
+				{
 					"constId": "SCP_Report_Pages",
 					"value": 2
 				},

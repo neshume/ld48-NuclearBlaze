@@ -11,7 +11,7 @@
 	"identifier": "Pit",
 	"uid": 434,
 	"worldX": 0,
-	"worldY": 9056,
+	"worldY": 8560,
 	"pxWid": 464,
 	"pxHei": 1408,
 	"__bgColor": "#242D34",
@@ -7594,5 +7594,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 398, "dir": "s" }, { "levelUid": 566, "dir": "n" } ]
+	"__neighbours": [ { "levelUid": 566, "dir": "s" }, { "levelUid": 409, "dir": "n" } ]
 }

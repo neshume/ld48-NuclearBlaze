@@ -718,13 +718,13 @@
 				},
 				{
 					"__identifier": "Dialog",
-					"__grid": [4,15],
+					"__grid": [2,15],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 58,
-					"px": [72,248],
+					"px": [40,248],
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
@@ -738,14 +738,20 @@
 						},
 						{
 							"__identifier": "selfTriggerDist",
-							"__value": 2,
+							"__value": 3,
 							"__type": "Float",
 							"defUid": 62,
-							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [3] }]
 						},
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] },
+						{
+							"__identifier": "startDelay",
+							"__value": 0.5,
+							"__type": "Float",
+							"defUid": 462,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.5] }]
+						},
 						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
 					]
 				},

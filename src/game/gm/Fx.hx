@@ -1874,7 +1874,7 @@ class Fx extends dn.Process {
 	}
 
 
-	public function heavyLand(x:Float, y:Float, pow:Float) {
+	public function heavyLand(x:Float, y:Float, pow:Float, smoke=true) {
 		var col = C.hexToInt("#ab7f7a");
 
 		// Small hit lines
@@ -1940,19 +1940,21 @@ class Fx extends dn.Process {
 			p.delayS = rnd(0,1);
 		}
 		// Ground smoke
-		final n = Std.int(pow*40);
-		for(i in 0...n) {
-			var p = allocTopNormal( getTile(dict.fxSmoke), x+rnd(0,10,true), y-rnd(0,10) );
-			p.setFadeS( R.around(0.2), 0, R.around(3,30));
-			p.colorize( C.toBlack(col, rnd(0,0.5)) );
-			p.frict = R.around(0.88,4);
-			p.dx = rnd(0,2,true);
-			p.dy = -rnd(0,1);
-			p.gx = M.sign(p.dx) * rnd(0,0.03);
-			p.gy = -rnd(0,0.02);
-			p.rotation = R.fullCircle();
-			p.dr = R.around(0.008, true);
-			p.lifeS = rnd(1,3);
+		if( smoke ) {
+			final n = Std.int(pow*40);
+			for(i in 0...n) {
+				var p = allocTopNormal( getTile(dict.fxSmoke), x+rnd(0,10,true), y-rnd(0,10) );
+				p.setFadeS( R.around(0.2), 0, R.around(3,30));
+				p.colorize( C.toBlack(col, rnd(0,0.5)) );
+				p.frict = R.around(0.88,4);
+				p.dx = rnd(0,2,true);
+				p.dy = -rnd(0,1);
+				p.gx = M.sign(p.dx) * rnd(0,0.03);
+				p.gy = -rnd(0,0.02);
+				p.rotation = R.fullCircle();
+				p.dr = R.around(0.008, true);
+				p.lifeS = rnd(1,3);
+			}
 		}
 	}
 

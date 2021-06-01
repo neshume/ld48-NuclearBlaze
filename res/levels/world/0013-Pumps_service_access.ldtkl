@@ -8,7 +8,7 @@
 		"appVersion": "0.9.4",
 		"url": "https://ldtk.io"
 	},
-	"identifier": "Desert_corridors",
+	"identifier": "Pumps_service_access",
 	"uid": 409,
 	"worldX": 0,
 	"worldY": 7712,
@@ -2402,35 +2402,6 @@
 						},
 						{ "__identifier": "offsetY", "__value": 0, "__type": "Float", "defUid": 137, "realEditorValues": [] },
 						{ "__identifier": "zoom", "__value": -1, "__type": "Float", "defUid": 556, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [36,22],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [584,368],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
-						{
-							"__identifier": "shieldDurationS",
-							"__value": 3,
-							"__type": "Int",
-							"defUid": 380,
-							"realEditorValues": [null]
-						},
-						{ "__identifier": "water", "__value": 1, "__type": "Float", "defUid": 545, "realEditorValues": [] },
-						{
-							"__identifier": "initialFastFall",
-							"__value": 1,
-							"__type": "Float",
-							"defUid": 584,
-							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
-						}
 					]
 				}
 			]
@@ -11367,5 +11338,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 566, "dir": "s" }, { "levelUid": 89, "dir": "n" } ]
+	"__neighbours": [ { "levelUid": 434, "dir": "s" }, { "levelUid": 89, "dir": "n" } ]
 }
