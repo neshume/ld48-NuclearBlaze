@@ -11,7 +11,7 @@
 	"identifier": "Janitor",
 	"uid": 566,
 	"worldX": 0,
-	"worldY": 7008,
+	"worldY": 8560,
 	"pxWid": 848,
 	"pxHei": 464,
 	"__bgColor": "#242D34",
@@ -2353,7 +2353,7 @@
 							"defUid": 137,
 							"realEditorValues": [{ "id": "V_Float", "params": [32] }]
 						},
-						{ "__identifier": "zoom", "__value": 0, "__type": "Float", "defUid": 556, "realEditorValues": [] }
+						{ "__identifier": "zoom", "__value": -1, "__type": "Float", "defUid": 556, "realEditorValues": [] }
 					]
 				},
 				{
@@ -7577,5 +7577,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 89, "dir": "s" }, { "levelUid": 0, "dir": "n" } ]
+	"__neighbours": [ { "levelUid": 434, "dir": "s" }, { "levelUid": 409, "dir": "n" } ]
 }

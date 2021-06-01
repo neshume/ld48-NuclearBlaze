@@ -1245,7 +1245,7 @@
 							"defUid": 137,
 							"realEditorValues": [{ "id": "V_Float", "params": [64] }]
 						},
-						{ "__identifier": "zoom", "__value": 0, "__type": "Float", "defUid": 556, "realEditorValues": [] }
+						{ "__identifier": "zoom", "__value": -1, "__type": "Float", "defUid": 556, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1323,7 +1323,7 @@
 							"defUid": 137,
 							"realEditorValues": [{ "id": "V_Float", "params": [20] }]
 						},
-						{ "__identifier": "zoom", "__value": 0, "__type": "Float", "defUid": 556, "realEditorValues": [] }
+						{ "__identifier": "zoom", "__value": -1, "__type": "Float", "defUid": 556, "realEditorValues": [] }
 					]
 				},
 				{
@@ -7594,5 +7594,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelUid": 398, "dir": "s" }, { "levelUid": 409, "dir": "n" } ]
+	"__neighbours": [ { "levelUid": 398, "dir": "s" }, { "levelUid": 566, "dir": "n" } ]
 }
