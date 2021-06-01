@@ -191,19 +191,9 @@
 					"doc": "Seconds"
 				},
 				{
-					"constId": "ExplosiveRadius",
-					"doc": "Max radius of effect",
-					"value": 20
-				},
-				{
-					"constId": "ExplosiveFullFireRadius",
-					"value": 3,
-					"doc": "Radius where fire is fully affected by explosion"
-				},
-				{
-					"constId": "ExplosiveKillRadius",
-					"value": 10,
-					"doc": "Distance that kills the player"
+					"constId": "ExplosiveFxRadius",
+					"doc": "Main fx radius",
+					"value": 10
 				},
 				{
 					"constId": "DefaultAggroDuration",

@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.4",
-	"nextUid": 592,
+	"nextUid": 593,
 	"worldLayout": "LinearVertical",
 	"worldGridWidth": 256,
 	"worldGridHeight": 256,
@@ -5908,7 +5908,7 @@
 			"renderMode": "Tile",
 			"showName": true,
 			"tilesetId": 26,
-			"tileId": 484,
+			"tileId": 778,
 			"tileRenderMode": "FitInside",
 			"maxCount": 0,
 			"limitScope": "PerLevel",
@@ -5953,7 +5953,7 @@
 					"max": null,
 					"regex": null,
 					"acceptFileTypes": null,
-					"defaultOverride": { "id": "V_Int", "params": [10] },
+					"defaultOverride": { "id": "V_Int", "params": [60] },
 					"textLanguageMode": null
 				},
 				{
@@ -6017,6 +6017,26 @@
 						"id": "V_Bool",
 						"params": [ true ]
 					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "tempDir",
+					"__type": "Int",
+					"uid": 592,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": -1,
+					"max": 1,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [1] },
 					"textLanguageMode": null
 				}
 			]

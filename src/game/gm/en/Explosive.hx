@@ -11,6 +11,9 @@ class Explosive extends Entity {
 	var pointer : HSprite;
 	var needTriggerFirst = false;
 
+	var tempBg : HSprite;
+	var tempBar : HSprite;
+
 	public function new(d:Entity_Explosive) {
 		super(0,0);
 		data = d;
@@ -25,8 +28,14 @@ class Explosive extends Entity {
 		if( triggerId>=0 )
 			needTriggerFirst = true;
 
-		spr.set(dict.error);
-		game.scroller.add(spr,Const.DP_BG);
+		spr.set(dict.explosiveCore);
+		// game.scroller.add(spr,Const.DP_EXPLOSIVE);
+
+		tempBg = Assets.tiles.h_get(dict.explosiveTempBg, 0, 0.5,1);
+		game.scroller.add(tempBg, Const.DP_EXPLOSIVE);
+
+		tempBar = Assets.tiles.h_get(dict.explosiveTempBar,0, 0.5,1);
+		game.scroller.add(tempBar, Const.DP_EXPLOSIVE);
 
 		level.getFireState(cx,cy, true); // Force firestate here
 
@@ -49,11 +58,26 @@ class Explosive extends Entity {
 		ALL.remove(this);
 		tf.remove();
 		pointer.remove();
+		tempBg.remove();
+		tempBar.remove();
 	}
 
 	override function postUpdate() {
 		super.postUpdate();
 		updateText();
+
+		tempBg.setPosition(centerX + 11*data.f_tempDir, bottom+2);
+		tempBar.setPosition(centerX + 11*data.f_tempDir, bottom-1);
+
+		if( level.isBurning(cx,cy) )
+			tempBar.scaleY = level.getFireState(cx,cy).getRatio();
+		else
+			tempBar.scaleY = 0;
+
+		if( cd.has("shaking") ) {
+			tempBg.y += Math.cos(ftime*1.3) * 1;
+			tempBar.y += Math.cos(ftime*1.3) * 1;
+		}
 	}
 
 	public function activate() {
@@ -154,31 +178,29 @@ class Explosive extends Entity {
 
 		// Countdown
 		if( active ) {
-			final r = Std.int( Const.db.ExplosiveRadius );
+			final r = Std.int( Const.db.ExplosiveFxRadius );
 
 			var fs = level.getFireState(cx,cy);
 			timerS -= 1/Const.FIXED_UPDATE_FPS * ( fs.isUnderControl() ? 0.9 : 1 );
 			tf.visible = true;
 			tf.textColor = fs.isUnderControl() ? 0xc6ff30 : 0xffffff;
-			// tf.blendMode = fs.isUnderControl() ? Alpha : Add;
 			if( fs.isUnderControl() )
 				cd.setS("shaking",0.1);
 			updateText();
 
 			if( !cd.hasSetS("warn",0.25) ) {
 				fx.explosionWarning(centerX, centerY, 1-timerS/data.f_timer);
-				if( timerS<=3 )
-					fx.announceRadius(centerX, centerY, Const.db.ExplosiveKillRadius*Const.GRID, 0xff0000);
+				if( timerS<=10 )
+					fx.announceRadius(centerX, centerY, Const.db.ExplosiveFxRadius*Const.GRID, 0xff0000);
 			}
 
-			debugFloat(fs.getPowerRatio());
 
 			if( !fs.isBurning() ) {
 				deactivate();
 				cd.setS("lock", R.around(2));
 			}
 			else if( timerS<=0 ) {
-				// BOOM
+				// BOOM!
 				fx.largeExplosion(centerX, centerY, r*Const.GRID);
 				camera.shakeS(6, 0.9);
 				if( distCase(hero)<=r )
@@ -188,44 +210,12 @@ class Explosive extends Entity {
 				level.getFireState(cx,cy).clear();
 				game.addSlowMo("explosion", 0.6, 0.1);
 
-				// Wipe fire
+				// Ignire fire
 				dn.Bresenham.iterateDisc( cx,cy, r, (x,y)->{
 					level.ignite(x,y);
-					// if( !level.isBurning(x,y) )
-					// 	return;
-
-					// var fs = level.getFireState(x,y);
-					// if( distCase(x,y)<=Const.db.ExplosiveFullFireRadius )
-					// 	fs.clear();
-					// else {
-					// 	if( Std.random(100)<=66 )
-					// 		fs.clear();
-					// 	else {
-					// 		fs.level = M.imin(fs.level, 1);
-					// 		fs.lr = 0;
-					// 		fs.control();
-					// 	}
-					// }
-					// if( !fs.isBurning() )
-					// 	fx.fireExtinguishedByExplosion( (x+0.5)*Const.GRID, (y+0.5)*Const.GRID, centerX, centerY );
-					// fs.extinguished = true;
 				});
 
 				hero.kill(this);
-
-				// if( distCase(hero)<=r ) {
-				// 	var dr = 0.3 + 0.7*(1-distCase(hero)/r);
-				// 	if( distCase(hero)<=Const.db.ExplosiveKillRadius ) {
-				// 		hero.kill(this);
-				// 		hero.dir = hero.dirTo(this);
-				// 	}
-
-				// 	var a = Math.atan2(hero.centerY-centerY, hero.centerX-centerX);
-				// 	hero.cancelVelocities();
-				// 	hero.bdx = Math.cos(a)*0.9 * dr;
-				// 	hero.bdy = -R.around(0.3) * dr;
-				// 	hero.lockControlsS(1);
-				// }
 			}
 		}
 	}

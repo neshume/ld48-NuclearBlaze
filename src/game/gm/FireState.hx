@@ -43,6 +43,10 @@ class FireState {
 			: ( level + M.fmin(lr,0.99) ) / MAX;
 	}
 
+	public inline function getRatio() {
+		return ( level + M.fmin(lr,0.99) ) / (MAX+1);
+	}
+
 	public inline function isBurning() {
 		return level>0 || lr>0;
 	}

@@ -71,6 +71,7 @@ class Const {
 	public static var DP_MAIN = _inc++;
 	public static var DP_FRONT = _inc++;
 	public static var DP_FX_FRONT = _inc++;
+	public static var DP_EXPLOSIVE = _inc++;
 	public static var DP_MOB = _inc++;
 	public static var DP_FOG = _inc++;
 	public static var DP_UI = _inc++;

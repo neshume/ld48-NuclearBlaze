@@ -1638,9 +1638,24 @@ class Fx extends dn.Process {
 
 
 	public function announceRadius(x:Float, y:Float, r:Float, c:UInt) {
+		// Filled halo
 		var p = allocRadius(x,y,r,c, true);
-		p.setFadeS(0.5, 0, 0.1);
+		p.setFadeS(0.5, 0.1, 0.1);
 		p.ds = 0.02;
+		p.dsFrict = 0.8;
+		p.lifeS = 0.1;
+
+		// Outer line
+		var p = allocRadius(x,y,r,c, false);
+		p.setFadeS(0.8, 0, 0.1);
+		p.ds = 0.02;
+		p.dsFrict = 0.8;
+		p.lifeS = 0.03;
+
+		// Inner line
+		var p = allocRadius(x,y,r*0.25,c, false);
+		p.setFadeS(0.8, 0, 0.1);
+		p.ds = 0.05;
 		p.dsFrict = 0.8;
 		p.lifeS = 0.03;
 	}
