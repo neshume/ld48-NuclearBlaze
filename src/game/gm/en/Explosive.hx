@@ -98,7 +98,7 @@ class Explosive extends Entity {
 		if( !isOnScreenCenter(-20) ) {
 			tfX = hero.centerX + Math.cos(ang)*camera.pxHei*0.4;
 			tfY = hero.centerY + Math.sin(ang)*camera.pxHei*0.4;
-			tfs = 2;
+			tfS = 2;
 			pointer.visible = true;
 		}
 		else {
@@ -120,8 +120,8 @@ class Explosive extends Entity {
 		if( pointer.visible ) {
 			pointer.alpha += (1-pointer.alpha) * M.fmin(1, 0.2*tmod);
 			pointer.rotation = ang;
-			pointer.x = tf.x + tf.textWidth*0.5 + Math.cos(ang)*8;
-			pointer.y = tf.y + tf.textHeight*0.5 + Math.sin(ang)*8;
+			pointer.x = tf.x + tf.textWidth*0.5 + Math.cos(ang)*16;
+			pointer.y = tf.y + tf.textHeight*0.5 + Math.sin(ang)*16;
 		}
 
 		if( cd.has("shaking") )
@@ -159,7 +159,7 @@ class Explosive extends Entity {
 			var fs = level.getFireState(cx,cy);
 			timerS -= 1/Const.FIXED_UPDATE_FPS * ( fs.isUnderControl() ? 0.9 : 1 );
 			tf.visible = true;
-			tf.textColor = fs.isUnderControl() ? 0xc6ff30 : 0xffcc00;
+			tf.textColor = fs.isUnderControl() ? 0xc6ff30 : 0xffffff;
 			// tf.blendMode = fs.isUnderControl() ? Alpha : Add;
 			if( fs.isUnderControl() )
 				cd.setS("shaking",0.1);

@@ -37,6 +37,10 @@ class Trigger extends Entity {
 				setPosPixel(data.pixelX, data.pixelY);
 				pivotY = 0.5;
 
+			case LevelComplete:
+				setPosPixel(data.pixelX, data.pixelY);
+				pivotY = 0.5;
+
 			case InvisibleGate, IRGate:
 				var top = data.cy;
 				while( !level.hasAnyCollision(data.cx, top-1) )
@@ -126,14 +130,21 @@ class Trigger extends Entity {
 	}
 
 	public inline function isVisibleTrigger() {
-		return data.f_type!=InvisibleGate && data.f_type!=InvisibleArea;
+		return switch data.f_type {
+			case Valve: true;
+			case TouchPlate: true;
+			case IRGate: true;
+			case InvisibleArea: false;
+			case InvisibleGate: false;
+			case LevelComplete: false;
+		}
 	}
 
 	function isVisibleTriggerTarget(e:Entity) {
 		if( data.f_silent )
 			return false;
 
-		if( e.is(gm.en.Repeater) || e.is(gm.en.CinematicEvent) || e.is(gm.en.LogicAND) || e.is(gm.en.WallText) )
+		if( e.is(gm.en.Repeater) || e.is(gm.en.CinematicEvent) || e.is(gm.en.LogicAND) || e.is(gm.en.WallText)  || e.is(gm.en.Explosive) )
 			return false;
 
 		return true;
@@ -145,6 +156,7 @@ class Trigger extends Entity {
 
 		// Visual effect
 		switch data.f_type {
+			case LevelComplete:
 			case Valve:
 			case IRGate:
 			case InvisibleGate, InvisibleArea:
@@ -203,6 +215,7 @@ class Trigger extends Entity {
 
 			case InvisibleArea:
 			case InvisibleGate:
+			case LevelComplete:
 		}
 	}
 
@@ -234,6 +247,7 @@ class Trigger extends Entity {
 			case TouchPlate:
 			case InvisibleArea:
 			case InvisibleGate:
+			case LevelComplete:
 
 			case IRGate:
 				spr.setPosition(centerX, top);
@@ -264,6 +278,9 @@ class Trigger extends Entity {
 				start();
 
 			if( data.f_type==IRGate && hero.cx==cx && hero.cy>=cTop && hero.cy<=cBottom && sightCheck(hero) )
+				start();
+
+			if( data.f_type==LevelComplete && game.levelComplete() )
 				start();
 		}
 
