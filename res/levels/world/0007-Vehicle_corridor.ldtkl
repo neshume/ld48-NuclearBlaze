@@ -1727,12 +1727,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": ["!>Blocked."],
+							"__value": ["!>I can't go this way."],
 							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["!>Blocked."]
+								"params": ["!>I can't go this way."]
 							}]
 						},
 						{
@@ -3446,12 +3446,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": ["!>The passage is blocked."],
+							"__value": ["!>The way is blocked."],
 							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["!>The passage is blocked."]
+								"params": ["!>The way is blocked."]
 							}]
 						},
 						{
@@ -3744,33 +3744,6 @@
 							}]
 						},
 						{ "__identifier": "grassTexture", "__value": false, "__type": "Bool", "defUid": 582, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "Dialog",
-					"__grid": [6,5],
-					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 58,
-					"px": [104,88],
-					"fieldInstances": [
-						{
-							"__identifier": "lines",
-							"__value": ["I wonder what this \"Keter\" meant..."],
-							"__type": "Array<String>",
-							"defUid": 59,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["I wonder what this \"Keter\" meant..."]
-							}]
-						},
-						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
-						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 462, "realEditorValues": [] },
-						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
 					]
 				},
 				{

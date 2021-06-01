@@ -1355,55 +1355,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "title",
-							"__value": "KETER CLASS",
+							"__value": "CLEARANCE LEVEL 3+",
 							"__type": "String",
 							"defUid": 140,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["KETER CLASS"]
-							}]
-						},
-						{
-							"__identifier": "color",
-							"__value": "#FFCC00",
-							"__type": "Color",
-							"defUid": 141,
-							"realEditorValues": [{ "id": "V_Int", "params": [16763904] }]
-						},
-						{
-							"__identifier": "size",
-							"__value": "Small",
-							"__type": "LocalEnum.Font",
-							"defUid": 146,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Small"]
-							}]
-						},
-						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.TextStyle", "defUid": 149, "realEditorValues": [] },
-						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 562, "realEditorValues": [] },
-						{ "__identifier": "startVisible", "__value": true, "__type": "Bool", "defUid": 563, "realEditorValues": [] }
-					]
-				},
-				{
-					"__identifier": "WallText",
-					"__grid": [37,33],
-					"__pivot": [0.5,0.5],
-					"__tile": null,
-					"width": 32,
-					"height": 16,
-					"defUid": 139,
-					"px": [600,536],
-					"fieldInstances": [
-						{
-							"__identifier": "title",
-							"__value": "ONLY LEVELS 3+ BEYOND THIS POINT",
-							"__type": "String",
-							"defUid": 140,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["ONLY LEVELS 3+ BEYOND THIS POINT"]
+								"params": ["CLEARANCE LEVEL 3+"]
 							}]
 						},
 						{
@@ -1567,6 +1524,49 @@
 						},
 						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 494, "realEditorValues": [] },
 						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "WallText",
+					"__grid": [37,33],
+					"__pivot": [0.5,0.5],
+					"__tile": null,
+					"width": 32,
+					"height": 16,
+					"defUid": 139,
+					"px": [600,536],
+					"fieldInstances": [
+						{
+							"__identifier": "title",
+							"__value": "BEYOND THIS POINT",
+							"__type": "String",
+							"defUid": 140,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["BEYOND THIS POINT"]
+							}]
+						},
+						{
+							"__identifier": "color",
+							"__value": "#D62626",
+							"__type": "Color",
+							"defUid": 141,
+							"realEditorValues": [{ "id": "V_Int", "params": [14034470] }]
+						},
+						{
+							"__identifier": "size",
+							"__value": "Tiny",
+							"__type": "LocalEnum.Font",
+							"defUid": 146,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Tiny"]
+							}]
+						},
+						{ "__identifier": "style", "__value": null, "__type": "LocalEnum.TextStyle", "defUid": 149, "realEditorValues": [] },
+						{ "__identifier": "alpha", "__value": 1, "__type": "Float", "defUid": 445, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 562, "realEditorValues": [] },
+						{ "__identifier": "startVisible", "__value": true, "__type": "Bool", "defUid": 563, "realEditorValues": [] }
 					]
 				}
 			]
@@ -2042,8 +2042,6 @@
 				{ "px": [496,512], "src": [160,192], "f": 2, "t": 490, "d": [1535] },
 				{ "px": [512,512], "src": [0,128], "f": 0, "t": 320, "d": [1536] },
 				{ "px": [528,512], "src": [0,128], "f": 0, "t": 320, "d": [1537] },
-				{ "px": [544,512], "src": [0,128], "f": 0, "t": 320, "d": [1538] },
-				{ "px": [640,512], "src": [0,128], "f": 0, "t": 320, "d": [1544] },
 				{ "px": [656,512], "src": [0,128], "f": 0, "t": 320, "d": [1545] },
 				{ "px": [672,512], "src": [0,128], "f": 0, "t": 320, "d": [1546] },
 				{ "px": [688,512], "src": [0,128], "f": 0, "t": 320, "d": [1547] },

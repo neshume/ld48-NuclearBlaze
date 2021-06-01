@@ -2797,13 +2797,13 @@
 				},
 				{
 					"__identifier": "Ally",
-					"__grid": [37,63],
+					"__grid": [42,63],
 					"__pivot": [0.5,1],
 					"__tile": null,
 					"width": 16,
 					"height": 16,
 					"defUid": 576,
-					"px": [600,1024],
+					"px": [680,1024],
 					"fieldInstances": [
 						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 578, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 579, "realEditorValues": [] }
@@ -3742,35 +3742,6 @@
 							}]
 						}
 					]
-				},
-				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [12,55],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [200,896],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
-						{
-							"__identifier": "shieldDurationS",
-							"__value": 3,
-							"__type": "Int",
-							"defUid": 380,
-							"realEditorValues": [null]
-						},
-						{ "__identifier": "water", "__value": 1, "__type": "Float", "defUid": 545, "realEditorValues": [] },
-						{
-							"__identifier": "initialFastFall",
-							"__value": 1,
-							"__type": "Float",
-							"defUid": 584,
-							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
-						}
-					]
 				}
 			]
 		},
@@ -3984,7 +3955,7 @@
 				0,0,0,0,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,0,0,0,2,2,2,2,2,2,2,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,0,0,0,2,2,2,2,2,2,2,2,2,0,0,
 				0,0,0,2,2,0,0,0,0,0,0,0,0,0,2,0,0,0,0,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,2,
 				2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,
