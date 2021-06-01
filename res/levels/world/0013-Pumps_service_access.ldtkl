@@ -1601,12 +1601,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": ["I really wonder why someone would build such a huge facility..."],
+							"__value": ["I really wonder why someone would build such a large facility..."],
 							"__type": "Array<String>",
 							"defUid": 59,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["I really wonder why someone would build such a huge facility..."]
+								"params": ["I really wonder why someone would build such a large facility..."]
 							}]
 						},
 						{
@@ -2151,12 +2151,12 @@
 					"fieldInstances": [
 						{
 							"__identifier": "title",
-							"__value": "SERVICE ACCESS",
+							"__value": "ACCESS",
 							"__type": "String",
 							"defUid": 140,
 							"realEditorValues": [{
 								"id": "V_String",
-								"params": ["SERVICE ACCESS"]
+								"params": ["ACCESS"]
 							}]
 						},
 						{
@@ -2403,6 +2403,35 @@
 						{ "__identifier": "offsetY", "__value": 0, "__type": "Float", "defUid": 137, "realEditorValues": [] },
 						{ "__identifier": "zoom", "__value": -1, "__type": "Float", "defUid": 556, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [21,1],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [344,32],
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
+						{
+							"__identifier": "shieldDurationS",
+							"__value": 3,
+							"__type": "Int",
+							"defUid": 380,
+							"realEditorValues": [null]
+						},
+						{ "__identifier": "water", "__value": 1, "__type": "Float", "defUid": 545, "realEditorValues": [] },
+						{
+							"__identifier": "initialFastFall",
+							"__value": 1,
+							"__type": "Float",
+							"defUid": 584,
+							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
+						}
+					]
 				}
 			]
 		},
@@ -2600,10 +2629,12 @@
 				{ "px": [240,96], "src": [0,416], "f": 1, "t": 1040, "d": [339] },
 				{ "px": [256,96], "src": [64,400], "f": 0, "t": 1004, "d": [340] },
 				{ "px": [256,96], "src": [272,112], "f": 1, "t": 297, "d": [340] },
+				{ "px": [416,96], "src": [160,352], "f": 0, "t": 890, "d": [350] },
 				{ "px": [528,96], "src": [112,16], "f": 1, "t": 47, "d": [357] },
 				{ "px": [256,112], "src": [0,384], "f": 1, "t": 960, "d": [394] },
 				{ "px": [272,112], "src": [64,416], "f": 0, "t": 1044, "d": [395] },
 				{ "px": [272,112], "src": [352,112], "f": 1, "t": 302, "d": [395] },
+				{ "px": [416,112], "src": [160,368], "f": 0, "t": 930, "d": [404] },
 				{ "px": [576,112], "src": [112,16], "f": 1, "t": 47, "d": [414] },
 				{ "px": [272,128], "src": [272,96], "f": 1, "t": 257, "d": [449] },
 				{ "px": [288,128], "src": [320,96], "f": 0, "t": 260, "d": [450] },
