@@ -40,10 +40,7 @@
 			"__value": false,
 			"__type": "Bool",
 			"defUid": 523,
-			"realEditorValues": [{
-				"id": "V_Bool",
-				"params": [ false ]
-			}]
+			"realEditorValues": [null]
 		}
 	],
 	"layerInstances": [

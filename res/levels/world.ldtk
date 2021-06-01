@@ -7345,10 +7345,7 @@
 					"__value": false,
 					"__type": "Bool",
 					"defUid": 115,
-					"realEditorValues": [{
-						"id": "V_Bool",
-						"params": [ false ]
-					}]
+					"realEditorValues": [null]
 				},
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
@@ -7445,10 +7442,7 @@
 					"__value": false,
 					"__type": "Bool",
 					"defUid": 523,
-					"realEditorValues": [{
-						"id": "V_Bool",
-						"params": [ false ]
-					}]
+					"realEditorValues": [null]
 				}
 			],
 			"layerInstances": null,
