@@ -186,11 +186,6 @@
 					"value": 0.3
 				},
 				{
-					"constId": "ExplosiveTimer",
-					"value": 10,
-					"doc": "Seconds"
-				},
-				{
 					"constId": "ExplosiveFxRadius",
 					"doc": "Main fx radius",
 					"value": 10
@@ -250,7 +245,6 @@
 					"General",
 					"Hero",
 					"Fire",
-					"Explosives",
 					"Mobs"
 				]
 			},
@@ -259,7 +253,6 @@
 				"MaxCameraZoom",
 				"HeroWalkSpeed",
 				"FireTick",
-				"ExplosiveTimer",
 				"DefaultAggroDuration"
 			]
 		}
