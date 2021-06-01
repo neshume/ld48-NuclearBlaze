@@ -161,7 +161,6 @@ class Trigger extends Entity {
 			: 0.5;
 		var t = 0.;
 		for(e in Entity.ALL) {
-
 			// Trigger targets
 			if( e.isAlive() && e.triggerId==triggerId && !e.is(gm.en.Trigger) ) {
 				// Camera track
@@ -189,7 +188,7 @@ class Trigger extends Entity {
 				t+=eachDurationS;
 			}
 		}
-		delayer.addS( camera.clearCinematicTrackings, t );
+		// delayer.addS( camera.clearCinematicTrackings, t );
 
 		switch data.f_type {
 			case Valve:

@@ -421,35 +421,6 @@
 					]
 				},
 				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [24,11],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [392,192],
-					"fieldInstances": [
-						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
-						{ "__identifier": "unlockAllUpgrades", "__value": true, "__type": "Bool", "defUid": 282, "realEditorValues": [] },
-						{
-							"__identifier": "shieldDurationS",
-							"__value": 0,
-							"__type": "Int",
-							"defUid": 380,
-							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
-						},
-						{ "__identifier": "water", "__value": 1, "__type": "Float", "defUid": 545, "realEditorValues": [] },
-						{
-							"__identifier": "initialFastFall",
-							"__value": 0,
-							"__type": "Float",
-							"defUid": 584,
-							"realEditorValues": [null]
-						}
-					]
-				},
-				{
 					"__identifier": "Mob",
 					"__grid": [28,9],
 					"__pivot": [0.5,1],
@@ -469,7 +440,7 @@
 								"params": ["Fly"]
 							}]
 						},
-						{ "__identifier": "dir", "__value": -1, "__type": "Int", "defUid": 540, "realEditorValues": [] },
+						{ "__identifier": "dir", "__value": 0, "__type": "Int", "defUid": 540, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 541, "realEditorValues": [] },
 						{ "__identifier": "lockAiOnCreate", "__value": true, "__type": "Bool", "defUid": 542, "realEditorValues": [] }
 					]

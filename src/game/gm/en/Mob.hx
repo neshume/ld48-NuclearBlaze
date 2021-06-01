@@ -18,7 +18,7 @@ class Mob extends Entity {
 		game.scroller.add(spr, Const.DP_MOB);
 		spr.set(Assets.mobs);
 
-		dir = data.f_dir;
+		dir = data.f_dir==0 ? R.sign() : data.f_dir;
 		if( data.f_lockAiOnCreate )
 			lockAiS( rnd(0.8,1.5) );
 	}

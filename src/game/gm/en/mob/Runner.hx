@@ -21,7 +21,8 @@ class Runner extends gm.en.Mob {
 
 		if( !cd.hasSetS("repel",0.3) ) {
 			dx*=0.7;
-			// bump(-dirTo(hero)*0.2, 0);
+			if( !cd.has("bumpResist") )
+				bump(-dirTo(hero)*0.2, 0);
 		}
 	}
 
@@ -92,6 +93,7 @@ class Runner extends gm.en.Mob {
 					if( !cd.hasSetS("jumpAtk",3) ) {
 						// Big jump
 						hud.notify("charge");
+						cd.setS("bumpResist",1.1);
 						chargeAction("jumpAtk",0.6, ()->{
 							dx = dir*0.2;
 							dy = -0.4;

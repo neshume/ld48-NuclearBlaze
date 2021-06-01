@@ -55,6 +55,11 @@ class CinematicEvent extends Entity {
 			case CamShake:
 				camera.shakeS(data.f_duration, data.f_power);
 
+			case CamTrack:
+				game.level.suspendFireForS(data.f_duration+0.5);
+				camera.cinematicTrack(data.pixelX, data.pixelY, data.f_duration);
+				fx.markerFree(data.pixelX, data.pixelY, 999);
+
 			case SlowMo:
 				game.addSlowMo("event", data.f_duration, data.f_power);
 

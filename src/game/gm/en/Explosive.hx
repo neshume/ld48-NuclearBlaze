@@ -30,16 +30,17 @@ class Explosive extends Entity {
 
 		level.getFireState(cx,cy, true); // Force firestate here
 
-		tf = new h2d.Text(Assets.fontSmall);
+		tf = new h2d.Text(Assets.fontPixel);
 		game.scroller.add(tf, Const.DP_UI);
+		tf.filter = new dn.heaps.filter.PixelOutline();
 		tf.visible = false;
-		tf.blendMode = Add;
 		tf.setPosition(centerX, centerY);
 
 		pointer = Assets.tiles.h_get(dict.pointer,0, 0.5, 0.5);
 		game.scroller.add(pointer, Const.DP_UI);
 		pointer.smooth = true;
-		pointer.colorize(0xff8a64);
+		// pointer.filter = new dn.heaps.filter.PixelOutline();
+		// pointer.colorize(0xff8a64);
 		pointer.setPosition(centerX, centerY);
 	}
 
@@ -94,16 +95,15 @@ class Explosive extends Entity {
 		var tfX = 0.;
 		var tfY = 0.;
 		var tfS = 1.;
-		if( !isOnScreenCenter(-24) ) {
+		if( !isOnScreenCenter(-20) ) {
 			tfX = hero.centerX + Math.cos(ang)*camera.pxHei*0.4;
 			tfY = hero.centerY + Math.sin(ang)*camera.pxHei*0.4;
-			tfS = 1;
+			tfs = 2;
 			pointer.visible = true;
 		}
 		else {
 			tfX = centerX;
 			tfY = centerY;
-			// tfS = 2;
 			pointer.visible = false;
 			pointer.alpha = 0;
 		}
@@ -118,10 +118,10 @@ class Explosive extends Entity {
 		tf.visible = true;
 
 		if( pointer.visible ) {
-			pointer.alpha += (0.7-pointer.alpha) * M.fmin(1, 0.1*tmod);
+			pointer.alpha += (1-pointer.alpha) * M.fmin(1, 0.2*tmod);
 			pointer.rotation = ang;
-			pointer.x = tf.x + tf.textWidth*0.5 + Math.cos(ang)*16;
-			pointer.y = tf.y + tf.textHeight*0.5 + Math.sin(ang)*16;
+			pointer.x = tf.x + tf.textWidth*0.5 + Math.cos(ang)*8;
+			pointer.y = tf.y + tf.textHeight*0.5 + Math.sin(ang)*8;
 		}
 
 		if( cd.has("shaking") )
@@ -134,14 +134,16 @@ class Explosive extends Entity {
 		// First sight trigger
 		if( !seen && !cd.hasSetS("sighCheck",0.3) && distCase(hero)<=25 && sightCheck(hero) ) {
 			seen = true;
-			if( data.f_cinematicReveal ) {
-				level.suspendFireForS(3);
-				dn.Bresenham.iterateDisc(cx,cy,2, (x,y)->level.revealFog(x,y));
-				camera.cinematicTrack(centerX, centerY, 1.2);
-			}
 		}
 		if( !seen )
 			return;
+
+		// Cinematic reveal
+		if( active && data.f_cinematicReveal && !cd.hasSetS("cineRevealed",Const.INFINITE) ) {
+			level.suspendFireForS(3);
+			dn.Bresenham.iterateDisc(cx,cy,2, (x,y)->level.revealFog(x,y));
+			camera.cinematicTrack(centerX, centerY, 1.2);
+		}
 
 		// Check for fire
 		if( !active && !cd.hasSetS("fireCheck",0.4) && !cd.has("lock") && !needTriggerFirst )
@@ -157,8 +159,8 @@ class Explosive extends Entity {
 			var fs = level.getFireState(cx,cy);
 			timerS -= 1/Const.FIXED_UPDATE_FPS * ( fs.isUnderControl() ? 0.9 : 1 );
 			tf.visible = true;
-			tf.textColor = fs.isUnderControl() ? 0xc6ff30 : 0xff8a64;
-			tf.blendMode = fs.isUnderControl() ? Alpha : Add;
+			tf.textColor = fs.isUnderControl() ? 0xc6ff30 : 0xffcc00;
+			// tf.blendMode = fs.isUnderControl() ? Alpha : Add;
 			if( fs.isUnderControl() )
 				cd.setS("shaking",0.1);
 			updateText();
@@ -168,6 +170,8 @@ class Explosive extends Entity {
 				if( timerS<=3 )
 					fx.announceRadius(centerX, centerY, Const.db.ExplosiveKillRadius*Const.GRID, 0xff0000);
 			}
+
+			debugFloat(fs.getPowerRatio());
 
 			if( !fs.isBurning() ) {
 				deactivate();
