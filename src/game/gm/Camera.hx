@@ -336,30 +336,31 @@ class Camera extends dn.Process {
 			if( e.isActive() ) {
 				tx+=e.data.f_offsetX;
 				ty+=e.data.f_offsetY;
-				if( e.data.f_zoom!=null )
+				if( e.data.f_zoom>1 )
 					tz = e.data.f_zoom;
 			}
 
 		// Zoom interpolation
 		if( tz!=curZoom ) {
-			var prevSign = M.sign(tz-curZoom);
 			if( tz>curZoom)
 				dz+=Const.db.CameraZoomSpeed;
 			else
 				dz-=Const.db.CameraZoomSpeed;
-
-			// Reached target zoom
-			if( M.sign(tz-curZoom)!=prevSign ) {
-				dz = 0;
-				curZoom = tz;
-			}
 		}
+		else
+			dz = 0;
 		curZoom+=dz*tmod;
+
+		bumpZoomFactor *= Math.pow(0.9, tmod);
 		dz*=Math.pow(Const.db.CameraZoomFriction,tmod);
 		if( M.fabs(tz-curZoom)<=0.05*tmod )
 			dz*=Math.pow(0.8,tmod);
-		// curZoom += ( tz - curZoom ) * M.fmin(1, tmod*0.03);
-		bumpZoomFactor *= Math.pow(0.9, tmod);
+
+		// Reached target zoom
+		if( dz>0 && curZoom>=tz || dz<0 && curZoom<=tz ) {
+			curZoom = tz;
+			dz = 0;
+		}
 
 		// Follow target
 		if( tx>=0 ) {
