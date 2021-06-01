@@ -104,7 +104,7 @@ class Ally extends Entity {
 		}
 
 		// Wandering
-		if( waterTarget==null ) {
+		if( waterTarget==null && !isChargingAction() ) {
 			// Panic state
 			if( !cd.has("panicLock") ) {
 				cd.setS("panic",rnd(2,4));
@@ -132,10 +132,13 @@ class Ally extends Entity {
 
 
 			// Wander: reach platform end
-			if( cd.has("walking") && ( dir==1 && level.hasMark(PlatformEndRight,cx,cy) || dir==-1 && level.hasMark(PlatformEndLeft,cx,cy) ) ) {
+			if( ( dir==1 && level.hasMark(PlatformEndRight,cx,cy) || dir==-1 && level.hasMark(PlatformEndLeft,cx,cy) ) ) {
 				cd.unset("walking");
 				cd.setS("walkLock", rnd(0.6,0.9));
-				cd.setS("dirChange", rnd(0.3,0.5), true);
+				chargeAction("turn", 0.3, ()->{
+					dir *= -1;
+					cd.setS("dirChange", rnd(2,5));
+				});
 			}
 		}
 	}
