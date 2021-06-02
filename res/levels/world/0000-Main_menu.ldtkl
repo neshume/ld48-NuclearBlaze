@@ -379,7 +379,9 @@
 							"__type": "Bool",
 							"defUid": 517,
 							"realEditorValues": [null]
-						}
+						},
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -479,7 +481,9 @@
 							"__type": "Bool",
 							"defUid": 517,
 							"realEditorValues": [null]
-						}
+						},
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -519,7 +523,9 @@
 							"defUid": 516,
 							"realEditorValues": [null]
 						},
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -577,7 +583,9 @@
 							"__type": "Bool",
 							"defUid": 517,
 							"realEditorValues": [null]
-						}
+						},
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -635,7 +643,9 @@
 							"__type": "Bool",
 							"defUid": 517,
 							"realEditorValues": [null]
-						}
+						},
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -960,7 +970,9 @@
 							"defUid": 516,
 							"realEditorValues": [{ "id": "V_Int", "params": [-1] }]
 						},
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				}
 			]

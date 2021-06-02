@@ -233,7 +233,7 @@ class Fx extends dn.Process {
 		// Halo
 		for(i in 0...3) {
 			var p = allocTopAdd( getTile(dict.fxSmokeHalo), (cx+0.5)*Const.GRID+rnd(0,1,true), (cy+0.2)*Const.GRID+rnd(0,1,true) );
-			p.setFadeS(R.around(0.1), 0.03, rnd(0.5,1));
+			p.setFadeS( R.around(0.1), 0.03, rnd(0.5,1) );
 			p.colorize(0xc3b9a0);
 			p.setScale(R.around(0.4));
 			p.ds = R.around(0.14, 5);
@@ -1018,6 +1018,140 @@ class Fx extends dn.Process {
 		p.rotation = getWaveAng(x);
 		p.lifeS = rnd(0.3,0.6);
 		p.delayS = rnd(0,0.2);
+	}
+
+
+	public inline function waterSplashes(x:Float,y:Float, pow:Float, col=0x4d4959) {
+		// Waves
+		for(i in 0...2) {
+			var p = allocTopAdd( getTile(dict.fxWaterSurface), x+rnd(0,3,true), y+rnd(0,1,true)+getWaveOffY(x) );
+			p.colorize(C.toWhite(col,rnd(0.2,0.4)));
+			p.setFadeS( rnd(0.8, 1)*pow, 0.2, R.around(0.2) );
+			p.scaleX = rnd(0.8,1.2,true);
+			p.scaleXMul = rnd(0.993, 0.995);
+			p.scaleY = rnd(1.5,2);
+			p.scaleYMul = rnd(0.98,0.99);
+			p.dx = rnd(0.1,0.2) * M.sign(p.x-x);
+			p.dy = -rnd(0,0.06)*pow;
+			p.gy = R.around(0.03);
+			p.groundY = y+3;
+			p.bounceMul = 0;
+			p.frict = R.aroundBO(0.98);
+			p.rotation = getWaveAng(x);
+			p.lifeS = rnd(0.3,0.6);
+			p.delayS = rnd(0,0.2);
+		}
+		// Dots
+		for(i in 0...irnd(2,4)) {
+			var p = allocTopAdd( getTile(dict.pixel), x+rnd(2,7,true), y-rnd(1,5)+getWaveOffY(x) );
+			p.colorize(C.toWhite(col,0.4));
+			p.setFadeS( rnd(0.6, 0.9)*pow, 0.06, R.around(0.2) );
+			p.dx = rnd(0,0.2) * M.sign(p.x-x)*pow;
+			p.dy = -rnd(0.5,1)*pow;
+			p.gy = R.around(0.06);
+			p.groundY = y+3;
+			p.bounceMul = 0;
+			p.frict = R.aroundBO(0.92);
+			p.lifeS = rnd(0.1,0.3);
+		}
+	}
+
+	public function enterWater(x:Float, y:Float, col:Int, pow=1.0) {
+		// Hit lines
+		final n = Std.int(pow*30);
+		var range = M.PI*0.6;
+		for(i in 0...n) {
+			var pow = 0.55 + 0.45*Math.sin( M.PI * i/(n-1) );
+			var a = -M.PIHALF - range*0.5 + range*i/(n-1) + rnd(0,0.15,true);
+			var p = allocBgAdd( getTile(dict.fxLineThinRight), x+Math.cos(a)*4, y+Math.sin(a)*4 );
+			p.alpha = R.around(0.2)*pow;
+			p.colorize(col);
+			p.setCenterRatio(0, 0.5);
+			p.scaleX = rnd(0.1,0.2) * pow;
+			p.dsX = rnd(0.45,0.50) * pow;
+			p.dsFrict = 0.92;
+			p.scaleXMul = R.around(0.8,5);
+			p.rotation = a;
+			p.lifeS = R.around(0.2);
+		}
+
+		// Main splashes
+		final n = Std.int(pow*70);
+		for(i in 0...n) {
+			var p = allocTopAdd( getTile(dict.fxLine), x+rnd(0,6,true), y-rnd(1,2) );
+			p.setFadeS( rnd(0.5,0.9), 0, rnd(0.1,0.3));
+			p.colorize( C.toWhite(col, rnd(0.3,0.7)) );
+			p.scaleX = rnd(0.1,0.3, true);
+			p.scaleXMul = rnd(0.96,0.97);
+			p.dx = rnd(0.2,1,true);
+			p.dy = -rnd(0.5, 2);
+			if( i<=3 )
+				p.dy*=rnd(1.5,2);
+			p.gy = rnd(0.06,0.10);
+			p.frict = R.around(0.97,3);
+			p.autoRotate();
+			p.groundY = y;
+			p.bounceMul = 0;
+			p.drFrict = R.around(0.95);
+			p.rotation = R.fullCircle();
+			p.lifeS = rnd(0.4,0.9);
+			p.onUpdate = _dirtPhysics;
+		}
+		// Falling drips
+		final n = Std.int(pow*20);
+		for(i in 0...n) {
+			var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,10,true), y-rnd(10,30) );
+			p.setFadeS( rnd(0.4,1), R.around(0.2), R.around(1));
+			p.colorize(col);
+			p.gy = rnd(0.01,0.08);
+			p.groundY = y+rnd(0,2);
+			p.bounceMul = 0;
+			p.frict = R.around(0.92,10);
+			p.lifeS = rnd(1,3);
+			p.onUpdate = _dustPhysics;
+			p.delayS = rnd(0,1);
+		}
+	}
+
+
+	public function leaveWater(x:Float, y:Float, dir:Int, col:Int) {
+		// Main splashes
+		final n = 70;
+		for(i in 0...n) {
+			var p = allocTopAdd( getTile(dict.fxLine), x+rnd(0,6,true), y-rnd(1,2) );
+			p.setFadeS( rnd(0.5,0.9), 0, rnd(0.1,0.3));
+			p.colorize( C.toWhite(col, rnd(0.3,0.7)) );
+			p.scaleX = rnd(0.1,0.2, true);
+			p.scaleXMul = rnd(0.96,0.97);
+			p.dx = rnd(0,0.4)*dir;
+			p.dy = -rnd(0.7, 2.5);
+			if( i<=6 )
+				p.dy*=rnd(1.2,1.6);
+			p.gy = rnd(0.06,0.12);
+			p.frict = R.around(0.97,3);
+			p.autoRotate();
+			p.groundY = y;
+			p.bounceMul = 0;
+			p.drFrict = R.around(0.95);
+			p.rotation = R.fullCircle();
+			p.lifeS = rnd(0.4,0.9);
+			p.onUpdate = _dirtPhysics;
+		}
+
+		// Falling drips
+		final n = 20;
+		for(i in 0...n) {
+			var p = allocTopAdd( getTile(dict.pixel), x+rnd(0,10,true), y-rnd(10,30) );
+			p.setFadeS( rnd(0.4,1), R.around(0.2), R.around(1));
+			p.colorize(col);
+			p.gy = rnd(0.01,0.08);
+			p.groundY = y+rnd(0,2);
+			p.bounceMul = 0;
+			p.frict = R.around(0.92,10);
+			p.lifeS = rnd(1,3);
+			p.onUpdate = _dustPhysics;
+			p.delayS = rnd(0,1);
+		}
 	}
 
 
@@ -2003,6 +2137,20 @@ class Fx extends dn.Process {
 		p.onUpdate = _drip;
 		p.lifeS = R.around(3);
 		p.delayS = rnd(0,0.3);
+	}
+
+	public function computerLights(x:Float, y:Float, w:Float, h:Float, c:Int) {
+		final step = 2;
+		final p = 3;
+		for(i in 0...irnd(8,12)) {
+			var p = allocTopAdd( getTile(Std.random(100)<80 ? dict.pixel : dict.fxDot), rnd(x+p,x+w-p), rnd(y+p,y+h-p) );
+			p.setFadeS( rnd(0.4,1), 0, rnd(0.06,0.3));
+			p.x = Std.int(p.x/step)*step;
+			p.y = Std.int(p.y/step)*step;
+			p.colorize(c);
+			p.lifeS = rnd(0.1,0.5);
+			p.delayS = rnd(0,0.2);
+		}
 	}
 
 	public function mediumLand(x:Float, y:Float, pow:Float) {

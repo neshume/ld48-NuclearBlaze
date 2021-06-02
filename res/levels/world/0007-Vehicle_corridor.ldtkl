@@ -359,7 +359,9 @@
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
 						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
 						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -393,7 +395,9 @@
 						},
 						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
 						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -494,7 +498,9 @@
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
 						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
 						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -528,7 +534,9 @@
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
 						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
 						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -556,7 +564,9 @@
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
 						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
 						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -768,7 +778,9 @@
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
 						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
 						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -796,7 +808,9 @@
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
 						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
 						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1059,7 +1073,9 @@
 						},
 						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
 						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1093,7 +1109,9 @@
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
 						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
 						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1639,7 +1657,9 @@
 								"id": "V_Bool",
 								"params": [ false ]
 							}]
-						}
+						},
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1712,7 +1732,9 @@
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
 						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
 						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2475,7 +2497,9 @@
 							}]
 						},
 						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2530,7 +2554,9 @@
 							}]
 						},
 						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{
@@ -3184,7 +3210,9 @@
 						{ "__identifier": "customIntensity", "__value": 1, "__type": "Float", "defUid": 484, "realEditorValues": [] },
 						{ "__identifier": "wind", "__value": true, "__type": "Bool", "defUid": 509, "realEditorValues": [] },
 						{ "__identifier": "dir", "__value": 1, "__type": "Int", "defUid": 516, "realEditorValues": [] },
-						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] }
+						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 517, "realEditorValues": [] },
+						{ "__identifier": "x", "__value": 0, "__type": "Float", "defUid": 618, "realEditorValues": [] },
+						{ "__identifier": "y", "__value": 0, "__type": "Float", "defUid": 619, "realEditorValues": [] }
 					]
 				},
 				{

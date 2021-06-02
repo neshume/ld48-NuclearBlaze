@@ -33,3 +33,18 @@ See general protocol manual and appendix B-2 for detailed instructions.
 
 --
 NOTE 1: see Incidents #****, #***, #***, #***, #****, #*** and #****.
+
+# serviceNote
+
+Chat log #734
+---
+ag> hey
+ag> you ok?
+J> gates are down
+J> scp-%% escaped
+J> again
+ag> another day another incident.
+J> they don't pay me enough for this s****.
+J> jeez they're ALSO monitoring this?!
+J> f*** s*** god d*** F***
+ag> ..

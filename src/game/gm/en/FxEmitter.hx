@@ -19,6 +19,15 @@ class FxEmitter extends Entity {
 		collides = false;
 		spr.set("empty");
 
+		switch data.f_type {
+			case Water:
+				// Offset water surface
+				setPosPixel(d.pixelX, d.pixelY + d.f_y);
+				hei-=d.f_y;
+
+			case _:
+		}
+
 		bounds = new h2d.col.Bounds();
 		bounds.xMin = left;
 		bounds.xMax = right;
@@ -89,6 +98,10 @@ class FxEmitter extends Entity {
 					if( isOnScreenBounds() && !cd.hasSetS("fx",0.1/data.f_customIntensity) )
 						fx.helicopterRotorBack(centerX, centerY, data.f_dir, data.f_customColor_int);
 
+				case ComputerLights:
+					if( isOnScreenBounds() && !cd.hasSetS("fx",0.3/data.f_customIntensity) )
+						fx.computerLights(data.pixelX, data.pixelY, data.width, data.height, data.f_customColor_int);
+
 				case Water:
 					if( isOnScreenBounds() ) {
 						if( !cd.hasSetS("bubbles",0.2/data.f_customIntensity) ) {
@@ -112,14 +125,29 @@ class FxEmitter extends Entity {
 								if( camera.isOnScreen(x*Const.GRID, top, 40) )
 									fx.waterSurfaceRipples((x+rnd(0.3,0.7))*Const.GRID, top, data.f_customColor_int);
 
-							for( x in cLeft+1...cRight-1 )
-								if( camera.isOnScreen(x*Const.GRID, top, 40) )
-									fx.waterSurfaceDark((x+rnd(0.3,0.7))*Const.GRID, top, data.f_customColor_int);
+							if( hei>=Const.GRID )
+								for( x in cLeft+1...cRight-1 )
+									if( camera.isOnScreen(x*Const.GRID, top, 40) )
+										fx.waterSurfaceDark((x+rnd(0.3,0.7))*Const.GRID, top, data.f_customColor_int);
 
 							if( camera.isOnScreen(left, top, 32) )
 								fx.waterSideDrips(left,top, 1, data.f_customColor_int);
 							if( camera.isOnScreen(right, top, 32) )
 								fx.waterSideDrips(right,top, -1, data.f_customColor_int);
+						}
+
+						// Hero splashes
+						if( inBounds(hero.attachX, hero.attachY) ) {
+							if( !cd.hasSetS("splash",0.06) ) {
+								if( !cd.hasSetS("inWater",Const.INFINITE) )
+									fx.enterWater(hero.attachX, top, data.f_customColor_int);
+								fx.waterSplashes(hero.attachX, top, M.fabs(hero.dxTotal)>=0.1 ? 1 : 0.2, data.f_customColor_int);
+							}
+						}
+						else {
+							if( cd.has("inWater") )
+								fx.leaveWater(hero.attachX, top, hero.dir, data.f_customColor_int);
+							cd.unset("inWater");
 						}
 					}
 			}
