@@ -8476,8 +8476,26 @@
 			"__bgPos": null,
 			"externalRelPath": "world/0022-Gabriel.ldtkl",
 			"fieldInstances": [
-				{ "__identifier": "disableCompleteAnnounce", "__value": false, "__type": "Bool", "defUid": 114, "realEditorValues": [] },
-				{ "__identifier": "ignoreFires", "__value": false, "__type": "Bool", "defUid": 115, "realEditorValues": [] },
+				{
+					"__identifier": "disableCompleteAnnounce",
+					"__value": true,
+					"__type": "Bool",
+					"defUid": 114,
+					"realEditorValues": [{
+						"id": "V_Bool",
+						"params": [ true ]
+					}]
+				},
+				{
+					"__identifier": "ignoreFires",
+					"__value": true,
+					"__type": "Bool",
+					"defUid": 115,
+					"realEditorValues": [{
+						"id": "V_Bool",
+						"params": [ true ]
+					}]
+				},
 				{ "__identifier": "clampCameraToBounds", "__value": true, "__type": "Bool", "defUid": 406, "realEditorValues": [] },
 				{ "__identifier": "fadeInSpeed", "__value": 1, "__type": "Float", "defUid": 520, "realEditorValues": [] },
 				{ "__identifier": "fog", "__value": true, "__type": "Bool", "defUid": 522, "realEditorValues": [] },
