@@ -141,8 +141,10 @@ class Game extends Process {
 			return false;
 		}
 		else {
+			if( hasUpgrade(UpWaterTank) )
+				v*=0.5;
 			water = M.fmax(water-v, 0);
-			hud.setWater(water,1);
+			hud.setWater(water);
 			hud.shakeWater();
 			return true;
 		}
@@ -150,12 +152,12 @@ class Game extends Process {
 
 	public inline function setWater(v:Float) {
 		water = M.fclamp(v, 0, getMaxWater());
-		hud.setWater(water,1);
+		hud.setWater(water);
 	}
 
 	public inline function refillWater(v=9999.) {
 		water = M.fmin(water+v, getMaxWater());
-		hud.setWater(water,1);
+		hud.setWater(water);
 		if( water<1 ) {
 			hud.blinkWater(0x2ad5ff);
 			hud.shakeWater();
@@ -165,6 +167,19 @@ class Game extends Process {
 	public inline function unlockUpgrade(i:Enum_Items) {
 		upgrades.set(i,true);
 		hud.setUpgrades(upgrades);
+		switch i {
+			case Key:
+			case GreenCard:
+			case BlueCard:
+			case WaterSpray:
+			case UpWaterLadder:
+			case UpWaterUp:
+			case UpShield:
+			case UpWaterTank:
+				refillWater();
+
+			case UpDodge:
+		}
 	}
 
 	inline function relockUpgrade(i:Enum_Items) {

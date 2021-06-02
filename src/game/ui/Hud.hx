@@ -13,7 +13,8 @@ class Hud extends dn.Process {
 	var upgrades: h2d.Flow;
 	var curUp: Null<h2d.Flow>;
 	var water: h2d.Object;
-	var waterBg: h2d.Bitmap;
+	var waterBg: HSprite;
+	var waterSplit: Null<HSprite>;
 	var waterBar: h2d.ScaleGrid;
 	var waterSurface: HSprite;
 	var waterBlink: h3d.Vector;
@@ -44,7 +45,7 @@ class Hud extends dn.Process {
 		upgrades.horizontalSpacing = 2;
 
 		water = new h2d.Object(root);
-		waterBg = Assets.tiles.getBitmap(dict.waterAmmoBg, water);
+		waterBg = Assets.tiles.h_get(dict.waterAmmoBg, water);
 		waterBar = new h2d.ScaleGrid(Assets.tiles.getTile(dict.waterAmmoBar), 3,1, 3,2, water );
 		waterSurface = Assets.tiles.h_getAndPlay(dict.waterAmmoSurface, water);
 		waterSurface.anim.setSpeed(0.15);
@@ -107,7 +108,7 @@ class Hud extends dn.Process {
 
 			case UpWaterTank:
 				name = L.t._("WATER TANK");
-				desc = L.t._("More water!");
+				desc = L.t._("Twice more water!");
 
 			case UpDodge:
 				name = L.t._("DODGING");
@@ -328,12 +329,25 @@ class Hud extends dn.Process {
 		// updatePos();
 	}
 
-	public function setWater(cur:Float, bottles=1) {
+	public function setWater(cur:Float) {
+		var up = game.hasUpgrade(UpWaterTank);
+		if( up && waterSplit==null ) {
+			waterSplit = Assets.tiles.h_get(dict.waterAmmoSplit, water);
+			waterSplit.setPosition(4,5);
+		}
+		if( !up && waterSplit!=null ) {
+			waterSplit.remove();
+			waterSplit = null;
+		}
+
+		waterBg.set( up ? dict.waterAmmoBgLarge : dict.waterAmmoBg );
+		waterBar.width = up ? 9 : 6;
 		waterBar.height = M.fmax(0, (waterBg.tile.height-9)  * cur );
 		waterBar.x = 2;
 		waterBar.y = waterBg.tile.height-2 - waterBar.height;
 		waterSurface.x = waterBar.x;
 		waterSurface.y = cur<=0 ? waterBar.y : waterBar.y+1;
+		waterSurface.scaleX = (up?9:6) / waterSurface.tile.width;
 	}
 
 	public inline function shakeWater(depleted=false) {

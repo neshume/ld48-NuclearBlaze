@@ -274,7 +274,7 @@ class Trigger extends Entity {
 			if( data.f_type==InvisibleArea && distCase(hero)<=data.f_invisibleRadius )
 				start();
 
-			if( data.f_type==InvisibleGate && hero.cx==cx && hero.cy>=cTop && hero.cy<=cBottom && sightCheck(hero) )
+			if( data.f_type==InvisibleGate && hero.cx==cx && hero.cy>=cTop && hero.cy<=cBottom )
 				start();
 
 			if( data.f_type==IRGate && hero.cx==cx && hero.cy>=cTop && hero.cy<=cBottom && sightCheck(hero) )
