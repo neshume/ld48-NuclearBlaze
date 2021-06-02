@@ -35,6 +35,7 @@ class HorizontalDoor extends Entity {
 		cWid = M.round(d.width / Const.GRID);
 		wid = cWid*Const.GRID;
 		closed = !d.f_startOpen;
+		closedFactor = closed ? 1 : 0;
 		updateCollisions();
 
 		for(x in cx...cx+cWid)
