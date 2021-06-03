@@ -15,7 +15,7 @@ class Mob extends Entity {
 		super(data.cx, data.cy);
 		ALL.push(this);
 
-		game.scroller.add(spr, Const.DP_MOB);
+		game.scroller.add(spr, Const.DP_ENTITY_FRONT);
 		spr.set(Assets.mobs);
 
 		dir = data.f_dir==0 ? R.sign() : data.f_dir;
@@ -60,11 +60,9 @@ class Mob extends Entity {
 
 	function onAggroStart() {
 		fx.aggro(this);
-		hud.notify("start");
 	}
 
 	function onAggroEnd() {
-		hud.notify("end");
 	}
 
 	inline function hasAggro() {

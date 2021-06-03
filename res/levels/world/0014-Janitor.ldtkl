@@ -2526,7 +2526,8 @@
 						{ "__identifier": "fireballs", "__value": true, "__type": "Bool", "defUid": 532, "realEditorValues": [] },
 						{ "__identifier": "bumpPlayer", "__value": true, "__type": "Bool", "defUid": 543, "realEditorValues": [] },
 						{ "__identifier": "explosion", "__value": true, "__type": "Bool", "defUid": 546, "realEditorValues": [] },
-						{ "__identifier": "grassTexture", "__value": false, "__type": "Bool", "defUid": 582, "realEditorValues": [] }
+						{ "__identifier": "grassTexture", "__value": false, "__type": "Bool", "defUid": 582, "realEditorValues": [] },
+						{ "__identifier": "autoSlowMo", "__value": false, "__type": "Bool", "defUid": 627, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2555,7 +2556,8 @@
 							"realEditorValues": [null]
 						},
 						{ "__identifier": "explosion", "__value": true, "__type": "Bool", "defUid": 546, "realEditorValues": [] },
-						{ "__identifier": "grassTexture", "__value": false, "__type": "Bool", "defUid": 582, "realEditorValues": [] }
+						{ "__identifier": "grassTexture", "__value": false, "__type": "Bool", "defUid": 582, "realEditorValues": [] },
+						{ "__identifier": "autoSlowMo", "__value": false, "__type": "Bool", "defUid": 627, "realEditorValues": [] }
 					]
 				},
 				{
@@ -3644,7 +3646,8 @@
 						{ "__identifier": "fireballs", "__value": true, "__type": "Bool", "defUid": 532, "realEditorValues": [] },
 						{ "__identifier": "bumpPlayer", "__value": true, "__type": "Bool", "defUid": 543, "realEditorValues": [] },
 						{ "__identifier": "explosion", "__value": true, "__type": "Bool", "defUid": 546, "realEditorValues": [] },
-						{ "__identifier": "grassTexture", "__value": false, "__type": "Bool", "defUid": 582, "realEditorValues": [] }
+						{ "__identifier": "grassTexture", "__value": false, "__type": "Bool", "defUid": 582, "realEditorValues": [] },
+						{ "__identifier": "autoSlowMo", "__value": false, "__type": "Bool", "defUid": 627, "realEditorValues": [] }
 					]
 				},
 				{
@@ -4086,7 +4089,8 @@
 						{ "__identifier": "fireballs", "__value": true, "__type": "Bool", "defUid": 532, "realEditorValues": [] },
 						{ "__identifier": "bumpPlayer", "__value": true, "__type": "Bool", "defUid": 543, "realEditorValues": [] },
 						{ "__identifier": "explosion", "__value": true, "__type": "Bool", "defUid": 546, "realEditorValues": [] },
-						{ "__identifier": "grassTexture", "__value": false, "__type": "Bool", "defUid": 582, "realEditorValues": [] }
+						{ "__identifier": "grassTexture", "__value": false, "__type": "Bool", "defUid": 582, "realEditorValues": [] },
+						{ "__identifier": "autoSlowMo", "__value": false, "__type": "Bool", "defUid": 627, "realEditorValues": [] }
 					]
 				},
 				{
@@ -5069,29 +5073,23 @@
 				},
 				{
 					"__identifier": "Dialog",
-					"__grid": [54,28],
+					"__grid": [52,32],
 					"__pivot": [0.5,0.5],
 					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
 					"width": 16,
 					"height": 16,
 					"defUid": 58,
-					"px": [872,456],
+					"px": [840,520],
 					"fieldInstances": [
 						{
 							"__identifier": "lines",
-							"__value": [ "A>%start", "A>[WATER_PUMPS] system back online.", "A>%end" ],
+							"__value": ["A>[WATER_PUMPS] system back online."],
 							"__type": "Array<String>",
 							"defUid": 59,
-							"realEditorValues": [ {
-								"id": "V_String",
-								"params": ["A>%start"]
-							}, {
+							"realEditorValues": [{
 								"id": "V_String",
 								"params": ["A>[WATER_PUMPS] system back online."]
-							}, {
-								"id": "V_String",
-								"params": ["A>%end"]
-							} ]
+							}]
 						},
 						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
 						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
@@ -5739,53 +5737,6 @@
 					]
 				},
 				{
-					"__identifier": "DebugStartPoint",
-					"__grid": [41,26],
-					"__pivot": [0.5,1],
-					"__tile": null,
-					"width": 16,
-					"height": 12,
-					"defUid": 143,
-					"px": [664,432],
-					"fieldInstances": [
-						{
-							"__identifier": "startInv",
-							"__value": [ "GreenCard", "BlueCard" ],
-							"__type": "Array<LocalEnum.Items>",
-							"defUid": 281,
-							"realEditorValues": [ {
-								"id": "V_String",
-								"params": ["GreenCard"]
-							}, {
-								"id": "V_String",
-								"params": ["BlueCard"]
-							} ]
-						},
-						{
-							"__identifier": "unlockAllUpgrades",
-							"__value": true,
-							"__type": "Bool",
-							"defUid": 282,
-							"realEditorValues": [null]
-						},
-						{
-							"__identifier": "shieldDurationS",
-							"__value": 3,
-							"__type": "Int",
-							"defUid": 380,
-							"realEditorValues": [null]
-						},
-						{ "__identifier": "water", "__value": 1, "__type": "Float", "defUid": 545, "realEditorValues": [] },
-						{
-							"__identifier": "initialFastFall",
-							"__value": 0,
-							"__type": "Float",
-							"defUid": 584,
-							"realEditorValues": [null]
-						}
-					]
-				},
-				{
 					"__identifier": "WallText",
 					"__grid": [26,17],
 					"__pivot": [0.5,0.5],
@@ -5976,6 +5927,27 @@
 							"defUid": 565,
 							"realEditorValues": [null]
 						}
+					]
+				},
+				{
+					"__identifier": "CameraOffset",
+					"__grid": [50,24],
+					"__pivot": [0,0],
+					"__tile": null,
+					"width": 272,
+					"height": 64,
+					"defUid": 134,
+					"px": [800,384],
+					"fieldInstances": [
+						{ "__identifier": "offsetX", "__value": 0, "__type": "Float", "defUid": 136, "realEditorValues": [] },
+						{
+							"__identifier": "offsetY",
+							"__value": -24,
+							"__type": "Float",
+							"defUid": 137,
+							"realEditorValues": [{ "id": "V_Float", "params": [-24] }]
+						},
+						{ "__identifier": "zoom", "__value": -1, "__type": "Float", "defUid": 556, "realEditorValues": [] }
 					]
 				}
 			]

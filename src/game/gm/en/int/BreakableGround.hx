@@ -92,6 +92,10 @@ class BreakableGround extends Entity {
 			hero.bump( (centerX>hero.centerX ? -1 : 1) * 0.4*pow, -0.2*pow );
 		}
 
+		// Base slow mo
+		if( data.f_autoSlowMo )
+			game.addSlowMo("ground", 0.8, 0.4);
+
 		// Fireballs
 		if( data.f_fireballs )
 			for(x in cx...cx+cWid) {

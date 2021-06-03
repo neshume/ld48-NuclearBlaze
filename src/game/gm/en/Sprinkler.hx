@@ -35,7 +35,7 @@ class Sprinkler extends Entity {
 			case East: -M.PIHALF;
 			case West: M.PIHALF;
 		}
-		game.scroller.add(spr,Const.DP_MAIN);
+		game.scroller.add(spr,Const.DP_ENTITY_MAIN);
 	}
 
 	override function trigger() {

@@ -55,10 +55,10 @@ class Game extends Process {
 		ca = App.ME.controller.createAccess("game");
 		ca.setLeftDeadZone(0.2);
 		ca.setRightDeadZone(0.2);
-		createRootInLayers(App.ME.root, Const.DP_MAIN);
+		createRootInLayers(App.ME.root, Const.DP_ENTITY_MAIN);
 
 		scroller = new h2d.Layers();
-		root.add(scroller, Const.DP_MAIN);
+		root.add(scroller, Const.DP_ENTITY_MAIN);
 
 		scroller.filter = new h2d.filter.Nothing(); // force rendering for pixel perfect
 
@@ -301,6 +301,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_WaterRefill) new gm.en.int.WaterRefill(d);
 		for(d in level.data.l_Entities.all_Document) new gm.en.int.DocumentItem(d);
 		for(d in level.data.l_Entities.all_Ally) new gm.en.Ally(d);
+		for(d in level.data.l_Entities.all_ScpItem) new gm.en.ScpItem(d);
 
 		for(d in level.data.l_Entities.all_Mob) {
 			if( d.f_triggerId<0 )
@@ -584,7 +585,7 @@ class Game extends Process {
 		}
 		else {
 			cd.unset("screenshot");
-			scroller.add(hero.spr, Const.DP_MAIN);
+			scroller.add(hero.spr, Const.DP_ENTITY_MAIN);
 		}
 	}
 

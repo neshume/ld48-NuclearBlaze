@@ -3179,7 +3179,8 @@
 								"id": "V_Bool",
 								"params": [ true ]
 							}]
-						}
+						},
+						{ "__identifier": "autoSlowMo", "__value": false, "__type": "Bool", "defUid": 627, "realEditorValues": [] }
 					]
 				},
 				{

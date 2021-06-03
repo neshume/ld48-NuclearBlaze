@@ -92,7 +92,6 @@ class Runner extends gm.en.Mob {
 				else {
 					if( !cd.hasSetS("jumpAtk",3) ) {
 						// Big jump
-						hud.notify("charge");
 						cd.setS("bumpResist",1.1);
 						chargeAction("jumpAtk",0.6, ()->{
 							dx = dir*0.2;
@@ -112,8 +111,10 @@ class Runner extends gm.en.Mob {
 
 			// Wandering small hops
 			if( !hasAggro() && onGround ) {
-				if( getDistToPlatformEnd(dir)<=0 )
+				if( getDistToPlatformEnd(dir)<=0 || !cd.has("changeDir")) {
+					cd.setS("changeDir",2);
 					dir*=-1;
+				}
 
 				dx = dir*0.12;
 				dy = -0.1;

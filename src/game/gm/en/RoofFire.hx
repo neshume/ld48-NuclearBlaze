@@ -30,7 +30,7 @@ class RoofFire extends Entity {
 	override function trigger() {
 		super.trigger();
 		level.ignite(cx,cy,2,1, true);
-		cd.setS("tick", rnd(0,2), true);
+		cd.setS("tick", rnd(1,6), true);
 	}
 
 	override function postUpdate() {

@@ -32,10 +32,10 @@ class Explosive extends Entity {
 		// game.scroller.add(spr,Const.DP_EXPLOSIVE);
 
 		tempBg = Assets.tiles.h_get(dict.explosiveTempBg, 0, 0.5,1);
-		game.scroller.add(tempBg, Const.DP_EXPLOSIVE);
+		game.scroller.add(tempBg, Const.DP_ENTITY_FRONT);
 
 		tempBar = Assets.tiles.h_get(dict.explosiveTempBar,0, 0.5,1);
-		game.scroller.add(tempBar, Const.DP_EXPLOSIVE);
+		game.scroller.add(tempBar, Const.DP_ENTITY_FRONT);
 
 		level.getFireState(cx,cy, true); // Force firestate here
 

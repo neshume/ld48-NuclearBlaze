@@ -1445,7 +1445,8 @@
 							}]
 						},
 						{ "__identifier": "explosion", "__value": true, "__type": "Bool", "defUid": 546, "realEditorValues": [] },
-						{ "__identifier": "grassTexture", "__value": false, "__type": "Bool", "defUid": 582, "realEditorValues": [] }
+						{ "__identifier": "grassTexture", "__value": false, "__type": "Bool", "defUid": 582, "realEditorValues": [] },
+						{ "__identifier": "autoSlowMo", "__value": false, "__type": "Bool", "defUid": 627, "realEditorValues": [] }
 					]
 				},
 				{

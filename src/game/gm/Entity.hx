@@ -242,7 +242,7 @@ class Entity {
 		fireState = new FireState();
 
         spr = new HSprite(Assets.tiles);
-		Game.ME.scroller.add(spr, Const.DP_MAIN);
+		Game.ME.scroller.add(spr, Const.DP_ENTITY_MAIN);
 		spr.colorAdd = new h3d.Vector();
 		baseColor = new h3d.Vector();
 		blinkColor = new h3d.Vector();

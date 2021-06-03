@@ -19,7 +19,7 @@ class Fly extends gm.en.Mob {
 
 		wings = Assets.mobs.h_getAndPlay(anims.flyWings, 999999);
 		wings.setCenterRatio(0.5,0.5);
-		game.scroller.add(wings, Const.DP_MOB);
+		game.scroller.add(wings, Const.DP_ENTITY_FRONT);
 		wings.alpha = 0.5;
 
 		spr.anim.registerStateAnim(anims.flyIdle, 0);

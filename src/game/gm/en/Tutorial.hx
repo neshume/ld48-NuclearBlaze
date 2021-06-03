@@ -19,7 +19,7 @@ class Tutorial extends Entity {
 		hei = data.height;
 
 		tf = new h2d.Text(Assets.fontSmall);
-		game.root.add(tf, Const.DP_MAIN);
+		game.root.add(tf, Const.DP_ENTITY_MAIN);
 		tf.text = data.f_text;
 		tf.textColor = data.f_color_int;
 		tf.maxWidth = data.width - data.f_padding*2;

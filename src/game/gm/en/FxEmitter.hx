@@ -102,6 +102,10 @@ class FxEmitter extends Entity {
 					if( isOnScreenBounds() && !cd.hasSetS("fx",0.3/data.f_customIntensity) )
 						fx.computerLights(data.pixelX, data.pixelY, data.width, data.height, data.f_customColor_int);
 
+				case GroundSparks:
+					if( isOnScreenBounds() && !cd.hasSetS("fx",0.09/data.f_customIntensity) )
+						fx.groundSparks(left, bottom, wid, data.f_customColor_int);
+
 				case Water:
 					if( isOnScreenBounds() ) {
 						if( !cd.hasSetS("bubbles",0.2/data.f_customIntensity) ) {
