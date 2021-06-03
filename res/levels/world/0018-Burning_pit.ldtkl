@@ -954,7 +954,8 @@
 								"id": "V_Bool",
 								"params": [ false ]
 							}]
-						}
+						},
+						{ "__identifier": "forceOpenDir", "__value": 0, "__type": "Int", "defUid": 621, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1245,7 +1246,8 @@
 						},
 						{ "__identifier": "requireLevelComplete", "__value": false, "__type": "Bool", "defUid": 88, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
-						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] }
+						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] },
+						{ "__identifier": "forceOpenDir", "__value": 0, "__type": "Int", "defUid": 621, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1449,7 +1451,8 @@
 							"defUid": 285,
 							"realEditorValues": [{ "id": "V_Int", "params": [0] }]
 						},
-						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] }
+						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] },
+						{ "__identifier": "forceOpenDir", "__value": 0, "__type": "Int", "defUid": 621, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1722,7 +1725,8 @@
 								"id": "V_Bool",
 								"params": [ false ]
 							}]
-						}
+						},
+						{ "__identifier": "forceOpenDir", "__value": 0, "__type": "Int", "defUid": 621, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1880,7 +1884,8 @@
 							"__type": "Bool",
 							"defUid": 402,
 							"realEditorValues": [null]
-						}
+						},
+						{ "__identifier": "forceOpenDir", "__value": 0, "__type": "Int", "defUid": 621, "realEditorValues": [] }
 					]
 				},
 				{

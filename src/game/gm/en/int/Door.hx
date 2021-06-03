@@ -80,6 +80,8 @@ class Door extends Entity {
 	}
 
 	public function open(openDir=1) {
+		if( data.f_forceOpenDir!=0 )
+			openDir = data.f_forceOpenDir;
 		closed = false;
 		dir = openDir;
 		level.clearFogUpdateDelay();
@@ -112,8 +114,11 @@ class Door extends Entity {
 			fx.flashBangS(0xff8800, 0.6, 0.3);
 			fx.doorExplosion(centerX, centerY, -openDir);
 
-			hero.bump(dirTo(hero)*0.2, -0.1);
-			hero.cd.setS("shield",0.75);
+			// Bump hero
+			if( hero.cy>=cTop-1 && hero.cy<=cBottom+1 ) {
+				hero.bump(dirTo(hero)*0.2, -0.1);
+				hero.cd.setS("shield",0.75);
+			}
 			if( !game.hasUpgrade(UpShield) )
 				hero.kill(this);
 

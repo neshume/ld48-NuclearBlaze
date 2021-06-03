@@ -48,7 +48,7 @@ class RoofFire extends Entity {
 		}
 
 		if( cd.has("announcing") && !cd.hasSetS("announceFx",0.06) )
-			fx.wreckAnnounce( (cx+rnd(0.2,0.8))*Const.GRID, top);
+			fx.wreckAnnounce( (cx+0.5)*Const.GRID, top, 1-cd.getRatio("announcing"));
 
 	}
 

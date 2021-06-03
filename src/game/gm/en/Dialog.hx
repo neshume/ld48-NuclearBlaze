@@ -45,10 +45,12 @@ class Dialog extends Entity {
 			// Detect parameters
 			var color : Null<Int> = null;
 			var radio = false;
+			var announce = false;
 			if( line.indexOf(">")>0 ) {
 				var params = line.split(">")[0].toLowerCase();
 				line = line.split(">")[1];
 				radio = params.indexOf("r")>=0;
+				announce = params.indexOf("a")>=0;
 				if( params.indexOf("+")>=0 )
 					color = 0xd6f264;
 				if( params.indexOf("!")>=0 )
@@ -58,7 +60,7 @@ class Dialog extends Entity {
 			// Polite variations
 			if( line.indexOf("|")>=0 )
 				line = StringTools.trim( line.split("|")[ game.polite ? 1 : 0] );
-			var durationS = radio ? hud.radio(line, color) : hero.say(line, color);
+			var durationS = radio ? hud.radio(line, color) : announce ? hud.announcement(line,color) : hero.say(line, color);
 			durationS*=0.75;
 			game.addSlowMo("say",1, 0.8);
 			if( lines.length==0 )

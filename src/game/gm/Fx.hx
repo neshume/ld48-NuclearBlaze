@@ -905,9 +905,22 @@ class Fx extends dn.Process {
 	}
 
 
-	public function wreckAnnounce(x:Float, y:Float) {
+	public function wreckAnnounce(x:Float, y:Float, ratio:Float) {
+		// Line
+		var p = allocBgAdd( getTile(dict.fxLineThinRight), x, y );
+		p.setCenterRatio(0,0.5);
+		p.setFadeS(0.6*ratio, 0, 0.06);
+		p.colorize(0xff0000);
+		p.scaleY = 3*ratio;
+		p.rotation = M.PIHALF;
+		var cx = Std.int(x/Const.GRID);
+		var cy = Std.int(y/Const.GRID)+1;
+		while( !level.hasAnyCollision(cx,cy) )
+			cy++;
+		p.scaleX = ( (cy+0.5)*Const.GRID - y ) / p.t.width;
+
 		// Dirt
-		var p = allocBgNormal( getTile(dict.fxDirt), x+rnd(0,1,true), y );
+		var p = allocBgNormal( getTile(dict.fxDirt), x+rnd(0,8,true), y );
 		p.setFadeS(rnd(0.8,1), 0.1, R.around(1));
 		p.colorize(0x0);
 		p.rotation = R.fullCircle();
@@ -920,7 +933,7 @@ class Fx extends dn.Process {
 		p.onUpdate = _dirtPhysics;
 
 		// Dust
-		var p = allocBgNormal( getTile(dict.pixel), x+rnd(0,1,true), y );
+		var p = allocBgNormal( getTile(dict.pixel), x+rnd(0,8,true), y );
 		p.setFadeS(rnd(0.7,1), 0, R.around(0.2));
 		p.colorize(0x0);
 		p.gy = rnd(0.2,0.3);
