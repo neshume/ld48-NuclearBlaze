@@ -46,10 +46,6 @@ class LogicAND extends Entity {
 
 	override function fixedUpdate() {
 		super.fixedUpdate();
-
-		#if debug
-		fx.markerCase(cx,cy, 0.06, active ? 0x00ff00 : 0xff0000);
-		#end
 	}
 
 }
