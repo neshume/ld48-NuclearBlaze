@@ -43,6 +43,7 @@ class Dialog extends Entity {
 			var line = rawLines.shift();
 
 			// Detect parameters
+			var durationMul = 0.75;
 			var color : Null<Int> = null;
 			var radio = false;
 			var announce = false;
@@ -58,15 +59,17 @@ class Dialog extends Entity {
 			}
 
 			// Announcement intro/outro
-			if( line.indexOf("%start")>=0 || line.indexOf("%end")>=0 )
+			if( line.indexOf("%start")>=0 || line.indexOf("%end")>=0 ) {
 				color = 0x7c8fff;
+				durationMul*=0.6;
+			}
 
 			// Polite variations
 			if( line.indexOf("|")>=0 )
 				line = StringTools.trim( line.split("|")[ game.polite ? 1 : 0] );
 			line = Lang.parseText(line);
 			var durationS = radio ? hud.radio(line, color) : announce ? hud.announcement(line, color) : hero.say(line, color);
-			durationS*=0.75;
+			durationS *= durationMul;
 			game.addSlowMo("say",1, 0.8);
 			if( rawLines.length==0 )
 				destroy();
