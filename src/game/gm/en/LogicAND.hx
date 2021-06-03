@@ -36,7 +36,6 @@ class LogicAND extends Entity {
 				break;
 			}
 		if( ok ) {
-			hud.notify("ok!");
 			for(e in Entity.ALL)
 				if( e.isAlive() && e.triggerId==data.f_outId )
 					e.trigger();

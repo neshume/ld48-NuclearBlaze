@@ -301,7 +301,7 @@ class Hud extends dn.Process {
 		tf.textColor = textColor;
 		tf.text = msg;
 		tf.lineSpacing = Const.db.PixelFontLineSpacing;
-		tf.maxWidth = w()/Const.UI_SCALE - 32*Const.UI_SCALE;
+		tf.maxWidth = w()/Const.UI_SCALE - 2*margin;
 		tf.setPosition(-margin-padX-tf.textWidth, padY);
 		tf.filter = new dn.heaps.filter.PixelOutline(0x0, 0.5);
 
