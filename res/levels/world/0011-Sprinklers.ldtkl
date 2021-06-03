@@ -1276,7 +1276,13 @@
 								"params": ["South"]
 							}]
 						},
-						{ "__identifier": "oscillation", "__value": 1, "__type": "Float", "defUid": 624, "realEditorValues": [] }
+						{
+							"__identifier": "oscillation",
+							"__value": 0.5,
+							"__type": "Float",
+							"defUid": 624,
+							"realEditorValues": [{ "id": "V_Float", "params": [0.5] }]
+						}
 					]
 				},
 				{

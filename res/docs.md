@@ -10,7 +10,7 @@ SCP-%% is permanently burning and cannot be extinguished by any known mean.
 # scpReport2
 This document can only be read with clearance level 4 or **
 ---
-SCP-%% is currently contained in a fire-proof reinforced concrete room on Site **. It must be maintained under a constant stream of cold water (Pump A, ~9°C) and any flammable object must be kept away from it (16 meters min.). Water pumps B and C must be kept Online at ALL times as backups.
+SCP-%% is currently contained in a fire-proof reinforced concrete room on Site **. It must be maintained under a constant stream of cold water (Pump A, ~9°C) and any flammable object must be kept away from it (16 meters min.). Water pumps B and C must be kept ONLINE at ALL times as backups.
 
 # unused
 SCP-%% was first located during **** store fire on July *** 19**. The reasons SCP-%% started to show anomalous behaviors is still under investigation.

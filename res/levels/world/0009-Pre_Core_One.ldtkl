@@ -1475,11 +1475,12 @@
 							"__identifier": "lines",
 							"__value": [
 								"A>%start",
-								"A>Fire detected in sector 1",
-								"A>Fire detected in sector 3",
-								"A>Fire detected in sector 4",
 								"A>Fire detected in sector 5",
-								"A!>Containment compromised.",
+								"A>...sector 6",
+								"A>...sector 7",
+								"A>...sector 8",
+								"A!>[ERROR] Too many sectors",
+								"A>Containment compromised.",
 								"A>%end"
 							],
 							"__type": "Array<String>",
@@ -1491,23 +1492,27 @@
 								},
 								{
 									"id": "V_String",
-									"params": ["A>Fire detected in sector 1"]
-								},
-								{
-									"id": "V_String",
-									"params": ["A>Fire detected in sector 3"]
-								},
-								{
-									"id": "V_String",
-									"params": ["A>Fire detected in sector 4"]
-								},
-								{
-									"id": "V_String",
 									"params": ["A>Fire detected in sector 5"]
 								},
 								{
 									"id": "V_String",
-									"params": ["A!>Containment compromised."]
+									"params": ["A>...sector 6"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>...sector 7"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>...sector 8"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A!>[ERROR] Too many sectors"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>Containment compromised."]
 								},
 								{
 									"id": "V_String",
@@ -1525,7 +1530,13 @@
 							"defUid": 462,
 							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
 						},
-						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
+						{
+							"__identifier": "readSpeedFactor",
+							"__value": 1.2,
+							"__type": "Float",
+							"defUid": 480,
+							"realEditorValues": [{ "id": "V_Float", "params": [1.2] }]
+						}
 					]
 				},
 				{
@@ -1628,6 +1639,53 @@
 						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] },
 						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
 						{ "__identifier": "silent", "__value": false, "__type": "Bool", "defUid": 567, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [4,11],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [72,192],
+					"fieldInstances": [
+						{
+							"__identifier": "startInv",
+							"__value": [ "GreenCard", "BlueCard" ],
+							"__type": "Array<LocalEnum.Items>",
+							"defUid": 281,
+							"realEditorValues": [ {
+								"id": "V_String",
+								"params": ["GreenCard"]
+							}, {
+								"id": "V_String",
+								"params": ["BlueCard"]
+							} ]
+						},
+						{
+							"__identifier": "unlockAllUpgrades",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 282,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "shieldDurationS",
+							"__value": 3,
+							"__type": "Int",
+							"defUid": 380,
+							"realEditorValues": [null]
+						},
+						{ "__identifier": "water", "__value": 1, "__type": "Float", "defUid": 545, "realEditorValues": [] },
+						{
+							"__identifier": "initialFastFall",
+							"__value": 0,
+							"__type": "Float",
+							"defUid": 584,
+							"realEditorValues": [null]
+						}
 					]
 				}
 			]

@@ -800,7 +800,13 @@
 								"params": ["East"]
 							}]
 						},
-						{ "__identifier": "oscillation", "__value": 1, "__type": "Float", "defUid": 624, "realEditorValues": [] }
+						{
+							"__identifier": "oscillation",
+							"__value": 0,
+							"__type": "Float",
+							"defUid": 624,
+							"realEditorValues": [{ "id": "V_Float", "params": [0] }]
+						}
 					]
 				},
 				{
@@ -872,7 +878,13 @@
 								"params": ["East"]
 							}]
 						},
-						{ "__identifier": "oscillation", "__value": 1, "__type": "Float", "defUid": 624, "realEditorValues": [] }
+						{
+							"__identifier": "oscillation",
+							"__value": 0,
+							"__type": "Float",
+							"defUid": 624,
+							"realEditorValues": [{ "id": "V_Float", "params": [0] }]
+						}
 					]
 				},
 				{

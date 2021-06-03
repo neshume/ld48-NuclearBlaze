@@ -69,7 +69,7 @@ class Dialog extends Entity {
 				line = StringTools.trim( line.split("|")[ game.polite ? 1 : 0] );
 			line = Lang.parseText(line);
 			var durationS = radio ? hud.radio(line, color) : announce ? hud.announcement(line, color) : hero.say(line, color);
-			durationS *= durationMul;
+			durationS *= durationMul / data.f_readSpeedFactor;
 			game.addSlowMo("say",1, 0.8);
 			if( rawLines.length==0 )
 				destroy();
