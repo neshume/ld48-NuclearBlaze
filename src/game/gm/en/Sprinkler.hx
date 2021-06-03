@@ -5,7 +5,7 @@ class Sprinkler extends Entity {
 
 	public var data : Entity_Sprinkler;
 	var active : Bool;
-	var shootIdx : Int;
+	var oscillateCpt : Float;
 	var ang : Float;
 
 	public function new(d:Entity_Sprinkler) {
@@ -24,7 +24,7 @@ class Sprinkler extends Entity {
 		gravityMul = 0;
 		collides = false;
 		active = data.f_startActive;
-		shootIdx = irnd(0,100);
+		oscillateCpt = rnd(0,100) * data.f_oscillation;
 		pivotY = 0.5;
 
 
@@ -75,18 +75,19 @@ class Sprinkler extends Entity {
 			for(oy in -1...2)
 			for(ox in -1...2)
 				level.decreaseFire(cx+ox, cy+oy, 0.5);
-			if( !cd.hasSetS("bullet", 0.15) ) {
-				for(i in 0...2) {
+			if( !cd.hasSetS("bullet", 0.225) ) {
+				final n = 3;
+				for(i in 0...n) {
 					var b = new gm.en.bu.WaterDrop(
 						centerX+Math.cos(ang)*4,
 						centerY+Math.sin(ang)*4,
-						ang - 0.5 * Math.cos(shootIdx*0.3 + i*0.7)
+						ang - 0.5*Math.sin(oscillateCpt)*data.f_oscillation - 0.15+0.3*Math.sin( M.PIHALF*(i/(n)) )
 					);
 					b.delayS( rnd(0,0.1) );
 					b.power = 1.5;
 					b.ignoreResist = true;
 				}
-				shootIdx++;
+				oscillateCpt += 0.45;
 			}
 		}
 	}

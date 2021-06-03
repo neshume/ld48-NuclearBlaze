@@ -11,7 +11,7 @@
 	"identifier": "Burning_pit",
 	"uid": 465,
 	"worldX": 0,
-	"worldY": 11488,
+	"worldY": 12192,
 	"pxWid": 784,
 	"pxHei": 1456,
 	"__bgColor": "#242D34",
@@ -1123,7 +1123,8 @@
 								"id": "V_String",
 								"params": ["South"]
 							}]
-						}
+						},
+						{ "__identifier": "oscillation", "__value": 1, "__type": "Float", "defUid": 624, "realEditorValues": [] }
 					]
 				},
 				{

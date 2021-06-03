@@ -505,7 +505,8 @@
 								"id": "V_String",
 								"params": ["East"]
 							}]
-						}
+						},
+						{ "__identifier": "oscillation", "__value": 1, "__type": "Float", "defUid": 624, "realEditorValues": [] }
 					]
 				},
 				{
@@ -567,7 +568,8 @@
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
 						},
-						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] },
+						{ "__identifier": "oscillation", "__value": 1, "__type": "Float", "defUid": 624, "realEditorValues": [] }
 					]
 				},
 				{
@@ -797,7 +799,8 @@
 								"id": "V_String",
 								"params": ["East"]
 							}]
-						}
+						},
+						{ "__identifier": "oscillation", "__value": 1, "__type": "Float", "defUid": 624, "realEditorValues": [] }
 					]
 				},
 				{
@@ -868,7 +871,8 @@
 								"id": "V_String",
 								"params": ["East"]
 							}]
-						}
+						},
+						{ "__identifier": "oscillation", "__value": 1, "__type": "Float", "defUid": 624, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1047,7 +1051,8 @@
 								"id": "V_String",
 								"params": ["West"]
 							}]
-						}
+						},
+						{ "__identifier": "oscillation", "__value": 1, "__type": "Float", "defUid": 624, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1077,7 +1082,8 @@
 								"id": "V_String",
 								"params": ["West"]
 							}]
-						}
+						},
+						{ "__identifier": "oscillation", "__value": 1, "__type": "Float", "defUid": 624, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2196,7 +2202,8 @@
 								"id": "V_String",
 								"params": ["North"]
 							}]
-						}
+						},
+						{ "__identifier": "oscillation", "__value": 1, "__type": "Float", "defUid": 624, "realEditorValues": [] }
 					]
 				},
 				{
@@ -3847,7 +3854,8 @@
 							"defUid": 377,
 							"realEditorValues": [{ "id": "V_Int", "params": [2] }]
 						},
-						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] }
+						{ "__identifier": "dir", "__value": null, "__type": "LocalEnum.Direction", "defUid": 405, "realEditorValues": [] },
+						{ "__identifier": "oscillation", "__value": 1, "__type": "Float", "defUid": 624, "realEditorValues": [] }
 					]
 				},
 				{

@@ -1336,7 +1336,8 @@
 								"id": "V_String",
 								"params": ["East"]
 							}]
-						}
+						},
+						{ "__identifier": "oscillation", "__value": 1, "__type": "Float", "defUid": 624, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1372,7 +1373,8 @@
 								"id": "V_String",
 								"params": ["West"]
 							}]
-						}
+						},
+						{ "__identifier": "oscillation", "__value": 1, "__type": "Float", "defUid": 624, "realEditorValues": [] }
 					]
 				},
 				{
