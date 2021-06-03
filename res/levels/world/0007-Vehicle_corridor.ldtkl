@@ -4194,6 +4194,78 @@
 						},
 						{ "__identifier": "selfTriggerOnTouch", "__value": false, "__type": "Bool", "defUid": 547, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "Dialog",
+					"__grid": [2,5],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 58,
+					"px": [40,88],
+					"fieldInstances": [
+						{
+							"__identifier": "lines",
+							"__value": [
+								"A>%start",
+								"A>Fire detected in sector 1",
+								"A>Fire detected in sector 3",
+								"A>Fire detected in sector 4",
+								"A>Fire detected in sector 6",
+								"A>Fire detected in sector 7",
+								"A>Containment comprimised.",
+								"A>%end"
+							],
+							"__type": "Array<String>",
+							"defUid": 59,
+							"realEditorValues": [
+								{
+									"id": "V_String",
+									"params": ["A>%start"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>Fire detected in sector 1"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>Fire detected in sector 3"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>Fire detected in sector 4"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>Fire detected in sector 6"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>Fire detected in sector 7"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>Containment comprimised."]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>%end"]
+								}
+							]
+						},
+						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{
+							"__identifier": "startDelay",
+							"__value": 1,
+							"__type": "Float",
+							"defUid": 462,
+							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
+						},
+						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
+					]
 				}
 			]
 		},

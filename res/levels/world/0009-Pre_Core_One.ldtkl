@@ -148,39 +148,6 @@
 					]
 				},
 				{
-					"__identifier": "Dialog",
-					"__grid": [11,12],
-					"__pivot": [0.5,0.5],
-					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
-					"width": 16,
-					"height": 16,
-					"defUid": 58,
-					"px": [184,200],
-					"fieldInstances": [
-						{
-							"__identifier": "lines",
-							"__value": ["Central, things are really weird down here, requesting backup."],
-							"__type": "Array<String>",
-							"defUid": 59,
-							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Central, things are really weird down here, requesting backup."]
-							}]
-						},
-						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
-						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
-						{
-							"__identifier": "startDelay",
-							"__value": 0.6,
-							"__type": "Float",
-							"defUid": 462,
-							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
-						},
-						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
-					]
-				},
-				{
 					"__identifier": "Light",
 					"__grid": [17,9],
 					"__pivot": [0.5,0.5],
@@ -1003,15 +970,18 @@
 						{ "__identifier": "requiredItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 25, "realEditorValues": [] },
 						{
 							"__identifier": "requireLevelComplete",
-							"__value": true,
+							"__value": false,
 							"__type": "Bool",
 							"defUid": 88,
-							"realEditorValues": [{
-								"id": "V_Bool",
-								"params": [ true ]
-							}]
+							"realEditorValues": [null]
 						},
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 285, "realEditorValues": [] },
+						{
+							"__identifier": "triggerId",
+							"__value": 20,
+							"__type": "Int",
+							"defUid": 285,
+							"realEditorValues": [{ "id": "V_Int", "params": [20] }]
+						},
 						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] },
 						{ "__identifier": "forceOpenDir", "__value": 0, "__type": "Int", "defUid": 621, "realEditorValues": [] }
 					]
@@ -1490,6 +1460,210 @@
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 564, "realEditorValues": [] },
 						{ "__identifier": "startActive", "__value": true, "__type": "Bool", "defUid": 565, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "Dialog",
+					"__grid": [2,11],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 58,
+					"px": [40,184],
+					"fieldInstances": [
+						{
+							"__identifier": "lines",
+							"__value": [
+								"A>%start",
+								"A>Fire detected in sector 1",
+								"A>Fire detected in sector 3",
+								"A>Fire detected in sector 4",
+								"A>Fire detected in sector 5",
+								"A!>Containment compromised.",
+								"A>%end"
+							],
+							"__type": "Array<String>",
+							"defUid": 59,
+							"realEditorValues": [
+								{
+									"id": "V_String",
+									"params": ["A>%start"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>Fire detected in sector 1"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>Fire detected in sector 3"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>Fire detected in sector 4"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>Fire detected in sector 5"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A!>Containment compromised."]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>%end"]
+								}
+							]
+						},
+						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{
+							"__identifier": "startDelay",
+							"__value": 1,
+							"__type": "Float",
+							"defUid": 462,
+							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
+						},
+						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [1,11],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [24,192],
+					"fieldInstances": [
+						{ "__identifier": "startInv", "__value": [], "__type": "Array<LocalEnum.Items>", "defUid": 281, "realEditorValues": [] },
+						{
+							"__identifier": "unlockAllUpgrades",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 282,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "shieldDurationS",
+							"__value": 3,
+							"__type": "Int",
+							"defUid": 380,
+							"realEditorValues": [null]
+						},
+						{ "__identifier": "water", "__value": 1, "__type": "Float", "defUid": 545, "realEditorValues": [] },
+						{
+							"__identifier": "initialFastFall",
+							"__value": 0,
+							"__type": "Float",
+							"defUid": 584,
+							"realEditorValues": [null]
+						}
+					]
+				},
+				{
+					"__identifier": "Trigger",
+					"__grid": [54,8],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [32,176,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 179,
+					"px": [872,136],
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 20,
+							"__type": "Int",
+							"defUid": 180,
+							"realEditorValues": [{ "id": "V_Int", "params": [20] }]
+						},
+						{
+							"__identifier": "type",
+							"__value": "Valve",
+							"__type": "LocalEnum.TriggerType",
+							"defUid": 182,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["Valve"]
+							}]
+						},
+						{
+							"__identifier": "gateHoldTime",
+							"__value": 1.5,
+							"__type": "Float",
+							"defUid": 288,
+							"realEditorValues": [{ "id": "V_Float", "params": [1.5] }]
+						},
+						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
+						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
+						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] },
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
+						{ "__identifier": "silent", "__value": false, "__type": "Bool", "defUid": 567, "realEditorValues": [] }
+					]
+				},
+				{
+					"__identifier": "FogPiercer",
+					"__grid": [53,7],
+					"__pivot": [0,0],
+					"__tile": null,
+					"width": 48,
+					"height": 48,
+					"defUid": 374,
+					"px": [848,112],
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 21,
+							"__type": "Int",
+							"defUid": 446,
+							"realEditorValues": [{ "id": "V_Int", "params": [21] }]
+						},
+						{
+							"__identifier": "selfTriggerOnTouch",
+							"__value": false,
+							"__type": "Bool",
+							"defUid": 547,
+							"realEditorValues": [null]
+						}
+					]
+				},
+				{
+					"__identifier": "Trigger",
+					"__grid": [52,11],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [0,240,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 179,
+					"px": [840,184],
+					"fieldInstances": [
+						{
+							"__identifier": "triggerId",
+							"__value": 21,
+							"__type": "Int",
+							"defUid": 180,
+							"realEditorValues": [{ "id": "V_Int", "params": [21] }]
+						},
+						{
+							"__identifier": "type",
+							"__value": "InvisibleGate",
+							"__type": "LocalEnum.TriggerType",
+							"defUid": 182,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["InvisibleGate"]
+							}]
+						},
+						{ "__identifier": "gateHoldTime", "__value": 2, "__type": "Float", "defUid": 288, "realEditorValues": [] },
+						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 290, "realEditorValues": [] },
+						{ "__identifier": "fxColor", "__value": "#FFCC00", "__type": "Color", "defUid": 381, "realEditorValues": [] },
+						{ "__identifier": "invisibleRadius", "__value": 0, "__type": "Float", "defUid": 435, "realEditorValues": [] },
+						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
+						{ "__identifier": "silent", "__value": false, "__type": "Bool", "defUid": 567, "realEditorValues": [] }
+					]
 				}
 			]
 		},
@@ -1678,11 +1852,11 @@
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -1699,7 +1873,11 @@
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0
 			],
-			"autoLayerTiles": [],
+			"autoLayerTiles": [
+				{ "px": [864,144], "src": [0,304], "f": 0, "t": 760, "d": [388,576] },
+				{ "px": [864,128], "src": [48,304], "f": 0, "t": 763, "d": [389,518] },
+				{ "px": [864,160], "src": [48,304], "f": 2, "t": 763, "d": [389,634] }
+			],
 			"seed": 3582109,
 			"overrideTilesetUid": null,
 			"gridTiles": [],
@@ -2126,7 +2304,7 @@
 				0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-				0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,1,2,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,
@@ -3211,8 +3389,12 @@
 				{ "px": [800,192], "src": [128,0], "f": 0, "t": 8, "d": [33,746] },
 				{ "px": [816,192], "src": [112,0], "f": 0, "t": 7, "d": [33,747] },
 				{ "px": [832,192], "src": [128,0], "f": 0, "t": 8, "d": [33,748] },
+				{ "px": [784,144], "src": [96,0], "f": 0, "t": 6, "d": [51,571] },
+				{ "px": [848,144], "src": [96,0], "f": 0, "t": 6, "d": [51,575] },
 				{ "px": [784,192], "src": [96,0], "f": 0, "t": 6, "d": [51,745] },
 				{ "px": [848,192], "src": [96,0], "f": 1, "t": 6, "d": [51,749] },
+				{ "px": [784,144], "src": [144,0], "f": 1, "t": 9, "d": [52,571] },
+				{ "px": [848,144], "src": [144,0], "f": 0, "t": 9, "d": [52,575] },
 				{ "px": [784,192], "src": [144,0], "f": 1, "t": 9, "d": [52,745] },
 				{ "px": [848,192], "src": [144,0], "f": 0, "t": 9, "d": [52,749] }
 			],

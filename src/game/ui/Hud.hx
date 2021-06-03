@@ -269,10 +269,11 @@ class Hud extends dn.Process {
 		}
 	}
 
-	public function announcement(msg:String, color=0x4a5462) {
+	public function announcement(msg:String, color=0x4fcb7c) {
+		var textColor = color;
+		var bubbleColor = C.toBlack(color,0.5);
+		var linkColor = C.hexToInt("#8b93af");
 		clearAnnouncement();
-
-		var right = 32;
 
 		var wrapper = new h2d.Object(root);
 		lastAnnounce = wrapper;
@@ -282,25 +283,37 @@ class Hud extends dn.Process {
 		var mic = Assets.tiles.h_get(dict.announcementMic,0, 0.5,0.5, wrapper);
 		mic.setPosition(-Std.int(mic.tile.width*0.5), Std.int(mic.tile.height*0.5));
 
-		var bubble = new h2d.ScaleGrid( Assets.tiles.getTile(Assets.tilesDict.radioBubble), 4,4, wrapper );
+		var margin = mic.tile.width+6;
+
+		var bubble = new h2d.ScaleGrid( Assets.tiles.getTile(Assets.tilesDict.announceBubble), 7,7, wrapper );
 		bubble.tileBorders = true;
-		var pad = 8;
-		bubble.color.setColor( C.addAlphaF(color) );
+		var padX = 8;
+		var padY = 4;
+		bubble.color.setColor( C.addAlphaF(bubbleColor) );
+		bubble.blendMode = Add;
+		bubble.alpha = 0.7;
 
 		var link = Assets.tiles.h_get(dict.radioBubbleLink,0, 1, 0.5, wrapper);
-		link.colorize(color);
+		link.colorize(linkColor);
+		link.scaleX = -1;
 
 		var tf = new h2d.Text(Assets.fontPixel, wrapper);
-		tf.setPosition(pad+right,pad);
+		tf.textColor = textColor;
 		tf.text = msg;
 		tf.lineSpacing = Const.db.PixelFontLineSpacing;
 		tf.maxWidth = w()/Const.UI_SCALE - 32*Const.UI_SCALE;
+		tf.setPosition(-margin-padX-tf.textWidth, padY);
+		tf.filter = new dn.heaps.filter.PixelOutline(0x0, 0.5);
 
-		bubble.x = -right-tf.textWidth;
-		bubble.width = pad*2 + tf.textWidth;
-		bubble.height = pad*2 + tf.textHeight-4;
-		link.x = bubble.x+8;
-		link.y = Std.int(bubble.height*0.5);
+		bubble.width = padX*2 + tf.textWidth;
+		bubble.height = padY*2 + tf.textHeight-4;
+		bubble.x = -margin-bubble.width;
+		link.x = bubble.x + bubble.width - padX + 6;
+		link.y = Std.int(bubble.height*0.5 + padY);
+
+		var bubbleTop = new h2d.ScaleGrid( Assets.tiles.getTile(Assets.tilesDict.announceBubbleTop), 7,7, wrapper );
+		bubbleTop.width = bubble.width;
+		bubbleTop.height = bubble.height;
 
 		cd.setS("radioBubbleShaking",0.4);
 		cd.setS("keepRadio", 3 + msg.length*0.05, true);
@@ -311,8 +324,8 @@ class Hud extends dn.Process {
 				return;
 			}
 			wrapper.scaleX += (1-wrapper.scaleX ) * M.fmin(1, 0.2*tmod);
-			wrapper.x = 3;
-			wrapper.y = 24;
+			wrapper.x = w()/Const.UI_SCALE-3;
+			wrapper.y = 10;
 			if( cd.has("radioMicTalking") &&!cd.has("radioMicShakingLock") ) {
 				cd.setS("radioMicShaking", rnd(0.2,0.4));
 				cd.setS("radioMicShakingLock", rnd(0.2,0.5),true);
@@ -321,8 +334,9 @@ class Hud extends dn.Process {
 				mic.setScale( mic.scaleX + (1-mic.scaleX)*0.3 );
 			else
 				mic.setScale( 1.1 + 0.1 * cd.getRatio("radioMicShaking") * Math.sin(1+ftime*2.8) );
-			// mic.y = 1 * cd.getRatio("radioMicShaking") * Math.sin(1+ftime*2.8);
 			bubble.y = 3 + 2 * cd.getRatio("radioBubbleShaking")*Math.sin(2+ftime*2.8);
+			bubbleTop.x = bubble.x;
+			bubbleTop.y = bubble.y;
 
 			if( !cd.has("keepRadio") ) {
 				wrapper.alpha -= 0.03*tmod;

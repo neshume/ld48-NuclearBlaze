@@ -2,14 +2,14 @@ package gm.en;
 
 class Dialog extends Entity {
 	var data : Entity_Dialog;
-	var lines : Array<String>;
+	var rawLines : Array<String>;
 
 	var started = false;
 
 	public function new(d:Entity_Dialog) {
 		super(0,0);
 		data = d;
-		lines = data.f_lines.map( raw->Lang.parseText(raw) );
+		rawLines = data.f_lines.copy();
 		triggerId = data.f_triggerId;
 		setPosPixel(d.pixelX, d.pixelY);
 		gravityMul = 0;
@@ -36,11 +36,11 @@ class Dialog extends Entity {
 	override function fixedUpdate() {
 		super.fixedUpdate();
 
-		if( !started && hero.isAlive() && distCase(hero)<=data.f_selfTriggerDist && ( !data.f_needSight || sightCheck(hero) ) )
+		if( triggerId<0 && !started && hero.isAlive() && distCase(hero)<=data.f_selfTriggerDist && ( !data.f_needSight || sightCheck(hero) ) )
 			trigger();
 
 		if( started && !cd.has("nextLine") ) {
-			var line = lines.shift();
+			var line = rawLines.shift();
 
 			// Detect parameters
 			var color : Null<Int> = null;
@@ -57,13 +57,18 @@ class Dialog extends Entity {
 					color = 0xdf3e23;
 			}
 
+			// Announcement intro/outro
+			if( line.indexOf("%start")>=0 || line.indexOf("%end")>=0 )
+				color = 0x7c8fff;
+
 			// Polite variations
 			if( line.indexOf("|")>=0 )
 				line = StringTools.trim( line.split("|")[ game.polite ? 1 : 0] );
-			var durationS = radio ? hud.radio(line, color) : announce ? hud.announcement(line,color) : hero.say(line, color);
+			line = Lang.parseText(line);
+			var durationS = radio ? hud.radio(line, color) : announce ? hud.announcement(line, color) : hero.say(line, color);
 			durationS*=0.75;
 			game.addSlowMo("say",1, 0.8);
-			if( lines.length==0 )
+			if( rawLines.length==0 )
 				destroy();
 			else
 				cd.setS("nextLine",durationS);

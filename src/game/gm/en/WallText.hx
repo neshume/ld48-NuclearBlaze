@@ -83,7 +83,7 @@ class WallText extends Entity {
 		if( data.f_style==ComputerScreen ) {
 			if( !cd.hasSetS("flickerLock",rnd(1,3)) )
 				cd.setS("flickering",rnd(0.2,0.7));
-			spr.alpha = ( cd.has("flickering") ? 0.3 : 0.8 ) + rnd(0,0.2,true);
+			spr.alpha = ( cd.has("flickering") ? 0.5 : 0.8 ) + rnd(0,0.15,true);
 		}
 	}
 }

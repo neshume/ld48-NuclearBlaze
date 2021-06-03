@@ -4850,6 +4850,63 @@
 						{ "__identifier": "canExplode", "__value": true, "__type": "Bool", "defUid": 402, "realEditorValues": [] },
 						{ "__identifier": "forceOpenDir", "__value": 0, "__type": "Int", "defUid": 621, "realEditorValues": [] }
 					]
+				},
+				{
+					"__identifier": "Dialog",
+					"__grid": [6,19],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 58,
+					"px": [104,312],
+					"fieldInstances": [
+						{
+							"__identifier": "lines",
+							"__value": [
+								"A>%start",
+								"A>Pumps offline.",
+								"A>Containment compromised.",
+								"A>[UNDEFINED] required immediately.",
+								"A>%end"
+							],
+							"__type": "Array<String>",
+							"defUid": 59,
+							"realEditorValues": [
+								{
+									"id": "V_String",
+									"params": ["A>%start"]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>Pumps offline."]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>Containment compromised."]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>[UNDEFINED] required immediately."]
+								},
+								{
+									"id": "V_String",
+									"params": ["A>%end"]
+								}
+							]
+						},
+						{ "__identifier": "selfTriggerDist", "__value": 3, "__type": "Float", "defUid": 62, "realEditorValues": [] },
+						{ "__identifier": "needSight", "__value": true, "__type": "Bool", "defUid": 68, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 438, "realEditorValues": [] },
+						{
+							"__identifier": "startDelay",
+							"__value": 1,
+							"__type": "Float",
+							"defUid": 462,
+							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
+						},
+						{ "__identifier": "readSpeedFactor", "__value": 1, "__type": "Float", "defUid": 480, "realEditorValues": [] }
+					]
 				}
 			]
 		},
