@@ -126,7 +126,10 @@ class Explosive extends Entity {
 		}
 		else {
 			tfX = centerX + data.f_tempDir*3;
-			tfY = top-4;
+			if( attachY<=camera.top+32 )
+				tfY = bottom+10;
+			else
+				tfY = top-4;
 			pointer.visible = false;
 			pointer.alpha = 0;
 		}
