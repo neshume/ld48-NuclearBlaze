@@ -1294,6 +1294,78 @@ class Fx extends dn.Process {
 		}
 	}
 
+	function _trackEntity(p:HParticle) {
+		var e : Entity = cast p.userData;
+		p.x = e.sprX + ( M.isValidNumber(p.data0) ? p.data0 : 0 );
+		p.y = e.sprY + ( M.isValidNumber(p.data1) ? p.data1 : 0 );
+	}
+
+	public inline function armor(e:Entity) {
+		// Bubble
+		var p = allocTopAdd(getTile(dict.fxArmor), 0,0);
+		p.setFadeS(0.15, 0.06, 0.1);
+		p.colorize(0x2c73e7);
+		p.lifeS = 0.06;
+		p.scaleX = 1 + 0.14*Math.sin(ftime*0.17);
+		p.scaleY = 1 - 0.14*Math.sin(ftime*0.17);
+		p.userData = e;
+		p.data1 = -e.hei*0.5-2;
+		p.onUpdate = _trackEntity;
+
+		// Lines
+		final d = 13;
+		for(i in 0...2) {
+			var a = R.fullCircle();
+			var p = allocTopAdd(getTile(dict.fxFlame), 0,0);
+			p.setCenterRatio(0.5,0.8);
+			p.setFadeS(0.9, 0.1, 0.2);
+			p.colorize(0x2c73e7);
+
+			p.scaleY = R.around(0.5);
+			p.rotation = a-M.PIHALF;
+
+			p.userData = e;
+			p.data0 = Math.cos(a)*d;
+			p.data1 = Math.sin(a)*d - e.hei*0.5;
+			p.onUpdate = _trackEntity;
+			p.lifeS = 0.1;
+		}
+	}
+
+	public function armorLost(x:Float, y:Float) {
+		// Lines
+		var n = 40;
+		for(i in 0...n) {
+			var a = (i+1)/n * M.PI2;
+			var d = rnd(3,6);
+			var p = allocTopAdd(getTile(dict.fxLineThinLeft), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.colorize(0x50ccff);
+			p.scaleX = R.around(0.2);
+			p.moveAng(a, rnd(4,5));
+			p.rotation = a;
+			p.autoRotateSpeed = 0.9;
+			p.gy = R.around(0.07);
+			p.frict = R.aroundBO(0.82);
+			p.scaleXMul = R.aroundBO(0.92);
+			p.lifeS = R.around(0.7);
+		}
+
+		// Inner
+		var n = 11;
+		for(i in 0...n) {
+			var a = (i+1)/n * M.PI2;
+			var d = rnd(3,6);
+			var p = allocTopAdd(getTile(dict.fxWaterSurface), x+Math.cos(a)*d, y+Math.sin(a)*d);
+			p.colorize(0x50ccff);
+			p.moveAng(a, rnd(4,5));
+			p.rotation = a+M.PIHALF;
+			p.frict = 0.68;
+			p.scaleY = R.around(1.2);
+			p.scaleYMul = R.aroundBO(0.96);
+			p.lifeS = R.around(0.2);
+		}
+	}
+
 	public inline function lightSmoke(x:Float,y:Float, c:UInt) {
 		var p = allocBgAdd( getTile(dict.fxSmoke), x+rnd(8,20,true), y+rnd(8,20,true) );
 		p.setFadeS(R.around(0.1), rnd(0.4,0.6), rnd(0.8,1));

@@ -151,6 +151,18 @@ class Hero extends gm.Entity {
 	}
 
 	override function hit(dmg:Int, ?from:Entity) {
+		// Armor loss
+		if( hasItem(Armor) ) {
+			removeItem(Armor);
+			fx.flashBangS(0x2c73e7, 0.5, 0.3);
+			camera.bumpZoom(0.2);
+			fx.armorLost(centerX, centerY);
+			game.addSlowMo("armorLostStart", 0.3, 0.2);
+			game.addSlowMo("armorLost", 1, 0.5);
+			setShield(1);
+			return;
+		}
+
 		if( canBeHit() )
 			super.hit(dmg, from);
 	}
@@ -167,12 +179,12 @@ class Hero extends gm.Entity {
 		setShield(Const.db.HeroHitShield);
 	}
 
-	public inline function canBeHit() return isAlive() && !cd.has("shield") && !isDodging();
+	public inline function canBeHit() return isAlive() && !cd.has("shield") && !isDodging() ;
 	public inline function setShield(t:Float, blink=true) {
 		if( isAlive() ) {
 			cd.setS("shield", t, false);
 			if( blink )
-				cd.setS("blinking",t);
+				cd.setS("shieldBlinking",t);
 		}
 	}
 
@@ -442,7 +454,7 @@ class Hero extends gm.Entity {
 		if( cd.has("burning") && !cd.hasSetS("flame",0.16) )
 			fx.flame(centerX, centerY);
 
-		if( isAlive() && cd.has("blinking") && !cd.hasSetS("blinkTick",0.2) )
+		if( isAlive() && cd.has("shieldBlinking") && !cd.hasSetS("blinkTick",0.1) )
 			blink(0xffffff);
 
 		if( !isAlive() && !onGround && !cd.hasSetS("deathBlink",0.15) )
@@ -492,6 +504,10 @@ class Hero extends gm.Entity {
 			spr.alpha = 0.66;
 		else
 			spr.alpha = 1;
+
+
+		if( hasItem(Armor) && !cd.hasSetS("armorFx",0.03) )
+			fx.armor(this);
 
 		// Dodge braking fx
 		if( isDodging() && onGround && getDodgeRatio()>=Const.db.DodgeEndRatio && !cd.hasSetS("dodgeDustFx",0.03) ) {

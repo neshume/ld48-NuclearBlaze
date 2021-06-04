@@ -27,6 +27,7 @@ class Item extends Entity {
 		return switch k {
 			case Key, GreenCard, BlueCard: false;
 			case SpareValve: false;
+			case Armor: false;
 			case WaterSpray: true;
 			case UpWaterLadder: true;
 			case UpWaterUp: true;
