@@ -1844,7 +1844,8 @@
 							"defUid": 494,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.6] }]
 						},
-						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] }
+						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] },
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1921,7 +1922,8 @@
 						{ "__identifier": "power", "__value": 0, "__type": "Float", "defUid": 491, "realEditorValues": [] },
 						{ "__identifier": "selfTriggerDist", "__value": 0, "__type": "Float", "defUid": 493, "realEditorValues": [] },
 						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 494, "realEditorValues": [] },
-						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] }
+						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] },
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1962,7 +1964,8 @@
 							"defUid": 494,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.8] }]
 						},
-						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] }
+						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] },
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2003,7 +2006,8 @@
 							"defUid": 494,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.3] }]
 						},
-						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] }
+						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] },
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2056,7 +2060,8 @@
 							"__type": "Float",
 							"defUid": 495,
 							"realEditorValues": [{ "id": "V_Float", "params": [2.5] }]
-						}
+						},
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2177,7 +2182,8 @@
 							"defUid": 494,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.7] }]
 						},
-						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] }
+						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] },
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2291,7 +2297,8 @@
 							"__type": "Float",
 							"defUid": 495,
 							"realEditorValues": [{ "id": "V_Float", "params": [1.2] }]
-						}
+						},
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2344,7 +2351,8 @@
 							"__type": "Float",
 							"defUid": 495,
 							"realEditorValues": [{ "id": "V_Float", "params": [10] }]
-						}
+						},
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2457,7 +2465,8 @@
 							"__type": "Float",
 							"defUid": 495,
 							"realEditorValues": [{ "id": "V_Float", "params": [1.2] }]
-						}
+						},
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2584,7 +2593,8 @@
 							"defUid": 494,
 							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
 						},
-						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] }
+						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] },
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -5559,22 +5569,7 @@
 				{ "px": [464,96], "src": [80,0], "f": 0, "t": 5, "d": [38,479] },
 				{ "px": [896,96], "src": [80,0], "f": 0, "t": 5, "d": [38,506] },
 				{ "px": [464,112], "src": [80,0], "f": 0, "t": 5, "d": [38,554] },
-				{ "px": [528,112], "src": [80,0], "f": 0, "t": 5, "d": [38,558] },
-				{ "px": [1120,0], "src": [64,128], "f": 0, "t": 324, "d": [476,70] },
-				{ "px": [1120,16], "src": [64,128], "f": 0, "t": 324, "d": [476,145] },
-				{ "px": [1120,32], "src": [64,128], "f": 0, "t": 324, "d": [476,220] },
-				{ "px": [1120,48], "src": [64,128], "f": 0, "t": 324, "d": [476,295] },
-				{ "px": [592,64], "src": [64,128], "f": 0, "t": 324, "d": [476,337] },
-				{ "px": [1120,64], "src": [64,128], "f": 0, "t": 324, "d": [476,370] },
-				{ "px": [592,80], "src": [64,128], "f": 0, "t": 324, "d": [476,412] },
-				{ "px": [752,80], "src": [64,128], "f": 0, "t": 324, "d": [476,422] },
-				{ "px": [1120,80], "src": [64,128], "f": 0, "t": 324, "d": [476,445] },
-				{ "px": [592,96], "src": [64,128], "f": 0, "t": 324, "d": [476,487] },
-				{ "px": [752,96], "src": [64,128], "f": 0, "t": 324, "d": [476,497] },
-				{ "px": [1120,96], "src": [64,128], "f": 0, "t": 324, "d": [476,520] },
-				{ "px": [960,144], "src": [64,128], "f": 0, "t": 324, "d": [476,735] },
-				{ "px": [960,160], "src": [64,128], "f": 0, "t": 324, "d": [476,810] },
-				{ "px": [960,176], "src": [64,128], "f": 0, "t": 324, "d": [476,885] }
+				{ "px": [528,112], "src": [80,0], "f": 0, "t": 5, "d": [38,558] }
 			],
 			"seed": 4348386,
 			"overrideTilesetUid": null,

@@ -1532,7 +1532,8 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [2] }]
 						},
 						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 494, "realEditorValues": [] },
-						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] }
+						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] },
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{

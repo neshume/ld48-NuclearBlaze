@@ -11,7 +11,7 @@
 	"identifier": "Lab2",
 	"uid": 478,
 	"worldX": 0,
-	"worldY": 15872,
+	"worldY": 16400,
 	"pxWid": 560,
 	"pxHei": 400,
 	"__bgColor": "#242D34",
@@ -327,7 +327,8 @@
 							"__type": "Float",
 							"defUid": 495,
 							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
-						}
+						},
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{

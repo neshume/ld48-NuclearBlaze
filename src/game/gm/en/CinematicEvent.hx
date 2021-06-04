@@ -31,6 +31,13 @@ class CinematicEvent extends Entity {
 			case LockControlsUntilLand:
 				hero.cd.setS("fallLock", 99);
 
+			case AutoWalkHero:
+				hero.dir = M.sign(data.f_x);
+				hero.walkSpeed = data.f_x;
+				hero.lockControlsS(data.f_duration);
+				hero.cd.setS("dirLock", data.f_duration);
+				hero.cd.setS("autoWalk", data.f_duration);
+
 			case BumpAndLockHero:
 				if( hero.climbing )
 					hero.stopClimbing();
@@ -79,8 +86,14 @@ class CinematicEvent extends Entity {
 				hud.clearUpgradeMessage();
 				hud.clearPermanentText();
 
+			case NextLevel:
+				game.nextLevel();
+
 			case DustExplosion:
 				fx.heavyLand(data.pixelX, data.pixelY, data.f_power, false);
+
+			case DazzleFlash:
+				fx.dazzleFlash(data.f_color_int, data.f_power, data.f_duration);
 		}
 
 		destroy();

@@ -1305,7 +1305,8 @@
 							"defUid": 494,
 							"realEditorValues": [null]
 						},
-						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] }
+						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] },
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1346,7 +1347,8 @@
 							"__type": "Float",
 							"defUid": 495,
 							"realEditorValues": [{ "id": "V_Float", "params": [2.2] }]
-						}
+						},
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1611,7 +1613,8 @@
 						{ "__identifier": "power", "__value": 0, "__type": "Float", "defUid": 491, "realEditorValues": [] },
 						{ "__identifier": "selfTriggerDist", "__value": 0, "__type": "Float", "defUid": 493, "realEditorValues": [] },
 						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 494, "realEditorValues": [] },
-						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] }
+						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] },
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1646,7 +1649,8 @@
 						{ "__identifier": "power", "__value": 0, "__type": "Float", "defUid": 491, "realEditorValues": [] },
 						{ "__identifier": "selfTriggerDist", "__value": 0, "__type": "Float", "defUid": 493, "realEditorValues": [] },
 						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 494, "realEditorValues": [] },
-						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] }
+						{ "__identifier": "duration", "__value": 0, "__type": "Float", "defUid": 495, "realEditorValues": [] },
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -4975,31 +4979,7 @@
 				{ "px": [304,176], "src": [80,0], "f": 0, "t": 5, "d": [38,437] },
 				{ "px": [48,208], "src": [80,0], "f": 0, "t": 5, "d": [38,497] },
 				{ "px": [304,384], "src": [80,0], "f": 1, "t": 5, "d": [38,931] },
-				{ "px": [192,400], "src": [80,0], "f": 0, "t": 5, "d": [38,962] },
-				{ "px": [240,176], "src": [64,128], "f": 0, "t": 324, "d": [476,433] },
-				{ "px": [256,176], "src": [64,128], "f": 0, "t": 324, "d": [476,434] },
-				{ "px": [240,192], "src": [64,128], "f": 0, "t": 324, "d": [476,471] },
-				{ "px": [256,192], "src": [64,128], "f": 0, "t": 324, "d": [476,472] },
-				{ "px": [240,208], "src": [64,128], "f": 0, "t": 324, "d": [476,509] },
-				{ "px": [256,208], "src": [64,128], "f": 0, "t": 324, "d": [476,510] },
-				{ "px": [240,224], "src": [64,128], "f": 0, "t": 324, "d": [476,547] },
-				{ "px": [256,224], "src": [64,128], "f": 0, "t": 324, "d": [476,548] },
-				{ "px": [240,240], "src": [64,128], "f": 0, "t": 324, "d": [476,585] },
-				{ "px": [256,240], "src": [64,128], "f": 0, "t": 324, "d": [476,586] },
-				{ "px": [240,368], "src": [64,128], "f": 0, "t": 324, "d": [476,889] },
-				{ "px": [256,368], "src": [64,128], "f": 0, "t": 324, "d": [476,890] },
-				{ "px": [240,384], "src": [64,128], "f": 0, "t": 324, "d": [476,927] },
-				{ "px": [256,384], "src": [64,128], "f": 0, "t": 324, "d": [476,928] },
-				{ "px": [240,400], "src": [64,128], "f": 0, "t": 324, "d": [476,965] },
-				{ "px": [256,400], "src": [64,128], "f": 0, "t": 324, "d": [476,966] },
-				{ "px": [240,416], "src": [64,128], "f": 0, "t": 324, "d": [476,1003] },
-				{ "px": [256,416], "src": [64,128], "f": 0, "t": 324, "d": [476,1004] },
-				{ "px": [240,432], "src": [64,128], "f": 0, "t": 324, "d": [476,1041] },
-				{ "px": [256,432], "src": [64,128], "f": 0, "t": 324, "d": [476,1042] },
-				{ "px": [240,448], "src": [64,128], "f": 0, "t": 324, "d": [476,1079] },
-				{ "px": [256,448], "src": [64,128], "f": 0, "t": 324, "d": [476,1080] },
-				{ "px": [240,464], "src": [64,128], "f": 0, "t": 324, "d": [476,1117] },
-				{ "px": [256,464], "src": [64,128], "f": 0, "t": 324, "d": [476,1118] }
+				{ "px": [192,400], "src": [80,0], "f": 0, "t": 5, "d": [38,962] }
 			],
 			"seed": 9061121,
 			"overrideTilesetUid": null,

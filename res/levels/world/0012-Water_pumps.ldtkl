@@ -3546,7 +3546,8 @@
 							"__type": "Float",
 							"defUid": 495,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.7] }]
-						}
+						},
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -4400,7 +4401,8 @@
 							"__type": "Float",
 							"defUid": 495,
 							"realEditorValues": [{ "id": "V_Float", "params": [8] }]
-						}
+						},
+						{ "__identifier": "color", "__value": "#30FF00", "__type": "Color", "defUid": 635, "realEditorValues": [] }
 					]
 				},
 				{
@@ -11755,10 +11757,7 @@
 				{ "px": [1056,320], "src": [80,0], "f": 0, "t": 5, "d": [38,1726] },
 				{ "px": [1056,336], "src": [80,0], "f": 0, "t": 5, "d": [38,1809] },
 				{ "px": [1024,384], "src": [80,0], "f": 0, "t": 5, "d": [38,2056] },
-				{ "px": [688,400], "src": [80,0], "f": 0, "t": 5, "d": [38,2118] },
-				{ "px": [304,208], "src": [64,128], "f": 0, "t": 324, "d": [476,1098] },
-				{ "px": [320,208], "src": [64,128], "f": 0, "t": 324, "d": [476,1099] },
-				{ "px": [336,208], "src": [64,128], "f": 0, "t": 324, "d": [476,1100] }
+				{ "px": [688,400], "src": [80,0], "f": 0, "t": 5, "d": [38,2118] }
 			],
 			"seed": 7433543,
 			"overrideTilesetUid": null,

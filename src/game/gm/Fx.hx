@@ -154,6 +154,17 @@ class Fx extends dn.Process {
 		});
 	}
 
+	public function dazzleFlash(c:UInt, a:Float, ?t=0.1) {
+		var e = new h2d.Bitmap(h2d.Tile.fromColor(c,1,1,a));
+		game.root.add(e, Const.DP_FX_FRONT);
+		e.scaleX = game.w();
+		e.scaleY = game.h();
+		e.blendMode = Add;
+		game.tw.createS(e.alpha, 0>1, 0.2).end( ()->{
+			game.tw.createS(e.alpha, 0, t).end( e.remove );
+		});
+	}
+
 
 	public function itemPickUp(x:Float, y:Float, color:UInt) {
 		var p = allocTopAdd(getTile(dict.fxStar), x,y);
@@ -2229,6 +2240,59 @@ class Fx extends dn.Process {
 
 		p.onUpdate = _drip;
 		p.lifeS = R.around(3);
+		p.delayS = rnd(0,0.3);
+	}
+
+
+	function _rain(p:HParticle) {
+		// Small drips when hitting ground
+		if( collides(p) ) {
+			for(i in 0...irnd(2,4)) {
+				var d = allocBgAdd( getTile(dict.pixel), p.x+rnd(0,2,true), p.y-rnd(4,5) );
+				d.setFadeS(rnd(0.4,0.8), 0, rnd(0.06,0.2));
+				d.moveAwayFrom(p.x,p.y, rnd(0.8,1.5));
+				d.gy = R.around(0.1);
+				d.frict = R.around(0.93);
+				d.onUpdate = _waterPhysics;
+				d.lifeS = R.around(0.2);
+			}
+			p.kill();
+		}
+	}
+
+
+	public function rain(x:Float, y:Float, dx:Float, c:Int) {
+		var a = M.PIHALF - 0.3*dx;
+		var spd = rnd(4,8);
+		var p = allocTopAdd( getTile(dict.fxLineThinLeft), x, y-irnd(0,2) );
+		p.colorize(c);
+		p.setFadeS( rnd(0.3,0.5), R.around(0.3), R.around(0.2));
+		p.setCenterRatio(1,0.5);
+		p.moveAng(a,spd);
+		p.frict = 1;
+
+		p.scaleX = rnd(0.6, 1.4);
+		p.autoRotate();
+
+		p.onUpdate = _rain;
+		p.lifeS = R.around(3);
+		p.delayS = rnd(0,0.3);
+	}
+
+
+	public function godRay(x:Float, y:Float, c:Int) {
+		var a = M.PIHALF + 0.4 + rnd(0,0.05,true);
+		var p = allocTopAdd( getTile(dict.fxGodRay), x, y );
+		p.colorize(c);
+		p.setFadeS( rnd(0.1,0.3), R.around(1,20), R.around(1,5));
+		p.setCenterRatio(0.5,0);
+		p.rotation = a;
+
+		p.scaleX = rnd(2,3.5);
+		p.scaleY = rnd(0.5,1,true);
+		p.scaleXMul = rnd(0.99,1.01);
+
+		p.lifeS = R.around(1);
 		p.delayS = rnd(0,0.3);
 	}
 

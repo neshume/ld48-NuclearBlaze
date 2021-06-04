@@ -12,7 +12,7 @@ class Hero extends gm.Entity {
 
 	var data : Entity_Hero;
 	var ca : ControllerAccess;
-	var walkSpeed = 0.;
+	public var walkSpeed = 0.;
 	var climbSpeed = 0.;
 	var cmdQueue : Map<CtrlCommand,Float> = new Map();
 	var verticalAiming = 0;
@@ -527,7 +527,8 @@ class Hero extends gm.Entity {
 	override function preUpdate() {
 		super.preUpdate();
 
-		walkSpeed = 0;
+		if( !cd.has("autoWalk") )
+			walkSpeed = 0;
 		climbSpeed = 0;
 
 		// Command input queue management

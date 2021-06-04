@@ -50,6 +50,23 @@ class FxEmitter extends Entity {
 					if( isOnScreenBounds() && !cd.hasSetS("fx", 0.2/data.f_customIntensity ) )
 						fx.drips(wid==16 ? centerX+rnd(0,6,true) : rnd(left,right), top-2, data.f_customColor_int);
 
+				case Rain:
+					if( !cd.hasSetS("fx", 0.06/data.f_customIntensity ) ) {
+						var n = M.ceil( wid/Const.GRID*0.3 );
+						for(i in 0...n) {
+							var x = rnd(left,right);
+							if( camera.isOnScreen(x,hero.centerY) )
+								fx.rain(x, top-2, data.f_x, data.f_customColor_int);
+						}
+					}
+
+				case GodRays:
+					if( !cd.hasSetS("fx", 0.06/data.f_customIntensity ) ) {
+						var n = M.ceil( wid/Const.GRID*0.2 );
+						for(i in 0...n)
+							fx.godRay(rnd(left,right), top, data.f_customColor_int);
+					}
+
 				case BlackSmoke:
 					if( !cd.hasSetS("fx",0.06/data.f_customIntensity) ) {
 						var n = M.ceil( M.round(wid/Const.GRID) * M.round(hei/Const.GRID) * 0.33 );
