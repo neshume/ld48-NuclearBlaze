@@ -655,12 +655,12 @@ class Game extends Process {
 
 			// Clear all
 			if( ca.isKeyboardPressed(K.C) ) {
-				for(e in gm.en.FireSpray.ALL) e.stop();
-				for(e in gm.en.Sprinkler.ALL) e.start();
+				// for(e in gm.en.FireSpray.ALL) e.stop();
+				// for(e in gm.en.Sprinkler.ALL) e.start();
 
 				for(cy in 0...level.cHei)
 				for(cx in 0...level.cWid)
-					if( level.isBurning(cx,cy) )
+					if( level.isBurning(cx,cy) && !level.getFireState(cx,cy).magic )
 						level.getFireState(cx,cy).clear();
 			}
 			#end
