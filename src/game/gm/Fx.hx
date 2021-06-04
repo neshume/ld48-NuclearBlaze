@@ -1300,14 +1300,14 @@ class Fx extends dn.Process {
 		p.y = e.sprY + ( M.isValidNumber(p.data1) ? p.data1 : 0 );
 	}
 
-	public inline function armor(e:Entity) {
+	public inline function armor(e:Entity, sx:Float, sy:Float) {
 		// Bubble
 		var p = allocTopAdd(getTile(dict.fxArmor), 0,0);
-		p.setFadeS(0.15, 0.06, 0.1);
+		p.setFadeS(0.25, 0.06, 0.1);
 		p.colorize(0x2c73e7);
 		p.lifeS = 0.06;
-		p.scaleX = 1 + 0.14*Math.sin(ftime*0.17);
-		p.scaleY = 1 - 0.14*Math.sin(ftime*0.17);
+		p.scaleX = sx + 0.14*Math.sin(ftime*0.17);
+		p.scaleY = sy - 0.14*Math.sin(ftime*0.17);
 		p.userData = e;
 		p.data1 = -e.hei*0.5-2;
 		p.onUpdate = _trackEntity;
@@ -1325,8 +1325,8 @@ class Fx extends dn.Process {
 			p.rotation = a-M.PIHALF;
 
 			p.userData = e;
-			p.data0 = Math.cos(a)*d;
-			p.data1 = Math.sin(a)*d - e.hei*0.5;
+			p.data0 = Math.cos(a)*d*sx;
+			p.data1 = Math.sin(a)*d*sy - e.hei*0.5;
 			p.onUpdate = _trackEntity;
 			p.lifeS = 0.1;
 		}

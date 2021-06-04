@@ -507,7 +507,7 @@ class Hero extends gm.Entity {
 
 
 		if( hasItem(Armor) && !cd.hasSetS("armorFx",0.03) )
-			fx.armor(this);
+			fx.armor(this, sprSquashX, sprSquashY);
 
 		// Dodge braking fx
 		if( isDodging() && onGround && getDodgeRatio()>=Const.db.DodgeEndRatio && !cd.hasSetS("dodgeDustFx",0.03) ) {
