@@ -2170,6 +2170,27 @@ class Fx extends dn.Process {
 		}
 	}
 
+	public function usedItem(x:Float, y:Float, c:Int) {
+		var p = allocRadius(x,y, 16, c, false);
+		p.setScale(0.3);
+		p.setFadeS(0.7, 0, 0.3);
+		p.ds = 0.1;
+		p.dsFrict = 0.93;
+		p.lifeS = 0.06;
+
+		// Dots
+		var n = 20;
+		for(i in 0...n) {
+			var a = M.PI2 * i/n + rnd(0,0.2,true);
+			var p = allocTopAdd(getTile(dict.pixel), x+Math.cos(a)*3, y+Math.sin(a)*3);
+			p.setFadeS(R.aroundBO(0.9), 0, rnd(1,2));
+			p.colorize(c);
+			p.moveAwayFrom(x,y, rnd(2,3));
+			p.frict = R.around(0.93, 4);
+			p.lifeS = R.around(0.5);
+		}
+	}
+
 	public function groundSparks(x:Float, y:Float, w:Float, c:Int) {
 		for(i in 0...irnd(2,4)) {
 			var p = allocTopAdd( getTile(dict.pixel), rnd(x,x+w), y );

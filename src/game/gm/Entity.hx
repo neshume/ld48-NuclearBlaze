@@ -300,6 +300,10 @@ class Entity {
 		destroy();
 	}
 
+	function shakeS(durationS:Float) {
+		cd.setS("shaking", durationS);
+	}
+
 
 	public final function startClimbing() {
 		if( climbing )
@@ -745,6 +749,8 @@ class Entity {
         spr.scaleX = dir*sprScaleX * sprSquashX;
         spr.scaleY = sprScaleY * sprSquashY;
 		spr.visible = entityVisible;
+		if( cd.has("shaking") )
+			spr.y-=rnd(0,1);
 
 		sprSquashX += (1-sprSquashX) * M.fmin(1, 0.2*tmod);
 		sprSquashY += (1-sprSquashY) * M.fmin(1, 0.2*tmod);

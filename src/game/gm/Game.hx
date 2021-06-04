@@ -172,6 +172,7 @@ class Game extends Process {
 			case GreenCard:
 			case BlueCard:
 			case WaterSpray:
+			case SpareValve:
 			case UpWaterLadder:
 			case UpWaterUp:
 			case UpShield:

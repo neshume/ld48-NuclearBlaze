@@ -1056,7 +1056,8 @@
 							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
 						},
 						{ "__identifier": "triggerDelay", "__value": 0, "__type": "Float", "defUid": 496, "realEditorValues": [] },
-						{ "__identifier": "silent", "__value": false, "__type": "Bool", "defUid": 567, "realEditorValues": [] }
+						{ "__identifier": "silent", "__value": false, "__type": "Bool", "defUid": 567, "realEditorValues": [] },
+						{ "__identifier": "consumedItem", "__value": null, "__type": "LocalEnum.Items", "defUid": 628, "realEditorValues": [] }
 					]
 				},
 				{

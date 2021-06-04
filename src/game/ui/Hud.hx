@@ -95,6 +95,7 @@ class Hud extends dn.Process {
 		switch i {
 			case Key, GreenCard, BlueCard:
 			case WaterSpray:
+			case SpareValve:
 
 			case UpWaterLadder:
 				name = L.t._("LADDER GRIP!");

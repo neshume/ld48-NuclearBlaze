@@ -25,6 +25,7 @@ class Item extends Entity {
 	public static function isUpgradeItem(k:Enum_Items) {
 		return switch k {
 			case Key, GreenCard, BlueCard: false;
+			case SpareValve: false;
 			case WaterSpray: true;
 			case UpWaterLadder: true;
 			case UpWaterUp: true;

@@ -11,6 +11,7 @@ class Trigger extends Entity {
 	public var done = false;
 	var started = false;
 	var delayer : dn.Delayer;
+	var consumedItem : Null<Enum_Items>;
 
 	public function new(d:Entity_Trigger) {
 		data = d;
@@ -25,12 +26,16 @@ class Trigger extends Entity {
 		spr.set(dict.empty);
 		gravityMul = 0;
 		collides = false;
+		consumedItem = data.f_consumedItem;
 
 		game.scroller.add(spr, Const.DP_BG);
 		switch data.f_type {
 			case Valve:
 				setPosPixel(data.pixelX, data.pixelY);
-				spr.set(dict.pipeGate);
+				if( consumedItem!=null )
+					spr.set(dict.missingValve);
+				else
+					spr.set(dict.valve);
 				pivotY = 0.5;
 
 			case InvisibleArea:
@@ -111,6 +116,23 @@ class Trigger extends Entity {
 
 
 	public function hold() {
+		if( consumedItem!=null ) {
+			if( !hero.hasItem(consumedItem) ) {
+				if( !cd.hasSetS("missingItem",1.5) )
+					hero.sayBubble(Assets.tiles.getTile(dict.itemSpareValve), Assets.tilesDict.emoteQuestion, 0xaa0000);
+				return;
+			}
+			else {
+				hero.removeItem(consumedItem);
+				fx.usedItem(centerX, centerY, 0xffcc00);
+				shakeS(0.3);
+				camera.bump(0,2);
+				consumedItem = null;
+				spr.set(dict.spareValve);
+				hero.sayBubble(Assets.tiles.getTile(dict.itemSpareValve), Assets.tilesDict.emoteOk, 0x83c359);
+			}
+		}
+
 		holdS+=1/Const.FIXED_UPDATE_FPS;
 		cd.setS("maintain",0.1);
 		if( holdS>=data.f_gateHoldTime) {
