@@ -436,53 +436,134 @@
 					]
 				},
 				{
-					"__identifier": "Mob",
-					"__grid": [27,15],
-					"__pivot": [0.5,1],
-					"__tile": { "tilesetUid": 26, "srcRect": [16,176,16,16] },
+					"__identifier": "Explosive",
+					"__grid": [27,10],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,256,16,16] },
 					"width": 16,
 					"height": 16,
-					"defUid": 535,
-					"px": [440,256],
+					"defUid": 399,
+					"px": [440,168],
 					"fieldInstances": [
+						{ "__identifier": "timer", "__value": 60, "__type": "Int", "defUid": 401, "realEditorValues": [] },
+						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 403, "realEditorValues": [] },
 						{
-							"__identifier": "type",
-							"__value": "Runner",
-							"__type": "LocalEnum.MobType",
-							"defUid": 537,
+							"__identifier": "startActive",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 408,
 							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Runner"]
+								"id": "V_Bool",
+								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "dir", "__value": 0, "__type": "Int", "defUid": 540, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 541, "realEditorValues": [] },
-						{ "__identifier": "lockAiOnCreate", "__value": true, "__type": "Bool", "defUid": 542, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 436, "realEditorValues": [] },
+						{ "__identifier": "requireSight", "__value": true, "__type": "Bool", "defUid": 469, "realEditorValues": [] },
+						{ "__identifier": "tempDir", "__value": 1, "__type": "Int", "defUid": 592, "realEditorValues": [] }
 					]
 				},
 				{
-					"__identifier": "Mob",
-					"__grid": [20,15],
-					"__pivot": [0.5,1],
-					"__tile": { "tilesetUid": 26, "srcRect": [16,176,16,16] },
+					"__identifier": "Explosive",
+					"__grid": [24,14],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [160,256,16,16] },
 					"width": 16,
 					"height": 16,
-					"defUid": 535,
-					"px": [328,256],
+					"defUid": 399,
+					"px": [392,232],
 					"fieldInstances": [
+						{ "__identifier": "timer", "__value": 60, "__type": "Int", "defUid": 401, "realEditorValues": [] },
+						{ "__identifier": "cinematicReveal", "__value": false, "__type": "Bool", "defUid": 403, "realEditorValues": [] },
 						{
-							"__identifier": "type",
-							"__value": "Runner",
-							"__type": "LocalEnum.MobType",
-							"defUid": 537,
+							"__identifier": "startActive",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 408,
 							"realEditorValues": [{
-								"id": "V_String",
-								"params": ["Runner"]
+								"id": "V_Bool",
+								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "dir", "__value": 0, "__type": "Int", "defUid": 540, "realEditorValues": [] },
-						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 541, "realEditorValues": [] },
-						{ "__identifier": "lockAiOnCreate", "__value": true, "__type": "Bool", "defUid": 542, "realEditorValues": [] }
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 436, "realEditorValues": [] },
+						{ "__identifier": "requireSight", "__value": true, "__type": "Bool", "defUid": 469, "realEditorValues": [] },
+						{
+							"__identifier": "tempDir",
+							"__value": -1,
+							"__type": "Int",
+							"defUid": 592,
+							"realEditorValues": [{ "id": "V_Int", "params": [-1] }]
+						}
+					]
+				},
+				{
+					"__identifier": "DebugStartPoint",
+					"__grid": [22,11],
+					"__pivot": [0.5,1],
+					"__tile": null,
+					"width": 16,
+					"height": 12,
+					"defUid": 143,
+					"px": [360,192],
+					"fieldInstances": [
+						{
+							"__identifier": "startInv",
+							"__value": [ "GreenCard", "BlueCard" ],
+							"__type": "Array<LocalEnum.Items>",
+							"defUid": 281,
+							"realEditorValues": [ {
+								"id": "V_String",
+								"params": ["GreenCard"]
+							}, {
+								"id": "V_String",
+								"params": ["BlueCard"]
+							} ]
+						},
+						{
+							"__identifier": "unlockAllUpgrades",
+							"__value": true,
+							"__type": "Bool",
+							"defUid": 282,
+							"realEditorValues": [null]
+						},
+						{
+							"__identifier": "shieldDurationS",
+							"__value": 3,
+							"__type": "Int",
+							"defUid": 380,
+							"realEditorValues": [null]
+						},
+						{ "__identifier": "water", "__value": 1, "__type": "Float", "defUid": 545, "realEditorValues": [] },
+						{
+							"__identifier": "initialFastFall",
+							"__value": 0,
+							"__type": "Float",
+							"defUid": 584,
+							"realEditorValues": [null]
+						}
+					]
+				},
+				{
+					"__identifier": "FireStarter",
+					"__grid": [26,12],
+					"__pivot": [0.5,0.5],
+					"__tile": { "tilesetUid": 26, "srcRect": [208,96,16,16] },
+					"width": 16,
+					"height": 16,
+					"defUid": 14,
+					"px": [424,200],
+					"fieldInstances": [
+						{
+							"__identifier": "range",
+							"__value": 4,
+							"__type": "Int",
+							"defUid": 15,
+							"realEditorValues": [{ "id": "V_Int", "params": [4] }]
+						},
+						{ "__identifier": "startFireLevel", "__value": 2, "__type": "Int", "defUid": 16, "realEditorValues": [] },
+						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
+						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
+						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
 					]
 				}
 			]
@@ -562,7 +643,7 @@
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -726,7 +807,15 @@
 				{ "px": [192,96], "src": [336,80], "f": 0, "t": 221, "d": [222] },
 				{ "px": [208,96], "src": [320,80], "f": 0, "t": 220, "d": [223] },
 				{ "px": [224,96], "src": [336,80], "f": 0, "t": 221, "d": [224] },
-				{ "px": [160,160], "src": [336,96], "f": 0, "t": 261, "d": [360] }
+				{ "px": [416,144], "src": [128,128], "f": 0, "t": 328, "d": [341] },
+				{ "px": [432,144], "src": [128,128], "f": 0, "t": 328, "d": [342] },
+				{ "px": [448,144], "src": [128,128], "f": 0, "t": 328, "d": [343] },
+				{ "px": [160,160], "src": [336,96], "f": 0, "t": 261, "d": [360] },
+				{ "px": [416,160], "src": [128,112], "f": 0, "t": 288, "d": [376] },
+				{ "px": [448,160], "src": [128,128], "f": 0, "t": 328, "d": [378] },
+				{ "px": [416,176], "src": [128,112], "f": 0, "t": 288, "d": [411] },
+				{ "px": [432,176], "src": [144,112], "f": 0, "t": 289, "d": [412] },
+				{ "px": [448,176], "src": [144,112], "f": 0, "t": 289, "d": [413] }
 			],
 			"entityInstances": []
 		},

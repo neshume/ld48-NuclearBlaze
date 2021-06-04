@@ -21,7 +21,7 @@ class Explosive extends Entity {
 		setPosPixel(data.pixelX, data.pixelY);
 		gravityMul = 0;
 		collides = false;
-		pivotY = 0.5;
+		setPivots(data.pivotX, data.pivotY);
 		seen = data.f_startActive || !data.f_requireSight;
 
 		triggerId = data.f_triggerId;
@@ -29,7 +29,6 @@ class Explosive extends Entity {
 			needTriggerFirst = true;
 
 		spr.set(dict.explosiveCore);
-		// game.scroller.add(spr,Const.DP_EXPLOSIVE);
 
 		tempBg = Assets.tiles.h_get(dict.explosiveTempBg, 0, 0.5,1);
 		game.scroller.add(tempBg, Const.DP_ENTITY_FRONT);
@@ -48,8 +47,6 @@ class Explosive extends Entity {
 		pointer = Assets.tiles.h_get(dict.pointer,0, 0.5, 0.5);
 		game.scroller.add(pointer, Const.DP_UI);
 		pointer.smooth = true;
-		// pointer.filter = new dn.heaps.filter.PixelOutline();
-		// pointer.colorize(0xff8a64);
 		pointer.setPosition(centerX, centerY);
 	}
 
@@ -69,8 +66,10 @@ class Explosive extends Entity {
 		tempBg.setPosition(centerX + 11*data.f_tempDir, bottom+2);
 		tempBar.setPosition(centerX + 11*data.f_tempDir, bottom-1);
 
-		if( level.isBurning(cx,cy) )
-			tempBar.scaleY = level.getFireState(cx,cy).getRatio();
+		if( level.isBurning(cx,cy) ) {
+			var r = M.fclamp( (level.getFireState(cx,cy).getRatio() - 0.3)/0.7, 0, 1);
+			tempBar.scaleY = r;
+		}
 		else
 			tempBar.scaleY = 0;
 
@@ -126,19 +125,19 @@ class Explosive extends Entity {
 			pointer.visible = true;
 		}
 		else {
-			tfX = centerX;
-			tfY = centerY;
+			tfX = centerX + data.f_tempDir*3;
+			tfY = top-4;
 			pointer.visible = false;
 			pointer.alpha = 0;
 		}
 		tf.text = M.ceil(timerS)+"s";
+		tf.setScale( tf.scaleX + ( tfS-tf.scaleX ) * M.fmin(1, 0.2*tmod) );
 		tfX -= tf.textWidth*tf.scaleX * 0.5;
 		tfY -= tf.textHeight*tf.scaleY * 0.5;
 		tf.x += ( tfX-tf.x ) * M.fmin(1, 0.2*tmod);
 		tf.y += ( tfY-tf.y ) * M.fmin(1, 0.2*tmod);
 		tf.x = Std.int(tf.x);
 		tf.y = Std.int(tf.y);
-		tf.setScale( tf.scaleX + ( tfS-tf.scaleX ) * M.fmin(1, 0.2*tmod) );
 		tf.visible = true;
 
 		if( pointer.visible ) {
