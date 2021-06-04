@@ -1532,10 +1532,10 @@
 						},
 						{
 							"__identifier": "readSpeedFactor",
-							"__value": 1.2,
+							"__value": 1.1,
 							"__type": "Float",
 							"defUid": 480,
-							"realEditorValues": [{ "id": "V_Float", "params": [1.2] }]
+							"realEditorValues": [{ "id": "V_Float", "params": [1.1] }]
 						}
 					]
 				},
@@ -1686,6 +1686,27 @@
 							"defUid": 584,
 							"realEditorValues": [null]
 						}
+					]
+				},
+				{
+					"__identifier": "CameraOffset",
+					"__grid": [48,6],
+					"__pivot": [0,0],
+					"__tile": null,
+					"width": 96,
+					"height": 112,
+					"defUid": 134,
+					"px": [768,96],
+					"fieldInstances": [
+						{ "__identifier": "offsetX", "__value": 0, "__type": "Float", "defUid": 136, "realEditorValues": [] },
+						{
+							"__identifier": "offsetY",
+							"__value": -24,
+							"__type": "Float",
+							"defUid": 137,
+							"realEditorValues": [{ "id": "V_Float", "params": [-24] }]
+						},
+						{ "__identifier": "zoom", "__value": -1, "__type": "Float", "defUid": 556, "realEditorValues": [] }
 					]
 				}
 			]
