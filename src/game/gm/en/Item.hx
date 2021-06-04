@@ -14,6 +14,7 @@ class Item extends Entity {
 		gravityMul = 0.6;
 		spr.set("item"+data.f_type.getName());
 		spr.filter = new dn.heaps.filter.PixelOutline(0x0);
+		game.scroller.add(spr, Const.DP_ENTITY_FRONT);
 
 		if( isUpgrade ) {
 			halo = Assets.tiles.h_get(dict.upHalo,0, 0.5, 0.5);
