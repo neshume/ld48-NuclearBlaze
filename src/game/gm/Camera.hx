@@ -332,13 +332,14 @@ class Camera extends dn.Process {
 		}
 
 		// LDtk camera offsets
-		for(e in gm.en.CameraOffset.ALL)
-			if( e.isActive() ) {
-				tx+=e.data.f_offsetX;
-				ty+=e.data.f_offsetY;
-				if( e.data.f_zoom>1 )
-					tz = e.data.f_zoom;
-			}
+		if( cinematicPoints.length==0 )
+			for(e in gm.en.CameraOffset.ALL)
+				if( e.isActive() ) {
+					tx+=e.data.f_offsetX;
+					ty+=e.data.f_offsetY;
+					if( e.data.f_zoom>1 )
+						tz = e.data.f_zoom;
+				}
 
 		// Zoom interpolation
 		if( tz!=curZoom ) {

@@ -112,14 +112,14 @@ class Game extends Process {
 		tw.createS(fadeMask.alpha, 1>0, 1.2/speed).end( ()->fadeMask.visible = false );
 	}
 
-	public function fadeToBlack( ?cb:Void->Void ) {
+	public function fadeToBlack( t=0.5, ?cb:Void->Void ) {
 		fadeMask.visible = true;
 		tw.terminateWithoutCallbacks(fadeMask.alpha);
-		tw.createS(fadeMask.alpha, 0>1, 0.5);
+		tw.createS(fadeMask.alpha, 0>1, t);
 
 		delayer.cancelById("fade");
 		if( cb!=null )
-			delayer.addS("fade", cb, 0.5);
+			delayer.addS("fade", cb, t);
 	}
 
 	public inline function hasWater() {
@@ -656,7 +656,7 @@ class Game extends Process {
 
 			// Clear all
 			if( ca.isKeyboardPressed(K.C) ) {
-				// for(e in gm.en.FireSpray.ALL) e.stop();
+				for(e in gm.en.FireSpray.ALL) e.stop();
 				// for(e in gm.en.Sprinkler.ALL) e.start();
 
 				for(cy in 0...level.cHei)

@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.4",
-	"nextUid": 633,
+	"nextUid": 634,
 	"worldLayout": "LinearVertical",
 	"worldGridWidth": 256,
 	"worldGridHeight": 256,
@@ -7628,9 +7628,11 @@
 			{ "id": "CamShake", "tileId": null, "color": 11117176, "__tileSrcRect": null },
 			{ "id": "CamShoulder", "tileId": null, "color": 5280333, "__tileSrcRect": null },
 			{ "id": "CamTrack", "tileId": null, "color": 2569907, "__tileSrcRect": null },
+			{ "id": "CamZoom", "tileId": null, "color": 1844821, "__tileSrcRect": null },
 			{ "id": "SlowMo", "tileId": null, "color": 9997966, "__tileSrcRect": null },
 			{ "id": "ClearPermanentTexts", "tileId": null, "color": 16775680, "__tileSrcRect": null },
-			{ "id": "DustExplosion", "tileId": null, "color": 11907474, "__tileSrcRect": null }
+			{ "id": "DustExplosion", "tileId": null, "color": 11907474, "__tileSrcRect": null },
+			{ "id": "FadeToBlack", "tileId": null, "color": 0, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null },
 		{ "identifier": "Font", "uid": 145, "values": [
 			{ "id": "Pixel", "tileId": null, "color": 11387845, "__tileSrcRect": null },

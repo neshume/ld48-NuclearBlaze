@@ -60,6 +60,12 @@ class CinematicEvent extends Entity {
 				camera.cinematicTrack(data.pixelX, data.pixelY, data.f_duration);
 				fx.markerFree(data.pixelX, data.pixelY, 999);
 
+			case CamZoom:
+				game.tw.createS(camera.targetZoom, data.f_power, data.f_duration);
+
+			case FadeToBlack:
+				game.fadeToBlack(data.f_duration);
+
 			case SlowMo:
 				game.addSlowMo("event", data.f_duration, data.f_power);
 
