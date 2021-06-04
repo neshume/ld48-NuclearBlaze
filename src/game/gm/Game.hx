@@ -305,7 +305,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_ScpItem) new gm.en.ScpItem(d);
 
 		for(d in level.data.l_Entities.all_Mob) {
-			if( d.f_triggerId<0 )
+			if( d.f_spawnTriggerId<0 )
 				gm.en.Mob.create(d);
 			else
 				new gm.en.MobSpawner(d);
@@ -334,6 +334,7 @@ class Game extends Process {
 		for(d in level.data.l_Entities.all_FixedFire) {
 			var fs = level.getFireState(d.cx, d.cy, true);
 			fs.ignite(FireState.MAX, 1);
+			fs.magic = d.f_magic;
 			fs.resistance = d.f_resistance;
 			fs.strongFx = true;
 		}
@@ -342,14 +343,6 @@ class Game extends Process {
 		if( level.data.f_isGameMenu )
 			new GameMenu();
 
-
-		// for(d in level.data.l_Entities.all_FireStarter)
-		// 	dn.Bresenham.iterateDisc( d.cx, d.cy, d.f_range, (x,y)->{
-		// 		level.ignite(x,y, d.f_startFireLevel);
-		// 		var fs = level.getFireState(x,y);
-		// 		if( fs!=null )
-		// 			fs.resistance = d.f_resistance;
-		// 	});
 
 		camera.centerOnTarget();
 		hud.onLevelStart();

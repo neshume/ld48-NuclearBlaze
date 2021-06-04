@@ -7,7 +7,7 @@ class MobSpawner extends Entity {
 		data = d;
 		super(data.cx, data.cy);
 
-		triggerId = data.f_triggerId;
+		triggerId = data.f_spawnTriggerId;
 
 		spr.set(dict.empty);
 		gravityMul = 0;

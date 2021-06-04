@@ -96,7 +96,7 @@ class WaterDrop extends Bullet {
 			var x = cx;
 			for(y in cy-1...cy+2) {
 				var fs = level.getFireState(x,y);
-				if( fs==null || fs.magic )
+				if( fs==null || fs.infinite )
 					continue;
 
 				if( fs.isBurning() ) {

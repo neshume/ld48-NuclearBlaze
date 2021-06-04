@@ -27,6 +27,7 @@ class ScpItem extends Entity {
 		var fs = level.getFireState(cx,cy);
 		fs.resistance = 1;
 		fs.magic = true;
+		fs.infinite = true;
 		fs.strongFx = true;
 	}
 }

@@ -80,6 +80,9 @@ class Trigger extends Entity {
 		super.dispose();
 		ALL.remove(this);
 
+		g.remove();
+		g = null;
+
 		delayer.destroy();
 		delayer = null;
 	}

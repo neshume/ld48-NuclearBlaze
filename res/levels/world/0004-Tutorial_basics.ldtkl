@@ -76,7 +76,8 @@
 						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
 						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
-						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] },
+						{ "__identifier": "magic", "__value": false, "__type": "Bool", "defUid": 632, "realEditorValues": [] }
 					]
 				},
 				{
@@ -237,7 +238,8 @@
 						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
 						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
-						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] },
+						{ "__identifier": "magic", "__value": false, "__type": "Bool", "defUid": 632, "realEditorValues": [] }
 					]
 				},
 				{
@@ -3416,7 +3418,7 @@
 			"entityInstances": []
 		},
 		{
-			"__identifier": "BgTiles1",
+			"__identifier": "MainTiles1",
 			"__type": "Tiles",
 			"__cWid": 75,
 			"__cHei": 27,
@@ -3756,7 +3758,7 @@
 			"entityInstances": []
 		},
 		{
-			"__identifier": "BgTiles2",
+			"__identifier": "MainTiles2",
 			"__type": "Tiles",
 			"__cWid": 75,
 			"__cHei": 27,
@@ -5575,6 +5577,30 @@
 				{ "px": [960,176], "src": [64,128], "f": 0, "t": 324, "d": [476,885] }
 			],
 			"seed": 4348386,
+			"overrideTilesetUid": null,
+			"gridTiles": [],
+			"entityInstances": []
+		},
+		{
+			"__identifier": "BgTiles",
+			"__type": "Tiles",
+			"__cWid": 75,
+			"__cHei": 27,
+			"__gridSize": 16,
+			"__opacity": 1,
+			"__pxTotalOffsetX": 0,
+			"__pxTotalOffsetY": 0,
+			"__tilesetDefUid": 6,
+			"__tilesetRelPath": "../atlas/world.aseprite",
+			"levelId": 56,
+			"layerDefUid": 629,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"visible": true,
+			"optionalRules": [],
+			"intGridCsv": [],
+			"autoLayerTiles": [],
+			"seed": 6744142,
 			"overrideTilesetUid": null,
 			"gridTiles": [],
 			"entityInstances": []

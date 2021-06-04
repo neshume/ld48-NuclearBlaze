@@ -705,7 +705,8 @@
 						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
 						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
-						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] },
+						{ "__identifier": "magic", "__value": false, "__type": "Bool", "defUid": 632, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1169,7 +1170,8 @@
 						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
 						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
-						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] },
+						{ "__identifier": "magic", "__value": false, "__type": "Bool", "defUid": 632, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1555,7 +1557,8 @@
 								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] },
+						{ "__identifier": "magic", "__value": false, "__type": "Bool", "defUid": 632, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1642,7 +1645,8 @@
 							"__type": "Float",
 							"defUid": 468,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.2] }]
-						}
+						},
+						{ "__identifier": "magic", "__value": false, "__type": "Bool", "defUid": 632, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1775,7 +1779,8 @@
 							"__type": "Float",
 							"defUid": 468,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.3] }]
-						}
+						},
+						{ "__identifier": "magic", "__value": false, "__type": "Bool", "defUid": 632, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1814,7 +1819,8 @@
 							"__type": "Float",
 							"defUid": 468,
 							"realEditorValues": [{ "id": "V_Float", "params": [1] }]
-						}
+						},
+						{ "__identifier": "magic", "__value": false, "__type": "Bool", "defUid": 632, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1971,7 +1977,8 @@
 								"params": [ true ]
 							}]
 						},
-						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] },
+						{ "__identifier": "magic", "__value": false, "__type": "Bool", "defUid": 632, "realEditorValues": [] }
 					]
 				},
 				{
@@ -1995,7 +2002,8 @@
 						{ "__identifier": "resistance", "__value": 0, "__type": "Float", "defUid": 132, "realEditorValues": [] },
 						{ "__identifier": "triggerId", "__value": -1, "__type": "Int", "defUid": 466, "realEditorValues": [] },
 						{ "__identifier": "explodesOnTrigger", "__value": false, "__type": "Bool", "defUid": 467, "realEditorValues": [] },
-						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] }
+						{ "__identifier": "startDelay", "__value": 0, "__type": "Float", "defUid": 468, "realEditorValues": [] },
+						{ "__identifier": "magic", "__value": false, "__type": "Bool", "defUid": 632, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2316,7 +2324,8 @@
 							"__type": "Float",
 							"defUid": 468,
 							"realEditorValues": [{ "id": "V_Float", "params": [0.1] }]
-						}
+						},
+						{ "__identifier": "magic", "__value": false, "__type": "Bool", "defUid": 632, "realEditorValues": [] }
 					]
 				},
 				{
@@ -2959,7 +2968,7 @@
 			"entityInstances": []
 		},
 		{
-			"__identifier": "BgTiles1",
+			"__identifier": "MainTiles1",
 			"__type": "Tiles",
 			"__cWid": 49,
 			"__cHei": 91,
@@ -3248,7 +3257,7 @@
 			"entityInstances": []
 		},
 		{
-			"__identifier": "BgTiles2",
+			"__identifier": "MainTiles2",
 			"__type": "Tiles",
 			"__cWid": 49,
 			"__cHei": 91,
@@ -7928,6 +7937,30 @@
 				{ "px": [208,1040], "src": [80,0], "f": 0, "t": 5, "d": [38,3198] }
 			],
 			"seed": 7433543,
+			"overrideTilesetUid": null,
+			"gridTiles": [],
+			"entityInstances": []
+		},
+		{
+			"__identifier": "BgTiles",
+			"__type": "Tiles",
+			"__cWid": 49,
+			"__cHei": 91,
+			"__gridSize": 16,
+			"__opacity": 1,
+			"__pxTotalOffsetX": 0,
+			"__pxTotalOffsetY": 0,
+			"__tilesetDefUid": 6,
+			"__tilesetRelPath": "../atlas/world.aseprite",
+			"levelId": 465,
+			"layerDefUid": 629,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"visible": true,
+			"optionalRules": [],
+			"intGridCsv": [],
+			"autoLayerTiles": [],
+			"seed": 7113941,
 			"overrideTilesetUid": null,
 			"gridTiles": [],
 			"entityInstances": []

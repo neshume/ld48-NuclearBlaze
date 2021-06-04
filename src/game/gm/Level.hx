@@ -37,7 +37,6 @@ class Level extends dn.Process {
 	var fogWid : Int;
 	var fogHei : Int;
 	public var fireCount(default,null) = Const.INFINITE;
-	var ignoredFires : Map<Int,Bool> = new Map();
 
 	var sky : Null<h2d.Bitmap>;
 
@@ -116,24 +115,10 @@ class Level extends dn.Process {
 			}
 		}
 
-		for(e in data.l_Entities.all_IgnoreFires)
-		for(cy in e.cy...e.cy+M.round(e.height/Const.GRID))
-		for(cx in e.cx...e.cx+M.round(e.width/Const.GRID))
-			ignoreFire(cx,cy);
-
 		fogRender = new h2d.SpriteBatch(Assets.tiles.tile);
 		game.scroller.add(fogRender, Const.DP_FOG);
 		fogRender.visible = !game.kidMode;
 		buildFog();
-	}
-
-	function ignoreFire(cx,cy) {
-		if( isValid(cx,cy) )
-			ignoredFires.set( coordId(cx,cy), true );
-	}
-
-	public inline function isFireIgnored(cx,cy) {
-		return isValid(cx,cy) && ignoredFires.exists( coordId(cx,cy) );
 	}
 
 	override function onResize() {
@@ -303,9 +288,10 @@ class Level extends dn.Process {
 
 		var tg = new h2d.TileGroup(tilesetSource, root);
 		data.l_BgWalls.render(tg);
+		data.l_BgTiles.render(tg);
 		data.l_Collisions.render(tg);
-		data.l_BgTiles2.render(tg);
-		data.l_BgTiles1.render(tg);
+		data.l_MainTiles2.render(tg);
+		data.l_MainTiles1.render(tg);
 		data.l_Pipes.render(tg);
 		data.l_Wires.render(tg);
 		data.l_FrontTiles.render(tg);
@@ -516,7 +502,7 @@ class Level extends dn.Process {
 			if( hasFireState(cx,cy) ) {
 				fs = getFireState(cx,cy);
 
-				if( fs.isBurning() && !isFireIgnored(cx,cy) )
+				if( fs.isBurning() && !fs.magic )
 					fireCount++;
 
 				if( isFireSuspended() )
@@ -545,8 +531,11 @@ class Level extends dn.Process {
 						fs.propgationCdS = game.camera.isOnScreenCase(cx,cy) ? Const.db.FirePropagationCd : Const.db.FirePropagationCdOffScreen;
 						for(y in cy-rangeY...cy+rangeY+1)
 						for(x in cx-rangeX...cx+rangeX+1)
-							if( sighCheck(cx,cy, x,y) )
+							if( sighCheck(cx,cy, x,y) ) {
 								ignite(x,y);
+								if( fs.magic && hasFireState(x,y) )
+									getFireState(x,y).magic = true;
+							}
 					}
 			}
 		}

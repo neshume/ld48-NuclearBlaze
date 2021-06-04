@@ -16,6 +16,7 @@ class FireState {
 	public var extinguished = false;
 	public var oil = false;
 	public var magic = false;
+	public var infinite = false;
 	public var smokePower = 1.0;
 	public var smokeColor : Null<Int>;
 

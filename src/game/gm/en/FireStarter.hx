@@ -32,8 +32,10 @@ class FireStarter extends Entity {
 			if( fs!=null )
 				fs.underControlS = 0;
 			level.ignite(x,y, data.f_startFireLevel);
-			if( fs!=null )
+			if( fs!=null ) {
+				fs.magic = data.f_magic;
 				fs.resistance = data.f_resistance;
+			}
 		});
 
 		if( data.f_explodesOnTrigger ) {

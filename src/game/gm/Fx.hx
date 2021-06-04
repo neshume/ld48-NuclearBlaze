@@ -1239,9 +1239,13 @@ class Fx extends dn.Process {
 			baseCol = 0x6922ff;
 			finalCol = 0x4a6eb5;
 		}
-		else if( fs.magic ) {
-			baseCol = 0x1eff98;
+		else if( fs.infinite ) {
+			baseCol = 0xfff100;
 			finalCol = 0x659ab5;
+		}
+		else if( fs.magic ) {
+			baseCol = 0x19d37e;
+			finalCol = 0x44628b;
 		}
 
 		var n = Std.int(1+pow*3);

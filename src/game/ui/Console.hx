@@ -85,10 +85,7 @@ class Console extends h2d.Console {
 			for(cx in 0...l.cWid)
 			for(cy in 0...l.cHei)
 				if( l.hasFireState(cx,cy) )
-					if( l.isFireIgnored(cx,cy) )
-						Game.ME.fx.markerCase(cx,cy, 10, l.isBurning(cx,cy) ? 0xff00ff : 0x770077);
-					else
-						Game.ME.fx.markerCase(cx,cy, 10, l.isBurning(cx,cy) ? 0xffcc00 : 0x770000);
+					Game.ME.fx.markerCase(cx,cy, 10, l.isBurning(cx,cy) ? 0xffcc00 : 0x770000);
 		});
 
 		// Create a stats box
